@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Compass } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -12,6 +12,7 @@ type SubjectType =
   | "matematyka-7-8"
   | "angielski-4-6"
   | "angielski-7-8"
+  | "angielski-liceum-biezacy"
   | "angielski-matura-podstawowa"
   | "angielski-matura-rozszerzona";
 
@@ -22,11 +23,11 @@ interface Question {
   options: { label: string; isCorrect: boolean }[];
 }
 
-/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6) */
+/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6 - LEKKIE, ADEKWATNE PYTANIA) */
 const MATH_QUESTIONS_46: Question[] = [
   {
     id: "m46_1",
-    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    levelLabel: "🟢 Klasy 4–6: Rachunki i kolejność działań",
     question: "Kolejność działań: (15 - 3) : 3 + 2 = ?",
     options: [
       { label: "2", isCorrect: false },
@@ -38,7 +39,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_2",
-    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    levelLabel: "🟢 Klasy 4–6: Dzielenie z resztą",
     question: "Dzielenie z resztą: Podziel 29 : 4. Jaki jest wynik i reszta?",
     options: [
       { label: "6 r 5", isCorrect: false },
@@ -50,7 +51,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_3",
-    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    levelLabel: "🟢 Klasy 4–6: Ułamki zwykłe",
     question: "Ułamki zwykłe: Oblicz: 3/5 + 1/2 = ?",
     options: [
       { label: "4/7", isCorrect: false },
@@ -62,7 +63,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_4",
-    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    levelLabel: "🟢 Klasy 4–6: Ułamki dziesiętne",
     question: "Ułamki dziesiętne: Oblicz: 3,2 - 0,45 = ?",
     options: [
       { label: "2,75", isCorrect: true },
@@ -74,7 +75,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_5",
-    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    levelLabel: "🟢 Klasy 4–6: Liczby ujemne",
     question: "Liczby ujemne: Oblicz: -8 + 5 = ?",
     options: [
       { label: "-13", isCorrect: false },
@@ -86,7 +87,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_6",
-    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
+    levelLabel: "🟢 Klasy 4–6: Proste równania",
     question: "Proste równanie: Rozwiąż: 4x = 28. Ile wynosi x?",
     options: [
       { label: "x = 6", isCorrect: false },
@@ -98,7 +99,7 @@ const MATH_QUESTIONS_46: Question[] = [
   },
   {
     id: "m46_7",
-    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
+    levelLabel: "🟢 Klasy 4–6: Geometria podstawowa",
     question: "Pole prostokąta: Prostokąt ma boki 6 cm i 9 cm. Ile wynosi jego pole (P)?",
     options: [
       { label: "30 cm²", isCorrect: false },
@@ -106,18 +107,6 @@ const MATH_QUESTIONS_46: Question[] = [
       { label: "27 cm²", isCorrect: false },
       { label: "15 cm²", isCorrect: false },
       { label: "Nie pamiętam wzoru", isCorrect: false },
-    ],
-  },
-  {
-    id: "m46_8",
-    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
-    question: "Pole trójkąta: Podstawa wynosi 10 cm, a wysokość 4 cm. Pole P = ?",
-    options: [
-      { label: "40 cm²", isCorrect: false },
-      { label: "20 cm²", isCorrect: true },
-      { label: "14 cm²", isCorrect: false },
-      { label: "80 cm²", isCorrect: false },
-      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
 ];
@@ -226,7 +215,7 @@ const MATH_QUESTIONS_78: Question[] = [
 const ENG_QUESTIONS_46: Question[] = [
   {
     id: "e46_1",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    levelLabel: "🟢 Klasy 4–6: Podstawy języka",
     question: "Present Simple: My brother __________ TV every evening.",
     options: [
       { label: "watch", isCorrect: false },
@@ -238,7 +227,7 @@ const ENG_QUESTIONS_46: Question[] = [
   },
   {
     id: "e46_2",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    levelLabel: "🟢 Klasy 4–6: Podstawy języka",
     question: "Present Continuous: Listen! Somebody __________ at the door.",
     options: [
       { label: "knocks", isCorrect: false },
@@ -250,7 +239,7 @@ const ENG_QUESTIONS_46: Question[] = [
   },
   {
     id: "e46_3",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    levelLabel: "🟢 Klasy 4–6: Czas przeszły podstawowy",
     question: "Past Simple (was/were): Where __________ you yesterday at 5 o'clock?",
     options: [
       { label: "was", isCorrect: false },
@@ -262,7 +251,7 @@ const ENG_QUESTIONS_46: Question[] = [
   },
   {
     id: "e46_4",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    levelLabel: "🟢 Klasy 4–6: Czasowniki nieregularne",
     question: "Past Simple (Nieregularne): She __________ a new bike last month.",
     options: [
       { label: "buyed", isCorrect: false },
@@ -274,8 +263,8 @@ const ENG_QUESTIONS_46: Question[] = [
   },
   {
     id: "e46_5",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
-    question: "Stopniowanie: An elephant is __________ than a dog.",
+    levelLabel: "🟢 Klasy 4–6: Stopniowanie",
+    question: "Stopniowanie przymiotników: An elephant is __________ than a dog.",
     options: [
       { label: "bigger", isCorrect: true },
       { label: "more big", isCorrect: false },
@@ -284,21 +273,9 @@ const ENG_QUESTIONS_46: Question[] = [
       { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
-  {
-    id: "e46_6",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
-    question: "Określniki ilości: How __________ milk do we need for the cake?",
-    options: [
-      { label: "many", isCorrect: false },
-      { label: "much", isCorrect: true },
-      { label: "any", isCorrect: false },
-      { label: "some", isCorrect: false },
-      { label: "Nie wiem / zgaduję", isCorrect: false },
-    ],
-  },
 ];
 
-/* 🎒 POZIOM 2: ANGIELSKI (E8 / A2+–B1) */
+/* 🎒 POZIOM 2: ANGIELSKI (KLASY 7–8 & E8) */
 const ENG_QUESTIONS_78: Question[] = [
   {
     id: "e78_1",
@@ -372,33 +349,61 @@ const ENG_QUESTIONS_78: Question[] = [
       { label: "Nie pamiętam mowy zależnej", isCorrect: false },
     ],
   },
+];
+
+/* 🎓 LICEUM BIEŻĄCE / OGÓLNE (A2+ / B1+) */
+const ENG_LIC_BIEZACY: Question[] = [
   {
-    id: "e78_7",
-    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
-    question: "Zdania względne: The boy __________ won the competition is my classmate.",
+    id: "elb_1",
+    levelLabel: "📘 Liceum: Gramatyka ogólna",
+    question: "Present Perfect vs Past Simple: I __________ my keys yesterday, but I've found them now.",
     options: [
-      { label: "which", isCorrect: false },
-      { label: "who", isCorrect: true },
-      { label: "whose", isCorrect: false },
-      { label: "where", isCorrect: false },
+      { label: "lost", isCorrect: true },
+      { label: "have lost", isCorrect: false },
+      { label: "had lost", isCorrect: false },
+      { label: "was losing", isCorrect: false },
       { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e78_8",
-    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
-    question: "Konstrukcja used to: When I was young, I __________ play football every day.",
+    id: "elb_2",
+    levelLabel: "📘 Liceum: Czasowniki modalne",
+    question: "Modal Verbs: You __________ come to the lesson if you feel sick. Just rest!",
     options: [
-      { label: "used to", isCorrect: true },
-      { label: "use to", isCorrect: false },
-      { label: "was used to", isCorrect: false },
-      { label: "usually", isCorrect: false },
-      { label: "Nie znam tej konstrukcji", isCorrect: false },
+      { label: "mustn't", isCorrect: false },
+      { label: "don't have to", isCorrect: true },
+      { label: "should", isCorrect: false },
+      { label: "couldn't", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "elb_3",
+    levelLabel: "📘 Liceum: Słownictwo i przyimki",
+    question: "Prepositions: Are you interested __________ learning new languages?",
+    options: [
+      { label: "on", isCorrect: false },
+      { label: "in", isCorrect: true },
+      { label: "at", isCorrect: false },
+      { label: "about", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "elb_4",
+    levelLabel: "📘 Liceum: Słownictwo konwersacyjne",
+    question: "Phrasal Verb: I need to __________ up this new word in a dictionary.",
+    options: [
+      { label: "look", isCorrect: true },
+      { label: "take", isCorrect: false },
+      { label: "make", isCorrect: false },
+      { label: "give", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
 ];
 
-/* 🎓 POZIOM 3: MATURA PODSTAWOWA ANGIELSKI (B1–B2) */
+/* 🎓 MATURA PODSTAWOWA ANGIELSKI (B1–B2) */
 const ENG_MATURA_PODSTAWOWA: Question[] = [
   {
     id: "emp_1",
@@ -486,7 +491,7 @@ const ENG_MATURA_PODSTAWOWA: Question[] = [
   },
 ];
 
-/* 🚀 POZIOM 4: MATURA ROZSZERZONA ANGIELSKI (B2+–C1) */
+/* 🚀 MATURA ROZSZERZONA ANGIELSKI (B2+–C1) */
 const ENG_MATURA_ROZSZERZONA: Question[] = [
   {
     id: "emr_1",
@@ -611,6 +616,7 @@ export default function DiagnozaPage() {
   const [contact, setContact] = useState("");
   const [subject, setSubject] = useState<SubjectType>("matematyka-7-8");
   const [grade, setGrade] = useState("3");
+  const [learningReason, setLearningReason] = useState("nadrabianie");
   const [goal, setGoal] = useState("");
 
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -642,6 +648,8 @@ export default function DiagnozaPage() {
         return ENG_QUESTIONS_46;
       case "angielski-7-8":
         return ENG_QUESTIONS_78;
+      case "angielski-liceum-biezacy":
+        return ENG_LIC_BIEZACY;
       case "angielski-matura-podstawowa":
         return ENG_MATURA_PODSTAWOWA;
       case "angielski-matura-rozszerzona":
@@ -680,10 +688,27 @@ export default function DiagnozaPage() {
         return "Język Angielski (klasy 4–6 / A1–A2)";
       case "angielski-7-8":
         return "Język Angielski (klasy 7–8 & Egzamin Ósmoklasisty E8)";
+      case "angielski-liceum-biezacy":
+        return "Język Angielski — Liceum (Bieżąca nauka & Konwersacje)";
       case "angielski-matura-podstawowa":
         return "Język Angielski — Liceum / Matura Podstawowa (B1–B2)";
       case "angielski-matura-rozszerzona":
         return "Język Angielski — Liceum / Matura Rozszerzona (B2+–C1)";
+    }
+  };
+
+  const getReasonLabel = (r: string) => {
+    switch (r) {
+      case "nadrabianie":
+        return "Nadrabianie zaległości z poprzednich lat / z lekcji";
+      case "biezacy":
+        return "Utrwalanie bieżącego materiału ze szkoły";
+      case "wyzsze-wyniki":
+        return "Robienie więcej niż w szkole & Celowanie w wysokie oceny (5/6)";
+      case "egzamin":
+        return "Przygotowanie pod konkretny egzamin (E8 / Matura)";
+      default:
+        return r;
     }
   };
 
@@ -696,9 +721,10 @@ export default function DiagnozaPage() {
     text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
+    text += `💡 Powód przyjścia: ${getReasonLabel(learningReason)}\n`;
     text += `⭐ Ocena w szkole: ${grade}\n`;
-    text += `🎯 Cel z lekcji / Co chcesz osiągnąć: ${goal || "Nie podano"}\n\n`;
-    text += `📊 WYNIK TESTU WIEDZY TWARDEJ: ${score} / ${total} poprawnych\n\n`;
+    text += `🎯 Szczegółowy cel: ${goal || "Nie podano"}\n\n`;
+    text += `📊 WYNIK QUIZU SPRAWDZAJĄCEGO: ${score} / ${total} poprawnych\n\n`;
 
     text += `--- SZCZEGÓŁY ODPOWIEDZI ---\n`;
     questions.forEach((q, idx) => {
@@ -731,10 +757,10 @@ export default function DiagnozaPage() {
       }
     }
 
-    if (subject.startsWith("angielski-matura")) {
-      text += `\n--- SAMOOCENA MATURALNA ---\n`;
+    if (subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") {
+      text += `\n--- SAMOOCENA LICEALNA ---\n`;
       text += `- Wypowiedź pisemna: ${writingEvalLic}\n`;
-      text += `- Matura Ustna: ${oralMaturaEvalLic}\n`;
+      text += `- Mówienie / Ustna: ${oralMaturaEvalLic}\n`;
       text += `- Środki językowe: ${useOfEnglishEval}\n`;
     }
 
@@ -784,7 +810,7 @@ export default function DiagnozaPage() {
           <div className="mt-6 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs sm:text-sm text-left flex items-start gap-3">
             <HeartHandshake className="size-5 shrink-0 text-amber-600 mt-0.5" />
             <p className="leading-relaxed font-medium">
-              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy innych osób. Dzięki temu na naszej darmowej 30-minutowej lekcji skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
+              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy osób trzecich. Dzięki temu na naszej darmowej 30-minutowej lekcji skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
             </p>
           </div>
 
@@ -841,7 +867,7 @@ export default function DiagnozaPage() {
                     type="text"
                     value={schoolClass}
                     onChange={(e) => setSchoolClass(e.target.value)}
-                    placeholder="np. 6 klasa, 8 klasa E8, 2 klasa liceum"
+                    placeholder="np. 4 klasa, 8 klasa E8, 1 klasa liceum"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   />
                 </div>
@@ -860,7 +886,7 @@ export default function DiagnozaPage() {
                 />
               </div>
 
-              {/* KAFELKI DO WYBORU */}
+              {/* KAFELKI PRZEDMIOTU I POZIOMU */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   Wybierz przedmiot i poziom *
@@ -888,6 +914,11 @@ export default function DiagnozaPage() {
                       sub: "Klasy 7–8 & Egzamin Ósmoklasisty E8",
                     },
                     {
+                      id: "angielski-liceum-biezacy",
+                      label: "🎓 Język Angielski — Liceum",
+                      sub: "Bieżąca nauka w szkole / Konwersacje (bez matury)",
+                    },
+                    {
                       id: "angielski-matura-podstawowa",
                       label: "🎓 Język Angielski — Liceum",
                       sub: "Matura Podstawowa (B1/B2)",
@@ -910,6 +941,51 @@ export default function DiagnozaPage() {
                     >
                       <div className="font-bold text-slate-900 text-sm">{item.label}</div>
                       <div className="text-xs text-slate-500 mt-1">{item.sub}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* POWÓD / MOTYWACJA PRZYJŚCIA */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Jaki jest główny powód przyjścia na korepetycje?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    {
+                      id: "nadrabianie",
+                      title: "🩹 Nadrabianie zaległości",
+                      desc: "Gubię się w materiale i chcę spokojnie nadrobić zaległości.",
+                    },
+                    {
+                      id: "biezacy",
+                      title: "📖 Bieżący materiał ze szkoły",
+                      desc: "Radzę sobie w miarę ok, ale chcę utrwalać lekcje i być na bieżąco.",
+                    },
+                    {
+                      id: "wyzsze-wyniki",
+                      title: "🚀 Wyższe oceny & Ambitny rozwój",
+                      desc: "Chcę robić więcej niż w szkole i celować w oceny 5–6.",
+                    },
+                    {
+                      id: "egzamin",
+                      title: "🎯 Przygotowanie do Egzaminu / Matury",
+                      desc: "Skupiamy się typowo na arkuszach i wymaganiach CKE.",
+                    },
+                  ].map((r) => (
+                    <button
+                      key={r.id}
+                      type="button"
+                      onClick={() => setLearningReason(r.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        learningReason === r.id
+                          ? "border-brand-500 bg-brand-50/50 ring-2 ring-brand-200"
+                          : "border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">{r.title}</div>
+                      <div className="text-xs text-slate-500 mt-0.5">{r.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -990,7 +1066,7 @@ export default function DiagnozaPage() {
                 </span>
               </div>
 
-              {/* PYTANIA TESTOWE (5 OPCJI DLA KAŻDEGO PYTANIA) */}
+              {/* PYTANIA TESTOWE */}
               <div className="space-y-6">
                 {currentQuestions.map((q, idx) => (
                   <div key={q.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-3">
@@ -1004,7 +1080,7 @@ export default function DiagnozaPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = answers[q.id] === opt.label;
-                        const prefix = String.fromCharCode(65 + optIdx); // A, B, C, D, E
+                        const prefix = String.fromCharCode(65 + optIdx);
                         const isLastOption = optIdx === q.options.length - 1;
 
                         return (
@@ -1104,7 +1180,6 @@ export default function DiagnozaPage() {
                       })}
                     </div>
 
-                    {/* Dopisanie własnej odpowiedzi w A3 */}
                     <div className="pt-2">
                       <label className="block text-xs font-semibold text-slate-700 mb-1">
                         Inny problem / dopisz własną odpowiedź:
@@ -1255,16 +1330,16 @@ export default function DiagnozaPage() {
                 </>
               )}
 
-              {/* ANGIELSKI LICEUM: SPRAWNOŚCI MATURALNE */}
-              {subject.startsWith("angielski-matura") && (
+              {/* ANGIELSKI LICEUM: SPRAWNOŚCI MATURALNE / LICEALNE */}
+              {(subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") && (
                 <div className="pt-6 border-t border-slate-100 space-y-4">
                   <h3 className="font-bold text-slate-900 text-base">
-                    CZĘŚĆ C2: Sprawności maturalne (Samoocena)
+                    CZĘŚĆ C2: Sprawności językowe i maturalne (Samoocena)
                   </h3>
                   <div className="space-y-4 text-xs sm:text-sm">
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
-                        Rozprawka / Artykuł / List formalny (Pisanie):
+                        Rozprawka / Artykuł / E-mail (Pisanie):
                       </span>
                       <div className="space-y-2">
                         {[
@@ -1290,13 +1365,13 @@ export default function DiagnozaPage() {
 
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
-                        Matura Ustna (Mówienie):
+                        Mówienie / Ustna komunikacja:
                       </span>
                       <div className="space-y-2">
                         {[
                           "Mówię płynnie, potrafię opisać ilustrację i uzasadnić wybór z materiału stymulującego",
-                          "Mówię, ale ziąb w głowie i pauzy na szukanie słówek",
-                          "Mam paraliżujący stres na samej myśli o mówieniu komisji",
+                          "Mówię, ale mam pauzy na szukanie słówek w głowie",
+                          "Mam paraliżujący stres na samej myśli o mówieniu po angielsku",
                         ].map((v) => (
                           <button
                             key={v}
@@ -1316,7 +1391,7 @@ export default function DiagnozaPage() {
 
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
-                        Środki językowe (Parafrazy, słowotwórstwo, luki):
+                        Środki językowe & Gramatyka:
                       </span>
                       <div className="space-y-2">
                         {[
@@ -1398,6 +1473,7 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Uczeń:</strong> {studentName} ({schoolClass})</div>
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
                 <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
+                <div><strong className="text-slate-900">Powód przyjścia:</strong> {getReasonLabel(learningReason)}</div>
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
                 <div><strong className="text-slate-900">Cel z lekcji:</strong> {goal || "Brak (ogólna nauka)"}</div>
               </div>
