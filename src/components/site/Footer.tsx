@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <Link href="#start" className="rounded-xl" aria-label="Przejdź do początku strony">
+            <Link href="/#start" className="rounded-xl" aria-label="Przejdź do początku strony">
               <Logo inverse />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed">
@@ -58,7 +58,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <a href="#kontakt" className="transition-colors hover:text-accent-300">
+                <a href="/#kontakt" className="transition-colors hover:text-accent-300">
                   Kontakt
                 </a>
               </li>
@@ -70,7 +70,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {services.map((s) => (
                 <li key={s.id}>
-                  <a href="#zajecia" className="transition-colors hover:text-accent-300">
+                  <a href="/#zajecia" className="transition-colors hover:text-accent-300">
                     {s.title}
                   </a>
                 </li>
@@ -98,25 +98,18 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 transition-colors hover:text-accent-300"
                   >
-                    <WhatsAppIcon className="size-4" />
+                    <WhatsAppIcon className="size-4" aria-hidden="true" />
                     {site.phoneDisplay}
                   </a>
                 </li>
               ) : null}
-              <li className="pt-1 text-sm">
-                <span className="text-white/40">Odpowiadam zwykle w ciągu kilku godzin.</span>
-              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row">
-          <p>
-            © {year} {site.tutorName}. Wszystkie prawa zastrzeżone.
-          </p>
-          <p>
-            Angielski i matematyka online · klasy 4–8 i liceum · matura i egzamin ósmoklasisty
-          </p>
+        <div className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+          <p>© {year} {site.name}. Wszelkie prawa zastrzeżone.</p>
+          <p>Korepetycje online z pasją i cierpliwością.</p>
         </div>
       </div>
     </footer>

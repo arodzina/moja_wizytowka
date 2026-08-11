@@ -53,7 +53,7 @@ export default function Header() {
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
           <a
-            href="#start"
+            href="/#start"
             className="rounded-xl"
             aria-label="Przejdź do początku strony"
             onClick={() => setOpen(false)}
@@ -74,7 +74,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button href="#kontakt" className="hidden sm:inline-flex">
+            <Button href="/#kontakt" className="hidden sm:inline-flex">
               Umów lekcję
             </Button>
             <button
@@ -113,7 +113,7 @@ export default function Header() {
                   </a>
                 ))}
                 <Button
-                  href="#kontakt"
+                  href="/#kontakt"
                   size="lg"
                   className="mt-3 w-full"
                   onClick={() => setOpen(false)}

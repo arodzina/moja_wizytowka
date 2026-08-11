@@ -10,7 +10,7 @@ export const site = {
   tutorName: "Ola",
   headline: "Angielski i matematyka online bez stresu.",
   description:
-    "Lubię uczyć, lubię tłumaczyć i lubię, kiedy widzę, że coś nagle \u2018zaskoczyło\u2019. Pracuję spokojnie, bez pośpiechu i bez oceniania \u2014 bo błędy to część nauki, nie powód do wstydu.",
+    "Lubię uczyć, lubię tłumaczyć i lubię, kiedy widzę, że coś nagle ‘zaskoczyło’. Pracuję spokojnie, bez pośpiechu i bez oceniania — bo błędy to część nauki, nie powód do wstydu.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",
@@ -20,12 +20,12 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { label: "O mnie", href: "#o-mnie" },
-  { label: "Zajęcia", href: "#zajecia" },
-  { label: "Jak to działa", href: "#jak-to-dziala" },
+  { label: "O mnie", href: "/#o-mnie" },
+  { label: "Zajęcia", href: "/#zajecia" },
+  { label: "Jak to działa", href: "/#jak-to-dziala" },
   { label: "Sprawdź poziom", href: "/diagnoza" },
-  { label: "Cennik", href: "#cennik" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Cennik", href: "/#cennik" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
 export const services = [
@@ -85,7 +85,6 @@ export const benefits = [
     description: "Co kilka tygodni sprawdzamy razem, co wchodzi łatwo, a co warto powtórzyć. Widzisz, że z lekcji na lekcję idziesz do przodu.",
   },
 ] as const;
-
 
 export const faqItems = [
   {
