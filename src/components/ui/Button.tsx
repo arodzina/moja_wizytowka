@@ -11,6 +11,7 @@ interface ButtonProps {
   type?: "button" | "submit";
   variant?: Variant;
   size?: Size;
+  disabled?: boolean;
   className?: string;
   "aria-label"?: string;
 }
@@ -40,6 +41,7 @@ export default function Button({
   type = "button",
   variant = "primary",
   size = "md",
+  disabled,
   className = "",
   ...rest
 }: ButtonProps) {
@@ -68,7 +70,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes} {...rest}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes} {...rest}>
       {children}
     </button>
   );

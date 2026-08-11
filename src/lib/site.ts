@@ -23,6 +23,7 @@ export const navLinks = [
   { label: "O mnie", href: "#o-mnie" },
   { label: "Zajęcia", href: "#zajecia" },
   { label: "Jak to działa", href: "#jak-to-dziala" },
+  { label: "Sprawdź poziom", href: "/diagnoza" },
   { label: "Cennik", href: "#cennik" },
   { label: "FAQ", href: "#faq" },
 ] as const;
