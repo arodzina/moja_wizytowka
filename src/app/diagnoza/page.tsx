@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy, Sun, Moon, Users } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -644,6 +644,7 @@ const GOAL_OPTIONS = [
 
 export default function DiagnozaPage() {
   const [step, setStep] = useState<number>(1);
+  const [filledBy, setFilledBy] = useState<"uczen" | "rodzic">("uczen");
   const [studentName, setStudentName] = useState("");
   const [schoolClass, setSchoolClass] = useState("");
   const [contact, setContact] = useState("");
@@ -653,6 +654,7 @@ export default function DiagnozaPage() {
   const [customGoalText, setCustomGoalText] = useState("");
 
   const [frequency, setFrequency] = useState("1x-tydzien");
+  const [preferredTime, setPreferredTime] = useState("popoludnia");
   const [duration, setDuration] = useState("caly-rok");
 
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -792,6 +794,21 @@ export default function DiagnozaPage() {
     }
   };
 
+  const getPreferredTimeDisplay = (t: string) => {
+    switch (t) {
+      case "popoludnia":
+        return "🌅 Popołudnia (15:00–18:00)";
+      case "wieczory":
+        return "🌙 Wieczory (18:00–21:00)";
+      case "weekendy":
+        return "📅 Weekendy";
+      case "elastycznie":
+        return "⚡ Elastycznie / Do uzgodnienia";
+      default:
+        return t;
+    }
+  };
+
   const getDurationDisplay = (d: string) => {
     switch (d) {
       case "caly-rok":
@@ -811,11 +828,13 @@ export default function DiagnozaPage() {
 
     let text = `📄 RAPORT DIAGNOSTYCZNY:\n`;
     text += `👤 Uczeń: ${studentName || "Nie podano"}\n`;
+    text += `🧑‍🤝‍🧑 Osoba wypełniająca: ${filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}\n`;
     text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
     text += `🎯 Główny cel nauki: ${getGoalDisplay()}\n`;
     text += `🗓️ Preferowana częstotliwość: ${getFrequencyDisplay(frequency)}\n`;
+    text += `⏰ Preferowana pora dnia: ${getPreferredTimeDisplay(preferredTime)}\n`;
     text += `⏳ Przewidywany czas współpracy: ${getDurationDisplay(duration)}\n`;
     text += `⭐ Ocena w szkole: ${grade}\n\n`;
     text += `📊 WYNIK QUIZU SPRAWDZAJĄCEGO: ${score} / ${total} poprawnych\n\n`;
@@ -882,7 +901,7 @@ export default function DiagnozaPage() {
     p += `   - Imię, przedmiot, poziom docelowy (np. E8 / Matura / Zaległości).\n`;
     p += `   - Obecna ocena vs Cel docelowy.\n`;
     p += `   - Główne obawy i trudności (blokada w mówieniu, zadania tekstowe, stres).\n`;
-    p += `   - Częstotliwość i czas zajęć.\n\n`;
+    p += `   - Częstotliwość i czas zajęć oraz pora dnia.\n\n`;
     p += `2. 🔍 DIAGNOZA LUK (ANALIZA QUIZU):\n`;
     p += `   - Wskaż 3-5 konkretnych zagadnień z quizu, w których uczeń popełnił błąd lub zaznaczył "Nie wiem / gubię się w tym".\n`;
     p += `   - Podziel je na: a) Fundamenty do uzupełnienia, b) Zagadnienia egzaminacyjne.\n\n`;
@@ -934,11 +953,13 @@ export default function DiagnozaPage() {
           _subject: `Nowa Diagnoza Ucznia: ${studentName}`,
           _captcha: "false",
           uczen: studentName,
+          wypelnia: filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem",
           klasa: schoolClass,
           kontakt: contact,
           przedmiot: getSubjectLabel(subject),
           cel: getGoalDisplay(),
           czestotliwosc: getFrequencyDisplay(frequency),
+          pora_dnia: getPreferredTimeDisplay(preferredTime),
           czas_wspolpracy: getDurationDisplay(duration),
           ocena: grade,
           wynik: `${calculateScore().score} / ${calculateScore().total}`,
@@ -1020,6 +1041,37 @@ export default function DiagnozaPage() {
               <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
                 CZĘŚĆ 1: Dane ucznia, cel i preferencje zajęć
               </h2>
+
+              {/* PYTANIE O OSOBĘ WYPEŁNIAJĄCĄ */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-1.5">
+                  <Users className="size-4 text-brand-600" /> Kto wypełnia formularz? *
+                </label>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setFilledBy("uczen")}
+                    className={`flex-1 py-3 px-4 rounded-xl border text-center text-xs sm:text-sm font-semibold transition-all ${
+                      filledBy === "uczen"
+                        ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                    }`}
+                  >
+                    🧑 Wypełnia uczeń
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFilledBy("rodzic")}
+                    className={`flex-1 py-3 px-4 rounded-xl border text-center text-xs sm:text-sm font-semibold transition-all ${
+                      filledBy === "rodzic"
+                        ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                    }`}
+                  >
+                    👨‍👩‍👧 Wypełnia rodzic z dzieckiem
+                  </button>
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -1161,7 +1213,7 @@ export default function DiagnozaPage() {
                 )}
               </div>
 
-              {/* PREFEROWANA CZĘSTOTLIWOŚĆ I CZAS WSPÓŁPRACY */}
+              {/* PREFEROWANA CZĘSTOTLIWOŚĆ, PORA DNIA I CZAS WSPÓŁPRACY */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 border-t border-slate-100">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1.5">
@@ -1192,6 +1244,34 @@ export default function DiagnozaPage() {
                     <option value="krotkoterminowo">Krótkoterminowo (np. 1–2 miesiące przed egzaminem)</option>
                     <option value="do-ustalenia">Do omówienia podczas darmowego spotkania</option>
                   </select>
+                </div>
+              </div>
+
+              {/* PORA DNIA NA ZAJĘCIA */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-1.5">
+                  <Sun className="size-4 text-amber-500" /> Preferowana pora dnia na zajęcia:
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {[
+                    { id: "popoludnia", label: "🌅 Popołudnia (15:00–18:00)" },
+                    { id: "wieczory", label: "🌙 Wieczory (18:00–21:00)" },
+                    { id: "weekendy", label: "📅 Weekendy" },
+                    { id: "elastycznie", label: "⚡ Elastycznie / Do uzgodnienia" },
+                  ].map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setPreferredTime(t.id)}
+                      className={`p-3 rounded-xl border text-center text-xs font-semibold transition-all ${
+                        preferredTime === t.id
+                          ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                      }`}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
@@ -1640,8 +1720,8 @@ export default function DiagnozaPage() {
                 <h2 className="text-2xl font-extrabold text-slate-900">
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
-                <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Twój wynik i odpowiedzi zostały automatycznie przekazane Oli na e-mail. Poniżej możesz skopiować podsumowanie dla własnej wiadomości!
+                <p className="text-sm font-semibold text-brand-800 max-w-lg mx-auto leading-relaxed bg-brand-50 p-4 rounded-2xl border border-brand-100">
+                  Super! Twoje wyniki trafiły na moją skrzynkę. Przeanalizuję je i odezwę się do Was w ciągu 24 godzin z propozycją dogodnego terminu darmowej 30-minutowej rozmowy!
                 </p>
               </div>
 
@@ -1661,10 +1741,12 @@ export default function DiagnozaPage() {
               {/* Wpisane dane */}
               <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs sm:text-sm space-y-2 text-slate-700">
                 <div><strong className="text-slate-900">Uczeń:</strong> {studentName} ({schoolClass})</div>
+                <div><strong className="text-slate-900">Wypełnia:</strong> {filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}</div>
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
                 <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
                 <div><strong className="text-slate-900">Główny cel nauki:</strong> {getGoalDisplay()}</div>
                 <div><strong className="text-slate-900">Częstotliwość:</strong> {getFrequencyDisplay(frequency)}</div>
+                <div><strong className="text-slate-900">Pora dnia:</strong> {getPreferredTimeDisplay(preferredTime)}</div>
                 <div><strong className="text-slate-900">Czas współpracy:</strong> {getDurationDisplay(duration)}</div>
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
               </div>
