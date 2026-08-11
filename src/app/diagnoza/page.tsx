@@ -1279,7 +1279,7 @@ export default function DiagnozaPage() {
                         : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
-                    👨‍gsub‍👧 Wypełnia rodzic z dzieckiem
+                    👨‍👩‍👧 Wypełnia rodzic z dzieckiem
                   </button>
                 </div>
               </div>
