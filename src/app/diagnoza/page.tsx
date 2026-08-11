@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Bot, Calendar, Clock } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -652,6 +652,10 @@ export default function DiagnozaPage() {
   const [selectedGoal, setSelectedGoal] = useState("nadrabianie");
   const [customGoalText, setCustomGoalText] = useState("");
 
+  // CZĘSTOTLIWOŚĆ I CZAS WSPÓŁPRACY
+  const [frequency, setFrequency] = useState("1x-tydzien");
+  const [duration, setDuration] = useState("caly-rok");
+
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [conceptMap, setConceptMap] = useState<Record<string, string>>({});
   const [mathFears, setMathFears] = useState<string[]>([]);
@@ -670,10 +674,10 @@ export default function DiagnozaPage() {
   const [useOfEnglishEval, setUseOfEnglishEval] = useState("Daję radę na 80%+");
 
   const [copied, setCopied] = useState(false);
+  const [copiedAIPrompt, setCopiedAIPrompt] = useState(false);
 
   // Dynamiczne dopasowywanie pytań na podstawie wybranego celu oraz przedmiotu
   const getQuestions = (): Question[] => {
-    // Jeśli uczeń uczy się pod egzamin, dajemy pytania egzaminacyjne
     if (selectedGoal === "egzamin") {
       if (subject === "matematyka-4-6") return MATH_QUESTIONS_46;
       if (subject === "matematyka-7-8") return MATH_QUESTIONS_78;
@@ -684,7 +688,6 @@ export default function DiagnozaPage() {
       return ENG_LIC_BIEZACY;
     }
 
-    // Jeśli uczeń przychodzi w celach bieżących / nadrabiania / mówienia / ocen:
     if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 5);
     if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 5);
     if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 4);
@@ -743,6 +746,34 @@ export default function DiagnozaPage() {
     return title;
   };
 
+  const getFrequencyDisplay = (f: string) => {
+    switch (f) {
+      case "1x-tydzien":
+        return "1 raz w tygodniu (60 min) — regularnie";
+      case "2x-tydzien":
+        return "2 razy w tygodniu (2x 60 min) — intensywnie";
+      case "doraznie":
+        return "Doraźnie / Przed sprawdzianami i klasówkami";
+      case "do-ustalenia":
+        return "Chcę ustalić częstotliwość podczas darmowej rozmowy";
+      default:
+        return f;
+    }
+  };
+
+  const getDurationDisplay = (d: string) => {
+    switch (d) {
+      case "caly-rok":
+        return "Stała współpraca na cały rok szkolny";
+      case "krotkoterminowo":
+        return "Krótkoterminowo (np. 1-2 miesiące powtórek przed egzaminem/klasówką)";
+      case "do-ustalenia":
+        return "Do omówienia podczas darmowego spotkania";
+      default:
+        return d;
+    }
+  };
+
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
@@ -753,6 +784,8 @@ export default function DiagnozaPage() {
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
     text += `🎯 Główny cel nauki: ${getGoalDisplay()}\n`;
+    text += `🗓️ Preferowana częstotliwość: ${getFrequencyDisplay(frequency)}\n`;
+    text += `⏳ Przewidywany czas współpracy: ${getDurationDisplay(duration)}\n`;
     text += `⭐ Ocena w szkole: ${grade}\n\n`;
     text += `📊 WYNIK QUIZU SPRAWDZAJĄCEGO: ${score} / ${total} poprawnych\n\n`;
 
@@ -797,10 +830,27 @@ export default function DiagnozaPage() {
     return text;
   };
 
+  const buildAIPrompt = () => {
+    let p = `Jesteś doświadczonym, empatycznym korepetytorem i dydaktykiem. Oto pełny raport z bezstresowej diagnozy ucznia przed rozpoczęciem korepetycji:\n\n`;
+    p += buildSummaryText();
+    p += `\n Na podstawie powyższych danych ułóż dla mnie dedykowany, tygodniowy plan nauki (np. na pierwsze 4 tygodnie lekcji), zawierający:\n`;
+    p += `1. Najważniejsze cele i priorytety do opanowania w pierwszej kolejności.\n`;
+    p += `2. Sugerowane metody pracy (np. gry językowe, zadania tekstowe krok po kroku, praca na schematach) uwzględniające lęki i trudności ucznia.\n`;
+    p += `3. Propozycję struktury pojedynczej 60-minutowej lekcji (np. rozgrzewka, nowy materiał, utrwalenie, notatka po lekcji).\n`;
+    p += `4. Wskazówki jak prowadzić zajęcia bezstresowo i podnieść pewność siebie ucznia.`;
+    return p;
+  };
+
   const handleCopySummary = () => {
     navigator.clipboard.writeText(buildSummaryText());
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
+  };
+
+  const handleCopyAIPrompt = () => {
+    navigator.clipboard.writeText(buildAIPrompt());
+    setCopiedAIPrompt(true);
+    setTimeout(() => setCopiedAIPrompt(false), 3000);
   };
 
   const handleSendEmail = () => {
@@ -872,7 +922,7 @@ export default function DiagnozaPage() {
               className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 space-y-6"
             >
               <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
-                CZĘŚĆ 1: Dane ucznia i Twój cel
+                CZĘŚĆ 1: Dane ucznia, cel i preferencje zajęć
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -999,7 +1049,6 @@ export default function DiagnozaPage() {
                   ))}
                 </div>
 
-                {/* OPCJA DOPISANIA WŁASNEGO CELU */}
                 {selectedGoal === "inny" && (
                   <div className="mt-3">
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
@@ -1014,6 +1063,40 @@ export default function DiagnozaPage() {
                     />
                   </div>
                 )}
+              </div>
+
+              {/* PREFEROWANA CZĘSTOTLIWOŚĆ I CZAS WSPÓŁPRACY */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 border-t border-slate-100">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1.5">
+                    <Clock className="size-4 text-brand-600" /> Preferowana częstotliwość zajęć:
+                  </label>
+                  <select
+                    value={frequency}
+                    onChange={(e) => setFrequency(e.target.value)}
+                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                  >
+                    <option value="1x-tydzien">1 raz w tygodniu (60 min) — regularnie</option>
+                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie</option>
+                    <option value="doraznie">Doraźnie / Przed sprawdzianami i klasówkami</option>
+                    <option value="do-ustalenia">Chcę ustalić częstotliwość podczas rozmowy</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1.5">
+                    <Calendar className="size-4 text-brand-600" /> Przewidywany czas współpracy:
+                  </label>
+                  <select
+                    value={duration}
+                    onChange={(e) => setDuration(e.target.value)}
+                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                  >
+                    <option value="caly-rok">Stała współpraca na cały rok szkolny</option>
+                    <option value="krotkoterminowo">Krótkoterminowo (np. 1–2 miesiące przed egzaminem)</option>
+                    <option value="do-ustalenia">Do omówienia podczas darmowego spotkania</option>
+                  </select>
+                </div>
               </div>
 
               <div>
@@ -1485,10 +1568,12 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
                 <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
                 <div><strong className="text-slate-900">Główny cel nauki:</strong> {getGoalDisplay()}</div>
+                <div><strong className="text-slate-900">Częstotliwość:</strong> {getFrequencyDisplay(frequency)}</div>
+                <div><strong className="text-slate-900">Czas współpracy:</strong> {getDurationDisplay(duration)}</div>
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
               </div>
 
-              {/* Przyciski wysyłki */}
+              {/* PRZYCISKI DLA OLI I DLA UCZNIA */}
               <div className="space-y-3 pt-2">
                 <Button onClick={handleSendEmail} size="lg" className="w-full">
                   <Send className="mr-2 size-5" /> Wyślij podsumowanie e-mailem do Oli
@@ -1501,10 +1586,27 @@ export default function DiagnozaPage() {
                 >
                   {copied ? (
                     <>
-                      <CheckCircle2 className="size-4 text-emerald-600" /> Skopiowano raport do schowka!
+                      <CheckCircle2 className="size-4 text-emerald-600" /> Skopiowano raport ucznia do schowka!
                     </>
                   ) : (
-                    <>Skopiuj pełny raport (np. na Messenger / WhatsApp)</>
+                    <>Skopiuj raport dla ucznia (WhatsApp / Messenger)</>
+                  )}
+                </button>
+
+                {/* PRZYCISK DLA OLI: GOTOWY PROMPT DLA AI DO UŁOŻENIA PLANU NAUKI */}
+                <button
+                  type="button"
+                  onClick={handleCopyAIPrompt}
+                  className="w-full py-3.5 px-4 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-sm"
+                >
+                  {copiedAIPrompt ? (
+                    <>
+                      <CheckCircle2 className="size-4 text-emerald-400" /> Skopiowano gotowy Prompt dla AI do schowka!
+                    </>
+                  ) : (
+                    <>
+                      <Bot className="size-4 text-accent-400" /> 🤖 Skopiuj gotowy Prompt dla AI (do wklejenia w ChatGPT/Claude)
+                    </>
                   )}
                 </button>
               </div>
