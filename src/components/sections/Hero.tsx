@@ -76,9 +76,6 @@ export default function Hero() {
               Umów pierwszą lekcję
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
-            <Button href="/diagnoza" variant="accent" size="lg">
-              Sprawdź poziom (Quiz)
-            </Button>
             <Button href="#o-mnie" variant="secondary" size="lg">
               Poznajmy się
             </Button>

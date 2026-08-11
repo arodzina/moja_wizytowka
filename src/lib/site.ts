@@ -23,7 +23,6 @@ export const navLinks = [
   { label: "O mnie", href: "/#o-mnie" },
   { label: "Zajęcia", href: "/#zajecia" },
   { label: "Jak to działa", href: "/#jak-to-dziala" },
-  { label: "Sprawdź poziom", href: "/diagnoza" },
   { label: "Cennik", href: "/#cennik" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
@@ -89,7 +88,7 @@ export const benefits = [
 export const faqItems = [
   {
     q: "Jak wygląda pierwsza lekcja?",
-    a: "Pierwsze spotkanie trwa 30 minut i jest w 100% darmowe oraz niezobowiązujące. Przed spotkaniem możesz wypełnić krótki quiz w Google Forms lub od razu powiedzieć mi, z czym masz trudności. Podczas rozmowy omawiamy cele, pomysł na współpracę i oczekiwane efekty.",
+    a: "Pierwsze spotkanie trwa 30 minut i jest w 100% darmowe oraz niezobowiązujące. Podczas rozmowy omawiamy cele, pomysł na współpracę i oczekiwane efekty.",
   },
   {
     q: "Co jeśli wiem dokładnie, z czym mam problem albo kontynuuję naukę z nowym korepetytorem?",
