@@ -1034,9 +1034,13 @@ export default function DiagnozaPage() {
       case "1x-tydzien":
         return "1 raz w tygodniu (60 min) — regularnie";
       case "2x-tydzien":
-        return "2 razy w tygodniu (2x 60 min) — intensywnie";
+        return "2 razy w tygodniu (2x 60 min) — intensywnie (egzamin / matura)";
+      case "1x-tydzien-45":
+        return "1 raz w tygodniu (45 min) — krótsza lekcja";
+      case "2x-tydzien-45":
+        return "2 razy w tygodniu (2x 45 min)";
       case "doraznie":
-        return "Doraźnie / Przed sprawdzianami i klasówkami";
+        return "Przed sprawdzianami i kartkówkami (doraźne powtórki)";
       case "do-ustalenia":
         return "Chcę ustalić częstotliwość podczas darmowej rozmowy";
       default:
@@ -1063,8 +1067,12 @@ export default function DiagnozaPage() {
     switch (d) {
       case "caly-rok":
         return "Stała współpraca na cały rok szkolny";
+      case "do-egzaminu":
+        return "Do Egzaminu Ósmoklasisty / Matury (intensywne powtórki)";
       case "krotkoterminowo":
-        return "Krótkoterminowo (np. 1-2 miesiące powtórek przed egzaminem/klasówką)";
+        return "Krótkoterminowo (np. 1–2 miesiące — nadrabianie działu)";
+      case "przed-klasowka":
+        return "Przed konkretnym sprawdzianem / kartkówką";
       case "do-ustalenia":
         return "Do omówienia podczas darmowego spotkania";
       default:
@@ -1491,9 +1499,11 @@ export default function DiagnozaPage() {
                     className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   >
                     <option value="1x-tydzien">1 raz w tygodniu (60 min) — regularnie</option>
-                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie</option>
-                    <option value="doraznie">Doraźnie / Przed sprawdzianami i klasówkami</option>
-                    <option value="do-ustalenia">Chcę ustalić częstotliwość podczas rozmowy</option>
+                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie (egzamin / matura)</option>
+                    <option value="1x-tydzien-45">1 raz w tygodniu (45 min) — krótsza lekcja</option>
+                    <option value="2x-tydzien-45">2 razy w tygodniu (2x 45 min)</option>
+                    <option value="doraznie">Przed sprawdzianami i kartkówkami (doraźne powtórki)</option>
+                    <option value="do-ustalenia">Chcę ustalić częstotliwość podczas darmowej rozmowy</option>
                   </select>
                 </div>
 
@@ -1507,7 +1517,9 @@ export default function DiagnozaPage() {
                     className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   >
                     <option value="caly-rok">Stała współpraca na cały rok szkolny</option>
-                    <option value="krotkoterminowo">Krótkoterminowo (np. 1–2 miesiące przed egzaminem)</option>
+                    <option value="do-egzaminu">Do Egzaminu Ósmoklasisty / Matury (intensywne powtórki)</option>
+                    <option value="krotkoterminowo">Krótkoterminowo (np. 1–2 miesiące — nadrabianie działu)</option>
+                    <option value="przed-klasowka">Przed konkretnym sprawdzianem / kartkówką</option>
                     <option value="do-ustalenia">Do omówienia podczas darmowego spotkania</option>
                   </select>
                 </div>

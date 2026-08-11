@@ -123,7 +123,7 @@ export default function Hero() {
                 <div>
                   <h4 className="text-sm font-bold text-ink">Matematyka krok po kroku</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Tłumaczenie od podstaw bez pośpiechu, aż wszystko nagle „zaskoczy”.
+                    Tłumaczę od podstaw i bez pośpiechu — rozmawiamy tak długo, aż wszystko wreszcie „zaskoczy”.
                   </p>
                 </div>
               </div>
@@ -133,9 +133,9 @@ export default function Hero() {
                   🗣️
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Angielski w praktyce & Gry</h4>
+                  <h4 className="text-sm font-bold text-ink">Angielski w praktyce & gry</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Przełamujemy barierę w mówieniu + gry na słownictwo (wisielec, quizy).
+                    Przełamujemy barierę w mówieniu od 1. lekcji, a słownictwo utrwalamy grami (wisielec, quizy).
                   </p>
                 </div>
               </div>
@@ -145,9 +145,9 @@ export default function Hero() {
                   📝
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Podsumowanie & Notatka</h4>
+                  <h4 className="text-sm font-bold text-ink">Dedykowana notatka po lekcji</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Po lekcji dostajesz podsumowanie z notatkami — zawsze wiesz, na czym stoisz.
+                    Po każdych zajęciach dostajesz przejrzyste podsumowanie z notatką — zawsze wiesz, na czym stoisz.
                   </p>
                 </div>
               </div>
