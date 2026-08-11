@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { site } from "@/lib/site";
 
 type SubjectType =
   | "matematyka-4-6"
@@ -673,39 +674,34 @@ export default function DiagnozaPage() {
 
   const [copied, setCopied] = useState(false);
 
-  // Dynamiczne dopasowywanie pytań na podstawie celu (oraz mądre nadrabianie zaległości z niższych klas!)
   const getQuestions = (): Question[] => {
-    // JEŚLI UCZEŃ CHCE NADRABIĆ ZALEGŁOŚCI:
     if (selectedGoal === "nadrabianie") {
       if (subject === "matematyka-7-8") {
-        // Dodajemy kluczowe fundamenty z klas 4–6 (ułamki, nawiasy, minusy), aby wykryć źródło zaległości!
         return [
-          MATH_QUESTIONS_46[0], // Kolejność działań z nawiasami
-          MATH_QUESTIONS_46[2], // Ułamki zwykłe
-          MATH_QUESTIONS_46[4], // Liczby ujemne
-          MATH_QUESTIONS_78[0], // Potęgi
-          MATH_QUESTIONS_78[2], // Procenty
-          MATH_QUESTIONS_78[3], // Równanie z nawiasami
+          MATH_QUESTIONS_46[0],
+          MATH_QUESTIONS_46[2],
+          MATH_QUESTIONS_46[4],
+          MATH_QUESTIONS_78[0],
+          MATH_QUESTIONS_78[2],
+          MATH_QUESTIONS_78[3],
         ];
       }
       if (subject === "angielski-7-8") {
-        // Dodajemy fundamenty A1/A2 z klas 4-6 przed gramatyką E8
         return [
-          ENG_QUESTIONS_46[0], // Present Simple
-          ENG_QUESTIONS_46[3], // Past Simple (bought)
-          ENG_QUESTIONS_78[0], // Past Continuous
-          ENG_QUESTIONS_78[1], // Present Perfect
-          ENG_QUESTIONS_78[3], // 1st Conditional
+          ENG_QUESTIONS_46[0],
+          ENG_QUESTIONS_46[3],
+          ENG_QUESTIONS_78[0],
+          ENG_QUESTIONS_78[1],
+          ENG_QUESTIONS_78[3],
         ];
       }
       if (subject.startsWith("angielski-liceum") || subject.startsWith("angielski-matura")) {
-        // Dla licealistów z zaległościami dodajemy czasy z E8 przed składnią licealną
         return [
-          ENG_QUESTIONS_78[0], // Past Continuous
-          ENG_QUESTIONS_78[1], // Present Perfect
-          ENG_LIC_BIEZACY[0], // Present Perfect vs Past Simple
-          ENG_LIC_BIEZACY[1], // Czasowniki modalne
-          ENG_LIC_BIEZACY[2], // Przyimki
+          ENG_QUESTIONS_78[0],
+          ENG_QUESTIONS_78[1],
+          ENG_LIC_BIEZACY[0],
+          ENG_LIC_BIEZACY[1],
+          ENG_LIC_BIEZACY[2],
         ];
       }
       if (subject === "matematyka-4-6") {
@@ -713,7 +709,6 @@ export default function DiagnozaPage() {
       }
     }
 
-    // JEŚLI UCZEŃ UCY SIĘ POD EGZAMIN (E8 / MATURA):
     if (selectedGoal === "egzamin") {
       if (subject === "matematyka-4-6") return MATH_QUESTIONS_46;
       if (subject === "matematyka-7-8") return MATH_QUESTIONS_78;
@@ -724,7 +719,6 @@ export default function DiagnozaPage() {
       return ENG_LIC_BIEZACY;
     }
 
-    // DOMYŚLNY ZESTAW DLA BIEŻĄCEJ NAUKI / OCEN:
     if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 5);
     if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 5);
     if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 4);
@@ -770,7 +764,7 @@ export default function DiagnozaPage() {
       case "angielski-matura-podstawowa":
         return "Język Angielski — Liceum / Matura Podstawowa (B1–B2)";
       case "angielski-matura-rozszerzona":
-        return "Język Angielski — Liceum / Matura Rozszerzona (B2+–C1)";
+        return "Język Angielski — Liceum / Matura Rozszerzona (B2+/C1)";
     }
   };
 
@@ -878,11 +872,13 @@ export default function DiagnozaPage() {
     return p;
   };
 
-  // AUTOMATYCZNE ZAPISYWANIE W TLE NATYCHMIAST PO WEJŚCIU W KROK 3
+  // AUTOMATYCZNA WYSYŁKA RAPORTU NA E-MAIL OLI (DARMOWY FORMSUBMIT API + LOKALNY ZAPIS TXT)
   useEffect(() => {
     if (step === 3 && studentName) {
       const summary = buildSummaryText();
       const prompt = buildAIPrompt();
+
+      // 1. Zapis pliku lokalnego .txt na serwerze dev
       fetch("/api/diagnoza", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -890,6 +886,29 @@ export default function DiagnozaPage() {
           studentName,
           summaryText: summary,
           aiPrompt: prompt,
+        }),
+      }).catch(() => {});
+
+      // 2. Wyszukanie w tle darmowego e-maila do Oli (FormSubmit API - 100% darmowe)
+      fetch(`https://formsubmit.co/ajax/${site.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `Nowa Diagnoza Ucznia: ${studentName}`,
+          _captcha: "false",
+          uczen: studentName,
+          klasa: schoolClass,
+          kontakt: contact,
+          przedmiot: getSubjectLabel(subject),
+          cel: getGoalDisplay(),
+          czestotliwosc: getFrequencyDisplay(frequency),
+          czas_wspolpracy: getDurationDisplay(duration),
+          ocena: grade,
+          wynik: `${calculateScore().score} / ${calculateScore().total}`,
+          pelny_raport: summary,
         }),
       }).catch(() => {});
     }
@@ -1588,7 +1607,7 @@ export default function DiagnozaPage() {
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Twój wynik i odpowiedzi zostały automatycznie przekazane Oli. Poniżej możesz skopiować podsumowanie dla własnej wiadomości!
+                  Twój wynik i odpowiedzi zostały automatycznie przekazane Oli na e-mail. Poniżej możesz skopiować podsumowanie dla własnej wiadomości!
                 </p>
               </div>
 
