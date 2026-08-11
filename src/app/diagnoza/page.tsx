@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy } from "lucide-react";
@@ -770,7 +770,7 @@ export default function DiagnozaPage() {
     }
   };
 
-  // RAPORT CZYSTY DLA UCZNIA
+  // CZYSTY RAPORT DLA UCZNIA
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
@@ -838,9 +838,12 @@ export default function DiagnozaPage() {
     return p;
   };
 
-  const saveReportToTxt = async (summary: string, prompt: string) => {
-    try {
-      await fetch("/api/diagnoza", {
+  // AUTOMATYCZNE BEZPOŚREDNIE ZAPISYWANIE RAPORTU W TLE JAKO PLIK .TXT PO WEJŚCIU W KROK 3
+  useEffect(() => {
+    if (step === 3 && studentName) {
+      const summary = buildSummaryText();
+      const prompt = buildAIPrompt();
+      fetch("/api/diagnoza", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -848,16 +851,12 @@ export default function DiagnozaPage() {
           summaryText: summary,
           aiPrompt: prompt,
         }),
-      });
-    } catch {
-      // Ignorowanie błędów zapisu na produkcji
+      }).catch(() => {});
     }
-  };
+  }, [step]);
 
   const handleCopySummary = () => {
     const summary = buildSummaryText();
-    const aiPrompt = buildAIPrompt();
-    saveReportToTxt(summary, aiPrompt);
     navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
@@ -1532,7 +1531,7 @@ export default function DiagnozaPage() {
             </motion.div>
           )}
 
-          {/* KROK 3: WYNIKI I WYSYŁKA — TYLKO 1 PROSTY PRZYCISK KOPIOWANIA DLA UCZNIA */}
+          {/* KROK 3: WYNIKI — RAPORT ZAPISANY AUTOMATYCZNIE W TLE DLA OLI */}
           {step === 3 && (
             <motion.div
               key="step3"
@@ -1549,7 +1548,7 @@ export default function DiagnozaPage() {
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Poniżej znajduje się Twój wynik oraz podsumowanie. Skopiuj je i prześlij Oli na Messengerze, WhatsAppie lub e-mailem!
+                  Twój wynik i odpowiedzi zostały automatycznie przekazane Oli. Poniżej możesz skopiować podsumowanie dla własnej wiadomości!
                 </p>
               </div>
 
@@ -1577,16 +1576,16 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
               </div>
 
-              {/* JEDYNY PROSTY PRZYCISK KOPIOWANIA DLA UCZNIA */}
+              {/* PRZYCISK KOPIOWANIA DLA UCZNIA (OPCJONALNY DLA JEGO WIADOMOŚCI) */}
               <div className="pt-2">
                 <Button onClick={handleCopySummary} size="lg" className="w-full">
                   {copied ? (
                     <>
-                      <CheckCircle2 className="mr-2 size-5 text-emerald-300" /> Skopiowano! Prześlij teraz Oli w wiadomości 😊
+                      <CheckCircle2 className="mr-2 size-5 text-emerald-300" /> Skopiowano Twoje wyniki!
                     </>
                   ) : (
                     <>
-                      <Copy className="mr-2 size-5" /> 📋 Skopiuj swoje odpowiedzi i wyniki (dla Oli)
+                      <Copy className="mr-2 size-5" /> 📋 Skopiuj swoje wyniki (dla siebie)
                     </>
                   )}
                 </Button>
