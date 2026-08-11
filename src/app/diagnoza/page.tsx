@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Bot, Calendar, Clock } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Calendar, Clock } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -652,7 +652,6 @@ export default function DiagnozaPage() {
   const [selectedGoal, setSelectedGoal] = useState("nadrabianie");
   const [customGoalText, setCustomGoalText] = useState("");
 
-  // CZĘSTOTLIWOŚĆ I CZAS WSPÓŁPRACY
   const [frequency, setFrequency] = useState("1x-tydzien");
   const [duration, setDuration] = useState("caly-rok");
 
@@ -674,9 +673,7 @@ export default function DiagnozaPage() {
   const [useOfEnglishEval, setUseOfEnglishEval] = useState("Daję radę na 80%+");
 
   const [copied, setCopied] = useState(false);
-  const [copiedAIPrompt, setCopiedAIPrompt] = useState(false);
 
-  // Dynamiczne dopasowywanie pytań na podstawie wybranego celu oraz przedmiotu
   const getQuestions = (): Question[] => {
     if (selectedGoal === "egzamin") {
       if (subject === "matematyka-4-6") return MATH_QUESTIONS_46;
@@ -841,22 +838,40 @@ export default function DiagnozaPage() {
     return p;
   };
 
+  const saveReportToTxt = async (summary: string, prompt: string) => {
+    try {
+      await fetch("/api/diagnoza", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          studentName,
+          summaryText: summary,
+          aiPrompt: prompt,
+        }),
+      });
+    } catch (err) {
+      console.log("Informacja: Zapis pliku lokalnego dostępny na serwerze dev.", err);
+    }
+  };
+
   const handleCopySummary = () => {
-    navigator.clipboard.writeText(buildSummaryText());
+    const summary = buildSummaryText();
+    const aiPrompt = buildAIPrompt();
+    saveReportToTxt(summary, aiPrompt);
+    navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const handleCopyAIPrompt = () => {
-    navigator.clipboard.writeText(buildAIPrompt());
-    setCopiedAIPrompt(true);
-    setTimeout(() => setCopiedAIPrompt(false), 3000);
-  };
-
   const handleSendEmail = () => {
-    const body = encodeURIComponent(buildSummaryText());
+    const summary = buildSummaryText();
+    const aiPrompt = buildAIPrompt();
+    saveReportToTxt(summary, aiPrompt);
+
+    // E-mail zawiera podsumowanie oraz na końcu sekcję Prompt dla Oli
+    const emailBody = `${summary}\n\n========================================\n🤖 PROMPT DLA OLI (DO CHATGPT / CLAUDE):\n${aiPrompt}`;
     const subjectText = encodeURIComponent(`Diagnoza przed lekcją — ${studentName || "Uczeń"}`);
-    window.open(`mailto:${site.email}?subject=${subjectText}&body=${body}`, "_blank");
+    window.open(`mailto:${site.email}?subject=${subjectText}&body=${encodeURIComponent(emailBody)}`, "_blank");
   };
 
   const currentQuestions = getQuestions();
@@ -1573,7 +1588,7 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
               </div>
 
-              {/* PRZYCISKI DLA OLI I DLA UCZNIA */}
+              {/* CZYSTE PRZYCISKI DLA UCZNIA (BEZ PRZYCISKÓW AI) */}
               <div className="space-y-3 pt-2">
                 <Button onClick={handleSendEmail} size="lg" className="w-full">
                   <Send className="mr-2 size-5" /> Wyślij podsumowanie e-mailem do Oli
@@ -1590,23 +1605,6 @@ export default function DiagnozaPage() {
                     </>
                   ) : (
                     <>Skopiuj raport dla ucznia (WhatsApp / Messenger)</>
-                  )}
-                </button>
-
-                {/* PRZYCISK DLA OLI: GOTOWY PROMPT DLA AI DO UŁOŻENIA PLANU NAUKI */}
-                <button
-                  type="button"
-                  onClick={handleCopyAIPrompt}
-                  className="w-full py-3.5 px-4 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-sm"
-                >
-                  {copiedAIPrompt ? (
-                    <>
-                      <CheckCircle2 className="size-4 text-emerald-400" /> Skopiowano gotowy Prompt dla AI do schowka!
-                    </>
-                  ) : (
-                    <>
-                      <Bot className="size-4 text-accent-400" /> 🤖 Skopiuj gotowy Prompt dla AI (do wklejenia w ChatGPT/Claude)
-                    </>
                   )}
                 </button>
               </div>
