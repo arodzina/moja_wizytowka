@@ -862,13 +862,47 @@ export default function DiagnozaPage() {
   };
 
   const buildAIPrompt = () => {
-    let p = `Jesteś doświadczonym, empatycznym korepetytorem i dydaktykiem. Oto pełny raport z bezstresowej diagnozy ucznia przed rozpoczęciem korepetycji:\n\n`;
+    let p = `Jesteś moim osobistym asystentem pedagogiczno-strategicznym dla Oli — korepetytorki online z matematyki i języka angielskiego.\n\n`;
+    p += `O OLI (KOREPETYTORCE):\n`;
+    p += `- Wykształcenie: Informatyka i Ekonometria na AGH w Krakowie (analityczne myślenie), angielski C1 (Erasmus+ w Portugalii), autorka kursu "Notion Master" na Udemy.\n`;
+    p += `- Przedmioty:\n`;
+    p += `  1) Matematyka: Szkoła Podstawowa kl. 4–8 oraz Egzamin Ósmoklasisty (NIE uczy matematyki w liceum!).\n`;
+    p += `  2) Angielski: Podstawówka kl. 4–8, E8 oraz Liceum (Matura Podstawowa i Rozszerzona B1/B2/C1).\n`;
+    p += `- Styl pracy:\n`;
+    p += `  - Spokój, brak oceniania ("Tłumaczę tyle razy, ile trzeba, aż zaskoczy").\n`;
+    p += `  - Nieszablonowa aktywizacja: nauka słownictwa przez gry (wisielec, kółko-krzyżyk, quizy).\n`;
+    p += `  - Mówienie na 1. miejscu na angielskim (przełamywanie bariery).\n`;
+    p += `  - Wyjątkowa organizacja: przygotowuje każdą lekcję, wysyła notatki po zajęciach, układa plany powtórek w Notion.\n`;
+    p += `  - Posiada oficjalne arkusze CKE i repetytoria.\n\n`;
+
+    p += `TWOJE ZADANIE:\n`;
+    p += `Przeanalizuj poniższe odpowiedzi ucznia z formularza i przygotuj dla Oli RAPORT DIAGNOSTYCZNO-STRATEGICZNY przed pierwszą bezpłatną 30-minutową rozmową zapoznawczą.\n\n`;
+    p += `WYGENERUJ ODPOWIEDŹ PODZIELONĄ NA 5 SEKCJI:\n\n`;
+    p += `1. 📌 SZYBKIE PODSUMOWANIE PROFILU UCZNIA:\n`;
+    p += `   - Imię, przedmiot, poziom docelowy (np. E8 / Matura / Zaległości).\n`;
+    p += `   - Obecna ocena vs Cel docelowy.\n`;
+    p += `   - Główne obawy i trudności (blokada w mówieniu, zadania tekstowe, stres).\n`;
+    p += `   - Częstotliwość i czas zajęć.\n\n`;
+    p += `2. 🔍 DIAGNOZA LUK (ANALIZA QUIZU):\n`;
+    p += `   - Wskaż 3-5 konkretnych zagadnień z quizu, w których uczeń popełnił błąd lub zaznaczył "Nie wiem / gubię się w tym".\n`;
+    p += `   - Podziel je na: a) Fundamenty do uzupełnienia, b) Zagadnienia egzaminacyjne.\n\n`;
+    p += `3. 🗺️ RAMOWY PLAN NA PIERWSZE 4 LEKCJE:\n`;
+    p += `   - Lekcja 1: Uzupełnienie kluczowej luki fundamentowej + przełamanie stresu.\n`;
+    p += `   - Lekcja 2: Przepracowanie zagadnienia X z użyciem wciągającej gry/metody.\n`;
+    p += `   - Lekcja 3: Praktyka na arkuszach CKE / konwersacje.\n`;
+    p += `   - Lekcja 4: Podsumowanie pierwszego miesiąca i sprawdzenie postępów.\n\n`;
+    p += `4. 🧰 PROPONOWANE METODY, MATERIAŁY I GRY:\n`;
+    p += `   - Wskaż odpowiednie repetytorium / arkusze CKE.\n`;
+    p += `   - Zaproponuj 2 konkretne gry/aktywizacje (np. wisielec ze słownictwa z działu X, kółko-krzyżyk na czasy).\n`;
+    p += `   - Wyślij propozycję notatki polekcyjnej i planu w Notion.\n\n`;
+    p += `5. 🗣️ SKRYPT I STRATEGIA NA 30-MINUTOWĄ ROZMOWĘ ZAPOZNAWCZĄ:\n`;
+    p += `   - Jak otworzyć rozmowę i pochwalić ucznia za test.\n`;
+    p += `   - Jak przedstawić diagnozę: "Zauważyłam, że świetnie idzie Ci X, ale na Y warto poświęcić chwilę..."\n`;
+    p += `   - Jak przedstawić plan i domknąć zapis na regularne lekcje.\n\n`;
+    p += `===============================================================\n`;
+    p += `ODPOWIEDZI UCZNIA:\n`;
+    p += `===============================================================\n\n`;
     p += buildSummaryText();
-    p += `\n Na podstawie powyższych danych ułóż dla mnie dedykowany, tygodniowy plan nauki (np. na pierwsze 4 tygodnie lekcji), zawierający:\n`;
-    p += `1. Najważniejsze cele i priorytety do opanowania w pierwszej kolejności.\n`;
-    p += `2. Sugerowane metody pracy (np. gry językowe, zadania tekstowe krok po kroku, praca na schematach) uwzględniające lęki i trudności ucznia.\n`;
-    p += `3. Propozycję struktury pojedynczej 60-minutowej lekcji (np. rozgrzewka, nowy materiał, utrwalenie, notatka po lekcji).\n`;
-    p += `4. Wskazówki jak prowadzić zajęcia bezstresowo i podnieść pewność siebie ucznia.`;
     return p;
   };
 
