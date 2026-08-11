@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Calendar, Clock } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { site } from "@/lib/site";
 
 type SubjectType =
   | "matematyka-4-6"
@@ -771,6 +770,7 @@ export default function DiagnozaPage() {
     }
   };
 
+  // RAPORT CZYSTY DLA UCZNIA
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
@@ -849,8 +849,8 @@ export default function DiagnozaPage() {
           aiPrompt: prompt,
         }),
       });
-    } catch (err) {
-      console.log("Informacja: Zapis pliku lokalnego dostępny na serwerze dev.", err);
+    } catch {
+      // Ignorowanie błędów zapisu na produkcji
     }
   };
 
@@ -863,24 +863,13 @@ export default function DiagnozaPage() {
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const handleSendEmail = () => {
-    const summary = buildSummaryText();
-    const aiPrompt = buildAIPrompt();
-    saveReportToTxt(summary, aiPrompt);
-
-    // E-mail zawiera podsumowanie oraz na końcu sekcję Prompt dla Oli
-    const emailBody = `${summary}\n\n========================================\n🤖 PROMPT DLA OLI (DO CHATGPT / CLAUDE):\n${aiPrompt}`;
-    const subjectText = encodeURIComponent(`Diagnoza przed lekcją — ${studentName || "Uczeń"}`);
-    window.open(`mailto:${site.email}?subject=${subjectText}&body=${encodeURIComponent(emailBody)}`, "_blank");
-  };
-
   const currentQuestions = getQuestions();
   const allQuestionsAnswered = currentQuestions.every((q) => answers[q.id]);
 
   return (
     <div className="min-h-screen bg-slate-50 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-6">
+        <div className="mb-6 flex justify-between items-center">
           <Link
             href="/"
             className="inline-flex items-center text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors"
@@ -1543,7 +1532,7 @@ export default function DiagnozaPage() {
             </motion.div>
           )}
 
-          {/* KROK 3: WYNIKI I WYSYŁKA */}
+          {/* KROK 3: WYNIKI I WYSYŁKA — TYLKO 1 PROSTY PRZYCISK KOPIOWANIA DLA UCZNIA */}
           {step === 3 && (
             <motion.div
               key="step3"
@@ -1560,7 +1549,7 @@ export default function DiagnozaPage() {
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Poniżej znajduje się Twój raport diagnostyczny. Możesz go wysłać e-mailem lub skopiować do wiadomości.
+                  Poniżej znajduje się Twój wynik oraz podsumowanie. Skopiuj je i prześlij Oli na Messengerze, WhatsAppie lub e-mailem!
                 </p>
               </div>
 
@@ -1588,25 +1577,19 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
               </div>
 
-              {/* CZYSTE PRZYCISKI DLA UCZNIA (BEZ PRZYCISKÓW AI) */}
-              <div className="space-y-3 pt-2">
-                <Button onClick={handleSendEmail} size="lg" className="w-full">
-                  <Send className="mr-2 size-5" /> Wyślij podsumowanie e-mailem do Oli
-                </Button>
-
-                <button
-                  type="button"
-                  onClick={handleCopySummary}
-                  className="w-full py-3 px-4 rounded-full border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
-                >
+              {/* JEDYNY PROSTY PRZYCISK KOPIOWANIA DLA UCZNIA */}
+              <div className="pt-2">
+                <Button onClick={handleCopySummary} size="lg" className="w-full">
                   {copied ? (
                     <>
-                      <CheckCircle2 className="size-4 text-emerald-600" /> Skopiowano raport ucznia do schowka!
+                      <CheckCircle2 className="mr-2 size-5 text-emerald-300" /> Skopiowano! Prześlij teraz Oli w wiadomości 😊
                     </>
                   ) : (
-                    <>Skopiuj raport dla ucznia (WhatsApp / Messenger)</>
+                    <>
+                      <Copy className="mr-2 size-5" /> 📋 Skopiuj swoje odpowiedzi i wyniki (dla Oli)
+                    </>
                   )}
-                </button>
+                </Button>
               </div>
 
               <div className="pt-4 flex justify-between border-t border-slate-100">
