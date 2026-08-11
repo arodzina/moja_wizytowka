@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake, Compass } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -23,7 +23,7 @@ interface Question {
   options: { label: string; isCorrect: boolean }[];
 }
 
-/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6 - LEKKIE, ADEKWATNE PYTANIA) */
+/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6) */
 const MATH_QUESTIONS_46: Question[] = [
   {
     id: "m46_1",
@@ -609,6 +609,39 @@ const ENG_SP_VOCAB_TOPICS = [
   "Podróżowanie i środki transportu",
 ];
 
+const GOAL_OPTIONS = [
+  {
+    id: "egzamin",
+    label: "🎯 Przygotowanie do Egzaminu Ósmoklasisty / Matury CKE",
+    sub: "Test wymagań egzaminacyjnych, arkusze i zadania z poprzednich lat",
+  },
+  {
+    id: "nadrabianie",
+    label: "🩹 Nadrabianie zaległości z poprzednich lat / lekcji",
+    sub: "Spokojne tłumaczenie podstaw od zera bez pośpiechu i stresu",
+  },
+  {
+    id: "biezacy",
+    label: "📖 Bieżący materiał ze szkoły & sprawdziany",
+    sub: "Utrwalanie lekcji na bieżąco i dobre przygotowanie do kartkówek",
+  },
+  {
+    id: "mowienie",
+    label: "🗣️ Przełamanie oporu w mówieniu & konwersacje",
+    sub: "Praktyczne używanie języka i budowanie pewności siebie",
+  },
+  {
+    id: "wyzsze-wyniki",
+    label: "🚀 Wyższe oceny (5-6) & głębszy rozwój",
+    sub: "Robienie ambitniejszych rzeczy i rozwiązywanie trudniejszych zadań",
+  },
+  {
+    id: "inny",
+    label: "✏️ Inny cel...",
+    sub: "Wpisz własny cel lub szczegółowe oczekiwania",
+  },
+];
+
 export default function DiagnozaPage() {
   const [step, setStep] = useState<number>(1);
   const [studentName, setStudentName] = useState("");
@@ -616,8 +649,8 @@ export default function DiagnozaPage() {
   const [contact, setContact] = useState("");
   const [subject, setSubject] = useState<SubjectType>("matematyka-7-8");
   const [grade, setGrade] = useState("3");
-  const [learningReason, setLearningReason] = useState("nadrabianie");
-  const [goal, setGoal] = useState("");
+  const [selectedGoal, setSelectedGoal] = useState("nadrabianie");
+  const [customGoalText, setCustomGoalText] = useState("");
 
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [conceptMap, setConceptMap] = useState<Record<string, string>>({});
@@ -638,23 +671,27 @@ export default function DiagnozaPage() {
 
   const [copied, setCopied] = useState(false);
 
+  // Dynamiczne dopasowywanie pytań na podstawie wybranego celu oraz przedmiotu
   const getQuestions = (): Question[] => {
-    switch (subject) {
-      case "matematyka-4-6":
-        return MATH_QUESTIONS_46;
-      case "matematyka-7-8":
-        return MATH_QUESTIONS_78;
-      case "angielski-4-6":
-        return ENG_QUESTIONS_46;
-      case "angielski-7-8":
-        return ENG_QUESTIONS_78;
-      case "angielski-liceum-biezacy":
-        return ENG_LIC_BIEZACY;
-      case "angielski-matura-podstawowa":
-        return ENG_MATURA_PODSTAWOWA;
-      case "angielski-matura-rozszerzona":
-        return ENG_MATURA_ROZSZERZONA;
+    // Jeśli uczeń uczy się pod egzamin, dajemy pytania egzaminacyjne
+    if (selectedGoal === "egzamin") {
+      if (subject === "matematyka-4-6") return MATH_QUESTIONS_46;
+      if (subject === "matematyka-7-8") return MATH_QUESTIONS_78;
+      if (subject === "angielski-4-6") return ENG_QUESTIONS_46;
+      if (subject === "angielski-7-8") return ENG_QUESTIONS_78;
+      if (subject === "angielski-matura-podstawowa") return ENG_MATURA_PODSTAWOWA;
+      if (subject === "angielski-matura-rozszerzona") return ENG_MATURA_ROZSZERZONA;
+      return ENG_LIC_BIEZACY;
     }
+
+    // Jeśli uczeń przychodzi w celach bieżących / nadrabiania / mówienia / ocen:
+    if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 5);
+    if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 5);
+    if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 4);
+    if (subject === "angielski-7-8") return ENG_QUESTIONS_78.slice(0, 4);
+    if (subject === "angielski-matura-podstawowa") return ENG_MATURA_PODSTAWOWA.slice(0, 4);
+    if (subject === "angielski-matura-rozszerzona") return ENG_MATURA_ROZSZERZONA.slice(0, 4);
+    return ENG_LIC_BIEZACY;
   };
 
   const handleOptionSelect = (qId: string, optionLabel: string) => {
@@ -697,19 +734,13 @@ export default function DiagnozaPage() {
     }
   };
 
-  const getReasonLabel = (r: string) => {
-    switch (r) {
-      case "nadrabianie":
-        return "Nadrabianie zaległości z poprzednich lat / z lekcji";
-      case "biezacy":
-        return "Utrwalanie bieżącego materiału ze szkoły";
-      case "wyzsze-wyniki":
-        return "Robienie więcej niż w szkole & Celowanie w wysokie oceny (5/6)";
-      case "egzamin":
-        return "Przygotowanie pod konkretny egzamin (E8 / Matura)";
-      default:
-        return r;
+  const getGoalDisplay = () => {
+    const found = GOAL_OPTIONS.find((g) => g.id === selectedGoal);
+    let title = found ? found.label : selectedGoal;
+    if (selectedGoal === "inny" && customGoalText.trim()) {
+      title += `: ${customGoalText.trim()}`;
     }
+    return title;
   };
 
   const buildSummaryText = () => {
@@ -721,9 +752,8 @@ export default function DiagnozaPage() {
     text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
-    text += `💡 Powód przyjścia: ${getReasonLabel(learningReason)}\n`;
-    text += `⭐ Ocena w szkole: ${grade}\n`;
-    text += `🎯 Szczegółowy cel: ${goal || "Nie podano"}\n\n`;
+    text += `🎯 Główny cel nauki: ${getGoalDisplay()}\n`;
+    text += `⭐ Ocena w szkole: ${grade}\n\n`;
     text += `📊 WYNIK QUIZU SPRAWDZAJĄCEGO: ${score} / ${total} poprawnych\n\n`;
 
     text += `--- SZCZEGÓŁY ODPOWIEDZI ---\n`;
@@ -946,49 +976,44 @@ export default function DiagnozaPage() {
                 </div>
               </div>
 
-              {/* POWÓD / MOTYWACJA PRZYJŚCIA */}
+              {/* GŁÓWNY CEL NAUKI (WYBÓR DYNAMICZNY) */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Jaki jest główny powód przyjścia na korepetycje?
+                  Jaki jest Twój główny cel nauki ze mną? *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {[
-                    {
-                      id: "nadrabianie",
-                      title: "🩹 Nadrabianie zaległości",
-                      desc: "Gubię się w materiale i chcę spokojnie nadrobić zaległości.",
-                    },
-                    {
-                      id: "biezacy",
-                      title: "📖 Bieżący materiał ze szkoły",
-                      desc: "Radzę sobie w miarę ok, ale chcę utrwalać lekcje i być na bieżąco.",
-                    },
-                    {
-                      id: "wyzsze-wyniki",
-                      title: "🚀 Wyższe oceny & Ambitny rozwój",
-                      desc: "Chcę robić więcej niż w szkole i celować w oceny 5–6.",
-                    },
-                    {
-                      id: "egzamin",
-                      title: "🎯 Przygotowanie do Egzaminu / Matury",
-                      desc: "Skupiamy się typowo na arkuszach i wymaganiach CKE.",
-                    },
-                  ].map((r) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {GOAL_OPTIONS.map((g) => (
                     <button
-                      key={r.id}
+                      key={g.id}
                       type="button"
-                      onClick={() => setLearningReason(r.id)}
-                      className={`p-3.5 rounded-2xl border text-left transition-all ${
-                        learningReason === r.id
-                          ? "border-brand-500 bg-brand-50/50 ring-2 ring-brand-200"
+                      onClick={() => setSelectedGoal(g.id)}
+                      className={`p-4 rounded-2xl text-left border transition-all ${
+                        selectedGoal === g.id
+                          ? "border-brand-500 bg-brand-50/60 ring-2 ring-brand-200"
                           : "border-slate-200 hover:border-slate-300"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-900">{r.title}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">{r.desc}</div>
+                      <div className="font-bold text-slate-900 text-xs sm:text-sm">{g.label}</div>
+                      <div className="text-xs text-slate-500 mt-1">{g.sub}</div>
                     </button>
                   ))}
                 </div>
+
+                {/* OPCJA DOPISANIA WŁASNEGO CELU */}
+                {selectedGoal === "inny" && (
+                  <div className="mt-3">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Wpisz swój własny cel / oczekiwanie:
+                    </label>
+                    <input
+                      type="text"
+                      value={customGoalText}
+                      onChange={(e) => setCustomGoalText(e.target.value)}
+                      placeholder="np. Przygotowanie do wyjazdu za granicę, poprawa wymowy, zdanie egzaminu poprawkowego..."
+                      className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                    />
+                  </div>
+                )}
               </div>
 
               <div>
@@ -1011,20 +1036,6 @@ export default function DiagnozaPage() {
                     </button>
                   ))}
                 </div>
-              </div>
-
-              {/* WOLNE POLE TEKSTOWE NA CEL */}
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
-                  Co chciałbyś / chciałabyś ze mną osiągnąć? (Twój cel):
-                </label>
-                <textarea
-                  rows={3}
-                  value={goal}
-                  onChange={(e) => setGoal(e.target.value)}
-                  placeholder="np. Wysoki wynik na egzaminie / maturze, podniesienie oceny w szkole, przełamanie oporu w mówieniu po angielsku, ogólne podniesienie poziomu..."
-                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                />
               </div>
 
               <div className="pt-4 flex justify-end">
@@ -1403,7 +1414,7 @@ export default function DiagnozaPage() {
                             key={v}
                             type="button"
                             onClick={() => setUseOfEnglishEval(v)}
-                            className={`w-full p-3 rounded-xl border text-left text-xs font-medium ${
+                            className={`w-full p-3 rounded-xl border text-left text-xs sm:text-sm transition-all ${
                               useOfEnglishEval === v
                                 ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
                                 : "border-slate-200 text-slate-600 hover:border-slate-300"
@@ -1473,9 +1484,8 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Uczeń:</strong> {studentName} ({schoolClass})</div>
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
                 <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
-                <div><strong className="text-slate-900">Powód przyjścia:</strong> {getReasonLabel(learningReason)}</div>
+                <div><strong className="text-slate-900">Główny cel nauki:</strong> {getGoalDisplay()}</div>
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
-                <div><strong className="text-slate-900">Cel z lekcji:</strong> {goal || "Brak (ogólna nauka)"}</div>
               </div>
 
               {/* Przyciski wysyłki */}
