@@ -23,7 +23,7 @@ interface Question {
   options: { label: string; isCorrect: boolean }[];
 }
 
-/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6) */
+/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6 - STANDARD) */
 const MATH_QUESTIONS_46: Question[] = [
   {
     id: "m46_1",
@@ -107,6 +107,121 @@ const MATH_QUESTIONS_46: Question[] = [
       { label: "27 cm²", isCorrect: false },
       { label: "15 cm²", isCorrect: false },
       { label: "Nie pamiętam wzoru", isCorrect: false },
+    ],
+  },
+];
+
+/* 🎒 POZIOM 1 (NADRABIANIE ZALEGŁOŚCI): MATEMATYKA (KLASY 4–6) */
+const MATH_QUESTIONS_46_CATCHUP: Question[] = [
+  {
+    id: "m46c_1",
+    levelLabel: "🟢 Klasy 4–6: Tabliczka mnożenia",
+    question: "Tabliczka mnożenia: Ile wynosi wynik: 7 · 8 = ?",
+    options: [
+      { label: "54", isCorrect: false },
+      { label: "56", isCorrect: true },
+      { label: "48", isCorrect: false },
+      { label: "64", isCorrect: false },
+      { label: "Mieszam jeszcze tabliczkę mnożenia", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_2",
+    levelLabel: "🟢 Klasy 4–6: Dzielenie pamięciowe",
+    question: "Dzielenie pamięciowe: Podziel 42 : 6 = ?",
+    options: [
+      { label: "6", isCorrect: false },
+      { label: "7", isCorrect: true },
+      { label: "8", isCorrect: false },
+      { label: "Mieszam tabliczkę dzielenia", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_3",
+    levelLabel: "🟢 Klasy 4–6: Dodawanie w pamięci",
+    question: "Dodawanie z przekraczaniem progu: Oblicz w pamięci: 37 + 25 = ?",
+    options: [
+      { label: "52", isCorrect: false },
+      { label: "62", isCorrect: true },
+      { label: "57", isCorrect: false },
+      { label: "Muszę liczyć to na palcach / na kartce", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_4",
+    levelLabel: "🟢 Klasy 4–6: Kolejność działań",
+    question: "Kolejność działań w nawiasie: Oblicz: (12 - 4) · 3 = ?",
+    options: [
+      { label: "24", isCorrect: true },
+      { label: "0", isCorrect: false },
+      { label: "20", isCorrect: false },
+      { label: "Gubię się w nawiasach", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_5",
+    levelLabel: "🟢 Klasy 4–6: Pojęcie ułamka",
+    question: "Pojęcie ułamka: Co oznacza ułamek ½ (jedna druga)?",
+    options: [
+      { label: "Całość", isCorrect: false },
+      { label: "Połowa czegokolwiek", isCorrect: true },
+      { label: "Ćwiartka (jedna czwarta)", isCorrect: false },
+      { label: "Nie wiem, co to ułamek", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_6",
+    levelLabel: "🟢 Klasy 4–6: Pieniądze i dziesiętne",
+    question: "Pieniądze i ułamki dziesiętne: Masz 2 zł i 50 gr. Jak zapiszesz tę kwotę za pomocą przecinka (w złotówkach)?",
+    options: [
+      { label: "2,50 zł", isCorrect: true },
+      { label: "250 zł", isCorrect: false },
+      { label: "2,05 zł", isCorrect: false },
+      { label: "Gubię się w zapisie z przecinkiem", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_7",
+    levelLabel: "🟢 Klasy 4–6: Dodawanie kwot",
+    question: "Dodawanie groszy/dziesiętne: Koszulka kosztuje 12,50 zł, a ciastko 3,20 zł. Ile zapłacisz razem?",
+    options: [
+      { label: "15,70 zł", isCorrect: true },
+      { label: "15,20 zł", isCorrect: false },
+      { label: "16,00 zł", isCorrect: false },
+      { label: "Trudno mi liczyć kwoty z przecinkami", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_8",
+    levelLabel: "🟢 Klasy 4–6: Zegar i czas",
+    question: "Zegar i czas: Lekcja zaczyna się o 8:15 i trwa 45 minut. O której godzinie się kończy?",
+    options: [
+      { label: "8:50", isCorrect: false },
+      { label: "9:00", isCorrect: true },
+      { label: "9:15", isCorrect: false },
+      { label: "Gubię się w obliczeniach zegarowych", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_9",
+    levelLabel: "🟢 Klasy 4–6: Jednostki długości",
+    question: "Zamiana jednostek długości: Ile centymetrów (cm) ma 1 metr (m)?",
+    options: [
+      { label: "10 cm", isCorrect: false },
+      { label: "100 cm", isCorrect: true },
+      { label: "1000 cm", isCorrect: false },
+      { label: "Mieszają mi się metry i centymetry", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46c_10",
+    levelLabel: "🟢 Klasy 4–6: Geometria — obwód",
+    question: "Obwód figury: Kwadrat ma bok o długości 5 cm. Ile wynosi jego obwód (suma wszystkich boków)?",
+    options: [
+      { label: "10 cm", isCorrect: false },
+      { label: "20 cm", isCorrect: true },
+      { label: "25 cm", isCorrect: false },
+      { label: "Nie pamiętam, co to jest obwód", isCorrect: false },
     ],
   },
 ];
@@ -211,7 +326,7 @@ const MATH_QUESTIONS_78: Question[] = [
   },
 ];
 
-/* 🎒 POZIOM 1: ANGIELSKI (KLASY 4–6 / A1–A2) */
+/* 🎒 POZIOM 1: ANGIELSKI (KLASY 4–6 - STANDARD) */
 const ENG_QUESTIONS_46: Question[] = [
   {
     id: "e46_1",
@@ -271,6 +386,98 @@ const ENG_QUESTIONS_46: Question[] = [
       { label: "the biggest", isCorrect: false },
       { label: "as big", isCorrect: false },
       { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+];
+
+/* 🎒 POZIOM 1 (NADRABIANIE ZALEGŁOŚCI): ANGIELSKI (KLASY 4–6) */
+const ENG_QUESTIONS_46_CATCHUP: Question[] = [
+  {
+    id: "e46c_1",
+    levelLabel: "🟢 Klasy 4–6: Czasownik to be",
+    question: "Czasownik to be: I __________ a student in class 5.",
+    options: [
+      { label: "is", isCorrect: false },
+      { label: "am", isCorrect: true },
+      { label: "are", isCorrect: false },
+      { label: "Nie wiem", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_2",
+    levelLabel: "🟢 Klasy 4–6: Przeczenie z to be",
+    question: "Przeczenie z to be: She __________ at home today. She is at school.",
+    options: [
+      { label: "isn't", isCorrect: true },
+      { label: "aren't", isCorrect: false },
+      { label: "am not", isCorrect: false },
+      { label: "Zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_3",
+    levelLabel: "🟢 Klasy 4–6: Przymiotniki dzierżawcze",
+    question: "Przymiotniki dzierżawcze: This is my sister. __________ name is Anna.",
+    options: [
+      { label: "His", isCorrect: false },
+      { label: "Her", isCorrect: true },
+      { label: "My", isCorrect: false },
+      { label: "Zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_4",
+    levelLabel: "🟢 Klasy 4–6: Have got",
+    question: "Have got: They __________ a big dog in their garden.",
+    options: [
+      { label: "has got", isCorrect: false },
+      { label: "have got", isCorrect: true },
+      { label: "is got", isCorrect: false },
+      { label: "Nie pamiętam have got / has got", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_5",
+    levelLabel: "🟢 Klasy 4–6: Can / Can't",
+    question: "Can / Can't: Birds can fly, but elephants __________ fly.",
+    options: [
+      { label: "can", isCorrect: false },
+      { label: "can't", isCorrect: true },
+      { label: "mustn't", isCorrect: false },
+      { label: "Zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_6",
+    levelLabel: "🟢 Klasy 4–6: Liczba mnoga",
+    question: "Liczba mnoga rzeczowników: Jak stworzysz liczbę mnogą od słowa \"one cat\" (jeden kot) -> \"two __________\"?",
+    options: [
+      { label: "cates", isCorrect: false },
+      { label: "cats", isCorrect: true },
+      { label: "caties", isCorrect: false },
+      { label: "Zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_7",
+    levelLabel: "🟢 Klasy 4–6: Dni tygodnia",
+    question: "Dni tygodnia i czas: Jaki dzień tygodnia następuje po Monday (poniedziałek)?",
+    options: [
+      { label: "Sunday", isCorrect: false },
+      { label: "Tuesday", isCorrect: true },
+      { label: "Thursday", isCorrect: false },
+      { label: "Mieszają mi się dni tygodnia po angielsku", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46c_8",
+    levelLabel: "🟢 Klasy 4–6: Prosta reakcja",
+    question: "Prosta reakcja: Jak odpowiesz na pytanie: \"How old are you?\"",
+    options: [
+      { label: "I'm fine, thank you.", isCorrect: false },
+      { label: "I'm 11 years old.", isCorrect: true },
+      { label: "I live in Poland.", isCorrect: false },
+      { label: "Nie rozumiem tego pytania", isCorrect: false },
     ],
   },
 ];
@@ -677,7 +884,14 @@ export default function DiagnozaPage() {
   const [copied, setCopied] = useState(false);
 
   const getQuestions = (): Question[] => {
+    // JEŚLI UCZEŃ CHCE NADRABIĆ ZALEGŁOŚCI:
     if (selectedGoal === "nadrabianie") {
+      if (subject === "matematyka-4-6") {
+        return MATH_QUESTIONS_46_CATCHUP;
+      }
+      if (subject === "angielski-4-6") {
+        return ENG_QUESTIONS_46_CATCHUP;
+      }
       if (subject === "matematyka-7-8") {
         return [
           MATH_QUESTIONS_46[0],
@@ -705,9 +919,6 @@ export default function DiagnozaPage() {
           ENG_LIC_BIEZACY[1],
           ENG_LIC_BIEZACY[2],
         ];
-      }
-      if (subject === "matematyka-4-6") {
-        return MATH_QUESTIONS_46.slice(0, 5);
       }
     }
 
@@ -1068,7 +1279,7 @@ export default function DiagnozaPage() {
                         : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
-                    👨‍👩‍👧 Wypełnia rodzic z dzieckiem
+                    👨‍gsub‍👧 Wypełnia rodzic z dzieckiem
                   </button>
                 </div>
               </div>
