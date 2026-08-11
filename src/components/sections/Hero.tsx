@@ -123,7 +123,7 @@ export default function Hero() {
                 <div>
                   <h4 className="text-sm font-bold text-ink">Matematyka krok po kroku</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Tłumaczę od podstaw i bez pośpiechu — rozmawiamy tak długo, aż wszystko wreszcie „zaskoczy”.
+                    Tłumaczę od podstaw i prostym językiem. Przerabiamy przykłady krok po kroku, aż wszystko stanie się jasne.
                   </p>
                 </div>
               </div>
