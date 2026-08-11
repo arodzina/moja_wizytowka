@@ -109,6 +109,18 @@ const MATH_QUESTIONS_46: Question[] = [
       { label: "Nie pamiętam wzoru", isCorrect: false },
     ],
   },
+  {
+    id: "m46_8",
+    levelLabel: "🟢 Klasy 4–6: Zadanie tekstowe z treścią",
+    question: "Zadanie z treścią: W klasie jest 24 uczniów. ⅓ z nich gra w piłkę nożną. Ile osób gra w piłkę?",
+    options: [
+      { label: "6 uczniów", isCorrect: false },
+      { label: "8 uczniów", isCorrect: true },
+      { label: "12 uczniów", isCorrect: false },
+      { label: "3 uczniów", isCorrect: false },
+      { label: "Gubię się w zadaniach tekstowych z ułamkami", isCorrect: false },
+    ],
+  },
 ];
 
 /* 🎒 POZIOM 1 (NADRABIANIE ZALEGŁOŚCI): MATEMATYKA (KLASY 4–6) */
@@ -324,6 +336,18 @@ const MATH_QUESTIONS_78: Question[] = [
       { label: "Nie umiem prawdopodobieństwa", isCorrect: false },
     ],
   },
+  {
+    id: "m78_9",
+    levelLabel: "🔴 Geometria & Stereometria (Bryły) E8",
+    question: "Stereometria (Bryły): Objętość sześcianu o krawędzi a = 4 cm wynosi (V = a³):",
+    options: [
+      { label: "16 cm³", isCorrect: false },
+      { label: "64 cm³", isCorrect: true },
+      { label: "24 cm³", isCorrect: false },
+      { label: "48 cm³", isCorrect: false },
+      { label: "Gubię się we wzorach na bryły i objętość", isCorrect: false },
+    ],
+  },
 ];
 
 /* 🎒 POZIOM 1: ANGIELSKI (KLASY 4–6 - STANDARD) */
@@ -385,6 +409,18 @@ const ENG_QUESTIONS_46: Question[] = [
       { label: "more big", isCorrect: false },
       { label: "the biggest", isCorrect: false },
       { label: "as big", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_6",
+    levelLabel: "🟢 Klasy 4–6: Reakcje językowe w życiu codziennym",
+    question: "Reakcje językowe: Jak poprosisz kogoś o pomoc po angielsku?",
+    options: [
+      { label: "Could you help me, please?", isCorrect: true },
+      { label: "Do you have help?", isCorrect: false },
+      { label: "Are you helping today?", isCorrect: false },
+      { label: "Can I help you to me?", isCorrect: false },
       { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
@@ -807,13 +843,14 @@ const MATH_CONCEPT_MAP = [
   "Średnia arytmetyczna i odczytywanie wykresów",
 ];
 
+/* CHECKLISTA 6 GŁÓWNYCH DZIAŁÓW SŁOWNICTWA CKE */
 const ENG_SP_VOCAB_TOPICS = [
   "Człowiek, wygląd i cechy charakteru",
-  "Dom, pomieszczenia i meble",
-  "Świat przyrody, pogoda i środowisko",
-  "Zdrowie, choroby i wizyta u lekarza",
-  "Zakupy, usługi i płatności",
-  "Podróżowanie i środki transportu",
+  "Dom, miejsce zamieszkania i meble",
+  "Szkoła, przedmioty i życie uczniowskie",
+  "Zakupy, usługi, ceny i płatności",
+  "Podróżowanie, transport i turystyka",
+  "Zdrowie, samopoczucie i wizyta u lekarza",
 ];
 
 const GOAL_OPTIONS = [
@@ -876,10 +913,11 @@ export default function DiagnozaPage() {
   const [grammarEvalSP, setGrammarEvalSP] = useState("🟢 Znam czasy");
   const [engVocabDiffs, setEngVocabDiffs] = useState<string[]>([]);
 
-  // Samoocena Angielski Liceum
-  const [writingEvalLic, setWritingEvalLic] = useState("Znam strukturę i łączniki");
+  // Samoocena Angielski Liceum & Matura
+  const [licLessonCharacter, setLicLessonCharacter] = useState("mowienie");
+  const [writingEvalLic, setWritingEvalLic] = useState("🟢 Znam limity (100–150 słów) i łączniki (however, in addition, moreover)");
   const [oralMaturaEvalLic, setOralMaturaEvalLic] = useState("Mówię płynnie");
-  const [useOfEnglishEval, setUseOfEnglishEval] = useState("Daję radę na 80%+");
+  const [useOfEnglishEval, setUseOfEnglishEval] = useState("🟢 Dobrze radzę sobie z parafrazami i słowotwórstwem");
 
   const [copied, setCopied] = useState(false);
 
@@ -900,6 +938,7 @@ export default function DiagnozaPage() {
           MATH_QUESTIONS_78[0],
           MATH_QUESTIONS_78[2],
           MATH_QUESTIONS_78[3],
+          MATH_QUESTIONS_78[8],
         ];
       }
       if (subject === "angielski-7-8") {
@@ -932,12 +971,12 @@ export default function DiagnozaPage() {
       return ENG_LIC_BIEZACY;
     }
 
-    if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 5);
-    if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 5);
-    if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 4);
-    if (subject === "angielski-7-8") return ENG_QUESTIONS_78.slice(0, 4);
-    if (subject === "angielski-matura-podstawowa") return ENG_MATURA_PODSTAWOWA.slice(0, 4);
-    if (subject === "angielski-matura-rozszerzona") return ENG_MATURA_ROZSZERZONA.slice(0, 4);
+    if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 6);
+    if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 6);
+    if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 5);
+    if (subject === "angielski-7-8") return ENG_QUESTIONS_78.slice(0, 5);
+    if (subject === "angielski-matura-podstawowa") return ENG_MATURA_PODSTAWOWA.slice(0, 5);
+    if (subject === "angielski-matura-rozszerzona") return ENG_MATURA_ROZSZERZONA.slice(0, 5);
     return ENG_LIC_BIEZACY;
   };
 
@@ -1033,6 +1072,19 @@ export default function DiagnozaPage() {
     }
   };
 
+  const getLicLessonCharDisplay = (c: string) => {
+    switch (c) {
+      case "mowienie":
+        return "🗣️ Głównie konwersacje & słownictwo";
+      case "gramatyka":
+        return "📖 Bieżący materiał & sprawdziany";
+      case "miks":
+        return "⚖️ Zrównoważony miks (mówienie + gramatyka)";
+      default:
+        return c;
+    }
+  };
+
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
@@ -1077,15 +1129,18 @@ export default function DiagnozaPage() {
       text += `- Pisanie: ${writingEvalSP}\n`;
       text += `- Gramatyka: ${grammarEvalSP}\n`;
       if (engVocabDiffs.length > 0) {
-        text += `\n📚 Trudne działy słownictwa E8:\n- ${engVocabDiffs.join("\n- ")}\n`;
+        text += `\n📚 Trudne działy słownictwa E8 (CKE):\n- ${engVocabDiffs.join("\n- ")}\n`;
       }
     }
 
     if (subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") {
-      text += `\n--- SAMOOCENA LICEALNA ---\n`;
+      text += `\n--- SAMOOCENA LICEALNA & MATURALNA ---\n`;
+      if (subject === "angielski-liceum-biezacy") {
+        text += `- Oczekiwany charakter lekcji: ${getLicLessonCharDisplay(licLessonCharacter)}\n`;
+      }
       text += `- Wypowiedź pisemna: ${writingEvalLic}\n`;
       text += `- Mówienie / Ustna: ${oralMaturaEvalLic}\n`;
-      text += `- Środki językowe: ${useOfEnglishEval}\n`;
+      text += `- Środki językowe (Use of English): ${useOfEnglishEval}\n`;
     }
 
     return text;
@@ -1677,7 +1732,7 @@ export default function DiagnozaPage() {
                 </>
               )}
 
-              {/* ANGIELSKI SP: SAMOOCENA & SŁOWNICTWO */}
+              {/* ANGIELSKI SP: SAMOOCENA & SŁOWNICTWO CKE */}
               {(subject === "angielski-4-6" || subject === "angielski-7-8") && (
                 <>
                   <div className="pt-6 border-t border-slate-100 space-y-4">
@@ -1785,9 +1840,9 @@ export default function DiagnozaPage() {
 
                   <div className="pt-6 border-t border-slate-100 space-y-3">
                     <h3 className="font-bold text-slate-900 text-base">
-                      CZĘŚĆ B3: Słownictwo tematyczne E8
+                      CZĘŚĆ B3: Checklista słownictwa tematycznego CKE
                     </h3>
-                    <p className="text-xs text-slate-500">Które działy sprawiają Ci największą trudność?</p>
+                    <p className="text-xs text-slate-500">Zaznacz działy, w których brakuje Ci słówek:</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {ENG_SP_VOCAB_TOPICS.map((topic) => {
                         const active = engVocabDiffs.includes(topic);
@@ -1811,22 +1866,53 @@ export default function DiagnozaPage() {
                 </>
               )}
 
-              {/* ANGIELSKI LICEUM: SPRAWNOŚCI MATURALNE / LICEALNE */}
+              {/* ANGIELSKI LICEUM & MATURA: SAMOOCENA SPRAWNOŚCI */}
               {(subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") && (
                 <div className="pt-6 border-t border-slate-100 space-y-4">
                   <h3 className="font-bold text-slate-900 text-base">
                     CZĘŚĆ C2: Sprawności językowe i maturalne (Samoocena)
                   </h3>
+
                   <div className="space-y-4 text-xs sm:text-sm">
+                    {/* Opcja dla Liceum Bieżącego */}
+                    {subject === "angielski-liceum-biezacy" && (
+                      <div>
+                        <span className="font-medium text-slate-700 block mb-1">
+                          Preferowany główny charakter lekcji:
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                          {[
+                            { id: "mowienie", label: "🗣️ Głównie konwersacje & słownictwo" },
+                            { id: "gramatyka", label: "📖 Bieżący materiał & sprawdziany" },
+                            { id: "miks", label: "⚖️ Zrównoważony miks (mówienie + gramatyka)" },
+                          ].map((item) => (
+                            <button
+                              key={item.id}
+                              type="button"
+                              onClick={() => setLicLessonCharacter(item.id)}
+                              className={`p-3 rounded-xl border text-center text-xs font-medium transition-all ${
+                                licLessonCharacter === item.id
+                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
+                              }`}
+                            >
+                              {item.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Pisanie maturalne / wypowiedź pisemna */}
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
-                        Rozprawka / Artykuł / E-mail (Pisanie):
+                        Rozprawka / E-mail / Wpis na bloga (Pisanie):
                       </span>
                       <div className="space-y-2">
                         {[
-                          "Znam strukturę, łączniki (Furthermore, Nevertheless) i mieszczę się w limitach słów",
-                          "Znam strukturę, ale brakuje mi bogatego słownictwa C1",
-                          "Boję się wypowiedzi pisemnej i robię błędy gramatyczne",
+                          "🟢 Znam limity (100–150 słów) i łączniki (however, in addition, moreover)",
+                          "🟡 Znam strukturę, ale brakuje mi bogatego słownictwa C1",
+                          "🔴 Boję się wypowiedzi pisemnej i robię błędy gramatyczne",
                         ].map((v) => (
                           <button
                             key={v}
@@ -1844,13 +1930,14 @@ export default function DiagnozaPage() {
                       </div>
                     </div>
 
+                    {/* Ustny angielski / matura ustna */}
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
                         Mówienie / Ustna komunikacja:
                       </span>
                       <div className="space-y-2">
                         {[
-                          "Mówię płynnie, potrafię opisać ilustrację i uzasadnić wybór z materiału stymulującego",
+                          "Mówię płynnie, potrafię opisać ilustrację i uzasadnić wybór w rozmowie",
                           "Mówię, ale mam pauzy na szukanie słówek w głowie",
                           "Mam paraliżujący stres na samej myśli o mówieniu po angielsku",
                         ].map((v) => (
@@ -1870,15 +1957,16 @@ export default function DiagnozaPage() {
                       </div>
                     </div>
 
+                    {/* Środki językowe Use of English C1 */}
                     <div>
                       <span className="font-medium text-slate-700 block mb-1">
-                        Środki językowe & Gramatyka:
+                        Środki językowe (Use of English C1 / Parafrazy / Słowotwórstwo):
                       </span>
                       <div className="space-y-2">
                         {[
-                          "Daję radę na 80%+",
-                          "Trafiają się trudne phrasale i zwroty, w których gubię punkty",
-                          "Zgaduję większość odpowiedzi",
+                          "🟢 Dobrze radzę sobie z parafrazami ze słowem-kluczem i słowotwórstwem",
+                          "🟡 Trafiają się trudne luki otwarte i słowotwórstwo C1, w których gubię punkty",
+                          "🔴 Środki językowe C1 to dla mnie największy problem",
                         ].map((v) => (
                           <button
                             key={v}
