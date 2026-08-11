@@ -1039,7 +1039,7 @@ export default function DiagnozaPage() {
 
     let text = `📄 RAPORT DIAGNOSTYCZNY:\n`;
     text += `👤 Uczeń: ${studentName || "Nie podano"}\n`;
-    text += `🧑‍🤝‍🧑 Osoba wypełniająca: ${filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}\n`;
+    text += `👥 Osoba wypełniająca: ${filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}\n`;
     text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
@@ -1279,7 +1279,7 @@ export default function DiagnozaPage() {
                         : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
-                    👨‍👩‍👧 Wypełnia rodzic z dzieckiem
+                    👪 Wypełnia rodzic z dzieckiem
                   </button>
                 </div>
               </div>
