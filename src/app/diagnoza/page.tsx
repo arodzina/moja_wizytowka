@@ -325,6 +325,7 @@ export default function DiagnozaPage() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [conceptMap, setConceptMap] = useState<Record<string, string>>({});
   const [mathFears, setMathFears] = useState<string[]>([]);
+  const [customMathFear, setCustomMathFear] = useState("");
 
   // Samoocena Angielski SP
   const [speakingEval, setSpeakingEval] = useState("🟢 Mówię chętnie");
@@ -411,8 +412,12 @@ export default function DiagnozaPage() {
       MATH_CONCEPT_MAP.forEach((c) => {
         text += `- ${c}: ${conceptMap[c] || "Brak oceny"}\n`;
       });
-      if (mathFears.length > 0) {
-        text += `\n⚠️ Główne lęki i trudności:\n- ${mathFears.join("\n- ")}\n`;
+      const allFears = [...mathFears];
+      if (customMathFear.trim()) {
+        allFears.push(`Własny problem: ${customMathFear.trim()}`);
+      }
+      if (allFears.length > 0) {
+        text += `\n⚠️ Główne lęki i trudności:\n- ${allFears.join("\n- ")}\n`;
       }
     }
 
@@ -548,7 +553,7 @@ export default function DiagnozaPage() {
                 />
               </div>
 
-              {/* KAFELKI DO WYBORU (PODZIELONA MATURA) */}
+              {/* KAFELKI DO WYBORU */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   Wybierz przedmiot i poziom *
@@ -783,6 +788,20 @@ export default function DiagnozaPage() {
                           </button>
                         );
                       })}
+                    </div>
+
+                    {/* MOŻLIWOŚĆ DOPISANIA WŁASNEJ ODPOWIEDZI W CZĘŚCI A3 */}
+                    <div className="pt-2">
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Inny problem / dopisz własną odpowiedź:
+                      </label>
+                      <input
+                        type="text"
+                        value={customMathFear}
+                        onChange={(e) => setCustomMathFear(e.target.value)}
+                        placeholder="np. Przeliczanie skali na mapie, ułamki dziesiętne pod kreską..."
+                        className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                      />
                     </div>
                   </div>
                 </>
