@@ -1,0 +1,53 @@
+==================================================
+RAPORT DIAGNOSTYCZNY UCZNIA (PRZYKŁAD)
+Data wypełnienia: 11.08.2026, 14:28:00
+==================================================
+
+📄 RAPORT DIAGNOSTYCZNY:
+👤 Uczeń: Ania Kowalska
+🏫 Klasa/Szkoła: 8 klasa E8
+📧 Kontakt: ania@example.com / 500 123 456
+📚 Przedmiot i poziom: Matematyka (klasy 7–8 & Egzamin Ósmoklasisty E8)
+🎯 Główny cel nauki: 🩹 Nadrabianie zaległości z poprzednich lat / lekcji
+🗓️ Preferowana częstotliwość: 1 raz w tygodniu (60 min) — regularnie
+⏳ Przewidywany czas współpracy: Stała współpraca na cały rok szkolny
+⭐ Ocena w szkole: 3
+
+📊 WYNIK QUIZU SPRAWDZAJĄCEGO: 4 / 6 poprawnych
+
+--- SZCZEGÓŁY ODPOWIEDZI ---
+1. Kolejność działań: (15 - 3) : 3 + 2 = ?
+   -> Odpowiedź: 6
+2. Ułamki zwykłe: Oblicz: 3/5 + 1/2 = ?
+   -> Odpowiedź: Nie umiem sprowadzać do wspólnego mianownika
+3. Liczby ujemne: Oblicz: -8 + 5 = ?
+   -> Odpowiedź: -3
+4. Potęgi: Oblicz: 2^3 · 2^4 = ?
+   -> Odpowiedź: 2^7 (128)
+5. Procenty: Obniżono cenę kurtki ze 150 zł na 120 zł. O ile procent obniżono cenę?
+   -> Odpowiedź: o 20%
+6. Równanie z nawiasami: Rozwiąż równanie: 2(x - 3) = x + 4. Ile wynosi x?
+   -> Odpowiedź: Gubię się w równaniach
+
+--- MAPA POJĘĆ MATEMATYCZNYCH ---
+- Budowanie równań do zadań tekstowych: Muszę powtórzyć
+- Zadania na prędkość, drogę i czas: Czarna magia
+
+⚠️ Główne lęki i trudności:
+- Zadania z treścią — nie wiem od czego zacząć i jak ułożyć równanie
+- Stres i paraliż przed odpowiadaniem przy tablicy / klasówką
+
+==================================================
+🤖 PROMPT DLA AI (DO CHATGPT / CLAUDE)
+(Skopiuj poniższą sekcję i wklej do ChatGPT, aby wygenerować plan nauki):
+==================================================
+
+Jesteś doświadczonym, empatycznym korepetytorem i dydaktykiem. Oto pełny raport z bezstresowej diagnozy ucznia przed rozpoczęciem korepetycji:
+
+[Raport powyżej]
+
+Na podstawie powyższych danych ułóż dla mnie dedykowany, tygodniowy plan nauki (np. na pierwsze 4 tygodnie lekcji), zawierający:
+1. Najważniejsze cele i priorytety do opanowania w pierwszej kolejności.
+2. Sugerowane metody pracy (np. gry językowe, zadania tekstowe krok po kroku, praca na schematach) uwzględniające lęki i trudności ucznia.
+3. Propozycję struktury pojedynczej 60-minutowej lekcji (np. rozgrzewka, nowy materiał, utrwalenie, notatka po lekcji).
+4. Wskazówki jak prowadzić zajęcia bezstresowo i podnieść pewność siebie ucznia.
