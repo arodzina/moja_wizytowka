@@ -7,7 +7,12 @@ import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles } from "lucide-reac
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
-type SubjectType = "matematyka-sp" | "angielski-sp" | "angielski-liceum";
+type SubjectType =
+  | "matematyka-4-6"
+  | "matematyka-7-8"
+  | "angielski-4-6"
+  | "angielski-7-8"
+  | "angielski-liceum";
 
 interface Question {
   id: string;
@@ -312,18 +317,14 @@ export default function DiagnozaPage() {
   const [studentName, setStudentName] = useState("");
   const [schoolClass, setSchoolClass] = useState("");
   const [contact, setContact] = useState("");
-  const [subject, setSubject] = useState<SubjectType>("matematyka-sp");
+  const [subject, setSubject] = useState<SubjectType>("matematyka-7-8");
   const [grade, setGrade] = useState("3");
-  const [goal, setGoal] = useState("Egzamin Ósmoklasisty (cel: 80-100% i dobre liceum)");
-  
+  const [goal, setGoal] = useState("");
+
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  
-  // Mapa pojęć Matematyka: concept -> "Znam dobrze" | "Muszę powtórzyć" | "Czarna magia"
   const [conceptMap, setConceptMap] = useState<Record<string, string>>({});
-  
-  // Trudności Matematyka
   const [mathFears, setMathFears] = useState<string[]>([]);
-  
+
   // Samoocena Angielski SP
   const [speakingEval, setSpeakingEval] = useState("🟢 Mówię chętnie");
   const [listeningEval, setListeningEval] = useState("🟢 Rozumiem bez problemu");
@@ -339,8 +340,10 @@ export default function DiagnozaPage() {
   const [copied, setCopied] = useState(false);
 
   const getQuestions = () => {
-    if (subject === "matematyka-sp") return MATH_QUESTIONS;
-    if (subject === "angielski-sp") return ENG_SP_QUESTIONS;
+    if (subject === "matematyka-4-6") return MATH_QUESTIONS.slice(0, 4);
+    if (subject === "matematyka-7-8") return MATH_QUESTIONS;
+    if (subject === "angielski-4-6") return ENG_SP_QUESTIONS.slice(0, 3);
+    if (subject === "angielski-7-8") return ENG_SP_QUESTIONS;
     return ENG_LICEUM_QUESTIONS;
   };
 
@@ -365,23 +368,32 @@ export default function DiagnozaPage() {
     return { score, total: questions.length };
   };
 
+  const getSubjectLabel = (s: SubjectType) => {
+    switch (s) {
+      case "matematyka-4-6":
+        return "Matematyka (klasy 4–6)";
+      case "matematyka-7-8":
+        return "Matematyka (klasy 7–8 & Egzamin Ósmoklasisty)";
+      case "angielski-4-6":
+        return "Język Angielski (klasy 4–6)";
+      case "angielski-7-8":
+        return "Język Angielski (klasy 7–8 & Egzamin Ósmoklasisty)";
+      case "angielski-liceum":
+        return "Język Angielski (Liceum / Matura Podstawowa & Rozszerzona)";
+    }
+  };
+
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
-    const subjectName =
-      subject === "matematyka-sp"
-        ? "Matematyka (kl. 4–8 & E8)"
-        : subject === "angielski-sp"
-        ? "Język Angielski (kl. 4–8 & E8)"
-        : "Język Angielski (Liceum / Matura)";
 
-    let text = `📄 PEŁNY RAPORT DIAGNOSTYCZNY:\n`;
+    let text = `📄 RAPORT DIAGNOSTYCZNY:\n`;
     text += `👤 Uczeń: ${studentName || "Nie podano"}\n`;
     text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
-    text += `📚 Przedmiot: ${subjectName}\n`;
+    text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
     text += `⭐ Ocena w szkole: ${grade}\n`;
-    text += `🎯 Cel docelowy: ${goal}\n\n`;
+    text += `🎯 Cel z lekcji / Co chcesz osiągnąć: ${goal || "Nie podano"}\n\n`;
     text += `📊 WYNIK TESTU WIEDZY TWARDEJ: ${score} / ${total} poprawnych\n\n`;
 
     text += `--- SZCZEGÓŁY ODPOWIEDZI ---\n`;
@@ -390,7 +402,7 @@ export default function DiagnozaPage() {
       text += `${idx + 1}. ${q.question}\n   -> Odpowiedź: ${ans}\n`;
     });
 
-    if (subject === "matematyka-sp") {
+    if (subject.startsWith("matematyka")) {
       text += `\n--- MAPA POJĘĆ MATEMATYCZNYCH ---\n`;
       MATH_CONCEPT_MAP.forEach((c) => {
         text += `- ${c}: ${conceptMap[c] || "Brak oceny"}\n`;
@@ -400,8 +412,8 @@ export default function DiagnozaPage() {
       }
     }
 
-    if (subject === "angielski-sp") {
-      text += `\n--- SAMOOCENA SPRAWNOŚCI (ANGIELSKI SP) ---\n`;
+    if (subject.startsWith("angielski-4") || subject.startsWith("angielski-7")) {
+      text += `\n--- SAMOOCENA SPRAWNOŚCI (ANGIELSKI) ---\n`;
       text += `- Mówienie: ${speakingEval}\n`;
       text += `- Słuchanie: ${listeningEval}\n`;
       text += `- Pisanie: ${writingEvalSP}\n`;
@@ -488,7 +500,7 @@ export default function DiagnozaPage() {
               className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 space-y-6"
             >
               <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
-                CZĘŚĆ 1: Dane ucznia i główny cel
+                CZĘŚĆ 1: Dane ucznia i Twój cel
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -513,7 +525,7 @@ export default function DiagnozaPage() {
                     type="text"
                     value={schoolClass}
                     onChange={(e) => setSchoolClass(e.target.value)}
-                    placeholder="np. 7 klasa podstawówki, 2 klasa liceum"
+                    placeholder="np. 6 klasa, 8 klasa E8, 2 klasa liceum"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   />
                 </div>
@@ -532,26 +544,37 @@ export default function DiagnozaPage() {
                 />
               </div>
 
+              {/* 5 KAFELKÓW DO WYBORU */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Przedmiot i poziom *
+                  Wybierz przedmiot i poziom *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     {
-                      id: "matematyka-sp",
+                      id: "matematyka-4-6",
                       label: "📐 Matematyka",
-                      sub: "Szkoła Podstawowa (kl. 4–8 & E8)",
+                      sub: "Klasy 4–6 (podstawy rachunkowe i ułamki)",
                     },
                     {
-                      id: "angielski-sp",
-                      label: "🇬🇧 Angielski",
-                      sub: "Szkoła Podstawowa (kl. 4–8 & E8)",
+                      id: "matematyka-7-8",
+                      label: "📐 Matematyka",
+                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty",
+                    },
+                    {
+                      id: "angielski-4-6",
+                      label: "🇬🇧 Język Angielski",
+                      sub: "Klasy 4–6 (podstawy języka)",
+                    },
+                    {
+                      id: "angielski-7-8",
+                      label: "🇬🇧 Język Angielski",
+                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty",
                     },
                     {
                       id: "angielski-liceum",
-                      label: "🎓 Angielski",
-                      sub: "Liceum / Matura (Podst. & Rozszerz.)",
+                      label: "🎓 Język Angielski",
+                      sub: "Liceum / Matura (Podstawowa & Rozszerzona)",
                     },
                   ].map((item) => (
                     <button
@@ -593,31 +616,18 @@ export default function DiagnozaPage() {
                 </div>
               </div>
 
+              {/* WOLNE POLE TEKSTOWE NA CEL */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">
-                  Ocena / Wynik docelowy, który w 100% Cię usatysfakcjonuje:
+                  Co chciałbyś / chciałabyś ze mną osiągnąć? (Twój cel):
                 </label>
-                <select
+                <textarea
+                  rows={3}
                   value={goal}
                   onChange={(e) => setGoal(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                >
-                  <option value="Egzamin Ósmoklasisty (cel: 80-100% i dobre liceum)">
-                    Egzamin Ósmoklasisty (cel: 80-100% i dobre liceum)
-                  </option>
-                  <option value="Matura Podstawowa z Angielskiego (cel: 80-100%)">
-                    Matura Podstawowa z Angielskiego (cel: 80-100%)
-                  </option>
-                  <option value="Matura Rozszerzona z Angielskiego (cel: 70-90%+ pod studia)">
-                    Matura Rozszerzona z Angielskiego (cel: 70-90%+ pod studia)
-                  </option>
-                  <option value="Przełamanie oporu przed mówieniem po angielsku">
-                    Przełamanie oporu przed mówieniem po angielsku
-                  </option>
-                  <option value="Podniesienie oceny szkolnej o 1-2 stopnie w górę">
-                    Podniesienie oceny szkolnej o 1-2 stopnie w górę
-                  </option>
-                </select>
+                  placeholder="np. Wysoki wynik na egzaminie / maturze, podniesienie oceny w szkole, przełamanie oporu w mówieniu po angielsku, ogólne podniesienie poziomu języka..."
+                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                />
               </div>
 
               <div className="pt-4 flex justify-end">
@@ -693,8 +703,8 @@ export default function DiagnozaPage() {
                 ))}
               </div>
 
-              {/* MATEMATYKA SP: MAPA POJĘĆ & TRUDNOŚCI */}
-              {subject === "matematyka-sp" && (
+              {/* MATEMATYKA: MAPA POJĘĆ & TRUDNOŚCI */}
+              {subject.startsWith("matematyka") && (
                 <>
                   <div className="pt-6 border-t border-slate-100 space-y-4">
                     <h3 className="font-bold text-slate-900 text-base">
@@ -770,7 +780,7 @@ export default function DiagnozaPage() {
               )}
 
               {/* ANGIELSKI SP: SAMOOCENA & SŁOWNICTWO */}
-              {subject === "angielski-sp" && (
+              {(subject === "angielski-4-6" || subject === "angielski-7-8") && (
                 <>
                   <div className="pt-6 border-t border-slate-100 space-y-4">
                     <h3 className="font-bold text-slate-900 text-base">
@@ -1045,7 +1055,9 @@ export default function DiagnozaPage() {
               <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs sm:text-sm space-y-2 text-slate-700">
                 <div><strong className="text-slate-900">Uczeń:</strong> {studentName} ({schoolClass})</div>
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
-                <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade} | <strong className="text-slate-900">Cel:</strong> {goal}</div>
+                <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
+                <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
+                <div><strong className="text-slate-900">Cel z lekcji:</strong> {goal || "Brak (ogólna nauka)"}</div>
               </div>
 
               {/* Przyciski wysyłki */}
