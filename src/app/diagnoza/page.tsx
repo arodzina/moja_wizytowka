@@ -673,7 +673,47 @@ export default function DiagnozaPage() {
 
   const [copied, setCopied] = useState(false);
 
+  // Dynamiczne dopasowywanie pytań na podstawie celu (oraz mądre nadrabianie zaległości z niższych klas!)
   const getQuestions = (): Question[] => {
+    // JEŚLI UCZEŃ CHCE NADRABIĆ ZALEGŁOŚCI:
+    if (selectedGoal === "nadrabianie") {
+      if (subject === "matematyka-7-8") {
+        // Dodajemy kluczowe fundamenty z klas 4–6 (ułamki, nawiasy, minusy), aby wykryć źródło zaległości!
+        return [
+          MATH_QUESTIONS_46[0], // Kolejność działań z nawiasami
+          MATH_QUESTIONS_46[2], // Ułamki zwykłe
+          MATH_QUESTIONS_46[4], // Liczby ujemne
+          MATH_QUESTIONS_78[0], // Potęgi
+          MATH_QUESTIONS_78[2], // Procenty
+          MATH_QUESTIONS_78[3], // Równanie z nawiasami
+        ];
+      }
+      if (subject === "angielski-7-8") {
+        // Dodajemy fundamenty A1/A2 z klas 4-6 przed gramatyką E8
+        return [
+          ENG_QUESTIONS_46[0], // Present Simple
+          ENG_QUESTIONS_46[3], // Past Simple (bought)
+          ENG_QUESTIONS_78[0], // Past Continuous
+          ENG_QUESTIONS_78[1], // Present Perfect
+          ENG_QUESTIONS_78[3], // 1st Conditional
+        ];
+      }
+      if (subject.startsWith("angielski-liceum") || subject.startsWith("angielski-matura")) {
+        // Dla licealistów z zaległościami dodajemy czasy z E8 przed składnią licealną
+        return [
+          ENG_QUESTIONS_78[0], // Past Continuous
+          ENG_QUESTIONS_78[1], // Present Perfect
+          ENG_LIC_BIEZACY[0], // Present Perfect vs Past Simple
+          ENG_LIC_BIEZACY[1], // Czasowniki modalne
+          ENG_LIC_BIEZACY[2], // Przyimki
+        ];
+      }
+      if (subject === "matematyka-4-6") {
+        return MATH_QUESTIONS_46.slice(0, 5);
+      }
+    }
+
+    // JEŚLI UCZEŃ UCY SIĘ POD EGZAMIN (E8 / MATURA):
     if (selectedGoal === "egzamin") {
       if (subject === "matematyka-4-6") return MATH_QUESTIONS_46;
       if (subject === "matematyka-7-8") return MATH_QUESTIONS_78;
@@ -684,6 +724,7 @@ export default function DiagnozaPage() {
       return ENG_LIC_BIEZACY;
     }
 
+    // DOMYŚLNY ZESTAW DLA BIEŻĄCEJ NAUKI / OCEN:
     if (subject === "matematyka-4-6") return MATH_QUESTIONS_46.slice(0, 5);
     if (subject === "matematyka-7-8") return MATH_QUESTIONS_78.slice(0, 5);
     if (subject === "angielski-4-6") return ENG_QUESTIONS_46.slice(0, 4);
@@ -770,7 +811,6 @@ export default function DiagnozaPage() {
     }
   };
 
-  // CZYSTY RAPORT DLA UCZNIA
   const buildSummaryText = () => {
     const questions = getQuestions();
     const { score, total } = calculateScore();
@@ -838,7 +878,7 @@ export default function DiagnozaPage() {
     return p;
   };
 
-  // AUTOMATYCZNE BEZPOŚREDNIE ZAPISYWANIE RAPORTU W TLE JAKO PLIK .TXT PO WEJŚCIU W KROK 3
+  // AUTOMATYCZNE ZAPISYWANIE W TLE NATYCHMIAST PO WEJŚCIU W KROK 3
   useEffect(() => {
     if (step === 3 && studentName) {
       const summary = buildSummaryText();
