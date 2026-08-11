@@ -12,7 +12,8 @@ type SubjectType =
   | "matematyka-7-8"
   | "angielski-4-6"
   | "angielski-7-8"
-  | "angielski-liceum";
+  | "angielski-matura-podstawowa"
+  | "angielski-matura-rozszerzona";
 
 interface Question {
   id: string;
@@ -344,6 +345,7 @@ export default function DiagnozaPage() {
     if (subject === "matematyka-7-8") return MATH_QUESTIONS;
     if (subject === "angielski-4-6") return ENG_SP_QUESTIONS.slice(0, 3);
     if (subject === "angielski-7-8") return ENG_SP_QUESTIONS;
+    if (subject === "angielski-matura-podstawowa") return ENG_LICEUM_QUESTIONS.slice(0, 3);
     return ENG_LICEUM_QUESTIONS;
   };
 
@@ -378,8 +380,10 @@ export default function DiagnozaPage() {
         return "Język Angielski (klasy 4–6)";
       case "angielski-7-8":
         return "Język Angielski (klasy 7–8 & Egzamin Ósmoklasisty)";
-      case "angielski-liceum":
-        return "Język Angielski (Liceum / Matura Podstawowa & Rozszerzona)";
+      case "angielski-matura-podstawowa":
+        return "Język Angielski (Liceum / Matura Podstawowa)";
+      case "angielski-matura-rozszerzona":
+        return "Język Angielski (Liceum / Matura Rozszerzona)";
     }
   };
 
@@ -413,7 +417,7 @@ export default function DiagnozaPage() {
     }
 
     if (subject.startsWith("angielski-4") || subject.startsWith("angielski-7")) {
-      text += `\n--- SAMOOCENA SPRAWNOŚCI (ANGIELSKI) ---\n`;
+      text += `\n--- SAMOOCENA SPRAWNOŚCI (ANGIELSKI SP) ---\n`;
       text += `- Mówienie: ${speakingEval}\n`;
       text += `- Słuchanie: ${listeningEval}\n`;
       text += `- Pisanie: ${writingEvalSP}\n`;
@@ -423,7 +427,7 @@ export default function DiagnozaPage() {
       }
     }
 
-    if (subject === "angielski-liceum") {
+    if (subject.startsWith("angielski-matura")) {
       text += `\n--- SAMOOCENA MATURALNA ---\n`;
       text += `- Wypowiedź pisemna: ${writingEvalLic}\n`;
       text += `- Matura Ustna: ${oralMaturaEvalLic}\n`;
@@ -544,7 +548,7 @@ export default function DiagnozaPage() {
                 />
               </div>
 
-              {/* 5 KAFELKÓW DO WYBORU */}
+              {/* KAFELKI DO WYBORU (PODZIELONA MATURA) */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   Wybierz przedmiot i poziom *
@@ -572,9 +576,14 @@ export default function DiagnozaPage() {
                       sub: "Klasy 7–8 & Egzamin Ósmoklasisty",
                     },
                     {
-                      id: "angielski-liceum",
-                      label: "🎓 Język Angielski",
-                      sub: "Liceum / Matura (Podstawowa & Rozszerzona)",
+                      id: "angielski-matura-podstawowa",
+                      label: "🎓 Język Angielski — Liceum",
+                      sub: "Matura Podstawowa (B1/B2)",
+                    },
+                    {
+                      id: "angielski-matura-rozszerzona",
+                      label: "🎓 Język Angielski — Liceum",
+                      sub: "Matura Rozszerzona (B2+/C1)",
                     },
                   ].map((item) => (
                     <button
@@ -625,7 +634,7 @@ export default function DiagnozaPage() {
                   rows={3}
                   value={goal}
                   onChange={(e) => setGoal(e.target.value)}
-                  placeholder="np. Wysoki wynik na egzaminie / maturze, podniesienie oceny w szkole, przełamanie oporu w mówieniu po angielsku, ogólne podniesienie poziomu języka..."
+                  placeholder="np. Wysoki wynik na egzaminie / maturze, podniesienie oceny w szkole, przełamanie oporu w mówieniu po angielsku, ogólne podniesienie poziomu..."
                   className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                 />
               </div>
@@ -914,7 +923,7 @@ export default function DiagnozaPage() {
               )}
 
               {/* ANGIELSKI LICEUM: SPRAWNOŚCI MATURALNE */}
-              {subject === "angielski-liceum" && (
+              {subject.startsWith("angielski-matura") && (
                 <div className="pt-6 border-t border-slate-100 space-y-4">
                   <h3 className="font-bold text-slate-900 text-base">
                     CZĘŚĆ C2: Sprawności maturalne (Samoocena)
