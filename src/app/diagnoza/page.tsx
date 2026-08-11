@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Send, Sparkles, HeartHandshake } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -22,275 +22,566 @@ interface Question {
   options: { label: string; isCorrect: boolean }[];
 }
 
-const MATH_QUESTIONS: Question[] = [
+/* 🎒 POZIOM 1: MATEMATYKA (KLASY 4–6) */
+const MATH_QUESTIONS_46: Question[] = [
   {
-    id: "m1",
-    levelLabel: "🟢 Poziom 1: Podstawy rachunkowe i ułamki (kl. 4–6)",
-    question: "Kolejność działań: 4 + 2 · (6 - 3) = ?",
+    id: "m46_1",
+    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    question: "Kolejność działań: (15 - 3) : 3 + 2 = ?",
     options: [
-      { label: "18", isCorrect: false },
-      { label: "10", isCorrect: true },
-      { label: "14", isCorrect: false },
+      { label: "2", isCorrect: false },
+      { label: "6", isCorrect: true },
+      { label: "4", isCorrect: false },
+      { label: "8", isCorrect: false },
       { label: "Nie wiem / gubię się w nawiasach", isCorrect: false },
     ],
   },
   {
-    id: "m2",
-    levelLabel: "🟢 Poziom 1: Podstawy rachunkowe i ułamki (kl. 4–6)",
-    question: "Ułamki zwykłe: ⅔ + ¼ = ?",
+    id: "m46_2",
+    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    question: "Dzielenie z resztą: Podziel 29 : 4. Jaki jest wynik i reszta?",
     options: [
-      { label: "¾", isCorrect: false },
-      { label: "⅖", isCorrect: false },
-      { label: "¹¹/₁₂", isCorrect: true },
+      { label: "6 r 5", isCorrect: false },
+      { label: "7 r 1", isCorrect: true },
+      { label: "7 r 2", isCorrect: false },
+      { label: "6 r 1", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "m46_3",
+    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    question: "Ułamki zwykłe: Oblicz: 3/5 + 1/2 = ?",
+    options: [
+      { label: "4/7", isCorrect: false },
+      { label: "1 1/10 (11/10)", isCorrect: true },
+      { label: "4/10", isCorrect: false },
+      { label: "2/5", isCorrect: false },
       { label: "Nie umiem sprowadzać do wspólnego mianownika", isCorrect: false },
     ],
   },
   {
-    id: "m3",
-    levelLabel: "🟢 Poziom 1: Podstawy rachunkowe i ułamki (kl. 4–6)",
-    question: "Ułamki dziesiętne: 1,5 · 0,4 = ?",
+    id: "m46_4",
+    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    question: "Ułamki dziesiętne: Oblicz: 3,2 - 0,45 = ?",
     options: [
-      { label: "0,6", isCorrect: true },
-      { label: "6", isCorrect: false },
-      { label: "0,06", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "2,75", isCorrect: true },
+      { label: "2,85", isCorrect: false },
+      { label: "3,25", isCorrect: false },
+      { label: "2,65", isCorrect: false },
+      { label: "Gubię się w przecinkach", isCorrect: false },
     ],
   },
   {
-    id: "m4",
-    levelLabel: "🟢 Poziom 1: Podstawy rachunkowe i ułamki (kl. 4–6)",
-    question: "Liczby ujemne: -7 - (-12) = ?",
+    id: "m46_5",
+    levelLabel: "🧮 Dział 1: Działania na liczbach i ułamkach",
+    question: "Liczby ujemne: Oblicz: -8 + 5 = ?",
     options: [
-      { label: "-19", isCorrect: false },
-      { label: "5", isCorrect: true },
-      { label: "-5", isCorrect: false },
+      { label: "-13", isCorrect: false },
+      { label: "-3", isCorrect: true },
+      { label: "3", isCorrect: false },
+      { label: "13", isCorrect: false },
       { label: "Gubię się przy minusach", isCorrect: false },
     ],
   },
   {
-    id: "m5",
-    levelLabel: "🟡 Poziom 2: Równania, Procenty i Potęgi (kl. 7–8 / E8)",
-    question: "Równania: Rozwiąż: 3x - 4 = 2(x + 3). Ile wynosi x?",
+    id: "m46_6",
+    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
+    question: "Proste równanie: Rozwiąż: 4x = 28. Ile wynosi x?",
     options: [
-      { label: "x = 10", isCorrect: true },
-      { label: "x = 2", isCorrect: false },
-      { label: "x = 7", isCorrect: false },
-      { label: "Nie potrafię przekształcać równań", isCorrect: false },
+      { label: "x = 6", isCorrect: false },
+      { label: "x = 7", isCorrect: true },
+      { label: "x = 24", isCorrect: false },
+      { label: "x = 112", isCorrect: false },
+      { label: "Nie wiem, jak to policzyć", isCorrect: false },
     ],
   },
   {
-    id: "m6",
-    levelLabel: "🟡 Poziom 2: Równania, Procenty i Potęgi (kl. 7–8 / E8)",
-    question: "Procenty: Towar kosztował 200 zł. Cenę podniesiono o 20%, a potem obniżono o 10%. Cena końcowa = ?",
+    id: "m46_7",
+    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
+    question: "Pole prostokąta: Prostokąt ma boki 6 cm i 9 cm. Ile wynosi jego pole (P)?",
     options: [
-      { label: "216 zł", isCorrect: true },
-      { label: "220 zł", isCorrect: false },
-      { label: "200 zł", isCorrect: false },
-      { label: "Procenty sprawiają mi duży kłopot", isCorrect: false },
+      { label: "30 cm²", isCorrect: false },
+      { label: "54 cm²", isCorrect: true },
+      { label: "27 cm²", isCorrect: false },
+      { label: "15 cm²", isCorrect: false },
+      { label: "Nie pamiętam wzoru", isCorrect: false },
     ],
   },
   {
-    id: "m7",
-    levelLabel: "🟡 Poziom 2: Równania, Procenty i Potęgi (kl. 7–8 / E8)",
-    question: "Potęgi i Pierwiastki: Wyłącz czynnik przed pierwiastek z √72:",
+    id: "m46_8",
+    levelLabel: "📐 Dział 2: Równania i Geometria kl. 4–6",
+    question: "Pole trójkąta: Podstawa wynosi 10 cm, a wysokość 4 cm. Pole P = ?",
+    options: [
+      { label: "40 cm²", isCorrect: false },
+      { label: "20 cm²", isCorrect: true },
+      { label: "14 cm²", isCorrect: false },
+      { label: "80 cm²", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+];
+
+/* 🎒 POZIOM 2: MATEMATYKA (KLASY 7–8 / EGZAMIN ÓSMOKLASISTY E8) */
+const MATH_QUESTIONS_78: Question[] = [
+  {
+    id: "m78_1",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Potęgi: Oblicz: 2^3 · 2^4 = ?",
+    options: [
+      { label: "2^12", isCorrect: false },
+      { label: "2^7 (128)", isCorrect: true },
+      { label: "4^7", isCorrect: false },
+      { label: "2^1", isCorrect: false },
+      { label: "Nie pamiętam wzorów na potęgi", isCorrect: false },
+    ],
+  },
+  {
+    id: "m78_2",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Pierwiastki: Wyłącz czynnik przed pierwiastek: √72 = ?",
     options: [
       { label: "6√2", isCorrect: true },
       { label: "2√6", isCorrect: false },
       { label: "36√2", isCorrect: false },
-      { label: "Nie pamiętam wzorów na pierwiastki", isCorrect: false },
+      { label: "3√8", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "m8",
-    levelLabel: "🔴 Poziom 3: Geometria i Twierdzenia (kl. 8 / E8)",
-    question: "Geometria płaska: Pole trapezu o podstawach 6 cm, 10 cm i wysokości 4 cm wynosi:",
+    id: "m78_3",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Procenty: Obniżono cenę kurtki ze 150 zł na 120 zł. O ile procent obniżono cenę?",
     options: [
-      { label: "64 cm²", isCorrect: false },
-      { label: "32 cm²", isCorrect: true },
-      { label: "40 cm²", isCorrect: false },
-      { label: "Nie pamiętam wzoru na trapez", isCorrect: false },
+      { label: "o 30%", isCorrect: false },
+      { label: "o 20%", isCorrect: true },
+      { label: "o 25%", isCorrect: false },
+      { label: "o 15%", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "m9",
-    levelLabel: "🔴 Poziom 3: Geometria i Twierdzenia (kl. 8 / E8)",
-    question: "Twierdzenie Pitagorasa: W trójkącie prostokątnym a = 6 cm, c = 10 cm. Przyprostokątna b = ?",
+    id: "m78_4",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Równanie z nawiasami: Rozwiąż równanie: 2(x - 3) = x + 4. Ile wynosi x?",
+    options: [
+      { label: "x = 10", isCorrect: true },
+      { label: "x = 7", isCorrect: false },
+      { label: "x = 1", isCorrect: false },
+      { label: "x = -2", isCorrect: false },
+      { label: "Gubię się w równaniach", isCorrect: false },
+    ],
+  },
+  {
+    id: "m78_5",
+    levelLabel: "🔴 Geometria & Twierdzenia E8",
+    question: "Twierdzenie Pitagorasa: W trójkącie prostokątnym przyprostokątne mają 5 cm i 12 cm. Przeciwprostokątna wynosi:",
+    options: [
+      { label: "17 cm", isCorrect: false },
+      { label: "13 cm", isCorrect: true },
+      { label: "169 cm", isCorrect: false },
+      { label: "7 cm", isCorrect: false },
+      { label: "Nie umiem Pitagorasa", isCorrect: false },
+    ],
+  },
+  {
+    id: "m78_6",
+    levelLabel: "🔴 Geometria & Twierdzenia E8",
+    question: "Trójkąt 30-60-90: Przyprostokątna naprzeciw kąta 30° wynosi 4 cm. Przeciwprostokątna wynosi:",
     options: [
       { label: "8 cm", isCorrect: true },
-      { label: "4 cm", isCorrect: false },
-      { label: "√136 cm", isCorrect: false },
-      { label: "Nie pamiętam twierdzenia Pitagorasa", isCorrect: false },
+      { label: "4√3 cm", isCorrect: false },
+      { label: "4√2 cm", isCorrect: false },
+      { label: "12 cm", isCorrect: false },
+      { label: "Nie znam trójkąta 30-60-90", isCorrect: false },
     ],
   },
   {
-    id: "m10",
-    levelLabel: "🔴 Poziom 3: Geometria i Twierdzenia (kl. 8 / E8)",
-    question: "Stereometria (Bryły): Objętość sześcianu o krawędzi a = 4 cm wynosi:",
+    id: "m78_7",
+    levelLabel: "🟡 Zadania z treścią E8",
+    question: "Prędkość (s = v · t): Samochód jechał ze średnią prędkością 60 km/h przez 2,5 godziny. Jaką drogę pokonał?",
     options: [
-      { label: "16 cm³", isCorrect: false },
-      { label: "48 cm³", isCorrect: false },
-      { label: "64 cm³", isCorrect: true },
-      { label: "Gubię się w geometrii przestrzennej", isCorrect: false },
+      { label: "120 km", isCorrect: false },
+      { label: "150 km", isCorrect: true },
+      { label: "180 km", isCorrect: false },
+      { label: "125 km", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "m78_8",
+    levelLabel: "🟡 Statystyka & Prawdopodobieństwo E8",
+    question: "Prawdopodobieństwo: W torbie są 3 kulki białe i 7 czarnych. Jakie jest prawdopodobieństwo wyciągnięcia kulki białej?",
+    options: [
+      { label: "3/7", isCorrect: false },
+      { label: "3/10", isCorrect: true },
+      { label: "1/3", isCorrect: false },
+      { label: "7/10", isCorrect: false },
+      { label: "Nie umiem prawdopodobieństwa", isCorrect: false },
     ],
   },
 ];
 
-const ENG_SP_QUESTIONS: Question[] = [
+/* 🎒 POZIOM 1: ANGIELSKI (KLASY 4–6 / A1–A2) */
+const ENG_QUESTIONS_46: Question[] = [
   {
-    id: "e_sp1",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1/A2)",
-    question: "Present Simple vs Continuous: Listen! She __________ the piano in her room right now.",
+    id: "e46_1",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Present Simple: My brother __________ TV every evening.",
     options: [
-      { label: "plays", isCorrect: false },
-      { label: "is playing", isCorrect: true },
-      { label: "played", isCorrect: false },
+      { label: "watch", isCorrect: false },
+      { label: "watches", isCorrect: true },
+      { label: "is watching", isCorrect: false },
+      { label: "watched", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_2",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Present Continuous: Listen! Somebody __________ at the door.",
+    options: [
+      { label: "knocks", isCorrect: false },
+      { label: "is knocking", isCorrect: true },
+      { label: "knocked", isCorrect: false },
+      { label: "are knocking", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_3",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Past Simple (was/were): Where __________ you yesterday at 5 o'clock?",
+    options: [
+      { label: "was", isCorrect: false },
+      { label: "were", isCorrect: true },
+      { label: "are", isCorrect: false },
+      { label: "be", isCorrect: false },
+      { label: "Nie pamiętam", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_4",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Past Simple (Nieregularne): She __________ a new bike last month.",
+    options: [
+      { label: "buyed", isCorrect: false },
+      { label: "bought", isCorrect: true },
+      { label: "buys", isCorrect: false },
+      { label: "is buying", isCorrect: false },
+      { label: "Nie znam czasowników nieregularnych", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_5",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Stopniowanie: An elephant is __________ than a dog.",
+    options: [
+      { label: "bigger", isCorrect: true },
+      { label: "more big", isCorrect: false },
+      { label: "the biggest", isCorrect: false },
+      { label: "as big", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e46_6",
+    levelLabel: "🟢 Poziom 1: Podstawy (A1–A2)",
+    question: "Określniki ilości: How __________ milk do we need for the cake?",
+    options: [
+      { label: "many", isCorrect: false },
+      { label: "much", isCorrect: true },
+      { label: "any", isCorrect: false },
+      { label: "some", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+];
+
+/* 🎒 POZIOM 2: ANGIELSKI (E8 / A2+–B1) */
+const ENG_QUESTIONS_78: Question[] = [
+  {
+    id: "e78_1",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Past Continuous: I __________ my homework when the phone rang.",
+    options: [
+      { label: "wrote", isCorrect: false },
+      { label: "was writing", isCorrect: true },
+      { label: "have written", isCorrect: false },
+      { label: "am writing", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "e78_2",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Present Perfect: She has lived in Cracow __________ 2018.",
+    options: [
+      { label: "for", isCorrect: false },
+      { label: "since", isCorrect: true },
+      { label: "ago", isCorrect: false },
+      { label: "from", isCorrect: false },
       { label: "Nie wiem", isCorrect: false },
     ],
   },
   {
-    id: "e_sp2",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1/A2)",
-    question: "Czasowniki nieregularne: Last weekend I __________ a big cake for my family.",
+    id: "e78_3",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Passive Voice (Strona bierna): This bridge __________ built in 1995.",
     options: [
-      { label: "make", isCorrect: false },
-      { label: "maked", isCorrect: false },
-      { label: "made", isCorrect: true },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "is", isCorrect: false },
+      { label: "was", isCorrect: true },
+      { label: "has", isCorrect: false },
+      { label: "were", isCorrect: false },
+      { label: "Nie znam strony biernej", isCorrect: false },
     ],
   },
   {
-    id: "e_sp3",
-    levelLabel: "🟢 Poziom 1: Podstawy (A1/A2)",
-    question: "Stopniowanie przymiotników: Football is __________ than tennis in Poland.",
+    id: "e78_4",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "1st Conditional: If it __________ tomorrow, we will stay at home.",
     options: [
-      { label: "popularer", isCorrect: false },
-      { label: "more popular", isCorrect: true },
-      { label: "most popular", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "rain", isCorrect: false },
+      { label: "rains", isCorrect: true },
+      { label: "will rain", isCorrect: false },
+      { label: "rained", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_sp4",
-    levelLabel: "🟡 Poziom 2: Średniozaawansowany (B1 / E8)",
-    question: "Present Perfect: Have you ever __________ to London?",
+    id: "e78_5",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "2nd Conditional: If I __________ a million dollars, I would buy an island.",
     options: [
-      { label: "be", isCorrect: false },
-      { label: "went", isCorrect: false },
-      { label: "been", isCorrect: true },
-      { label: "Nie znam tego czasu", isCorrect: false },
+      { label: "have", isCorrect: false },
+      { label: "had", isCorrect: true },
+      { label: "would have", isCorrect: false },
+      { label: "had had", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_sp5",
-    levelLabel: "🟡 Poziom 2: Średniozaawansowany (B1 / E8)",
-    question: "Czasowniki modalne: You __________ run in the school corridor. It's strictly forbidden!",
+    id: "e78_6",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Mowa zależna: He said that he __________ tired.",
     options: [
-      { label: "mustn't", isCorrect: true },
-      { label: "don't have to", isCorrect: false },
-      { label: "should", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "is", isCorrect: false },
+      { label: "was", isCorrect: true },
+      { label: "has been", isCorrect: false },
+      { label: "will be", isCorrect: false },
+      { label: "Nie pamiętam mowy zależnej", isCorrect: false },
     ],
   },
   {
-    id: "e_sp6",
-    levelLabel: "🟡 Poziom 2: Średniozaawansowany (B1 / E8)",
-    question: "Przyimki czasu/miejsca: The concert starts __________ 7 p.m. __________ Friday.",
+    id: "e78_7",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Zdania względne: The boy __________ won the competition is my classmate.",
     options: [
-      { label: "in / at", isCorrect: false },
-      { label: "at / on", isCorrect: true },
-      { label: "on / at", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "which", isCorrect: false },
+      { label: "who", isCorrect: true },
+      { label: "whose", isCorrect: false },
+      { label: "where", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_sp7",
-    levelLabel: "🟡 Poziom 2: Średniozaawansowany (B1 / E8)",
-    question: "Reakcje językowe: Jak powiesz po angielsku 'Czy możesz mi pomóc?':",
+    id: "e78_8",
+    levelLabel: "🟡 Egzamin Ósmoklasisty E8",
+    question: "Konstrukcja used to: When I was young, I __________ play football every day.",
     options: [
-      { label: "Could you give me a hand?", isCorrect: true },
-      { label: "Do you have help?", isCorrect: false },
-      { label: "Are you helping me?", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "used to", isCorrect: true },
+      { label: "use to", isCorrect: false },
+      { label: "was used to", isCorrect: false },
+      { label: "usually", isCorrect: false },
+      { label: "Nie znam tej konstrukcji", isCorrect: false },
     ],
   },
 ];
 
-const ENG_LICEUM_QUESTIONS: Question[] = [
+/* 🎓 POZIOM 3: MATURA PODSTAWOWA ANGIELSKI (B1–B2) */
+const ENG_MATURA_PODSTAWOWA: Question[] = [
   {
-    id: "e_lic1",
-    levelLabel: "🟢 Poziom 1: Matura Podstawowa (B1/B2)",
-    question: "Passive Voice (Strona bierna): A new sports center __________ in our town next month.",
+    id: "emp_1",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "Past Perfect: By the time we arrived at the cinema, the movie __________ .",
     options: [
-      { label: "will build", isCorrect: false },
-      { label: "is being built", isCorrect: true },
-      { label: "has built", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "already started", isCorrect: false },
+      { label: "had already started", isCorrect: true },
+      { label: "was starting", isCorrect: false },
+      { label: "starts", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_lic2",
-    levelLabel: "🟢 Poziom 1: Matura Podstawowa (B1/B2)",
-    question: "Reported Speech (Mowa zależna): 'I bought a new car yesterday.' -> She said she __________ a new car the day before.",
+    id: "emp_2",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "Future Perfect: By 2030, scientists __________ a cure for this disease.",
     options: [
-      { label: "bought", isCorrect: false },
-      { label: "had bought", isCorrect: true },
-      { label: "buys", isCorrect: false },
-      { label: "Nie znam mowy zależnej", isCorrect: false },
+      { label: "will find", isCorrect: false },
+      { label: "will have found", isCorrect: true },
+      { label: "find", isCorrect: false },
+      { label: "have found", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_lic3",
-    levelLabel: "🟢 Poziom 1: Matura Podstawowa (B1/B2)",
-    question: "Conditionals (Okresy warunkowe): If I had studied harder, I __________ the exam last week.",
+    id: "emp_3",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "Have something done: I need to __________ my car serviced before the trip.",
     options: [
-      { label: "would pass", isCorrect: false },
-      { label: "would have passed", isCorrect: true },
-      { label: "will pass", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "have", isCorrect: true },
+      { label: "do", isCorrect: false },
+      { label: "make", isCorrect: false },
+      { label: "get to", isCorrect: false },
+      { label: "Nie znam tej konstrukcji", isCorrect: false },
     ],
   },
   {
-    id: "e_lic4",
-    levelLabel: "🔴 Poziom 2: Matura Rozszerzona & C1 (B2+/C1)",
-    question: "Phrasal Verbs: I really can't __________ up with his constant complaining any longer.",
+    id: "emp_4",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "3rd Conditional: If you had told me earlier, I __________ you.",
     options: [
-      { label: "put", isCorrect: true },
-      { label: "take", isCorrect: false },
-      { label: "keep", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "would help", isCorrect: false },
+      { label: "would have helped", isCorrect: true },
+      { label: "will help", isCorrect: false },
+      { label: "had helped", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_lic5",
-    levelLabel: "🔴 Poziom 2: Matura Rozszerzona & C1 (B2+/C1)",
-    question: "Inwersja stylistyczna: Under no circumstances __________ leave the room during the test.",
+    id: "emp_5",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "I wish / If only: I wish I __________ so much money yesterday.",
     options: [
-      { label: "you should", isCorrect: false },
-      { label: "should you", isCorrect: true },
-      { label: "you would", isCorrect: false },
+      { label: "didn't spend", isCorrect: false },
+      { label: "hadn't spent", isCorrect: true },
+      { label: "don't spend", isCorrect: false },
+      { label: "wouldn't spend", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emp_6",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "Czasowniki modalne w przeszłości: He didn't answer the phone. He __________ slept.",
+    options: [
+      { label: "must have", isCorrect: true },
+      { label: "should have", isCorrect: false },
+      { label: "can have", isCorrect: false },
+      { label: "had to", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emp_7",
+    levelLabel: "🎓 Matura Podstawowa (B1–B2)",
+    question: "Czasowniki wprowadzające w mowie zależnej: She __________ me to turn off the lights.",
+    options: [
+      { label: "reminded", isCorrect: true },
+      { label: "suggested", isCorrect: false },
+      { label: "insisted", isCorrect: false },
+      { label: "explained", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+];
+
+/* 🚀 POZIOM 4: MATURA ROZSZERZONA ANGIELSKI (B2+–C1) */
+const ENG_MATURA_ROZSZERZONA: Question[] = [
+  {
+    id: "emr_1",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Inwersja stylistyczna: Hardly __________ into the house when the lights went out.",
+    options: [
+      { label: "I stepped", isCorrect: false },
+      { label: "had I stepped", isCorrect: true },
+      { label: "did I step", isCorrect: false },
+      { label: "I had stepped", isCorrect: false },
       { label: "Nie znam inwersji", isCorrect: false },
     ],
   },
   {
-    id: "e_lic6",
-    levelLabel: "🔴 Poziom 2: Matura Rozszerzona & C1 (B2+/C1)",
-    question: "Konstrukcje Wish / Hypothetical: I wish I __________ more time for my hobbies these days.",
+    id: "emr_2",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Inwersja z Under no circumstances: Under no circumstances __________ leave the room without permission.",
     options: [
-      { label: "had", isCorrect: true },
-      { label: "have", isCorrect: false },
-      { label: "would have", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "you should", isCorrect: false },
+      { label: "should you", isCorrect: true },
+      { label: "you must", isCorrect: false },
+      { label: "must you to", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
   {
-    id: "e_lic7",
-    levelLabel: "🔴 Poziom 2: Matura Rozszerzona & C1 (B2+/C1)",
-    question: "Parafraza zdania: Although it was raining, they played football. -> In spite of the __________ weather, they played football.",
+    id: "emr_3",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Mixed Conditionals: If I __________ that exam 5 years ago, I would be working as a doctor now.",
     options: [
-      { label: "rainy / raining", isCorrect: true },
-      { label: "rainily", isCorrect: false },
-      { label: "rained", isCorrect: false },
-      { label: "Zgaduję", isCorrect: false },
+      { label: "passed", isCorrect: false },
+      { label: "had passed", isCorrect: true },
+      { label: "would pass", isCorrect: false },
+      { label: "pass", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emr_4",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Participle Clauses (Imiesłowy): __________ the project, she finally took a long vacation.",
+    options: [
+      { label: "Having completed", isCorrect: true },
+      { label: "Completed", isCorrect: false },
+      { label: "Complete", isCorrect: false },
+      { label: "Completing to", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emr_5",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "It's high time: It's high time you __________ looking for a job.",
+    options: [
+      { label: "start", isCorrect: false },
+      { label: "started", isCorrect: true },
+      { label: "will start", isCorrect: false },
+      { label: "have started", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emr_6",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Phrasal Verbs C1: We had to __________ off the meeting due to the blizzard.",
+    options: [
+      { label: "call", isCorrect: true },
+      { label: "put", isCorrect: false },
+      { label: "turn", isCorrect: false },
+      { label: "take", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emr_7",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Phrasal Verbs C1 (Znosić kogoś): I can no longer put __________ with his arrogance.",
+    options: [
+      { label: "on", isCorrect: false },
+      { label: "up", isCorrect: true },
+      { label: "off", isCorrect: false },
+      { label: "out", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
+    ],
+  },
+  {
+    id: "emr_8",
+    levelLabel: "🚀 Matura Rozszerzona (B2+–C1)",
+    question: "Słowotwórstwo (Word Formation C1): The decision was completely __________ (EXPECTED). Nobody saw it coming.",
+    options: [
+      { label: "unexpected", isCorrect: true },
+      { label: "disexpected", isCorrect: false },
+      { label: "non-expected", isCorrect: false },
+      { label: "unexpecting", isCorrect: false },
+      { label: "Nie wiem / zgaduję", isCorrect: false },
     ],
   },
 ];
@@ -341,13 +632,21 @@ export default function DiagnozaPage() {
 
   const [copied, setCopied] = useState(false);
 
-  const getQuestions = () => {
-    if (subject === "matematyka-4-6") return MATH_QUESTIONS.slice(0, 4);
-    if (subject === "matematyka-7-8") return MATH_QUESTIONS;
-    if (subject === "angielski-4-6") return ENG_SP_QUESTIONS.slice(0, 3);
-    if (subject === "angielski-7-8") return ENG_SP_QUESTIONS;
-    if (subject === "angielski-matura-podstawowa") return ENG_LICEUM_QUESTIONS.slice(0, 3);
-    return ENG_LICEUM_QUESTIONS;
+  const getQuestions = (): Question[] => {
+    switch (subject) {
+      case "matematyka-4-6":
+        return MATH_QUESTIONS_46;
+      case "matematyka-7-8":
+        return MATH_QUESTIONS_78;
+      case "angielski-4-6":
+        return ENG_QUESTIONS_46;
+      case "angielski-7-8":
+        return ENG_QUESTIONS_78;
+      case "angielski-matura-podstawowa":
+        return ENG_MATURA_PODSTAWOWA;
+      case "angielski-matura-rozszerzona":
+        return ENG_MATURA_ROZSZERZONA;
+    }
   };
 
   const handleOptionSelect = (qId: string, optionLabel: string) => {
@@ -376,15 +675,15 @@ export default function DiagnozaPage() {
       case "matematyka-4-6":
         return "Matematyka (klasy 4–6)";
       case "matematyka-7-8":
-        return "Matematyka (klasy 7–8 & Egzamin Ósmoklasisty)";
+        return "Matematyka (klasy 7–8 & Egzamin Ósmoklasisty E8)";
       case "angielski-4-6":
-        return "Język Angielski (klasy 4–6)";
+        return "Język Angielski (klasy 4–6 / A1–A2)";
       case "angielski-7-8":
-        return "Język Angielski (klasy 7–8 & Egzamin Ósmoklasisty)";
+        return "Język Angielski (klasy 7–8 & Egzamin Ósmoklasisty E8)";
       case "angielski-matura-podstawowa":
-        return "Język Angielski (Liceum / Matura Podstawowa)";
+        return "Język Angielski — Liceum / Matura Podstawowa (B1–B2)";
       case "angielski-matura-rozszerzona":
-        return "Język Angielski (Liceum / Matura Rozszerzona)";
+        return "Język Angielski — Liceum / Matura Rozszerzona (B2+–C1)";
     }
   };
 
@@ -481,6 +780,14 @@ export default function DiagnozaPage() {
             Sprawdźmy spokojnie i bez stresu, jak Ci idzie, z czym czujesz się pewnie, a nad czym razem popracujemy!
           </p>
 
+          {/* BANER Z PROŚBĄ O SZCZERE WYPEŁNIANIE BEZ ŚCIĄGANIA */}
+          <div className="mt-6 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs sm:text-sm text-left flex items-start gap-3">
+            <HeartHandshake className="size-5 shrink-0 text-amber-600 mt-0.5" />
+            <p className="leading-relaxed font-medium">
+              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy innych osób. Dzięki temu na naszej darmowej 30-minutowej lekcji skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
+            </p>
+          </div>
+
           {/* Pasek postępu */}
           <div className="mt-8">
             <div className="flex items-center justify-between text-xs font-medium text-slate-500 mb-2">
@@ -568,17 +875,17 @@ export default function DiagnozaPage() {
                     {
                       id: "matematyka-7-8",
                       label: "📐 Matematyka",
-                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty",
+                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty E8",
                     },
                     {
                       id: "angielski-4-6",
                       label: "🇬🇧 Język Angielski",
-                      sub: "Klasy 4–6 (podstawy języka)",
+                      sub: "Klasy 4–6 (podstawy języka A1/A2)",
                     },
                     {
                       id: "angielski-7-8",
                       label: "🇬🇧 Język Angielski",
-                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty",
+                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty E8",
                     },
                     {
                       id: "angielski-matura-podstawowa",
@@ -675,7 +982,7 @@ export default function DiagnozaPage() {
                     Test wiedzy twardej & Samoocena
                   </h2>
                   <p className="text-xs text-slate-500 mt-1">
-                    Rozwiązuj samodzielnie bez ściągania. Przy każdym pytaniu możesz zaznaczyć "Nie wiem".
+                    Rozwiązuj samodzielnie bez kalkulatora i słowników. Przy każdym pytaniu masz opcję "Nie wiem".
                   </p>
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
@@ -683,7 +990,7 @@ export default function DiagnozaPage() {
                 </span>
               </div>
 
-              {/* PYTANIA TESTOWE */}
+              {/* PYTANIA TESTOWE (5 OPCJI DLA KAŻDEGO PYTANIA) */}
               <div className="space-y-6">
                 {currentQuestions.map((q, idx) => (
                   <div key={q.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-3">
@@ -695,20 +1002,27 @@ export default function DiagnozaPage() {
                       {q.question}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                      {q.options.map((opt) => {
+                      {q.options.map((opt, optIdx) => {
                         const isSelected = answers[q.id] === opt.label;
+                        const prefix = String.fromCharCode(65 + optIdx); // A, B, C, D, E
+                        const isLastOption = optIdx === q.options.length - 1;
+
                         return (
                           <button
                             key={opt.label}
                             type="button"
                             onClick={() => handleOptionSelect(q.id, opt.label)}
                             className={`px-4 py-2.5 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all ${
+                              isLastOption ? "sm:col-span-2" : ""
+                            } ${
                               isSelected
                                 ? "border-brand-500 bg-brand-600 text-white shadow-sm"
+                                : isLastOption
+                                ? "border-slate-200 bg-slate-100/70 text-slate-600 hover:border-slate-300 hover:bg-slate-200/60"
                                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-100/60"
                             }`}
                           >
-                            {opt.label}
+                            <span className="font-bold mr-1.5">{prefix})</span> {opt.label}
                           </button>
                         );
                       })}
@@ -790,7 +1104,7 @@ export default function DiagnozaPage() {
                       })}
                     </div>
 
-                    {/* MOŻLIWOŚĆ DOPISANIA WŁASNEJ ODPOWIEDZI W CZĘŚCI A3 */}
+                    {/* Dopisanie własnej odpowiedzi w A3 */}
                     <div className="pt-2">
                       <label className="block text-xs font-semibold text-slate-700 mb-1">
                         Inny problem / dopisz własną odpowiedź:
