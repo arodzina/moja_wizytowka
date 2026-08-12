@@ -72,13 +72,13 @@ export default function About() {
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-soft">
               <p>
-                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne myślenie, które przydaje się przy matematyce. Z korepetycjami zaczynałam od platform edukacyjnych, gdzie przeprowadziłam setki lekcji z uczniami.
+                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne i logiczne myślenie, które przekładam na proste tłumaczenie matematyki. Z korepetycjami zaczynałam na dużych platformach edukacyjnych, gdzie przeprowadziłam setki lekcji z uczniami.
               </p>
               <p>
-                Stawiam na <strong className="font-semibold text-ink">nieszablonowe podejście do nauki</strong>. Niezależnie od tego, czy przygotowujemy się do matury czy egzaminu ósmoklasisty, priorytetem jest dla mnie <strong className="font-semibold text-ink">praktyczne mówienie</strong> — bo w prawdziwym życiu to najważniejsza umiejętność. Aby przełamać rutynę, do nauki słownictwa i pojęć wykorzystuję gry aktywizujące (np. językowy wisielec, kółko-krzyżyk, interaktywne quizy i wyzwania).
+                Stawiam na <strong className="font-semibold text-ink">nieszablonowe i bezstresowe podejście do obu przedmiotów</strong>. W <strong className="font-semibold text-ink">matematyce</strong> rozkładamy skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> stawiam na praktyczne mówienie i przełamywanie barier. Aby nauka nie była nudna, wykorzystuję gry aktywizujące (np. językowy i matematyczny wisielec, kółko-krzyżyk, interaktywne quizy i wyzwania).
               </p>
               <p>
-                Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii</strong> (poziom C1). Stworzyłam też kurs <strong className="font-semibold text-ink">Notion Master na Udemy</strong>, bo wierzę, że dobra organizacja i ciekawa lekcja to klucz do sukcesu!
+                Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. Stworzyłam też kurs <strong className="font-semibold text-ink">Notion Master na Udemy</strong>, bo wierzę, że dobra organizacja, przejrzyste notatki i ciekawa lekcja to klucz do sukcesu każdego ucznia!
               </p>
             </div>
           </Reveal>

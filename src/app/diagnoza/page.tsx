@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy, Sun, Moon, Users } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Sparkles, HeartHandshake, Calendar, Clock, Copy, Sun, Moon, Users, MessageSquarePlus } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -919,6 +919,9 @@ export default function DiagnozaPage() {
   const [oralMaturaEvalLic, setOralMaturaEvalLic] = useState("Mówię płynnie");
   const [useOfEnglishEval, setUseOfEnglishEval] = useState("🟢 Dobrze radzę sobie z parafrazami i słowotwórstwem");
 
+  // Dodatkowa wiadomość od ucznia do Oli
+  const [additionalNotes, setAdditionalNotes] = useState("");
+
   const [copied, setCopied] = useState(false);
 
   const getQuestions = (): Question[] => {
@@ -1151,6 +1154,10 @@ export default function DiagnozaPage() {
       text += `- Środki językowe (Use of English): ${useOfEnglishEval}\n`;
     }
 
+    if (additionalNotes.trim()) {
+      text += `\n💬 DODATKOWA WIADOMOŚĆ OD UCZNIA DO OLI:\n"${additionalNotes.trim()}"\n`;
+    }
+
     return text;
   };
 
@@ -1237,6 +1244,7 @@ export default function DiagnozaPage() {
           czas_wspolpracy: getDurationDisplay(duration),
           ocena: grade,
           wynik: `${calculateScore().score} / ${calculateScore().total}`,
+          wiadomosc_dodatkowa: additionalNotes || "Brak",
           pelny_raport: summary,
         }),
       }).catch(() => {});
@@ -1953,6 +1961,37 @@ export default function DiagnozaPage() {
                 </div>
               )}
 
+              {/* KAFELEK: CZY CHCESZ MI COŚ JESZCZE PRZEKAZAĆ? */}
+              <div className="pt-6 border-t border-slate-100 space-y-3">
+                <div className="flex items-center gap-2">
+                  <MessageSquarePlus className="size-5 text-brand-600" />
+                  <h3 className="font-bold text-slate-900 text-base">
+                    Czy chcesz mi coś jeszcze przekazać? (Opcjonalnie)
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Wpisz tutaj cokolwiek ważnego, o czym powinnam wiedzieć przed naszą pierwszą darmową rozmową.
+                </p>
+
+                <div className="p-4 rounded-2xl bg-brand-50/70 border border-brand-100 text-xs text-brand-900 space-y-1.5">
+                  <span className="font-bold block text-brand-900">💡 Podpowiedzi: co możesz wpisać?</span>
+                  <ul className="list-disc list-inside space-y-1 text-slate-700 font-medium">
+                    <li>Ile czasu tygodniowo chcesz przeznaczyć na samodzielną naukę i zadania domowe?</li>
+                    <li>W czym czujesz się najsłabiej, a z czym radzisz sobie super?</li>
+                    <li>Co lubisz w nauce, a za czym bardzo nie przepadasz (np. "wolę przykłady z życia niż czystą teorię")?</li>
+                    <li>Inne ważne pytania lub oczekiwania do mnie!</li>
+                  </ul>
+                </div>
+
+                <textarea
+                  rows={4}
+                  value={additionalNotes}
+                  onChange={(e) => setAdditionalNotes(e.target.value)}
+                  placeholder="Napisz mi cokolwiek chcesz — np. ile czasu masz na zadania domowe, co najbardziej lubisz w nauce lub o czym chcesz porozmawiać..."
+                  className="w-full rounded-2xl border border-slate-200 p-4 text-xs sm:text-sm text-slate-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                />
+              </div>
+
               {/* Nawigacja w krokach */}
               <div className="pt-4 flex items-center justify-between">
                 <Button variant="secondary" onClick={() => setStep(1)}>
@@ -2014,6 +2053,11 @@ export default function DiagnozaPage() {
                 <div><strong className="text-slate-900">Pora dnia:</strong> {getPreferredTimeDisplay(preferredTime)}</div>
                 <div><strong className="text-slate-900">Czas współpracy:</strong> {getDurationDisplay(duration)}</div>
                 <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
+                {additionalNotes.trim() && (
+                  <div className="pt-2 border-t border-slate-200/60 mt-2">
+                    <strong className="text-slate-900">Twój komentarz do Oli:</strong> "{additionalNotes.trim()}"
+                  </div>
+                )}
               </div>
 
               {/* PRZYCISK KOPIOWANIA DLA UCZNIA (OPCJONALNY DLA JEGO WIADOMOŚCI) */}
