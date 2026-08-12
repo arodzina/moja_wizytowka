@@ -65,7 +65,7 @@ export default function About() {
             </p>
             <h2 id="about-title" className="mt-4 text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               Cześć, jestem {site.tutorName}.{" "}
-              <span className="text-brand-600">Lubię uczyć, mówić i aktywizować uczniów.</span>
+              <span className="text-brand-600">Pomagam przełamać barierę w mówieniu i zrozumieć matematykę bez stresu.</span>
             </h2>
           </Reveal>
 
