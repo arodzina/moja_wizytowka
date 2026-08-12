@@ -2,28 +2,72 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Bot, Copy, CheckCircle2, Sparkles, Lock, KeyRound } from "lucide-react";
+import {
+  ArrowLeft,
+  Bot,
+  Copy,
+  CheckCircle2,
+  Sparkles,
+  Lock,
+  KeyRound,
+  Trash2,
+  Eye,
+  EyeOff,
+  RefreshCw,
+  Search,
+  UserCheck,
+  FileText,
+} from "lucide-react";
 import Button from "@/components/ui/Button";
 
-// Domyślne hasło dostępu dla Oli
 const ADMIN_PASSWORD = "ola";
+
+interface Submission {
+  id: string;
+  createdAt: string;
+  studentName: string;
+  summaryText: string;
+  aiPrompt: string;
+}
 
 export default function DiagnozaAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
   const [pastedReport, setPastedReport] = useState("");
-  const [generatedPrompt, setGeneratedPrompt] = useState("");
-  const [copied, setCopied] = useState(false);
+  const [manualPrompt, setManualPrompt] = useState("");
+  const [copiedManual, setCopiedManual] = useState(false);
 
   // Sprawdzanie czy Ola logowała się już w tej sesji
   useEffect(() => {
     const auth = localStorage.getItem("ola_admin_auth");
     if (auth === "true") {
       setIsAuthenticated(true);
+      fetchSubmissions();
     }
   }, []);
+
+  const fetchSubmissions = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/diagnoza");
+      const data = await res.json();
+      if (data.submissions) {
+        setSubmissions(data.submissions);
+      }
+    } catch (err) {
+      console.error("Błąd podczas pobierania zgłoszeń:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,8 +75,9 @@ export default function DiagnozaAdminPage() {
       setIsAuthenticated(true);
       localStorage.setItem("ola_admin_auth", "true");
       setErrorMsg("");
+      fetchSubmissions();
     } else {
-      setErrorMsg("Nieprawidłowe hasło. Spróbuj ponowne!");
+      setErrorMsg("Nieprawidłowe hasło. Spróbuj ponownie!");
     }
   };
 
@@ -41,7 +86,27 @@ export default function DiagnozaAdminPage() {
     localStorage.removeItem("ola_admin_auth");
   };
 
-  const handleGeneratePrompt = () => {
+  const handleCopyPrompt = (promptText: string, id: string) => {
+    navigator.clipboard.writeText(promptText);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 3000);
+  };
+
+  const handleDeleteSubmission = async (id: string) => {
+    if (!confirm("Czy na pewno chcesz usunąć tę diagnozę z listy?")) return;
+    try {
+      await fetch("/api/diagnoza", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+    } catch (err) {
+      console.error("Błąd przy usuwaniu:", err);
+    }
+  };
+
+  const handleGenerateManualPrompt = () => {
     if (!pastedReport.trim()) return;
 
     let p = `Jesteś moim osobistym asystentem pedagogiczno-strategicznym dla Oli — korepetytorki online z matematyki i języka angielskiego.\n\n`;
@@ -64,7 +129,7 @@ export default function DiagnozaAdminPage() {
     p += `   - Imię, przedmiot, poziom docelowy (np. E8 / Matura / Zaległości).\n`;
     p += `   - Obecna ocena vs Cel docelowy.\n`;
     p += `   - Główne obawy i trudności (blokada w mówieniu, zadania tekstowe, stres).\n`;
-    p += `   - Częstotliwość i czas zajęć.\n\n`;
+    p += `   - Częstotliwość i czas zajęć oraz pora dnia.\n\n`;
     p += `2. 🔍 DIAGNOZA LUK (ANALIZA QUIZU):\n`;
     p += `   - Wskaż 3-5 konkretnych zagadnień z quizu, w których uczeń popełnił błąd lub zaznaczył "Nie wiem / gubię się w tym".\n`;
     p += `   - Podziel je na: a) Fundamenty do uzupełnienia, b) Zagadnienia egzaminacyjne.\n\n`;
@@ -86,14 +151,13 @@ export default function DiagnozaAdminPage() {
     p += `===============================================================\n\n`;
     p += pastedReport.trim();
 
-    setGeneratedPrompt(p);
+    setManualPrompt(p);
   };
 
-  const handleCopyPrompt = () => {
-    navigator.clipboard.writeText(generatedPrompt);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-  };
+  const filteredSubmissions = submissions.filter((sub) =>
+    sub.studentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    sub.summaryText.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // EKRAN LOGOWANIA HASŁEM
   if (!isAuthenticated) {
@@ -107,7 +171,7 @@ export default function DiagnozaAdminPage() {
           <div>
             <h1 className="text-2xl font-extrabold text-white">Panel Administracyjny Oli</h1>
             <p className="text-xs text-slate-400 mt-1">
-              Wpisz hasło dostępu, aby odblokować panel generatora promptów AI.
+              Wpisz hasło dostępu, aby odblokować automatyczną listę diagnoz.
             </p>
           </div>
 
@@ -149,21 +213,22 @@ export default function DiagnozaAdminPage() {
     );
   }
 
-  // ZAHASŁOWANY PANEL OLI
+  // ZAHASŁOWANY PANEL OLI - AUTOMATYCZNA LISTA DIAGNOZ Z PRZYCISKIEM SKOPIUJ PROMPT
   return (
-    <div className="min-h-screen bg-slate-900 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto space-y-6">
+    <div className="min-h-screen bg-slate-950 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Górna nawigacja */}
         <div className="flex justify-between items-center">
           <Link
             href="/"
             className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-white transition-colors"
           >
-            <ArrowLeft className="mr-2 size-4" /> Powrót do Strony Głównym
+            <ArrowLeft className="mr-2 size-4" /> Strona główna
           </Link>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
-              🔓 Zalogowano jako Ola
+            <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1.5">
+              <UserCheck className="size-3.5" /> Zalogowano jako Ola
             </span>
             <button
               onClick={handleLogout}
@@ -174,61 +239,180 @@ export default function DiagnozaAdminPage() {
           </div>
         </div>
 
-        <div className="bg-slate-800 rounded-3xl p-6 sm:p-10 border border-slate-700 space-y-6 shadow-xl">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-extrabold text-white flex items-center gap-2">
-              <Bot className="size-6 text-accent-400" /> Generator Promptu dla AI (Pedagogiczno-Strategicznego)
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-400">
-              Wklej tutaj podsumowanie wyników ucznia (z maila lub przesyłki na Messengerze), aby w 1 sekundę wygenerować dla siebie 5-sekcyjny raport z planem nauki i skryptem na rozmowę zapoznawczą!
-            </p>
+        {/* Nagłówek główny */}
+        <div className="bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-4 shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div>
+              <h1 className="text-2xl font-extrabold text-white flex items-center gap-2">
+                <Bot className="size-7 text-accent-400" /> Baza Diagnoz Uczniów
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Kiedy uczeń wypełni formularz, jego diagnoza pojawia się tutaj automatycznie. Kliknij <strong>„Skopiuj prompt dla AI”</strong> i wklej do ChatGPT!
+              </p>
+            </div>
+
+            <button
+              onClick={fetchSubmissions}
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors border border-slate-700"
+            >
+              <RefreshCw className={`size-4 ${loading ? "animate-spin" : ""}`} />
+              Odśwież listę
+            </button>
           </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-2">
-              Wklej raport ucznia:
-            </label>
-            <textarea
-              rows={6}
-              value={pastedReport}
-              onChange={(e) => setPastedReport(e.target.value)}
-              placeholder="Wklej tutaj raport skopiowany od ucznia..."
-              className="w-full rounded-2xl bg-slate-950 border border-slate-700 p-4 text-xs sm:text-sm text-slate-200 focus:border-brand-500 focus:outline-none"
+          {/* Wyszukiwarka */}
+          <div className="relative">
+            <Search className="absolute left-3.5 top-3 size-4 text-slate-500" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Szukaj ucznia po imieniu lub zawartości..."
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-slate-200 focus:border-brand-500 focus:outline-none"
             />
           </div>
+        </div>
 
-          <Button onClick={handleGeneratePrompt} size="lg" className="w-full">
-            <Sparkles className="mr-2 size-5" /> Wygeneruj Strategiczny Prompt (5 Sekcji)
-          </Button>
-
-          {generatedPrompt && (
-            <div className="pt-6 border-t border-slate-700 space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                  Gotowy Prompt dla ChatGPT / Claude:
-                </span>
-                <button
-                  type="button"
-                  onClick={handleCopyPrompt}
-                  className="px-3 py-1.5 rounded-xl bg-slate-700 text-xs font-semibold hover:bg-slate-600 transition-colors flex items-center gap-1.5"
-                >
-                  {copied ? (
-                    <>
-                      <CheckCircle2 className="size-4 text-emerald-400" /> Skopiowano!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="size-4 text-accent-400" /> Skopiuj Prompt
-                    </>
-                  )}
-                </button>
-              </div>
-
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs text-slate-300 font-mono whitespace-pre-wrap max-h-96 overflow-y-auto">
-                {generatedPrompt}
-              </div>
+        {/* LISTA DIAGNOZ */}
+        <div className="space-y-4">
+          {filteredSubmissions.length === 0 ? (
+            <div className="bg-slate-900/60 rounded-3xl p-10 text-center border border-slate-800 space-y-3">
+              <FileText className="size-10 text-slate-600 mx-auto" />
+              <h3 className="text-base font-bold text-slate-300">Brak zapisanych diagnoz w bazie</h3>
+              <p className="text-xs text-slate-500 max-w-md mx-auto">
+                Gdy pierwszy uczeń wypełni formularz na stronie `/diagnoza`, jego wyniki pojawią się tutaj automatycznie.
+              </p>
             </div>
+          ) : (
+            filteredSubmissions.map((sub) => {
+              const isExpanded = expandedId === sub.id;
+              const isCopied = copiedId === sub.id;
+
+              return (
+                <div
+                  key={sub.id}
+                  className="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-lg space-y-4 transition-all hover:border-slate-700"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-bold text-white">👤 {sub.studentName}</span>
+                        <span className="text-xs px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 font-semibold border border-brand-500/30">
+                          {sub.createdAt}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* PRZYCISK KOPIOWANIA PROMPTU */}
+                    <div className="flex items-center gap-2">
+                      <Button
+                        onClick={() => handleCopyPrompt(sub.aiPrompt, sub.id)}
+                        size="md"
+                        className={isCopied ? "bg-emerald-600 hover:bg-emerald-700" : ""}
+                      >
+                        {isCopied ? (
+                          <>
+                            <CheckCircle2 className="mr-1.5 size-4 text-emerald-200" /> Skopiowano Prompt!
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="mr-1.5 size-4" /> 📋 Skopiuj prompt dla AI
+                          </>
+                        )}
+                      </Button>
+
+                      <button
+                        onClick={() => setExpandedId(isExpanded ? null : sub.id)}
+                        className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors"
+                        title={isExpanded ? "Zwiń raport" : "Rozwiń pełny raport"}
+                      >
+                        {isExpanded ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                      </button>
+
+                      <button
+                        onClick={() => handleDeleteSubmission(sub.id)}
+                        className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-rose-400 transition-colors"
+                        title="Usuń z listy"
+                      >
+                        <Trash2 className="size-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Podgląd skrótowy / pełny */}
+                  {isExpanded ? (
+                    <div className="space-y-4 pt-2">
+                      <div>
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                          📄 Pełny Raport Ucznia:
+                        </h4>
+                        <pre className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs text-slate-300 font-mono whitespace-pre-wrap max-h-60 overflow-y-auto">
+                          {sub.summaryText}
+                        </pre>
+                      </div>
+
+                      <div>
+                        <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
+                          🤖 Wygenerowany Prompt dla ChatGPT / Claude:
+                        </h4>
+                        <pre className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs text-emerald-300/90 font-mono whitespace-pre-wrap max-h-60 overflow-y-auto">
+                          {sub.aiPrompt}
+                        </pre>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-xs text-slate-400 line-clamp-2 bg-slate-950/60 p-3 rounded-xl border border-slate-800 font-mono">
+                      {sub.summaryText.slice(0, 200)}...
+                    </div>
+                  )}
+                </div>
+              );
+            })
           )}
+        </div>
+
+        {/* REZERWOWY GENERATOR RĘCZNY (GDYBY OLA CHCIAŁA WKLEIĆ COŚ SAMA) */}
+        <div className="pt-8 border-t border-slate-800 space-y-4">
+          <details className="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+            <summary className="cursor-pointer font-bold text-sm text-slate-300 hover:text-white flex items-center justify-between">
+              <span>🛠️ Opcjonalnie: Ręczne wklejanie tekstu (dla własnych zapisków)</span>
+              <Sparkles className="size-4 text-accent-400" />
+            </summary>
+            <div className="mt-4 space-y-4 pt-4 border-t border-slate-800">
+              <textarea
+                rows={5}
+                value={pastedReport}
+                onChange={(e) => setPastedReport(e.target.value)}
+                placeholder="Wklej ręczny raport ucznia tutaj..."
+                className="w-full rounded-2xl bg-slate-950 border border-slate-800 p-4 text-xs sm:text-sm text-slate-200 focus:border-brand-500 focus:outline-none"
+              />
+              <Button onClick={handleGenerateManualPrompt} size="md">
+                Wygeneruj prompt z wklejonego tekstu
+              </Button>
+
+              {manualPrompt && (
+                <div className="mt-4 space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-bold text-emerald-400">Prompt ręczny:</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(manualPrompt);
+                        setCopiedManual(true);
+                        setTimeout(() => setCopiedManual(false), 3000);
+                      }}
+                      className="text-xs text-accent-400 hover:underline"
+                    >
+                      {copiedManual ? "Skopiowano!" : "Skopiuj"}
+                    </button>
+                  </div>
+                  <pre className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs text-slate-300 font-mono whitespace-pre-wrap max-h-60 overflow-y-auto">
+                    {manualPrompt}
+                  </pre>
+                </div>
+              )}
+            </div>
+          </details>
         </div>
       </div>
     </div>
