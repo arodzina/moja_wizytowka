@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles, ShieldCheck } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -142,8 +142,34 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* 🛡️ Gwarancja Rzetelności i Bezpieczne Zasady Współpracy */}
+        <Reveal delay={0.25}>
+          <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-slate-900 p-8 text-white shadow-xl ring-1 ring-slate-800 relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mt-8 -mr-8 size-40 rounded-full bg-brand-500/10 blur-2xl pointer-events-none" />
+            <div className="flex flex-col sm:flex-row sm:items-start gap-5 relative z-10">
+              <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/30">
+                <ShieldCheck className="size-8 text-accent-400" aria-hidden="true" />
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent-400">
+                    Bezpieczna Współpraca
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  🛡️ Gwarancja Rzetelności i Bezpieczne Zasady Współpracy
+                </h3>
+                <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal">
+                  „Pracuję według jasnych i uczciwych zasad. Cenię czas moich uczniów i ich rodziców, dlatego każda współpraca opiera się na przejrzystym regulaminie. Zanim zdecydują się Państwo na stałą współpracę, przechodzimy przez <strong className="font-semibold text-white">Pakiet Startowy 3 Lekcji Próbnych</strong>, aby uczeń poczuł się w 100% komfortowo, a rodzic miał pewność co do efektów. Płatności są jasne, materiały darmowe, a terminy w grafiku rezerwowane wyłącznie dla Was.”
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         {/* Drobne info pod kartami */}
-        <Reveal delay={0.2}>
+        <Reveal delay={0.3}>
           <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-slate-400">
             Standardowy czas lekcji: <strong className="text-slate-600">60 minut</strong>. Na prośbę możliwe również lekcje 45-minutowe — napisz do mnie, ustalamy indywidualnie.{" "}
             <a href="#kontakt" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
