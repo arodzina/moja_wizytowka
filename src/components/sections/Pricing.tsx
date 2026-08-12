@@ -10,33 +10,35 @@ const plans = [
   {
     icon: BookOpen,
     label: "Szkoła Podstawowa",
-    sub: "Klasy 4–8 · Angielski i Matematyka",
+    sub: "Klasy 4–8 · Angielski i Matematyka · E8",
     price: "50",
     unit: "zł / godzina",
     color: "brand",
     includes: [
-      "Angielski kl. 4–8 i Egzamin Ósmoklasisty",
-      "Matematyka kl. 4–8 i Egzamin Ósmoklasisty",
-      "Diagnoza poziomu przed pierwszą lekcją",
+      "Angielski kl. 4–8 i Egzamin Ósmoklasisty E8",
+      "Matematyka kl. 4–8 i Egzamin Ósmoklasisty E8",
+      "Darmowa Rozmowa Zapoznawcza (15 min)",
+      "Pakiet Startowy 3 Lekcji Próbnych",
       "Notatka i podsumowanie po każdej lekcji",
-      "Zadania domowe, jeśli są potrzebne",
+      "Darmowe materiały i arkusze CKE",
       "Regularna kontrola postępów",
     ],
   },
   {
     icon: GraduationCap,
     label: "Liceum / Matura",
-    sub: "Angielski · Matura Podstawowa i Rozszerzona",
+    sub: "Angielski (Podstawowa & Rozszerzona B1/B2/C1) + Podstawy Mat. Średniej",
     price: "60",
     unit: "zł / godzina",
     color: "accent",
     popular: true,
     includes: [
-      "Angielski matura podstawowa i rozszerzona",
+      "Angielski Matura Podstawowa i Rozszerzona",
+      "Podstawy matematyki szkoły średniej",
+      "Darmowa Rozmowa Zapoznawcza (15 min)",
+      "Pakiet Startowy 3 Lekcji Próbnych",
       "Praca na autentycznych arkuszach CKE",
-      "Diagnoza poziomu przed pierwszą lekcją",
       "Notatka i podsumowanie po każdej lekcji",
-      "Zadania domowe, jeśli są potrzebne",
       "Regularna kontrola postępów",
     ],
   },
@@ -56,7 +58,7 @@ export default function Pricing() {
         <SectionHeading
           eyebrow="Cennik"
           title="Przejrzyste stawki, bez niespodzianek"
-          lead="Widzisz dokładnie, za co płacisz. Bez ukrytych kosztów — materiały, notatki po lekcji i quiz diagnostyczny są wliczone w cenę."
+          lead="Widzisz dokładnie, za co płacisz. Bez ukrytych kosztów — materiały, notatki po lekcji i diagnoza są wliczone w cenę."
         />
 
         {/* Darmowa lekcja próbna — baner */}
@@ -64,7 +66,7 @@ export default function Pricing() {
           <div className="mx-auto mt-10 max-w-2xl rounded-3xl bg-brand-50 px-6 py-5 ring-1 ring-brand-200/60 text-center">
             <p className="flex items-center justify-center gap-2 text-sm font-bold text-brand-800">
               <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
-              Pierwsza rozmowa zapoznawcza (30 min) jest zawsze{" "}
+              Pierwsza Rozmowa Zapoznawcza (15 min) jest zawsze{" "}
               <span className="text-brand-600">bezpłatna i niezobowiązująca.</span>
             </p>
             <p className="mt-1 text-sm text-slate-soft">
@@ -105,7 +107,12 @@ export default function Pricing() {
                   {plan.sub}
                 </p>
 
-                <div className="mt-6 flex items-end gap-1">
+                {/* PROMO BADGE */}
+                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200 self-start">
+                  🔥 Cena promocyjna na start nowego semestru
+                </div>
+
+                <div className="mt-3 flex items-end gap-1">
                   <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-ink"}`}>
                     {plan.price}
                   </span>

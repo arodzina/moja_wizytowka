@@ -1176,7 +1176,7 @@ export default function DiagnozaPage() {
     p += `  - Posiada oficjalne arkusze CKE i repetytoria.\n\n`;
 
     p += `TWOJE ZADANIE:\n`;
-    p += `Przeanalizuj poniższe odpowiedzi ucznia z formularza i przygotuj dla Oli RAPORT DIAGNOSTYCZNO-STRATEGICZNY przed pierwszą bezpłatną 30-minutową rozmową zapoznawczą.\n\n`;
+    p += `Przeanalizuj poniższe odpowiedzi ucznia z formularza i przygotuj dla Oli RAPORT DIAGNOSTYCZNO-STRATEGICZNY przed pierwszą bezpłatną 15-minutową rozmową zapoznawczą.\n\n`;
     p += `WYGENERUJ ODPOWIEDŹ PODZIELONĄ NA 5 SEKCJI:\n\n`;
     p += `1. 📌 SZYBKIE PODSUMOWANIE PROFILU UCZNIA:\n`;
     p += `   - Imię, przedmiot, poziom docelowy (np. E8 / Matura / Zaległości).\n`;
@@ -1195,7 +1195,7 @@ export default function DiagnozaPage() {
     p += `   - Wskaż odpowiednie repetytorium / arkusze CKE.\n`;
     p += `   - Zaproponuj 2 konkretne gry/aktywizacje (np. wisielec ze słownictwa z działu X, kółko-krzyżyk na czasy).\n`;
     p += `   - Wyślij propozycję notatki polekcyjnej i planu w Notion.\n\n`;
-    p += `5. 🗣️ SKRYPT I STRATEGIA NA 30-MINUTOWĄ ROZMOWĘ ZAPOZNAWCZĄ:\n`;
+    p += `5. 🗣️ SKRYPT I STRATEGIA NA 15-MINUTOWĄ ROZMOWĘ ZAPOZNAWCZĄ:\n`;
     p += `   - Jak otworzyć rozmowę i pochwalić ucznia za test.\n`;
     p += `   - Jak przedstawić diagnozę: "Zauważyłam, że świetnie idzie Ci X, ale na Y warto poświęcić chwilę..."\n`;
     p += `   - Jak przedstawić plan i domknąć zapis na regularne lekcje.\n\n`;
@@ -1289,7 +1289,7 @@ export default function DiagnozaPage() {
           <div className="mt-6 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs sm:text-sm text-left flex items-start gap-3">
             <HeartHandshake className="size-5 shrink-0 text-amber-600 mt-0.5" />
             <p className="leading-relaxed font-medium">
-              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy osób trzecich. Dzięki temu na naszej darmowej 30-minutowej lekcji skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
+              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy osób trzecich. Dzięki temu na naszej darmowej 15-minutowej rozmowie zapoznawczej skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
             </p>
           </div>
 
@@ -2025,7 +2025,7 @@ export default function DiagnozaPage() {
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
                 <p className="text-sm font-semibold text-brand-800 max-w-lg mx-auto leading-relaxed bg-brand-50 p-4 rounded-2xl border border-brand-100">
-                  Super! Twoje wyniki trafiły na moją skrzynkę. Przeanalizuję je i odezwę się do Was w ciągu 24 godzin z propozycją dogodnego terminu darmowej 30-minutowej rozmowy!
+                  Super! Twoje wyniki trafiły na moją skrzynkę. Przeanalizuję je i odezwę się do Was w ciągu 24 godzin z propozycją dogodnego terminu darmowej 15-minutowej rozmowy zapoznawczej!
                 </p>
               </div>
 

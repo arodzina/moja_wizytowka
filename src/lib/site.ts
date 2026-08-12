@@ -29,32 +29,40 @@ export const navLinks = [
 
 export const services = [
   {
-    id: "angielski-4-8",
-    title: "Angielski · klasy 4–8",
+    id: "angielski-sp-matura",
+    title: "Język Angielski · Kompletny",
     description:
-      "Buduję pewność siebie w mówieniu i pisaniu oraz pomagam nadrobić zaległości.",
-    bullets: ["Gramatyka krok po kroku", "Konwersacje bez presji", "Pomoc w zadaniach domowych"],
+      "Klasy 4–8, Egzamin Ósmoklasisty E8, Liceum oraz Matura (Podstawowa i Rozszerzona B1/B2/C1).",
+    bullets: [
+      "Przełamywanie barier w mówieniu od 1. lekcji",
+      "E8 oraz Matura Podstawowa i Rozszerzona",
+      "Phrasal verbs, gramatyka i arkusze CKE",
+    ],
   },
   {
-    id: "angielski-matura",
-    title: "Angielski · matura",
+    id: "matematyka-sp-liceum",
+    title: "Matematyka · Szkoła Podstawowa & Średnia",
     description:
-      "Kompleksowe przygotowanie do matury podstawowej i rozszerzonej.",
-    bullets: ["Rozwiązywanie arkuszy", "Strategie na każdą część", "Materiały na poziomie C1"],
-  },
-  {
-    id: "matematyka-4-8",
-    title: "Matematyka · klasy 4–8",
-    description:
-      "Wyjaśniam trudne zagadnienia prostym językiem, na przykładach z życia.",
-    bullets: ["Ułamki, procenty, geometria", "Nadrabianie zaległości", "Nauka bez oceniania"],
+      "Klasy 4–8, Egzamin Ósmoklasisty E8 oraz podstawy szkoły średniej (bez matury rozszerzonej z matematyki).",
+    bullets: [
+      "Rachunki, ułamki, procenty i geometria",
+      "Egzamin Ósmoklasisty E8 bez stresu",
+      "Podstawy liceum i nadrabianie zaległości",
+    ],
   },
   {
     id: "egzamin-osmoklasisty",
-    title: "Egzamin ósmoklasisty",
+    title: "Egzamin Ósmoklasisty E8",
     description:
-      "Spokojne i planowe przygotowanie do egzaminu z matematyki i angielskiego.",
-    bullets: ["Próbne arkusze", "Indywidualny plan powtórek", "Techniki egzaminacyjne"],
+      "Spokojne i planowe przygotowanie do egzaminu CKE z matematyki i angielskiego.",
+    bullets: ["Praca na oficjalnych arkuszach CKE", "Indywidualne powtórki i repetytoria", "Techniki egzaminacyjne"],
+  },
+  {
+    id: "matura-angielski",
+    title: "Matura z Angielskiego (Podst. & Rozsz.)",
+    description:
+      "Kompleksowe przygotowanie do matury pisemnej i ustnej z języka angielskiego na poziomie B1, B2 i C1.",
+    bullets: ["Rozprawki, e-maile i wypowiedzi pisemne", "Use of English C1 i inwersja", "Rozmowy stymulujące do matury ustnej"],
   },
 ] as const;
 
@@ -65,7 +73,7 @@ export const benefits = [
   },
   {
     title: "Nieszablonowe metody & gry",
-    description: "Koniec z nudnym wklepywaniem regułek! Słownictwo i pojęcia utrwalamy przez wciągające gry (np. językowy wisielec, kółko-krzyżyk, interaktywne quizy i wyzwania).",
+    description: "Koniec z nudnym wklepywaniem regułek! Słownictwo i pojęcia utrwalamy przez wciągające gry i aktywizujące wyzwania.",
   },
   {
     title: "Tłumaczę tyle razy, ile trzeba",
@@ -80,19 +88,19 @@ export const benefits = [
     description: "Po zajęciach dostajesz krótkie podsumowanie z notatką — co przerobiliśmy, co ćwiczyć i na co zwrócić uwagę. Zawsze wiesz, na czym stoisz.",
   },
   {
-    title: "Śledzę Twoje postępy",
-    description: "Co kilka tygodni sprawdzamy razem, co wchodzi łatwo, a co warto powtórzyć. Widzisz, że z lekcji na lekcję idziesz do przodu.",
+    title: "Pakiet Startowy 3 Lekcji Próbnych",
+    description: "Przed przejściem na stały abonament miesięczny przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych, aby uczeń poczuł się komfortowo, a rodzic miał 100% pewności.",
   },
 ] as const;
 
 export const faqItems = [
   {
-    q: "Jak wygląda pierwsza lekcja?",
-    a: "Pierwsze spotkanie trwa 30 minut i jest w 100% darmowe oraz niezobowiązujące. Podczas rozmowy omawiamy cele, pomysł na współpracę i oczekiwane efekty.",
+    q: "Jak wygląda pierwsza rozmowa zapoznawcza?",
+    a: "Pierwsza Darmowa Rozmowa Zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca. Podczas 15-minutowej rozmowy online omawiamy cele, pomysł na współpracę, oceny i pasujący termin w grafiku.",
   },
   {
-    q: "Co jeśli wiem dokładnie, z czym mam problem albo kontynuuję naukę z nowym korepetytorem?",
-    a: "Świetnie! Nie musimy zaczynać od zera. Podczas darmowego 30-minutowego spotkania omówimy Twoje dotychczasowe postępy i skupimy się dokładnie na tym zagadnieniu lub celu, który chcesz dopracować.",
+    q: "Czym jest Pakiet Startowy 3 Lekcji Próbnych?",
+    a: "Zanim zdecydują się Państwo na stały abonament miesięczny, przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych. Pozwala to uczniowi sprawdzić styl prowadzenia zajęć bez presji, a rodzicowi upewnić się co do efektów.",
   },
   {
     q: "Jak wyglądają regularne lekcje online?",
@@ -100,7 +108,7 @@ export const faqItems = [
   },
   {
     q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
-    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów są prowadzone z wykorzystaniem gier aktywizujących (np. językowy wisielec, kółko-krzyżyk, interaktywne wyzwania) oraz przejrzystych notatek. Dzieci są zaangażowane i traktują zajęcia jak ciekawą przygodę, a nie nudny obowiązek.",
+    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów są prowadzone z wykorzystaniem gier aktywizujących oraz przejrzystych notatek. Dzieci są zaangażowane i traktują zajęcia jak ciekawą przygodę, a nie nudny obowiązek.",
   },
   {
     q: "Jak przygotowujesz do matury i egzaminu ósmoklasisty?",

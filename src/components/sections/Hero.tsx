@@ -73,7 +73,7 @@ export default function Hero() {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
             <Button href="#kontakt" size="lg">
-              Umów pierwszą lekcję
+              Umów darmową rozmowę
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
             <Button href="#o-mnie" variant="secondary" size="lg">

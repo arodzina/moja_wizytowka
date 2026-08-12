@@ -83,6 +83,41 @@ export default function About() {
             </div>
           </Reveal>
 
+          {/* DOŚWIADCZENIE W LICZBACH (SOCIAL PROOF) */}
+          <Reveal delay={0.15}>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
+                <div className="text-2xl sm:text-3xl font-extrabold text-brand-600">Setki+</div>
+                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  👨‍🏫 Przeprowadzonych lekcji online na dużych platformach
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
+                <div className="text-2xl sm:text-3xl font-extrabold text-amber-500">
+                  4.9 <span className="text-sm font-normal text-slate-400">/ 5.0</span>
+                </div>
+                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  ⭐ Średnia ocen od uczniów i rodziców
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
+                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600">100%</div>
+                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  💯 Zadowolonych uczniów ze spokojnym podejściem bez stresu
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
+                <div className="text-lg sm:text-xl font-bold text-ink">AGH & C1</div>
+                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  🎓 Informatyka AGH + Angielski C1 (Erasmus+ Portugalia)
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
           {/* Wyróżniki */}
           <Reveal delay={0.18}>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">

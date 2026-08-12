@@ -123,7 +123,7 @@ export default function DiagnozaAdminPage() {
     p += `  - Posiada oficjalne arkusze CKE i repetytoria.\n\n`;
 
     p += `TWOJE ZADANIE:\n`;
-    p += `Przeanalizuj poniższe odpowiedzi ucznia z formularza i przygotuj dla Oli RAPORT DIAGNOSTYCZNO-STRATEGICZNY przed pierwszą bezpłatną 30-minutową rozmową zapoznawczą.\n\n`;
+    p += `Przeanalizuj poniższe odpowiedzi ucznia z formularza i przygotuj dla Oli RAPORT DIAGNOSTYCZNO-STRATEGICZNY przed pierwszą bezpłatną 15-minutową rozmową zapoznawczą.\n\n`;
     p += `WYGENERUJ ODPOWIEDŹ PODZIELONĄ NA 5 SEKCJI:\n\n`;
     p += `1. 📌 SZYBKIE PODSUMOWANIE PROFILU UCZNIA:\n`;
     p += `   - Imię, przedmiot, poziom docelowy (np. E8 / Matura / Zaległości).\n`;
@@ -142,7 +142,7 @@ export default function DiagnozaAdminPage() {
     p += `   - Wskaż odpowiednie repetytorium / arkusze CKE.\n`;
     p += `   - Zaproponuj 2 konkretne gry/aktywizacje (np. wisielec ze słownictwa z działu X, kółko-krzyżyk na czasy).\n`;
     p += `   - Wyślij propozycję notatki polekcyjnej i planu w Notion.\n\n`;
-    p += `5. 🗣️ SKRYPT I STRATEGIA NA 30-MINUTOWĄ ROZMOWĘ ZAPOZNAWCZĄ:\n`;
+    p += `5. 🗣️ SKRYPT I STRATEGIA NA 15-MINUTOWĄ ROZMOWĘ ZAPOZNAWCZĄ:\n`;
     p += `   - Jak otworzyć rozmowę i pochwalić ucznia za test.\n`;
     p += `   - Jak przedstawić diagnozę: "Zauważyłam, że świetnie idzie Ci X, ale na Y warto poświęcić chwilę..."\n`;
     p += `   - Jak przedstawić plan i domknąć zapis na regularne lekcje.\n\n`;

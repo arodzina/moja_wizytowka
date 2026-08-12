@@ -9,19 +9,19 @@ const steps = [
     icon: CalendarDays,
     title: "1. Formularz & zgłoszenie",
     description:
-      "Piszesz przez formularz i opowiadasz o swoich potrzebach. Możesz wypełnić krótki quiz diagnozujący w Google Forms lub od razu napisać, z czym masz trudności.",
+      "Piszesz przez formularz kontaktowy lub wypełniasz krótki quiz diagnozujący, określając swoje trudności i cele.",
   },
   {
     icon: Video,
-    title: "2. Darmowe 30 min rozmowy",
+    title: "2. Rozmowa Zapoznawcza (15 min)",
     description:
-      "Łączymy się online na 30-minutowe spotkanie. Jeśli dokładnie wiesz, co u Ciebie nie gra lub kontynuujesz naukę z kimś nowym — od razu omawiamy Twoje konkretne cele.",
+      "Łączymy się online na 15-minutowe bezpłatne spotkanie. Omawiamy oczekiwania, plan działania oraz wolne terminy w grafiku.",
   },
   {
     icon: Goal,
-    title: "3. Spokojna nauka i efekty",
+    title: "3. Pakiet Startowy 3 Lekcji",
     description:
-      "Zaczynamy regularne lekcje dostosowane do Twojego tempa. Krok po kroku budujesz pewność siebie, nadrabiasz zaległości i poprawiasz oceny.",
+      "Przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych, aby uczeń poczuł się komfortowo, a rodzic miał 100% pewności przed stałą współpracą.",
   },
 ];
 

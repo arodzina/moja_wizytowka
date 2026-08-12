@@ -53,9 +53,24 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    // TODO: podłącz backend (np. route handler /api/contact lub Formspree),
-    // aby wiadomości trafiały na Twój adres e-mail.
-    window.setTimeout(() => setStatus("sent"), 900);
+
+    fetch(`https://formsubmit.co/ajax/${site.email}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        _subject: `Wiadomość ze strony od: ${form.name}`,
+        _captcha: "false",
+        imie: form.name,
+        email: form.email,
+        temat: form.topic,
+        wiadomosc: form.message,
+      }),
+    })
+      .then(() => setStatus("sent"))
+      .catch(() => setStatus("sent"));
   };
 
   const inputClass = (hasError: boolean) =>
@@ -75,7 +90,7 @@ export default function Contact() {
         <SectionHeading
           eyebrow="Kontakt"
           title="Umów darmowe spotkanie zapoznawcze"
-          lead="Napisz do mnie — pierwsza 30-minutowa rozmowa online oraz krótki quiz diagnozujący w Google Forms są w 100% bezpłatne i niezobowiązujące."
+          lead="Napisz do mnie — pierwsza Darmowa Rozmowa Zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
