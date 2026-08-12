@@ -1388,88 +1388,42 @@ export default function DiagnozaPage() {
                 />
               </div>
 
-              {/* KAFELKI PRZEDMIOTU I POZIOMU */}
+              {/* LISTA ROZWIJANA PRZEDMIOTU I POZIOMU */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
                   Wybierz przedmiot i poziom *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                    {
-                      id: "matematyka-4-6",
-                      label: "📐 Matematyka",
-                      sub: "Klasy 4–6 (podstawy rachunkowe i ułamki)",
-                    },
-                    {
-                      id: "matematyka-7-8",
-                      label: "📐 Matematyka",
-                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty E8",
-                    },
-                    {
-                      id: "angielski-4-6",
-                      label: "🇬🇧 Język Angielski",
-                      sub: "Klasy 4–6 (podstawy języka A1/A2)",
-                    },
-                    {
-                      id: "angielski-7-8",
-                      label: "🇬🇧 Język Angielski",
-                      sub: "Klasy 7–8 & Egzamin Ósmoklasisty E8",
-                    },
-                    {
-                      id: "angielski-liceum-biezacy",
-                      label: "🎓 Język Angielski — Liceum",
-                      sub: "Bieżąca nauka w szkole / Konwersacje (bez matury)",
-                    },
-                    {
-                      id: "angielski-matura-podstawowa",
-                      label: "🎓 Język Angielski — Liceum",
-                      sub: "Matura Podstawowa (B1/B2)",
-                    },
-                    {
-                      id: "angielski-matura-rozszerzona",
-                      label: "🎓 Język Angielski — Liceum",
-                      sub: "Matura Rozszerzona (B2+/C1)",
-                    },
-                  ].map((item) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setSubject(item.id as SubjectType)}
-                      className={`p-4 rounded-2xl text-left border transition-all ${
-                        subject === item.id
-                          ? "border-brand-500 bg-brand-50/60 ring-2 ring-brand-200"
-                          : "border-slate-200 hover:border-slate-300"
-                      }`}
-                    >
-                      <div className="font-bold text-slate-900 text-sm">{item.label}</div>
-                      <div className="text-xs text-slate-500 mt-1">{item.sub}</div>
-                    </button>
-                  ))}
-                </div>
+                <select
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value as SubjectType)}
+                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-xs sm:text-sm font-semibold focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-white text-slate-900"
+                >
+                  <option value="matematyka-4-6">📐 Matematyka — Klasy 4–6 (podstawy rachunkowe i ułamki)</option>
+                  <option value="matematyka-7-8">📐 Matematyka — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
+                  <option value="angielski-4-6">🇬🇧 Język Angielski — Klasy 4–6 (podstawy języka A1/A2)</option>
+                  <option value="angielski-7-8">🇬🇧 Język Angielski — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
+                  <option value="angielski-liceum-biezacy">🎓 Język Angielski — Liceum (Bieżąca nauka / Konwersacje bez matury)</option>
+                  <option value="angielski-matura-podstawowa">🎓 Język Angielski — Liceum / Matura Podstawowa (B1/B2)</option>
+                  <option value="angielski-matura-rozszerzona">🎓 Język Angielski — Liceum / Matura Rozszerzona (B2+/C1)</option>
+                </select>
               </div>
 
-              {/* GŁÓWNY CEL NAUKI (WYBÓR DYNAMICZNY) */}
+              {/* LISTA ROZWIJANA GŁÓWNEGO CELU */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">
                   Jaki jest Twój główny cel nauki ze mną? *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <select
+                  value={selectedGoal}
+                  onChange={(e) => setSelectedGoal(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-xs sm:text-sm font-semibold focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-white text-slate-900"
+                >
                   {GOAL_OPTIONS.map((g) => (
-                    <button
-                      key={g.id}
-                      type="button"
-                      onClick={() => setSelectedGoal(g.id)}
-                      className={`p-4 rounded-2xl text-left border transition-all ${
-                        selectedGoal === g.id
-                          ? "border-brand-500 bg-brand-50/60 ring-2 ring-brand-200"
-                          : "border-slate-200 hover:border-slate-300"
-                      }`}
-                    >
-                      <div className="font-bold text-slate-900 text-xs sm:text-sm">{g.label}</div>
-                      <div className="text-xs text-slate-500 mt-1">{g.sub}</div>
-                    </button>
+                    <option key={g.id} value={g.id}>
+                      {g.label} — {g.sub}
+                    </option>
                   ))}
-                </div>
+                </select>
 
                 {selectedGoal === "inny" && (
                   <div className="mt-3">
