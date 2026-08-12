@@ -99,8 +99,8 @@ export const faqItems = [
     a: "Lekcje odbywają się przez wideorozmowę (Zoom lub Google Meet) — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji dostajesz notatkę z podsumowaniem opanowanego materiału.",
   },
   {
-    q: "Czy lekcje są odpowiednie dla mojego dziecka?",
-    a: "Tak. Pracuję z uczniami klas 4–8 oraz licealistami na różnych poziomach — od nadrabiania zaległości po przygotowanie do matury. Podchodzę do uczniów cierpliwie i bez oceniania, dopasowując tempo do ich potrzeb.",
+    q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
+    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów są prowadzone z wykorzystaniem gier aktywizujących (np. językowy wisielec, kółko-krzyżyk, interaktywne wyzwania) oraz przejrzystych notatek. Dzieci są zaangażowane i traktują zajęcia jak ciekawą przygodę, a nie nudny obowiązek.",
   },
   {
     q: "Jak przygotowujesz do matury i egzaminu ósmoklasisty?",
