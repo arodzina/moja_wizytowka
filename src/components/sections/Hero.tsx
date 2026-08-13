@@ -160,14 +160,14 @@ export default function Hero() {
             className="absolute -top-6 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-6"
           >
             <span className="text-lg" aria-hidden="true">✨</span>
-            <span className="text-xs font-bold text-ink">Zero nudy & 100% wsparcia</span>
+            <span className="text-xs font-bold text-ink">Nieszablonowe metody & gry</span>
           </motion.div>
 
           <motion.div
             {...float(5, 0)}
             className="absolute -bottom-2 left-6 max-w-[17rem] -rotate-1 rounded-2xl bg-accent-200 px-4 py-3 text-xs font-semibold text-ink shadow-soft sm:left-10"
           >
-            „Spokojnie, wytłumaczę Ci to krok po kroku 😊”
+            Spokojna nauka krok po kroku 😊
           </motion.div>
         </motion.div>
       </div>
