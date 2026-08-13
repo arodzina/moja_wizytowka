@@ -92,7 +92,7 @@ export default function Benefits() {
                     <Sparkles className="size-4" /> Sprawdzone od 4. roku życia!
                   </div>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Wypróbowałam tę formę z dziećmi od wieku 4 lat. Dzięki interaktywnej tablicy, grom i nowoczesnym narzędziom zajęcia są wciągające i bardzo komfortowe.
+                    Wypróbowałam tę formę już z czterolatkami! Interaktywna tablica, gry i nowoczesne narzędzia sprawiają, że lekcja naprawdę wciąga.
                   </p>
                 </div>
               </div>

@@ -104,7 +104,7 @@ export const faqItems = [
   },
   {
     q: "Jak wyglądają regularne lekcje online?",
-    a: "Lekcje odbywają się przez wideorozmowę (Zoom lub Google Meet) — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji dostajesz notatkę z podsumowaniem opanowanego materiału.",
+    a: "Lekcje odbywają się przez wideorozmowę na Google Meet — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji dostajesz notatkę z podsumowaniem opanowanego materiału.",
   },
   {
     q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
