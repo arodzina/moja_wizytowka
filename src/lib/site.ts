@@ -72,8 +72,8 @@ export const benefits = [
     description: "Nawet przy przygotowaniu do egzaminów stawiam na praktyczną komunikację. Język służy do mówienia w prawdziwym życiu — przełamujemy barierę od pierwszej lekcji.",
   },
   {
-    title: "Nieszablonowe metody & gry",
-    description: "Koniec z nudnym wklepywaniem regułek! Słownictwo i pojęcia utrwalamy przez wciągające gry i aktywizujące wyzwania.",
+    title: "Spokojne tłumaczenie od podstaw",
+    description: "Koniec z nudnym wklepywaniem regułek! Skomplikowane zagadnienia tłumaczymy krok po kroku w przyjaznej, bezstresowej atmosferze.",
   },
   {
     title: "Tłumaczę tyle razy, ile trzeba",

@@ -133,9 +133,9 @@ export default function Hero() {
                   🗣️
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Angielski w praktyce & gry</h4>
+                  <h4 className="text-sm font-bold text-ink">Angielski w praktyce</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Przełamujemy barierę w mówieniu od 1. lekcji, a słownictwo utrwalamy grami (wisielec, quizy).
+                    Przełamujemy barierę w mówieniu od 1. lekcji, a słownictwo utrwalamy na żywych przykładach.
                   </p>
                 </div>
               </div>
@@ -159,8 +159,8 @@ export default function Hero() {
             {...float(5.5, 0.4)}
             className="absolute -top-6 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-6"
           >
-            <span className="text-lg" aria-hidden="true">✨</span>
-            <span className="text-xs font-bold text-ink">Nieszablonowe metody & gry</span>
+            <span className="text-lg" aria-hidden="true">💡</span>
+            <span className="text-xs font-bold text-ink">Spokojne tłumaczenie od podstaw</span>
           </motion.div>
 
           <motion.div
