@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles, ShieldCheck, FileText, X, AlertCircle } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -46,6 +47,7 @@ const plans = [
 
 export default function Pricing() {
   const reduce = useReducedMotion();
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   return (
     <section id="cennik" aria-labelledby="pricing-title" className="relative overflow-x-clip bg-white">
@@ -168,8 +170,18 @@ export default function Pricing() {
                   🛡️ Gwarancja Rzetelności i Bezpieczne Zasady Współpracy
                 </h3>
                 <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal">
-                  „Pracuję według jasnych i uczciwych zasad. Cenię czas moich uczniów i ich rodziców, dlatego każda współpraca opiera się na przejrzystym regulaminie. Zanim zdecydują się Państwo na stałą współpracę, przechodzimy przez <strong className="font-semibold text-white">Pakiet Startowy 3 Lekcji Próbnych</strong>, aby uczeń poczuł się w 100% komfortowo, a rodzic miał pewność co do efektów. Płatności są jasne, materiały darmowe, a terminy w grafiku rezerwowane wyłącznie dla Was.”
+                  „Pracuję według jasnych i uczciwych zasad. Cenię czas moich uczniów i ich rodziców, dlatego każda współpraca opiera się na przejrzystym regulaminie. Zanim zdecydują się Państwo na stałą współpracę, przechodzimy przez <strong className="font-semibold text-white">Pakiet Startowy 3 Lekcji Próbnych</strong>, aby uczeń poczuł się w 100% komfortowo, a rodzic miał pewność co do efektów.”
                 </p>
+
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowTermsModal(true)}
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-accent-400 hover:text-accent-300 transition-colors underline underline-offset-4"
+                  >
+                    <FileText className="size-4" /> Zobacz Pełne Zasady Współpracy & Regulamin (6 punktów) →
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -185,6 +197,95 @@ export default function Pricing() {
           </p>
         </Reveal>
       </div>
+
+      {/* MODAL Z REGULAMINEM */}
+      {showTermsModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-100 space-y-6 text-slate-700 relative">
+            <button
+              type="button"
+              onClick={() => setShowTermsModal(false)}
+              className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+            >
+              <X className="size-5" />
+            </button>
+
+            <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+              <div className="grid size-10 place-items-center rounded-xl bg-brand-100 text-brand-700">
+                <ShieldCheck className="size-6" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  Zasady Współpracy & Regulamin Korepetycji
+                </h3>
+                <p className="text-xs text-slate-500">Przejrzyste zasady dla bezpieczeństwa obu stron</p>
+              </div>
+            </div>
+
+            <div className="space-y-5 text-xs sm:text-sm leading-relaxed">
+              <div className="bg-brand-50/70 p-4 rounded-2xl border border-brand-100 text-brand-900 space-y-1">
+                <strong className="block text-sm font-bold flex items-center gap-1.5">
+                  <Sparkles className="size-4 text-brand-600" /> 1. Darmowa Rozmowa & 3 Lekcje Próbne
+                </strong>
+                <p>
+                  Przed współpracą łączymy się na darmową 15-30 min rozmowę zapoznawczą. Pierwsze 3 lekcje to okres adaptacyjny — płatny z lekcji na lekcję, aby uczeń i rodzic upewnili się, że dobrze nam się współpracuje.
+                </p>
+              </div>
+
+              <div className="space-y-1.5">
+                <strong className="block text-sm font-bold text-slate-900">
+                  💳 2. Płatności i Stała Współpraca
+                </strong>
+                <p>
+                  Po 3 lekcjach próbnych przechodzimy na rozliczenie miesięczne (płatność z góry za cały miesiąc do 1. dnia miesiąca). Rezerwuje to stały termin w moim grafiku wyłącznie dla Was.
+                </p>
+              </div>
+
+              <div className="bg-amber-50/80 p-4 rounded-2xl border border-amber-200/80 text-amber-950 space-y-1">
+                <strong className="block text-sm font-bold flex items-center gap-1.5 text-amber-900">
+                  <AlertCircle className="size-4 text-amber-600" /> 3. Odpowiedzialność za Wynik i Praca Własna
+                </strong>
+                <p>
+                  Robię wszystko co w mojej mocy w trakcie zajęć, aby wytłumaczyć materiał cierpliwie i zrozumiale. Jednak 1 godzina w tygodniu to za mało bez pracy własnej ucznia. Ostateczny wynik na egzaminie (E8/Matura) zależy od samodzielnego ćwiczenia i zaangażowania ucznia, dlatego nie bierze się odpowiedzialności prawnej/finansowej za oceny szkolne i wyniki egzaminów.
+                </p>
+              </div>
+
+              <div className="space-y-1.5">
+                <strong className="block text-sm font-bold text-slate-900">
+                  🚪 4. Zasady Rezygnacji ze Współpracy
+                </strong>
+                <p>
+                  Każda ze stron może zrezygnować ze współpracy. W systemie miesięcznym rezygnacja następuje ze skutkiem na koniec opłaconego miesiąca (opłacone lekcje w miesiącu realizowane są do końca, brak zwrotów gotówki). Będę wdzięczna za krótki feedback, dlaczego rezygnujecie — to pomaga mi ulepszać zajęcia!
+                </p>
+              </div>
+
+              <div className="space-y-1.5">
+                <strong className="block text-sm font-bold text-slate-900">
+                  ⏰ 5. Odwoływanie Lekcji (Zasada 24h)
+                </strong>
+                <p>
+                  Lekcję można bezpłatnie przełożyć na inny termin w danym tygodniu pod warunkiem zgłoszenia co najmniej 24h wcześniej. Lekcja odwołana na mniej niż 24h przed czasem uważana jest za zrealizowaną.
+                </p>
+              </div>
+
+              <div className="space-y-1.5">
+                <strong className="block text-sm font-bold text-slate-900">
+                  📝 6. Własne Tematy & Zadania ze Szkoły
+                </strong>
+                <p>
+                  Uczeń może przynieść na lekcję własny temat ze szkoły lub zadanie domowe. Proszę o przesłanie zdjęcia lub informacji minimum 24h przed lekcją, abym mogła przygotować idealne materiały.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 flex justify-end">
+              <Button onClick={() => setShowTermsModal(false)}>
+                Rozumiem i Akceptuję
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
