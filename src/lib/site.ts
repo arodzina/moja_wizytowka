@@ -72,7 +72,7 @@ export const benefits = [
     description: "Nawet przy przygotowaniu do egzaminów stawiam na praktyczną komunikację. Język służy do mówienia w prawdziwym życiu — przełamujemy barierę od pierwszej lekcji.",
   },
   {
-    title: "Spokojne tłumaczenie od podstaw",
+    title: "Proste tłumaczenie od podstaw",
     description: "Koniec z nudnym wklepywaniem regułek! Skomplikowane zagadnienia tłumaczymy krok po kroku w przyjaznej, bezstresowej atmosferze.",
   },
   {
