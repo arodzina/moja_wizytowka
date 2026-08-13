@@ -41,13 +41,13 @@ export const services = [
   },
   {
     id: "matematyka-sp-liceum",
-    title: "Matematyka · Szkoła Podstawowa & Średnia",
+    title: "Matematyka · Szkoła Podstawowa (kl. 4–8 & E8)",
     description:
-      "Klasy 4–8, Egzamin Ósmoklasisty E8 oraz podstawy szkoły średniej (bez matury rozszerzonej z matematyki).",
+      "Klasy 4–8 oraz przygotowanie do Egzaminu Ósmoklasisty E8.",
     bullets: [
       "Rachunki, ułamki, procenty i geometria",
       "Egzamin Ósmoklasisty E8 bez stresu",
-      "Podstawy liceum i nadrabianie zaległości",
+      "Nadrabianie zaległości z wcześniejszych klas",
     ],
   },
   {

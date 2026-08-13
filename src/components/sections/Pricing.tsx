@@ -27,19 +27,19 @@ const plans = [
   {
     icon: GraduationCap,
     label: "Liceum / Matura",
-    sub: "Angielski (Podstawowa & Rozszerzona B1/B2/C1) + Podstawy Mat. Średniej",
+    sub: "Język Angielski · Matura Podstawowa & Rozszerzona (B1 / B2 / C1)",
     price: "60",
     unit: "zł / godzina",
     color: "accent",
     popular: true,
     includes: [
-      "Angielski Matura Podstawowa i Rozszerzona",
-      "Podstawy matematyki szkoły średniej",
+      "Angielski Matura Podstawowa (B1/B2)",
+      "Angielski Matura Rozszerzona (B2+/C1)",
+      "Przygotowanie do matury ustnej i pisemnej",
       "Darmowa Rozmowa Zapoznawcza (15 min)",
       "Pakiet Startowy 3 Lekcji Próbnych",
       "Praca na autentycznych arkuszach CKE",
       "Notatka i podsumowanie po każdej lekcji",
-      "Regularna kontrola postępów",
     ],
   },
 ];
