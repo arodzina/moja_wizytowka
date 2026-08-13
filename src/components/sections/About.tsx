@@ -94,11 +94,9 @@ export default function About() {
               </div>
 
               <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
-                <div className="text-2xl sm:text-3xl font-extrabold text-amber-500">
-                  4.9 <span className="text-sm font-normal text-slate-400">/ 5.0</span>
-                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-amber-500">1 na 1</div>
                 <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
-                  ⭐ Średnia ocen od uczniów i rodziców
+                  🎯 Indywidualne podejście dopasowane do tempa ucznia
                 </div>
               </div>
 
