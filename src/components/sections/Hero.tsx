@@ -110,7 +110,7 @@ export default function Hero() {
               </div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
                 <Video className="size-3.5" aria-hidden="true" />
-                Darmowe 30 min na start
+                Darmowe 15 min na start
               </span>
             </div>
 
