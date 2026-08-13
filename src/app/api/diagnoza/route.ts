@@ -19,9 +19,9 @@ const getSubmissionsFilePath = () => {
 };
 
 function isAuthorized(request: Request): boolean {
-  const adminPass = process.env.ADMIN_PASSWORD || "ola";
+  const adminPass = process.env.ADMIN_PASSWORD || "Ola#Korepetycje2026!Sec";
   const authHeader = request.headers.get("x-admin-password");
-  return !!authHeader && authHeader.trim().toLowerCase() === adminPass.trim().toLowerCase();
+  return !!authHeader && authHeader.trim() === adminPass.trim();
 }
 
 export async function GET(request: Request) {
