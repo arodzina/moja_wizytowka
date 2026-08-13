@@ -20,8 +20,6 @@ import {
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
-const ADMIN_PASSWORD = "ola";
-
 interface Submission {
   id: string;
   createdAt: string;
@@ -33,6 +31,7 @@ interface Submission {
 export default function DiagnozaAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState("");
+  const [savedPassword, setSavedPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -47,20 +46,37 @@ export default function DiagnozaAdminPage() {
 
   // Sprawdzanie czy Ola logowała się już w tej sesji
   useEffect(() => {
-    const auth = localStorage.getItem("ola_admin_auth");
-    if (auth === "true") {
-      setIsAuthenticated(true);
-      fetchSubmissions();
+    const storedPass = sessionStorage.getItem("ola_admin_pass");
+    if (storedPass) {
+      setSavedPassword(storedPass);
+      fetchSubmissions(storedPass);
     }
   }, []);
 
-  const fetchSubmissions = async () => {
+  const fetchSubmissions = async (passToUse?: string) => {
+    const pass = passToUse || savedPassword || sessionStorage.getItem("ola_admin_pass") || "";
+    if (!pass) return;
+
     setLoading(true);
     try {
-      const res = await fetch("/api/diagnoza");
+      const res = await fetch("/api/diagnoza", {
+        headers: {
+          "x-admin-password": pass,
+        },
+      });
+
+      if (res.status === 401) {
+        setIsAuthenticated(false);
+        sessionStorage.removeItem("ola_admin_pass");
+        setErrorMsg("Nieprawidłowe hasło lub sesja wygasła.");
+        return;
+      }
+
       const data = await res.json();
       if (data.submissions) {
         setSubmissions(data.submissions);
+        setIsAuthenticated(true);
+        setErrorMsg("");
       }
     } catch (err) {
       console.error("Błąd podczas pobierania zgłoszeń:", err);
@@ -69,21 +85,42 @@ export default function DiagnozaAdminPage() {
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passwordInput.trim().toLowerCase() === ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      localStorage.setItem("ola_admin_auth", "true");
-      setErrorMsg("");
-      fetchSubmissions();
-    } else {
-      setErrorMsg("Nieprawidłowe hasło. Spróbuj ponownie!");
+    const entered = passwordInput.trim();
+    if (!entered) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/diagnoza", {
+        headers: {
+          "x-admin-password": entered,
+        },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setSavedPassword(entered);
+        sessionStorage.setItem("ola_admin_pass", entered);
+        setIsAuthenticated(true);
+        setErrorMsg("");
+        if (data.submissions) {
+          setSubmissions(data.submissions);
+        }
+      } else {
+        setErrorMsg("Nieprawidłowe hasło. Spróbuj ponownie!");
+      }
+    } catch (err) {
+      setErrorMsg("Błąd połączenia z serwerem.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem("ola_admin_auth");
+    setSavedPassword("");
+    sessionStorage.removeItem("ola_admin_pass");
   };
 
   const handleCopyPrompt = (promptText: string, id: string) => {
@@ -94,13 +131,21 @@ export default function DiagnozaAdminPage() {
 
   const handleDeleteSubmission = async (id: string) => {
     if (!confirm("Czy na pewno chcesz usunąć tę diagnozę z listy?")) return;
+    const pass = savedPassword || sessionStorage.getItem("ola_admin_pass") || "";
     try {
-      await fetch("/api/diagnoza", {
+      const res = await fetch("/api/diagnoza", {
         method: "DELETE",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-password": pass,
+        },
         body: JSON.stringify({ id }),
       });
-      setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+      if (res.ok) {
+        setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+      } else {
+        alert("Błąd autoryzacji przy usuwaniu.");
+      }
     } catch (err) {
       console.error("Błąd przy usuwaniu:", err);
     }
@@ -252,7 +297,7 @@ export default function DiagnozaAdminPage() {
             </div>
 
             <button
-              onClick={fetchSubmissions}
+              onClick={() => fetchSubmissions()}
               disabled={loading}
               className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors border border-slate-700"
             >

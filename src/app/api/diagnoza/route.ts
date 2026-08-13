@@ -18,7 +18,17 @@ const getSubmissionsFilePath = () => {
   return path.join(dirPath, "submissions.json");
 };
 
-export async function GET() {
+function isAuthorized(request: Request): boolean {
+  const adminPass = process.env.ADMIN_PASSWORD || "ola";
+  const authHeader = request.headers.get("x-admin-password");
+  return !!authHeader && authHeader.trim().toLowerCase() === adminPass.trim().toLowerCase();
+}
+
+export async function GET(request: Request) {
+  if (!isAuthorized(request)) {
+    return NextResponse.json({ error: "Brak autoryzacji" }, { status: 401 });
+  }
+
   try {
     const filePath = getSubmissionsFilePath();
     if (!fs.existsSync(filePath)) {
@@ -105,6 +115,10 @@ ${aiPrompt}
 }
 
 export async function DELETE(request: Request) {
+  if (!isAuthorized(request)) {
+    return NextResponse.json({ error: "Brak autoryzacji" }, { status: 401 });
+  }
+
   try {
     const { id } = await request.json();
     const submissionsFile = getSubmissionsFilePath();
