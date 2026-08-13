@@ -92,7 +92,7 @@ export default function Benefits() {
                     <Sparkles className="size-4" /> Sprawdzone od 4. roku życia!
                   </div>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Wypróbowałam tę formę z dziećmi już od 4 lat! Interaktywna tablica, wirtualne gry i Notion sprawiają, że lekcja naprawdę wciąga.
+                    Wypróbowałam tę formę z dziećmi od wieku 4 lat. Dzięki interaktywnej tablicy, grom i nowoczesnym narzędziom zajęcia są wciągające i bardzo komfortowe.
                   </p>
                 </div>
               </div>
