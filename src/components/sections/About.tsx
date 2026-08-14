@@ -3,17 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, ChevronDown, Download, FileText, Globe, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, FileText, Globe, GraduationCap, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
-
-const highlights = [
-  "Mówienie & aktywne konwersacje",
-  "Gry językowe & aktywizacja",
-  "Erasmus+ · Portugalia (C1)",
-  "Informatyka & Ekonometria (AGH)",
-];
 
 export default function About() {
   const [showQualifications, setShowQualifications] = useState(false);
@@ -116,22 +109,8 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* Wyróżniki */}
-          <Reveal delay={0.18}>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {highlights.map((h) => (
-                <li key={h} className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3.5 ring-1 ring-slate-200/70">
-                  <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-brand-600 text-white">
-                    <Check className="size-3" aria-hidden="true" />
-                  </span>
-                  <span className="text-sm font-semibold text-ink">{h}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
           {/* Rozwijana sekcja z kwalifikacjami / certyfikatami */}
-          <Reveal delay={0.22}>
+          <Reveal delay={0.2}>
             <div className="mt-7">
               <button
                 type="button"

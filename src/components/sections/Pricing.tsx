@@ -82,8 +82,8 @@ export default function Pricing() {
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionHeading
           eyebrow="Cennik"
-          title="Przejrzyste stawki, bez niespodzianek"
-          lead="Widzisz dokładnie, za co płacisz. Bez ukrytych kosztów — materiały i notatki po lekcji są wliczone w cenę."
+          title="Oferta i cennik"
+          lead="Widzisz dokładnie, czego uczę i za ile. Bez ukrytych kosztów."
         />
 
         {/* Darmowa rozmowa zapoznawcza — baner */}

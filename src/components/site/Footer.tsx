@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import Logo from "@/components/site/Logo";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
-import { navLinks, services, site } from "@/lib/site";
+import { navLinks, site } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white/70">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1.2fr]">
           <div>
             <Link href="/#start" className="rounded-xl" aria-label="Przejdź do początku strony">
               <Logo inverse />
@@ -64,19 +64,6 @@ export default function Footer() {
               </li>
             </ul>
           </nav>
-
-          <div>
-            <h3 className="font-display text-base font-semibold text-white">Zajęcia</h3>
-            <ul className="mt-5 space-y-3 text-sm">
-              {services.map((s) => (
-                <li key={s.id}>
-                  <a href="/#zajecia" className="transition-colors hover:text-accent-300">
-                    {s.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           <div>
             <h3 className="font-display text-base font-semibold text-white">Kontakt</h3>

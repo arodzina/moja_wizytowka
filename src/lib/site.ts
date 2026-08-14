@@ -21,9 +21,8 @@ export const site = {
 
 export const navLinks = [
   { label: "O mnie", href: "/#o-mnie" },
-  { label: "Zajęcia", href: "/#zajecia" },
+  { label: "Oferta i cennik", href: "/#cennik" },
   { label: "Jak to działa", href: "/#jak-to-dziala" },
-  { label: "Cennik", href: "/#cennik" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
 
@@ -95,6 +94,10 @@ export const benefits = [
 
 export const faqItems = [
   {
+    q: "Jak wyglądają lekcje online? Czego potrzebuję?",
+    a: "Lekcje odbywają się przez Google Meet — wystarczy komputer lub tablet z internetem. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Uczeń uczy się z domu, więc nie trzeba nigdzie dojeżdżać.",
+  },
+  {
     q: "Jak często odbywają się lekcje?",
     a: "Częstotliwość ustalamy indywidualnie — najczęściej to 1–2 lekcje w tygodniu. Czas trwania lekcji to standardowo 60 minut, ale po uzgodnieniu możliwe są również lekcje 45-minutowe (np. dwa razy w tygodniu). W trakcie współpracy możemy dopasować ilość i czas lekcji do aktualnych potrzeb ucznia.",
   },
@@ -113,10 +116,6 @@ export const faqItems = [
   {
     q: "Jak wygląda pierwsza rozmowa zapoznawcza?",
     a: "Rozmowa zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca. Podczas krótkiego spotkania online omawiamy cele, dotychczasowe trudności, oceny i pasujący termin w grafiku.",
-  },
-  {
-    q: "Jak wyglądają regularne lekcje online?",
-    a: "Lekcje odbywają się przez wideorozmowę na Google Meet — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji rodzic i uczeń wiedzą dokładnie, co zostało przerobione.",
   },
   {
     q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
