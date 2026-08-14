@@ -89,8 +89,8 @@ export default function Contact() {
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionHeading
           eyebrow="Kontakt"
-          title="Umów darmowe spotkanie zapoznawcze"
-          lead="Napisz do mnie — pierwsza Darmowa Rozmowa Zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca."
+          title="Umów darmową rozmowę zapoznawczą"
+          lead="Napisz do mnie — pierwsza rozmowa zapoznawcza (15 min) jest bezpłatna i niezobowiązująca."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">

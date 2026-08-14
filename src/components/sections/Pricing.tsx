@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpen, Check, GraduationCap, Sparkles, ShieldCheck, Crown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -9,39 +9,64 @@ import Button from "@/components/ui/Button";
 const plans = [
   {
     icon: BookOpen,
-    label: "Szkoła Podstawowa",
-    sub: "Klasy 4–8 · Angielski i Matematyka · E8",
+    label: "Szkoła Podstawowa (angielski i matematyka)",
+    sub: "Klasy 4–8 · Egzamin Ósmoklasisty (E8)",
     price: "50",
-    unit: "zł / godzina",
+    unit: "zł / 60 min",
     color: "brand",
+    promo: "Cena promocyjna na start nowego semestru",
     includes: [
-      "Angielski kl. 4–8 i Egzamin Ósmoklasisty E8",
-      "Matematyka kl. 4–8 i Egzamin Ósmoklasisty E8",
-      "Darmowa Rozmowa Zapoznawcza (15 min)",
-      "Pakiet Startowy 3 Lekcji Próbnych",
-      "Notatka i podsumowanie po każdej lekcji",
-      "Darmowe materiały i arkusze CKE",
-      "Regularna kontrola postępów",
+      "Angielski · klasy 4–8 i Egzamin Ósmoklasisty",
+      "Matematyka · klasy 4–8 i Egzamin Ósmoklasisty",
+      "Darmowa rozmowa zapoznawcza (15 min)",
+      "Pakiet startowy 3 lekcji próbnych (odpłatnych, niezobowiązujących)",
+      "Podsumowanie po każdej lekcji (co zrobiliśmy, nad czym warto popracować)",
+      "Praca na arkuszach CKE · regularna kontrola postępów",
     ],
   },
   {
     icon: GraduationCap,
-    label: "Liceum / Matura",
-    sub: "Język Angielski · Matura Podstawowa & Rozszerzona (B1 / B2 / C1)",
+    label: "Liceum / Matura (język angielski)",
+    sub: "Matura podstawowa i rozszerzona",
     price: "60",
-    unit: "zł / godzina",
+    unit: "zł / 60 min",
     color: "accent",
-    popular: true,
+    promo: "Cena promocyjna na start nowego semestru",
     includes: [
-      "Angielski Matura Podstawowa (B1/B2)",
-      "Angielski Matura Rozszerzona (B2+/C1)",
-      "Przygotowanie do matury ustnej i pisemnej",
-      "Darmowa Rozmowa Zapoznawcza (15 min)",
-      "Pakiet Startowy 3 Lekcji Próbnych",
+      "Angielski · matura podstawowa",
+      "Angielski · matura rozszerzona",
+      "Przygotowanie do matury pisemnej i ustnej",
+      "Darmowa rozmowa zapoznawcza (15 min)",
+      "Pakiet startowy 3 lekcji próbnych (odpłatnych, niezobowiązujących)",
       "Praca na autentycznych arkuszach CKE",
-      "Notatka i podsumowanie po każdej lekcji",
+      "Podsumowanie po każdej lekcji (co zrobiliśmy, nad czym warto popracować)",
     ],
   },
+  {
+    icon: Crown,
+    label: "Pakiet Premium (płatność kwartalna)",
+    sub: "Płatność z góry za 3 miesiące. W zamian otrzymujesz dodatkowe wsparcie między lekcjami.",
+    price: "50 / 60",
+    unit: "zł / 60 min",
+    priceNote: "(w zależności od poziomu)",
+    color: "premium",
+    popular: true,
+    badge: "Polecany",
+    includes: [
+      "Wszystko z pakietu standardowego",
+      "Pełna notatka z każdej lekcji (nie tylko podsumowanie, ale szczegółowy zapis tego, co przerobiliśmy)",
+      "Indywidualnie dobrane materiały do pracy własnej między lekcjami",
+      "Priorytet w grafiku — stały, zarezerwowany termin",
+      "Możliwość przejścia z/na pakiet standardowy pod koniec miesiąca",
+    ],
+  },
+];
+
+const rules = [
+  "Przejrzyste warunki ustalamy na początku, żeby obie strony wiedziały, czego się spodziewać.",
+  "3 lekcje próbne — odpłatne, ale niezobowiązujące. Po każdej można zrezygnować.",
+  "Odwołanie lekcji min. 24h wcześniej — bezpłatne przełożenie na inny termin.",
+  "Rezygnacja ze współpracy — zgłaszasz do końca miesiąca, od kolejnego miesiąca kończymy.",
 ];
 
 export default function Pricing() {
@@ -58,15 +83,15 @@ export default function Pricing() {
         <SectionHeading
           eyebrow="Cennik"
           title="Przejrzyste stawki, bez niespodzianek"
-          lead="Widzisz dokładnie, za co płacisz. Bez ukrytych kosztów — materiały, notatki po lekcji i diagnoza są wliczone w cenę."
+          lead="Widzisz dokładnie, za co płacisz. Bez ukrytych kosztów — materiały i notatki po lekcji są wliczone w cenę."
         />
 
-        {/* Darmowa lekcja próbna — baner */}
+        {/* Darmowa rozmowa zapoznawcza — baner */}
         <Reveal>
           <div className="mx-auto mt-10 max-w-2xl rounded-3xl bg-brand-50 px-6 py-5 ring-1 ring-brand-200/60 text-center">
             <p className="flex items-center justify-center gap-2 text-sm font-bold text-brand-800">
               <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
-              Pierwsza Rozmowa Zapoznawcza (15 min) jest zawsze{" "}
+              Pierwsza rozmowa zapoznawcza (15 min) jest zawsze{" "}
               <span className="text-brand-600">bezpłatna i niezobowiązująca.</span>
             </p>
             <p className="mt-1 text-sm text-slate-soft">
@@ -76,7 +101,7 @@ export default function Pricing() {
         </Reveal>
 
         {/* Karty cenowe */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, i) => (
             <Reveal key={plan.label} delay={i * 0.1} className="h-full">
               <motion.div
@@ -90,7 +115,7 @@ export default function Pricing() {
               >
                 {plan.popular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent-400 px-4 py-1 text-xs font-bold text-ink shadow-soft">
-                    Najpopularniejsze
+                    {plan.badge || "Polecany"}
                   </span>
                 )}
 
@@ -103,22 +128,29 @@ export default function Pricing() {
                 <h3 className={`mt-5 text-xl font-semibold ${plan.popular ? "text-white" : "text-ink"}`}>
                   {plan.label}
                 </h3>
-                <p className={`text-sm ${plan.popular ? "text-white/60" : "text-slate-soft"}`}>
+                <p className={`mt-1 text-sm ${plan.popular ? "text-white/70" : "text-slate-soft"}`}>
                   {plan.sub}
                 </p>
 
                 {/* PROMO BADGE */}
-                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200 self-start">
-                  🔥 Cena promocyjna na start nowego semestru
-                </div>
+                {plan.promo && (
+                  <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-200 self-start">
+                    {plan.promo}
+                  </div>
+                )}
 
-                <div className="mt-3 flex items-end gap-1">
-                  <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-ink"}`}>
+                <div className="mt-3 flex flex-wrap items-baseline gap-1.5">
+                  <span className={`text-4xl font-bold ${plan.popular ? "text-white" : "text-ink"}`}>
                     {plan.price}
                   </span>
-                  <span className={`mb-1.5 text-sm font-medium ${plan.popular ? "text-white/60" : "text-slate-soft"}`}>
+                  <span className={`text-sm font-medium ${plan.popular ? "text-white/70" : "text-slate-soft"}`}>
                     {plan.unit}
                   </span>
+                  {plan.priceNote && (
+                    <span className={`text-xs ${plan.popular ? "text-white/60" : "text-slate-500"} block w-full mt-0.5`}>
+                      {plan.priceNote}
+                    </span>
+                  )}
                 </div>
 
                 <ul className="mt-6 space-y-3 flex-1">
@@ -129,7 +161,7 @@ export default function Pricing() {
                       }`}>
                         <Check className="size-2.5" aria-hidden="true" />
                       </span>
-                      <span className={plan.popular ? "text-white/80" : "text-slate-600"}>
+                      <span className={plan.popular ? "text-white/85" : "text-slate-600"}>
                         {item}
                       </span>
                     </li>
@@ -149,27 +181,35 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* 🛡️ Gwarancja Rzetelności i Bezpieczne Zasady Współpracy */}
+        {/* 🛡️ Przejrzyste zasady współpracy */}
         <Reveal delay={0.25}>
-          <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-slate-900 p-8 text-white shadow-xl ring-1 ring-slate-800 relative overflow-hidden">
+          <div className="mx-auto mt-12 max-w-4xl rounded-3xl bg-slate-900 p-8 text-white shadow-xl ring-1 ring-slate-800 relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-8 -mr-8 size-40 rounded-full bg-brand-500/10 blur-2xl pointer-events-none" />
             <div className="flex flex-col sm:flex-row sm:items-start gap-5 relative z-10">
               <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/30">
                 <ShieldCheck className="size-8 text-accent-400" aria-hidden="true" />
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent-400">
-                    Bezpieczna Współpraca
+              <div className="space-y-4 flex-1">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent-400">
+                    Zasady
                   </span>
+                  <h3 className="mt-1 text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    Przejrzyste zasady współpracy
+                  </h3>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  🛡️ Gwarancja Rzetelności i Bezpieczne Zasady Współpracy
-                </h3>
-                <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal">
-                  „Pracuję według jasnych i uczciwych zasad. Cenię czas moich uczniów i ich rodziców, dlatego każda współpraca opiera się na przejrzystych warunkach. Zanim zdecydują się Państwo na stałą współpracę, przechodzimy przez <strong className="font-semibold text-white">Pakiet Startowy 3 Lekcji Próbnych</strong>, aby uczeń poczuł się w 100% komfortowo, a rodzic miał pewność co do efektów.”
-                </p>
+
+                <ul className="space-y-2.5">
+                  {rules.map((rule, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-slate-300">
+                      <span className="mt-1 grid size-4 shrink-0 place-items-center rounded-full bg-brand-500/30 text-accent-400 text-xs">
+                        ✓
+                      </span>
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

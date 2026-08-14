@@ -73,7 +73,7 @@ export const benefits = [
   },
   {
     title: "Proste tłumaczenie od podstaw",
-    description: "Koniec z nudnym wklepywaniem regułek! Skomplikowane zagadnienia tłumaczymy krok po kroku w przyjaznej, bezstresowej atmosferze.",
+    description: "Koniec ze skomplikowanym językiem podręcznikowym. Trudne zagadnienia tłumaczymy krok po kroku w spokojnej i przyjaznej atmosferze.",
   },
   {
     title: "Tłumaczę tyle razy, ile trzeba",
@@ -81,38 +81,50 @@ export const benefits = [
   },
   {
     title: "Przygotowuję każdą lekcję",
-    description: "Przed zajęciami analizuję Twoje postępy i dobieram ciekawe materiały oraz zadania pod Twoje trudności. Nie przychodzę bez przygotowania.",
+    description: "Przed zajęciami analizuję postępy ucznia i dobieram materiały oraz zadania dopasowane do jego trudności. Nie przychodzę bez przygotowania.",
   },
   {
-    title: "Notatka po każdej lekcji",
-    description: "Po zajęciach dostajesz krótkie podsumowanie z notatką — co przerobiliśmy, co ćwiczyć i na co zwrócić uwagę. Zawsze wiesz, na czym stoisz.",
+    title: "Podsumowanie lub notatka po lekcji",
+    description: "Po zajęciach dostajesz przejrzyste podsumowanie lub pełną notatkę — co przerobiliśmy, co ćwiczyć i na co zwrócić uwagę. Zawsze wiesz, na czym stoisz.",
   },
   {
-    title: "Pakiet Startowy 3 Lekcji Próbnych",
-    description: "Przed przejściem na stały abonament miesięczny przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych, aby uczeń poczuł się komfortowo, a rodzic miał 100% pewności.",
+    title: "Pakiet startowy 3 lekcji próbnych",
+    description: "Przed przejściem na stałą współpracę przechodzimy przez 3 lekcje próbne (odpłatne, ale niezobowiązujące), aby uczeń i rodzic mieli pewność co do formy zajęć.",
   },
 ] as const;
 
 export const faqItems = [
   {
-    q: "Jak wygląda pierwsza rozmowa zapoznawcza?",
-    a: "Pierwsza Darmowa Rozmowa Zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca. Podczas 15-minutowej rozmowy online omawiamy cele, pomysł na współpracę, oceny i pasujący termin w grafiku.",
+    q: "Jak często odbywają się lekcje?",
+    a: "Częstotliwość ustalamy indywidualnie — najczęściej to 1–2 lekcje w tygodniu. Czas trwania lekcji to standardowo 60 minut, ale po uzgodnieniu możliwe są również lekcje 45-minutowe (np. dwa razy w tygodniu). W trakcie współpracy możemy dopasować ilość i czas lekcji do aktualnych potrzeb ucznia.",
   },
   {
-    q: "Czym jest Pakiet Startowy 3 Lekcji Próbnych?",
-    a: "Zanim zdecydują się Państwo na stały abonament miesięczny, przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych. Pozwala to uczniowi sprawdzić styl prowadzenia zajęć bez presji, a rodzicowi upewnić się co do efektów.",
+    q: "Czy lekcje próbne są darmowe?",
+    a: "Rozmowa zapoznawcza (15 min) jest zawsze bezpłatna. Natomiast 3 lekcje próbne są już płatne według normalnego cennika — płatność przed każdą lekcją, min. 24h wcześniej. Lekcje próbne nie zobowiązują do dalszej współpracy — po każdej z nich możesz zrezygnować.",
+  },
+  {
+    q: "Co dokładnie dostaję po lekcji?",
+    a: "W pakiecie standardowym — podsumowanie po lekcji (co zrobiliśmy, nad czym warto popracować). W pakiecie Premium — pełną notatkę z lekcji i indywidualnie dobrane materiały do samodzielnej pracy.",
+  },
+  {
+    q: "Jak mogę zrezygnować ze współpracy?",
+    a: "Rezygnację zgłaszasz do końca bieżącego miesiąca kalendarzowego — od kolejnego miesiąca współpraca zostaje zakończona. Lekcje opłacone w danym miesiącu realizujemy do końca. W wyjątkowych sytuacjach losowych (np. przeprowadzka, choroba) — indywidualnie ustalamy rozwiązanie.",
+  },
+  {
+    q: "Jak wygląda pierwsza rozmowa zapoznawcza?",
+    a: "Rozmowa zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca. Podczas krótkiego spotkania online omawiamy cele, dotychczasowe trudności, oceny i pasujący termin w grafiku.",
   },
   {
     q: "Jak wyglądają regularne lekcje online?",
-    a: "Lekcje odbywają się przez wideorozmowę na Google Meet — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji dostajesz notatkę z podsumowaniem opanowanego materiału.",
+    a: "Lekcje odbywają się przez wideorozmowę na Google Meet — z kamerą albo bez. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Po każdej lekcji rodzic i uczeń wiedzą dokładnie, co zostało przerobione.",
   },
   {
     q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
-    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów są prowadzone z wykorzystaniem gier aktywizujących oraz przejrzystych notatek. Dzieci są zaangażowane i traktują zajęcia jak ciekawą przygodę, a nie nudny obowiązek.",
+    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów prowadzimy z wykorzystaniem angażujących ćwiczeń oraz przejrzystych notatek. Dzieci chętnie biorą udział w zajęciach i nie czują presji.",
   },
   {
     q: "Jak przygotowujesz do matury i egzaminu ósmoklasisty?",
-    a: "Pracujemy na autentycznych arkuszach egzaminacyjnych z poprzednich lat, uczymy się strategii rozwiązywania zadań i zarządzania czasem. Regularnie sprawdzamy postępy, eliminując trudne obszary w spokojnej atmosferze.",
+    a: "Pracujemy na autentycznych arkuszach egzaminacyjnych CKE z poprzednich lat, uczymy się strategii rozwiązywania zadań i zarządzania czasem. Regularnie sprawdzamy postępy w spokojnej atmosferze.",
   },
 ] as const;
 

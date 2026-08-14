@@ -241,7 +241,7 @@ export default function About() {
           <Reveal delay={0.28}>
             <div className="mt-9 flex flex-wrap items-center gap-6">
               <Button href="#kontakt" size="lg">
-                Umów darmową lekcję próbną
+                Umów darmową rozmowę zapoznawczą
                 <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </Button>
               <p className="font-display text-xl italic text-slate-500">— {site.tutorName}</p>

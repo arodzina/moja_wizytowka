@@ -75,7 +75,7 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Button href="/#kontakt" className="hidden sm:inline-flex">
-              Umów lekcję
+              Umów rozmowę
             </Button>
             <button
               type="button"
@@ -118,7 +118,7 @@ export default function Header() {
                   className="mt-3 w-full"
                   onClick={() => setOpen(false)}
                 >
-                  Umów pierwszą lekcję
+                  Umów darmową rozmowę
                 </Button>
               </div>
             </motion.nav>

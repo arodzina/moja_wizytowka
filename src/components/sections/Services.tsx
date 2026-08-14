@@ -51,7 +51,7 @@ export default function Services() {
                     href="#kontakt"
                     className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-brand-700 transition-colors hover:text-brand-600"
                   >
-                    Umów lekcję
+                    Umów darmową rozmowę
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                   </a>
                 </motion.article>

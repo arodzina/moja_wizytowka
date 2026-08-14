@@ -167,7 +167,7 @@ export default function Hero() {
             {...float(5, 0)}
             className="absolute -bottom-2 left-6 max-w-[17rem] -rotate-1 rounded-2xl bg-accent-200 px-4 py-3 text-xs font-semibold text-ink shadow-soft sm:left-10"
           >
-            Bezstresowa atmosfera & wsparcie 😊
+            Spokojna atmosfera & wsparcie 😊
           </motion.div>
         </motion.div>
       </div>

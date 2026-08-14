@@ -1,27 +1,27 @@
 "use client";
 
-import { CalendarDays, Goal, Video } from "lucide-react";
+import { CalendarDays, CheckCircle2, Goal, Video } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 
 const steps = [
   {
     icon: CalendarDays,
-    title: "1. Formularz & zgłoszenie",
+    title: "1. Formularz zgłoszeniowy i rozmowa zapoznawcza (15 min)",
     description:
-      "Piszesz przez formularz kontaktowy lub wypełniasz krótki quiz diagnozujący, określając swoje trudności i cele.",
-  },
-  {
-    icon: Video,
-    title: "2. Rozmowa Zapoznawcza (15 min)",
-    description:
-      "Łączymy się online na 15-minutowe bezpłatne spotkanie. Omawiamy oczekiwania, plan działania oraz wolne terminy w grafiku.",
+      "Wypełniasz krótki formularz, a potem łączymy się na 15-minutowe bezpłatne spotkanie online. Ustalamy cele, oczekiwania i plan współpracy. Cały ten etap jest darmowy.",
   },
   {
     icon: Goal,
-    title: "3. Pakiet Startowy 3 Lekcji",
+    title: "2. Pakiet startowy — 3 lekcje próbne",
     description:
-      "Przechodzimy przez Pakiet Startowy 3 Lekcji Próbnych, aby uczeń poczuł się komfortowo, a rodzic miał 100% pewności przed stałą współpracą.",
+      "Trzy pierwsze lekcje, podczas których sprawdzamy, czy dobrze nam się współpracuje. Lekcje próbne są odpłatne (płatność przed każdą lekcją), ale niezobowiązujące — po każdej z nich możesz zrezygnować bez żadnych konsekwencji.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "3. Stała współpraca — płatność miesięczna z góry",
+    description:
+      "Po udanym okresie próbnym przechodzimy na regularne lekcje z płatnością za cały miesiąc z góry. Częstotliwość i czas trwania lekcji (60 lub 45 min) ustalamy razem, dopasowując się do potrzeb ucznia.",
   },
 ];
 
@@ -50,8 +50,7 @@ export default function HowItWorks() {
               Trzy proste kroki do lepszych ocen
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
-              Cała współpraca wygląda dokładnie tak, jak powinna wyglądać nauka:
-              spokojnie i bez chaosu.
+              Spokojnie i bez chaosu — od pierwszego kontaktu do regularnych lekcji.
             </p>
           </Reveal>
         </div>
@@ -78,7 +77,7 @@ export default function HowItWorks() {
         <Reveal delay={0.2} className="mt-12 text-center">
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="#kontakt" variant="accent" size="lg">
-              Umów pierwszą lekcję
+              Umów darmową rozmowę
             </Button>
             <a
               href="#faq"
