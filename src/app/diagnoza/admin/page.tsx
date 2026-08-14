@@ -17,6 +17,9 @@ import {
   Search,
   UserCheck,
   FileText,
+  PlusCircle,
+  Database,
+  HelpCircle,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -35,11 +38,20 @@ export default function DiagnozaAdminPage() {
   const [errorMsg, setErrorMsg] = useState("");
 
   const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [storageMode, setStorageMode] = useState<string>("file");
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  // Dodawanie ręczne do bazy
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [addName, setAddName] = useState("");
+  const [addSummary, setAddSummary] = useState("");
+  const [addPrompt, setAddPrompt] = useState("");
+  const [addSuccessMsg, setAddSuccessMsg] = useState("");
+
+  // Ręczny generator
   const [pastedReport, setPastedReport] = useState("");
   const [manualPrompt, setManualPrompt] = useState("");
   const [copiedManual, setCopiedManual] = useState(false);
@@ -75,6 +87,7 @@ export default function DiagnozaAdminPage() {
       const data = await res.json();
       if (data.submissions) {
         setSubmissions(data.submissions);
+        if (data.storageMode) setStorageMode(data.storageMode);
         setIsAuthenticated(true);
         setErrorMsg("");
       }
@@ -106,6 +119,7 @@ export default function DiagnozaAdminPage() {
         setErrorMsg("");
         if (data.submissions) {
           setSubmissions(data.submissions);
+          if (data.storageMode) setStorageMode(data.storageMode);
         }
       } else {
         setErrorMsg("Nieprawidłowe hasło. Spróbuj ponownie!");
@@ -148,6 +162,39 @@ export default function DiagnozaAdminPage() {
       }
     } catch (err) {
       console.error("Błąd przy usuwaniu:", err);
+    }
+  };
+
+  const handleAddManualStudent = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!addName.trim()) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/diagnoza", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          studentName: addName.trim(),
+          summaryText: addSummary.trim() || `Ręcznie dodany raport dla: ${addName.trim()}`,
+          aiPrompt: addPrompt.trim() || manualPrompt.trim() || "Brak promptu",
+        }),
+      });
+
+      if (res.ok) {
+        setAddSuccessMsg(`Dodano ucznia ${addName} do bazy!`);
+        setAddName("");
+        setAddSummary("");
+        setAddPrompt("");
+        setTimeout(() => setAddSuccessMsg(""), 4000);
+        fetchSubmissions();
+      } else {
+        alert("Błąd zapisu ucznia.");
+      }
+    } catch (err) {
+      console.error("Błąd ręcznego dodawania:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -199,10 +246,40 @@ export default function DiagnozaAdminPage() {
     setManualPrompt(p);
   };
 
-  const filteredSubmissions = submissions.filter((sub) =>
-    sub.studentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    sub.summaryText.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredSubmissions = submissions.filter(
+    (sub) =>
+      sub.studentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      sub.summaryText.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const renderStorageBadge = () => {
+    switch (storageMode) {
+      case "supabase":
+        return (
+          <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1.5" title="Dane są trwale zapisane w bazie Supabase PostgreSQL">
+            <Database className="size-3.5" /> Baza chmurowa: Supabase
+          </span>
+        );
+      case "kv":
+        return (
+          <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30 flex items-center gap-1.5" title="Dane są zapisane w Vercel KV / Upstash Redis">
+            <Database className="size-3.5" /> Baza chmurowa: Vercel KV
+          </span>
+        );
+      case "tmp":
+        return (
+          <span className="text-xs px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 flex items-center gap-1.5" title="Brak skonfigurowanej bazy chmurowej na Vercel (zapis w /tmp)">
+            <Database className="size-3.5" /> Tryb tymczasowy (/tmp)
+          </span>
+        );
+      default:
+        return (
+          <span className="text-xs px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-semibold border border-blue-500/30 flex items-center gap-1.5" title="Zapis lokalny w pliku raporty_uczniow/submissions.json">
+            <Database className="size-3.5" /> Baza lokalna: Dysk
+          </span>
+        );
+    }
+  };
 
   // EKRAN LOGOWANIA HASŁEM
   if (!isAuthenticated) {
@@ -258,12 +335,12 @@ export default function DiagnozaAdminPage() {
     );
   }
 
-  // ZAHASŁOWANY PANEL OLI - AUTOMATYCZNA LISTA DIAGNOZ Z PRZYCISKIEM SKOPIUJ PROMPT
+  // PANEL OLI - AUTOMATYCZNA LISTA DIAGNOZ Z MOŻLIWOŚCIĄ RĘCZNEGO DODAWCZEGO
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Górna nawigacja */}
-        <div className="flex justify-between items-center">
+        <div className="flex flex-wrap justify-between items-center gap-3">
           <Link
             href="/"
             className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-white transition-colors"
@@ -271,7 +348,9 @@ export default function DiagnozaAdminPage() {
             <ArrowLeft className="mr-2 size-4" /> Strona główna
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            {renderStorageBadge()}
+
             <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1.5">
               <UserCheck className="size-3.5" /> Zalogowano jako Ola
             </span>
@@ -296,15 +375,92 @@ export default function DiagnozaAdminPage() {
               </p>
             </div>
 
-            <button
-              onClick={() => fetchSubmissions()}
-              disabled={loading}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors border border-slate-700"
-            >
-              <RefreshCw className={`size-4 ${loading ? "animate-spin" : ""}`} />
-              Odśwież listę
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setShowAddForm(!showAddForm)}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-xs font-semibold text-white transition-colors border border-brand-500"
+              >
+                <PlusCircle className="size-4" />
+                {showAddForm ? "Zamknij dodawanie" : "Dodaj ucznia"}
+              </button>
+
+              <button
+                onClick={() => fetchSubmissions()}
+                disabled={loading}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors border border-slate-700"
+              >
+                <RefreshCw className={`size-4 ${loading ? "animate-spin" : ""}`} />
+                Odśwież listę
+              </button>
+            </div>
           </div>
+
+          {/* Formularz ręcznego dodawania ucznia */}
+          {showAddForm && (
+            <form onSubmit={handleAddManualStudent} className="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
+              <div className="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <PlusCircle className="size-4 text-brand-400" /> Ręczne wprowadzanie ucznia do bazy
+                </h3>
+                <span className="text-xs text-slate-400">Dla zgłoszeń telefonicznych, z SMS lub e-maila</span>
+              </div>
+
+              {addSuccessMsg && (
+                <p className="text-xs text-emerald-300 font-semibold bg-emerald-500/20 p-2.5 rounded-xl border border-emerald-500/30">
+                  ✅ {addSuccessMsg}
+                </p>
+              )}
+
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">Imię ucznia / rodzica:</label>
+                  <input
+                    type="text"
+                    required
+                    value={addName}
+                    onChange={(e) => setAddName(e.target.value)}
+                    placeholder="np. Tomek (kl. 8 E8)"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white focus:border-brand-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">Treść raportu / odpowiedzi:</label>
+                  <textarea
+                    rows={4}
+                    value={addSummary}
+                    onChange={(e) => setAddSummary(e.target.value)}
+                    placeholder="Opis trudności, ocen, przedmiotu i preferencji ucznia..."
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white focus:border-brand-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">Prompt dla ChatGPT / Claude (opcjonalnie):</label>
+                  <textarea
+                    rows={3}
+                    value={addPrompt}
+                    onChange={(e) => setAddPrompt(e.target.value)}
+                    placeholder="Jeśli wygenerowałaś prompt niżej, wklej go tutaj lub zostaw puste..."
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white focus:border-brand-500 focus:outline-none"
+                  />
+                </div>
+
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowAddForm(false)}
+                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                  >
+                    Anuluj
+                  </button>
+                  <Button type="submit" size="md">
+                    Zapisz w bazie <CheckCircle2 className="ml-1.5 size-4" />
+                  </Button>
+                </div>
+              </div>
+            </form>
+          )}
 
           {/* Wyszukiwarka */}
           <div className="relative">
@@ -319,6 +475,18 @@ export default function DiagnozaAdminPage() {
           </div>
         </div>
 
+        {/* POMOCNIK I INFORMACJA O BAZIE DANYCH */}
+        {storageMode === "tmp" && (
+          <div className="bg-amber-500/10 rounded-2xl p-4 border border-amber-500/20 text-xs text-amber-200 space-y-2">
+            <div className="flex items-center gap-2 font-bold text-amber-300">
+              <HelpCircle className="size-4 text-amber-400" /> Uwaga dotycząca zapisu w chmurze Vercel:
+            </div>
+            <p className="leading-relaxed">
+              Strona działa na Vercel w trybie bezstanowym. Wyniki są też przesyłane automatycznie na Twój e-mail (<strong>kontakt.ola.korepetycje@gmail.com</strong>). Aby baza wpisów w tym panelu była w 100% trwała bez resetowania po restarcie serwera, wystarczy dodać zmienne <code>SUPABASE_URL</code> i <code>SUPABASE_KEY</code> lub <code>KV_REST_API_URL</code> w panelu Vercel.
+            </p>
+          </div>
+        )}
+
         {/* LISTA DIAGNOZ */}
         <div className="space-y-4">
           {filteredSubmissions.length === 0 ? (
@@ -326,7 +494,7 @@ export default function DiagnozaAdminPage() {
               <FileText className="size-10 text-slate-600 mx-auto" />
               <h3 className="text-base font-bold text-slate-300">Brak zapisanych diagnoz w bazie</h3>
               <p className="text-xs text-slate-500 max-w-md mx-auto">
-                Gdy pierwszy uczeń wypełni formularz na stronie `/diagnoza`, jego wyniki pojawią się tutaj automatycznie.
+                Gdy pierwszy uczeń wypełni formularz na stronie `/diagnoza`, jego wyniki pojawią się tutaj automatycznie. Możesz też dodać ucznia ręcznie przyciskiem wyżej!
               </p>
             </div>
           ) : (
@@ -421,7 +589,7 @@ export default function DiagnozaAdminPage() {
         <div className="pt-8 border-t border-slate-800 space-y-4">
           <details className="bg-slate-900 rounded-3xl p-6 border border-slate-800">
             <summary className="cursor-pointer font-bold text-sm text-slate-300 hover:text-white flex items-center justify-between">
-              <span>🛠️ Opcjonalnie: Ręczne wklejanie tekstu (dla własnych zapisków)</span>
+              <span>🛠️ Opcjonalnie: Ręczne generowanie promptu z wklejonego tekstu</span>
               <Sparkles className="size-4 text-accent-400" />
             </summary>
             <div className="mt-4 space-y-4 pt-4 border-t border-slate-800">
@@ -429,7 +597,7 @@ export default function DiagnozaAdminPage() {
                 rows={5}
                 value={pastedReport}
                 onChange={(e) => setPastedReport(e.target.value)}
-                placeholder="Wklej ręczny raport ucznia tutaj..."
+                placeholder="Wklej dowolne zapiski lub odpowiedzi ucznia tutaj..."
                 className="w-full rounded-2xl bg-slate-950 border border-slate-800 p-4 text-xs sm:text-sm text-slate-200 focus:border-brand-500 focus:outline-none"
               />
               <Button onClick={handleGenerateManualPrompt} size="md">

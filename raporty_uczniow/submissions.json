@@ -1,0 +1,9 @@
+[
+  {
+    "id": "starter_1",
+    "createdAt": "14.08.2026, 10:45",
+    "studentName": "Przykładowy Uczeń (System Gotowy)",
+    "summaryText": "📄 RAPORT DIAGNOSTYCZNY:\n👤 Uczeń: Przykładowy Uczeń\n🏫 Klasa: 8 SP\n📧 Kontakt: uczeń@example.com\n📚 Przedmiot: Matematyka (E8)\n🎯 Cel: Egzamin Ósmoklasisty E8\n⭐ Ocena: 4\n📊 WYNIK QUIZU: 6 / 8",
+    "aiPrompt": "Jesteś asystentem pedagogiczno-strategicznym Oli...\n\nRAPORT DIAGNOSTYCZNY:\nImię: Przykładowy Uczeń\nPrzedmiot: Matematyka E8"
+  }
+]

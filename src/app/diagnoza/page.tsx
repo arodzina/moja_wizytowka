@@ -1206,13 +1206,13 @@ export default function DiagnozaPage() {
     return p;
   };
 
-  // AUTOMATYCZNA WYSYŁKA RAPORTU NA E-MAIL OLI (DARMOWY FORMSUBMIT API + LOKALNY ZAPIS TXT)
+  // AUTOMATYCZNA WYSYŁKA RAPORTU NA E-MAIL OLI ORAZ DO BAZY /api/diagnoza
   useEffect(() => {
     if (step === 3 && studentName) {
       const summary = buildSummaryText();
       const prompt = buildAIPrompt();
 
-      // 1. Zapis pliku lokalnego .txt na serwerze dev
+      // 1. Zapis do bazy danych /api/diagnoza
       fetch("/api/diagnoza", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1221,14 +1221,22 @@ export default function DiagnozaPage() {
           summaryText: summary,
           aiPrompt: prompt,
         }),
-      }).catch(() => {});
+      })
+        .then((res) => {
+          if (!res.ok) {
+            console.warn("Zapis API /api/diagnoza zwrócił status:", res.status);
+          }
+        })
+        .catch((err) => {
+          console.error("Błąd sieciowy przy zapisie /api/diagnoza:", err);
+        });
 
-      // 2. Wyszukanie w tle darmowego e-maila do Oli (FormSubmit API - 100% darmowe)
+      // 2. Wysyłka e-mail w tle do Oli (FormSubmit API - 100% darmowe)
       fetch(`https://formsubmit.co/ajax/${site.email}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           _subject: `Nowa Diagnoza Ucznia: ${studentName}`,
@@ -1247,7 +1255,9 @@ export default function DiagnozaPage() {
           wiadomosc_dodatkowa: additionalNotes || "Brak",
           pelny_raport: summary,
         }),
-      }).catch(() => {});
+      }).catch((err) => {
+        console.error("Błąd wysyłki e-mail:", err);
+      });
     }
   }, [step]);
 
