@@ -61,12 +61,12 @@ export default function Header() {
             <Logo />
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Nawigacja główna">
+          <nav className="hidden items-center gap-5 xl:gap-7 lg:flex" aria-label="Nawigacja główna">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-brand-700"
+                className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-brand-700"
               >
                 {link.label}
               </a>

@@ -19,12 +19,10 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { label: "O co toczy się gra", href: "/#stawka-egzaminu" },
-  { label: "Filary oferty", href: "/#oferta" },
-  { label: "Zgodność z CKE", href: "/#cke" },
-  { label: "Metodologia", href: "/#metodologia" },
+  { label: "O egzaminach", href: "/#stawka-egzaminu" },
+  { label: "Standard CKE", href: "/#cke" },
+  { label: "Jak uczę", href: "/#metodologia" },
   { label: "Cennik", href: "/#cennik" },
-  { label: "Darmowy niezbędnik", href: "/#materialy" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
 
