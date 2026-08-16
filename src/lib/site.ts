@@ -20,7 +20,7 @@ export const site = {
 
 export const navLinks = [
   { label: "O egzaminach", href: "/#stawka-egzaminu" },
-  { label: "Standard CKE", href: "/#cke" },
+  { label: "O mnie", href: "/#o-mnie" },
   { label: "Jak uczę", href: "/#metodologia" },
   { label: "Cennik", href: "/#cennik" },
   { label: "FAQ", href: "/#faq" },
