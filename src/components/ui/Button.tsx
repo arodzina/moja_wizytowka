@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "accent" | "light";
+type Variant = "primary" | "secondary" | "accent" | "light" | "outline";
 type Size = "md" | "lg";
 
 interface ButtonProps {
@@ -27,6 +27,8 @@ const variants: Record<Variant, string> = {
     "bg-accent-400 text-ink shadow-soft hover:bg-accent-500 hover:-translate-y-0.5",
   light:
     "bg-white text-brand-700 shadow-soft hover:bg-brand-50 hover:-translate-y-0.5",
+  outline:
+    "bg-white/10 text-white ring-1 ring-white/30 backdrop-blur-sm hover:bg-white/20 hover:ring-white/60 hover:-translate-y-0.5",
 };
 
 const sizes: Record<Size, string> = {

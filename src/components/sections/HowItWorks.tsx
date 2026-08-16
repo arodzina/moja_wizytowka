@@ -105,7 +105,7 @@ export default function HowItWorks() {
             <Button href="#kontakt" variant="accent" size="lg">
               Umów darmową 15-minutową konsultację
             </Button>
-            <Button href="#materialy" variant="secondary" size="lg" className="border-white/20 text-white hover:bg-white/10">
+            <Button href="#materialy" variant="outline" size="lg">
               Pobierz darmowy poradnik CKE
             </Button>
           </div>
