@@ -22,7 +22,7 @@ const stakes = [
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
     title: "Angielski: Uniwersalna przepustka na studia",
     description:
-      "Niezależnie od tego, czy Twoim celem jest informatyka, medycyna, prawo, architektura, psychologia czy finanse — język angielski jest punktowany w rekrutacji niemal na KAŻDYM kierunku w Polsce i za granicą. Maksymalizacja wyniku z matury podstawowej i rozszerzonej to najprostsza dźwignia do wyprzedzenia tysięcy kandydatów.",
+      "Niezależnie od tego, czy Twoim celem jest informatyka, medycyna, prawo, architektura, psychologia czy finanse — język angielski jest punktowany w rekrutacji na niemal każdym kierunku. Wysoki wynik z matury podstawowej i rozszerzonej daje spokój oraz otwiera drzwi na wymarzoną uczelnię.",
     takeaway: "Maksymalna liczba punktów rekrutacyjnych bez względu na wybrany kierunek.",
     accentColor: "border-brand-400/40",
   },
