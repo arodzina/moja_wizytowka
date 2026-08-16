@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronDown, Download, FileText, Globe, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Globe, GraduationCap, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
@@ -179,34 +179,6 @@ export default function About() {
                             <strong className="text-ink block">C1 & Doświadczenie z Portugalii:</strong>
                             <p>Praktyczne używanie języka za granicą w międzynarodowym środowisku.</p>
                           </div>
-                        </div>
-                      </div>
-
-                      {/* Przycisk pobierania PDF z wynikami */}
-                      <div className="pt-2 border-t border-slate-100 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
-                        <span className="text-xs font-medium text-slate-500 flex items-center gap-1.5">
-                          <FileText className="size-4 text-brand-600" />
-                          Dokumenty, Certyfikaty & Wyniki matur (PDF):
-                        </span>
-                        <div className="flex flex-wrap gap-2">
-                          <a
-                            href="/documents/wyniki-matur.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-mist px-3 py-1.5 text-xs font-bold text-brand-700 ring-1 ring-brand-200 transition-colors hover:bg-brand-50"
-                          >
-                            <Download className="size-3.5" aria-hidden="true" />
-                            Wyniki matur (PDF)
-                          </a>
-                          <a
-                            href="/documents/certyfikat-c1-ols.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-mist px-3 py-1.5 text-xs font-bold text-brand-700 ring-1 ring-brand-200 transition-colors hover:bg-brand-50"
-                          >
-                            <Download className="size-3.5" aria-hidden="true" />
-                            Certyfikat C1 (PDF)
-                          </a>
                         </div>
                       </div>
                     </div>
