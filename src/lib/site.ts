@@ -1,16 +1,15 @@
 /**
- * Centralna konfiguracja strony.
- * Wszystkie dane kontaktowe i teksty łatwe do edycji w jednym miejscu.
+ * Centralna konfiguracja strony: Egzamin Ósmoklasisty (E8) & Matura z Języka Angielskiego.
  */
 
 export const site = {
-  name: "Ola — Korepetycje online",
+  name: "Ola — Przygotowanie do E8 & Matury z Angielskiego",
   /** Użyj domeny produkcyjnej po publikacji */
   url: "https://korepetycje-ola.pl",
   tutorName: "Ola",
-  headline: "Angielski i matematyka online bez stresu.",
+  headline: "Przekształć stres przed egzaminem w pewność siebie i wysoki wynik.",
   description:
-    "Lubię uczyć, lubię tłumaczyć i lubię, kiedy widzę, że coś nagle ‘zaskoczyło’. Pracuję spokojnie, bez pośpiechu i bez oceniania — bo błędy to część nauki, nie powód do wstydu.",
+    "Dostanie się do dobrego liceum i na wymarzone studia to nie przypadek. Kompleksowe przygotowanie do E8 z Matematyki i Angielskiego oraz Matury z Angielskiego, które uczy myślenia i strategii CKE.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",
@@ -20,124 +19,74 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { label: "O mnie", href: "/#o-mnie" },
-  { label: "Oferta i cennik", href: "/#cennik" },
-  { label: "Jak to działa", href: "/#jak-to-dziala" },
+  { label: "O co toczy się gra", href: "/#stawka-egzaminu" },
+  { label: "Filary oferty", href: "/#oferta" },
+  { label: "Zgodność z CKE", href: "/#cke" },
+  { label: "Metodologia", href: "/#metodologia" },
+  { label: "Cennik", href: "/#cennik" },
+  { label: "Darmowy niezbędnik", href: "/#materialy" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
 
 export const services = [
   {
-    id: "angielski-sp-matura",
-    title: "Język Angielski · Kompletny",
+    id: "e8-matematyka",
+    title: "Egzamin Ósmoklasisty: Matematyka",
     description:
-      "Klasy 4–8, Egzamin Ósmoklasisty E8, Liceum oraz Matura (Podstawowa i Rozszerzona B1/B2/C1).",
+      "Nauka rozpracowywania zadań CKE, unikanie typowych pułapek egzaminacyjnych, geometria i algebra bez paniki.",
     bullets: [
-      "Przełamywanie barier w mówieniu od 1. lekcji",
-      "E8 oraz Matura Podstawowa i Rozszerzona",
-      "Phrasal verbs, gramatyka i arkusze CKE",
+      "Rozpracowywanie schematów zadań otwartych i zamkniętych CKE",
+      "Pewniaki egzaminacyjne: ułamki, procenty, równania i planimetria",
+      "Techniki oszczędzania czasu i sprawdzania wyników na arkuszu",
     ],
   },
   {
-    id: "matematyka-sp-liceum",
-    title: "Matematyka · Szkoła Podstawowa (kl. 4–8 & E8)",
+    id: "e8-angielski",
+    title: "Egzamin Ósmoklasisty: Język Angielski",
     description:
-      "Klasy 4–8 oraz przygotowanie do Egzaminu Ósmoklasisty E8.",
+      "Pewniaki gramatyczne, schematy wypowiedzi pisemnej (e-mail, wpis na blog), reakcje językowe i słownictwo tematyczne.",
     bullets: [
-      "Rachunki, ułamki, procenty i geometria",
-      "Egzamin Ósmoklasisty E8 bez stresu",
-      "Nadrabianie zaległości z wcześniejszych klas",
+      "Niezawodne szablony do form pisemnych (e-mail / wpis na bloga)",
+      "Transformacje, parafrazy i słowotwórstwo w standardzie CKE",
+      "Słuchanie ze zrozumieniem i reakcje językowe bez utraty punktów",
     ],
-  },
-  {
-    id: "egzamin-osmoklasisty",
-    title: "Egzamin Ósmoklasisty E8",
-    description:
-      "Spokojne i planowe przygotowanie do egzaminu CKE z matematyki i angielskiego.",
-    bullets: ["Praca na oficjalnych arkuszach CKE", "Indywidualne powtórki i repetytoria", "Techniki egzaminacyjne"],
   },
   {
     id: "matura-angielski",
-    title: "Matura z Angielskiego (Podst. & Rozsz.)",
+    title: "Matura z Języka Angielskiego (Podstawa & Rozszerzenie)",
     description:
-      "Kompleksowe przygotowanie do matury pisemnej i ustnej z języka angielskiego na poziomie B1, B2 i C1.",
-    bullets: ["Rozprawki, e-maile i wypowiedzi pisemne", "Use of English C1 i inwersja", "Rozmowy stymulujące do matury ustnej"],
-  },
-] as const;
-
-export const benefits = [
-  {
-    title: "Mówienie na 1. miejscu",
-    description: "Nawet przy przygotowaniu do egzaminów stawiam na praktyczną komunikację. Język służy do mówienia w prawdziwym życiu — przełamujemy barierę od pierwszej lekcji.",
-  },
-  {
-    title: "Proste tłumaczenie od podstaw",
-    description: "Koniec ze skomplikowanym językiem podręcznikowym. Trudne zagadnienia tłumaczymy krok po kroku w spokojnej i przyjaznej atmosferze.",
-  },
-  {
-    title: "Tłumaczę tyle razy, ile trzeba",
-    description: "Nie ma tutaj pośpiechu. Jeśli coś nie gra — wracamy do tego, szukamy innego sposobu i idziemy dalej dopiero wtedy, gdy naprawdę rozumiesz.",
-  },
-  {
-    title: "Przygotowuję każdą lekcję",
-    description: "Przed zajęciami analizuję postępy ucznia i dobieram materiały oraz zadania dopasowane do jego trudności. Nie przychodzę bez przygotowania.",
-  },
-  {
-    title: "Podsumowanie lub notatka po lekcji",
-    description: "Po zajęciach dostajesz przejrzyste podsumowanie lub pełną notatkę — co przerobiliśmy, co ćwiczyć i na co zwrócić uwagę. Zawsze wiesz, na czym stoisz.",
-  },
-  {
-    title: "Pakiet startowy 3 lekcji próbnych",
-    description: "Przed przejściem na stałą współpracę przechodzimy przez 3 lekcje próbne (odpłatne, ale niezobowiązujące), aby uczeń i rodzic mieli pewność co do formy zajęć.",
+      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz pewność w rozumieniu ze słuchu i tekstu.",
+    bullets: [
+      "Budowanie przewagi rekrutacyjnej na studia (angielski liczy się wszędzie)",
+      "Trening pisania rozprawki, artykułu i listu pod klucz CKE",
+      "Zaawansowane struktury gramatyczne (inwersja, okresy warunkowe, strona bierna)",
+    ],
   },
 ] as const;
 
 export const faqItems = [
   {
-    q: "Jak wyglądają lekcje online? Czego potrzebuję?",
-    a: "Lekcje odbywają się przez Google Meet — wystarczy komputer lub tablet z internetem. Korzystamy ze wspólnej interaktywnej tablicy i materiałów na ekranie. Uczeń uczy się z domu, więc nie trzeba nigdzie dojeżdżać.",
+    q: "Kiedy najlepiej zacząć przygotowania do E8 i Matury?",
+    a: "Najbardziej optymalny czas to początek roku szkolnego (wrzesień/październik), co pozwala na spokojne uzupełnienie zaległości i regularne arkusze bez pośpiechu. Jeśli jednak do egzaminu zostało mniej czasu (np. 3–5 miesięcy), wdrażamy intensywny plan strategiczny skupiony na kluczowych pewniakach CKE, które dają najwięcej punktów.",
   },
   {
-    q: "Jak często odbywają się lekcje?",
-    a: "Częstotliwość ustalamy indywidualnie — najczęściej to 1–2 lekcje w tygodniu. Czas trwania lekcji to standardowo 60 minut, ale po uzgodnieniu możliwe są również lekcje 45-minutowe (np. dwa razy w tygodniu). W trakcie współpracy możemy dopasować ilość i czas lekcji do aktualnych potrzeb ucznia.",
+    q: "Jak pomagacie uczniom, którzy odczuwają paraliżujący stres przed matematyką lub angielskim?",
+    a: "Stres najczęściej wynika z poczucia chaosu i braku kontroli. Na zajęciach rozkładamy trudne zagadnienia na małe, logiczne kroki i pokazujemy, że zadania egzaminacyjne opierają się na powtarzalnych schematach. Pracujemy w bezstresowej, partnerskiej atmosferze — uczeń zyskuje poczucie bezpieczeństwa, gdy widzi, że za każdym razem potrafi samodzielnie rozwiązać zadanie.",
   },
   {
-    q: "Czy lekcje próbne są darmowe?",
-    a: "Rozmowa zapoznawcza (15 min) jest zawsze bezpłatna. Natomiast 3 lekcje próbne są już płatne według normalnego cennika — płatność przed każdą lekcją, min. 24h wcześniej. Lekcje próbne nie zobowiązują do dalszej współpracy — po każdej z nich możesz zrezygnować.",
+    q: "Dlaczego warto uczyć się ze strategią CKE, a nie tylko samodzielnie z podręczników?",
+    a: "Szkoła realizuje cały program podręcznikowy, w którym jest mnóstwo materiału niemającego odzwierciedlenia na egzaminie. My uczymy ściśle pod aktualne Wytyczne i Informatory CKE. Uczymy nie tylko wiedzy, ale strategii: jak czytać polecenia, jak konstruować odpowiedzi pod klucz punktowania i jak nie tracić punktów na drobnych pułapkach formalnych.",
   },
   {
-    q: "Co dokładnie dostaję po lekcji?",
-    a: "W pakiecie standardowym — podsumowanie po lekcji (co zrobiliśmy, nad czym warto popracować). W pakiecie Premium — pełną notatkę z lekcji i indywidualnie dobrane materiały do samodzielnej pracy.",
+    q: "Jak wyznaczamy cele i monitorujemy postępy ucznia?",
+    a: "Zaczynamy od dokładnej diagnozy luk w wiedzy na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalamy cel punktowy (np. 85%+ potrzebne do wymarzonego liceum lub na dany kierunek studiów). Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie zrobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
   },
   {
-    q: "Jak mogę zrezygnować ze współpracy?",
-    a: "Rezygnację zgłaszasz do końca bieżącego miesiąca kalendarzowego — od kolejnego miesiąca współpraca zostaje zakończona. Lekcje opłacone w danym miesiącu realizujemy do końca. W wyjątkowych sytuacjach losowych (np. przeprowadzka, choroba) — indywidualnie ustalamy rozwiązanie.",
+    q: "Jak wygląda pakiet startowy 3 lekcji próbnych?",
+    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy od 3 lekcji próbnych (płatnych pojedynczo, bez konieczności wiązania się długą umową). To czas, w którym uczeń sprawdza naszą metodę, a my poznajemy jego tempo pracy. Dopiero po tym etapie decydujecie o stałej współpracy.",
   },
   {
-    q: "Jak wygląda pierwsza rozmowa zapoznawcza?",
-    a: "Rozmowa zapoznawcza (15 min) jest w 100% bezpłatna i niezobowiązująca. Podczas krótkiego spotkania online omawiamy cele, dotychczasowe trudności, oceny i pasujący termin w grafiku.",
-  },
-  {
-    q: "Czy lekcje są odpowiednie dla mojego dziecka z klas 4–5?",
-    a: "Zdecydowanie tak! Lekcje dla młodszych uczniów prowadzimy z wykorzystaniem angażujących ćwiczeń oraz przejrzystych notatek. Dzieci chętnie biorą udział w zajęciach i nie czują presji.",
-  },
-  {
-    q: "Jak przygotowujesz do matury i egzaminu ósmoklasisty?",
-    a: "Pracujemy na autentycznych arkuszach egzaminacyjnych CKE z poprzednich lat, uczymy się strategii rozwiązywania zadań i zarządzania czasem. Regularnie sprawdzamy postępy w spokojnej atmosferze.",
-  },
-] as const;
-
-export const testimonialsPlaceholders = [
-  {
-    title: "„Ola tłumaczyła mojemu bratu matematykę do matury. Wracała do tych samych rzeczy tyle razy, ile było trzeba — bez żadnego zniecierpliwienia. Zdał i był z siebie dumny.”",
-    who: "Siostra maturzysty",
-  },
-  {
-    title: "„Nie czułam się głupio, kiedy czegoś nie rozumiałam. Ola po prostu tłumaczyła inaczej, aż to zaskoczyło. Angielski przestał mnie stresować.”",
-    who: "Uczennica kl. 8",
-  },
-  {
-    title: "„Po każdej lekcji dostawałam podsumowanie z notatkami. Czułam, że Ola naprawdę się przygotowuje i że jej zależy. To duża różnica w porównaniu do innych korepetycji.”",
-    who: "Maturzystka",
+    q: "Czy zajęcia odbywają się w 100% online?",
+    a: "Tak, lekcje prowadzimy przez Google Meet z wykorzystaniem interaktywnej tablicy online i przejrzystych materiałów. Uczeń pracuje w swoim domowym, bezpiecznym środowisku, nie tracąc czasu na dojazdy. Po lekcji otrzymuje zapis tablicy lub pełną notatkę w formacie cyfrowym.",
   },
 ] as const;

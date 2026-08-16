@@ -1,31 +1,31 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, Sparkles, Star, Video } from "lucide-react";
+import { ArrowRight, Check, ShieldCheck, Sparkles, Target, Zap } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const trustPoints = [
-  "Mówienie & aktywne lekcje",
-  "Angielski na poziomie C1",
-  "Klasy 4–8 i liceum",
-  "Lekcje 100% online",
+  "100% zgodności z wytycznymi CKE",
+  "Redukcja stresu i jasny plan",
+  "E8 Matematyka & Angielski",
+  "Matura Angielski (Podst. & Rozsz.)",
 ];
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export default function Hero() {
   const reduce = useReducedMotion();
 
   const float = (duration = 5, delay = 0) => ({
-    animate: reduce ? undefined : { y: [0, -10, 0] },
+    animate: reduce ? undefined : { y: [0, -8, 0] },
     transition: { duration, delay, repeat: Infinity, ease: "easeInOut" as const },
   });
 
@@ -33,58 +33,56 @@ export default function Hero() {
     <section id="start" className="relative overflow-x-clip bg-white">
       {/* Dekoracyjne tło */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-brand-100/70 blur-3xl" />
-        <div className="absolute top-1/2 left-[-12%] h-[24rem] w-[24rem] rounded-full bg-accent-100/80 blur-3xl" />
-        <div className="absolute bottom-[-8rem] right-[20%] h-72 w-72 rounded-full bg-brand-50 blur-2xl" />
+        <div className="absolute -top-32 right-[-10%] h-[30rem] w-[30rem] rounded-full bg-brand-100/60 blur-3xl" />
+        <div className="absolute top-1/2 left-[-12%] h-[26rem] w-[26rem] rounded-full bg-accent-100/70 blur-3xl" />
+        <div className="absolute bottom-[-6rem] right-[25%] h-80 w-80 rounded-full bg-brand-50 blur-2xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:pt-36 lg:pb-24">
-        {/* Tekst */}
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:pt-36 lg:pb-24">
+        {/* Tekst Hero */}
         <motion.div
           variants={reduce ? undefined : container}
           initial={reduce ? undefined : "hidden"}
           animate="show"
         >
-          <motion.p
-            variants={item}
-            className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-700 ring-1 ring-brand-100"
-          >
-            <Sparkles className="size-3.5 text-accent-500" aria-hidden="true" />
-            Korepetycje online · klasy 4–8 i liceum
-          </motion.p>
+          <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-700 ring-1 ring-brand-100">
+            <Target className="size-3.5 text-accent-600" aria-hidden="true" />
+            Specjalizacja: Egzamin Ósmoklasisty & Matura Angielski
+          </motion.div>
 
           <motion.h1
             variants={item}
-            className="mt-6 text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.4rem]"
+            className="mt-6 text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Angielski i matematyka online{" "}
-            <span className="relative inline-block rounded-2xl bg-accent-200 px-2 pb-1">
-              bez stresu.
-            </span>
+            Przekształć stres przed egzaminem w{" "}
+            <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
+              pewność siebie
+            </span>{" "}
+            i wysoki wynik.
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Lubię uczyć i lubię tłumaczyć — najlepiej, gdy widzę, że coś nagle{" "}
-            <span className="font-semibold text-ink">„zaskoczyło"</span>. Tłumaczę tyle razy, ile trzeba, bez pośpiechu i bez oceniania. Bo angielski i matematyka naprawdę nie muszą być straszne.
+            Dostanie się do dobrego liceum i na wymarzone studia to nie przypadek.
+            Kompleksowe przygotowanie do <strong className="font-semibold text-ink">E8 z Matematyki i Angielskiego</strong> oraz <strong className="font-semibold text-ink">Matury z Angielskiego</strong>, które uczy myślenia i strategii CKE.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
             <Button href="#kontakt" size="lg">
-              Umów darmową rozmowę
+              Zapisz się na bezpłatną konsultację
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
-            <Button href="#o-mnie" variant="secondary" size="lg">
-              Poznajmy się
+            <Button href="#stawka-egzaminu" variant="secondary" size="lg">
+              Sprawdź jak pomagamy
             </Button>
           </motion.div>
 
-          <motion.ul variants={item} className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
+          <motion.ul variants={item} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
             {trustPoints.map((point) => (
-              <li key={point} className="flex items-center gap-2 text-sm font-medium text-slate-600">
-                <span className="grid size-5 place-items-center rounded-full bg-accent-100 text-accent-600">
+              <li key={point} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <span className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700">
                   <Check className="size-3" aria-hidden="true" />
                 </span>
                 {point}
@@ -93,61 +91,59 @@ export default function Hero() {
           </motion.ul>
         </motion.div>
 
-        {/* Wizytówka Lekcji z Olą */}
+        {/* Kokpit Strategii Egzaminacyjnej */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.96, y: 20 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md pb-14 lg:max-w-none"
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-md pb-12 lg:max-w-none"
         >
-          {/* Główna karta */}
+          {/* Główna karta strategiczna */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
-            {/* Nagłówek karty */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              <div className="flex items-center gap-2">
-                <span className="size-3 rounded-full bg-brand-500" />
-                <span className="text-sm font-bold text-ink">Jak wygląda lekcja online?</span>
+              <div className="flex items-center gap-2.5">
+                <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-sm font-bold text-ink">System Sukcesu CKE</span>
               </div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
-                <Video className="size-3.5" aria-hidden="true" />
-                Darmowe 15 min na start
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
+                <ShieldCheck className="size-3.5" aria-hidden="true" />
+                Standard 2024/2025/2026
               </span>
             </div>
 
-            {/* Elementy lekcji */}
             <div className="space-y-3 pt-1">
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-base">
-                  🧮
+              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm font-bold">
+                  E8
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Matematyka krok po kroku</h4>
+                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty (Matematyka & Angielski)</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Tłumaczę od podstaw i prostym językiem. Przerabiamy przykłady krok po kroku, aż wszystko stanie się jasne.
+                    Koniec z paniką przed geometrią i pisaniem e-maili. Rozkładamy zadania CKE na proste schematy punkt po punkcie.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
+              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-400 text-ink text-sm font-bold">
+                  C1
+                </span>
+                <div>
+                  <h4 className="text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
+                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
+                    Use of English, transformacje i rozprawka bez utraty cennych punktów rekrutacyjnych na uczelnie.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 rounded-2xl bg-slate-900 text-white p-4 ring-1 ring-slate-800">
                 <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-400 text-ink text-base">
-                  🗣️
+                  <Zap className="size-5" />
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Angielski w praktyce</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Przełamujemy barierę w mówieniu od 1. lekcji, a słownictwo utrwalamy na żywych przykładach.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-100 text-brand-700 text-base">
-                  📝
-                </span>
-                <div>
-                  <h4 className="text-sm font-bold text-ink">Dedykowana notatka po lekcji</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Po każdych zajęciach dostajesz przejrzyste podsumowanie z notatką — zawsze wiesz, na czym stoisz.
+                  <h4 className="text-sm font-bold text-white">Spokój & Strategia zamiast kucia</h4>
+                  <p className="mt-0.5 text-xs leading-relaxed text-slate-300">
+                    Precyzyjne wyłapywanie luk w wiedzy i regularna praca na prawdziwych arkuszach.
                   </p>
                 </div>
               </div>
@@ -156,18 +152,18 @@ export default function Hero() {
 
           {/* Dymki pływające */}
           <motion.div
-            {...float(5.5, 0.4)}
-            className="absolute -top-6 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-6"
+            {...float(5.2, 0.3)}
+            className="absolute -top-5 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-5"
           >
-            <span className="text-lg" aria-hidden="true">💡</span>
-            <span className="text-xs font-bold text-ink">Proste tłumaczenie od podstaw</span>
+            <Sparkles className="size-4 text-accent-500" />
+            <span className="text-xs font-bold text-ink">Średnia cel: 85%+</span>
           </motion.div>
 
           <motion.div
-            {...float(5, 0)}
-            className="absolute -bottom-2 left-6 max-w-[17rem] -rotate-1 rounded-2xl bg-accent-200 px-4 py-3 text-xs font-semibold text-ink shadow-soft sm:left-10"
+            {...float(5.8, 0.7)}
+            className="absolute -bottom-3 left-4 max-w-[18rem] rounded-2xl bg-accent-200 px-4 py-3 text-xs font-bold text-ink shadow-soft sm:left-8"
           >
-            Spokojna atmosfera & wsparcie 😊
+            🎯 15 min bezpłatnej konsultacji na start
           </motion.div>
         </motion.div>
       </div>

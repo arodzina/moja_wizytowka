@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, ShieldCheck } from "lucide-react";
 import Logo from "@/components/site/Logo";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { navLinks, site } from "@/lib/site";
@@ -15,10 +15,14 @@ export default function Footer() {
             <Link href="/#start" className="rounded-xl" aria-label="Przejdź do początku strony">
               <Logo inverse />
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed">
-              Angielski i matematyka online dla klas 4–8 i liceum. Spokojnie,
-              cierpliwie i bez stresu.
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-300">
+              Kompleksowe przygotowanie do Egzaminu Ósmoklasisty (E8 - Matematyka & Angielski) oraz Matury z Języka Angielskiego. 100% zgodności ze standardem CKE.
             </p>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-accent-300">
+              <ShieldCheck className="size-3.5" />
+              Standard CKE 2024/2025/2026
+            </div>
+
             {(site.facebook || site.instagram) && (
               <div className="mt-6 flex items-center gap-3">
                 {site.facebook && (
@@ -59,7 +63,7 @@ export default function Footer() {
               ))}
               <li>
                 <a href="/#kontakt" className="transition-colors hover:text-accent-300">
-                  Kontakt
+                  Konsultacja (Kontakt)
                 </a>
               </li>
             </ul>
@@ -96,7 +100,7 @@ export default function Footer() {
 
         <div className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>© {year} {site.name}. Wszelkie prawa zastrzeżone.</p>
-          <p>Korepetycje online z pasją i cierpliwością.</p>
+          <p>Skuteczna strategia egzaminacyjna bez zbędnego stresu.</p>
         </div>
       </div>
     </footer>

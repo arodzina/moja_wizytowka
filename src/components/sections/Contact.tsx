@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Check, Clock, Mail, Send } from "lucide-react";
+import { Check, Clock, Mail, Send, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -11,11 +11,11 @@ import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons
 import { site } from "@/lib/site";
 
 const topics = [
-  "Angielski — klasy 4–8",
-  "Angielski — matura",
-  "Matematyka — klasy 4–8",
-  "Egzamin ósmoklasisty",
-  "Kontynuacja nauki / mam konkretny cel",
+  "Egzamin Ósmoklasisty — Matematyka",
+  "Egzamin Ósmoklasisty — Język Angielski",
+  "Matura z Języka Angielskiego (Podstawa / Rozszerzenie)",
+  "Pakiet E8: Matematyka + Angielski",
+  "Darmowa konsultacja wstępna (15 min)",
   "Inne / mam pytanie",
 ];
 
@@ -61,11 +61,11 @@ export default function Contact() {
         "Accept": "application/json",
       },
       body: JSON.stringify({
-        _subject: `Wiadomość ze strony od: ${form.name}`,
+        _subject: `Zgłoszenie E8/Matura od: ${form.name}`,
         _captcha: "false",
         imie: form.name,
         email: form.email,
-        temat: form.topic,
+        sciezka_egzaminacyjna: form.topic,
         wiadomosc: form.message,
       }),
     })
@@ -88,9 +88,9 @@ export default function Contact() {
 
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionHeading
-          eyebrow="Kontakt"
-          title="Umów darmową rozmowę zapoznawczą"
-          lead="Napisz do mnie — pierwsza rozmowa zapoznawcza (15 min) jest bezpłatna i niezobowiązująca."
+          eyebrow="Zapisz się"
+          title="Zapisz się na bezpłatną konsultację"
+          lead="Wypełnij krótki formularz. Podczas 15-minutowej rozmowy online omówimy cele, trudności i ułożymy plan działania."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
@@ -106,7 +106,7 @@ export default function Contact() {
                 </span>
                 <span className="min-w-0">
                   <span className="block text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
-                    E-mail
+                    E-mail kontaktowy
                   </span>
                   <span className="mt-1 block truncate text-base font-bold text-ink group-hover:text-brand-700 sm:text-lg">
                     {site.email}
@@ -128,6 +128,16 @@ export default function Contact() {
                 </span>
               </div>
 
+              <div className="rounded-3xl bg-brand-50 p-6 ring-1 ring-brand-200/70 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-800">
+                  <Sparkles className="size-4 text-accent-500" />
+                  Gwarancja braku ryzyka
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Konsultacja (15 min) jest w 100% niezobowiązująca. Nie wymagamy żadnych deklaracji ani podpisywania długoterminowych umów.
+                </p>
+              </div>
+
               {site.facebook || site.instagram ? (
                 <div className="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/70">
                   <span className="text-sm font-semibold text-ink">Obserwuj mnie:</span>
@@ -137,7 +147,7 @@ export default function Contact() {
                         href={site.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Facebook (otwiera się w nowej karcie)"
+                        aria-label="Facebook"
                         className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
                       >
                         <FacebookIcon className="size-5" />
@@ -148,7 +158,7 @@ export default function Contact() {
                         href={site.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Instagram (otwiera się w nowej karcie)"
+                        aria-label="Instagram"
                         className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
                       >
                         <InstagramIcon className="size-5" />
@@ -175,9 +185,9 @@ export default function Contact() {
                   <span className="grid size-16 place-items-center rounded-full bg-accent-100 text-accent-600">
                     <Check className="size-8" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-6 text-2xl text-ink">Dziękuję za wiadomość!</h3>
+                  <h3 className="mt-6 text-2xl text-ink">Dziękuję za zgłoszenie!</h3>
                   <p className="mt-3 max-w-sm text-slate-soft">
-                    Odezwę się na adres <strong className="text-ink">{form.email}</strong> najszybciej, jak to możliwe.
+                    Odezwę się na adres <strong className="text-ink">{form.email}</strong> najszybciej, jak to możliwe, aby ustalić termin bezpłatnej rozmowy.
                   </p>
                   <Button
                     variant="secondary"
@@ -187,7 +197,7 @@ export default function Contact() {
                       setStatus("idle");
                     }}
                   >
-                    Wyślij kolejną wiadomość
+                    Wyślij kolejne zapytanie
                   </Button>
                 </motion.div>
               ) : (
@@ -195,7 +205,7 @@ export default function Contact() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
-                        Imię i nazwisko <span aria-hidden="true" className="text-accent-600">*</span>
+                        Imię i nazwisko (rodzica lub ucznia) <span aria-hidden="true" className="text-accent-600">*</span>
                       </label>
                       <input
                         id="name"
@@ -244,7 +254,7 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="topic" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Temat zajęć
+                      Ścieżka egzaminacyjna
                     </label>
                     <select
                       id="topic"
@@ -263,18 +273,18 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Wiadomość <span aria-hidden="true" className="text-accent-600">*</span>
+                      Wiadomość / Aktualna sytuacja <span aria-hidden="true" className="text-accent-600">*</span>
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={5}
+                      rows={4}
                       required
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? "message-error" : undefined}
-                      placeholder="Opisz krótko, z czym potrzebujesz pomocy (np. klasa, przedmiot, cel)."
+                      placeholder="Napisz krótko: z czym uczeń ma największy problem, jaki jest docelowy wynik lub wymarzona szkoła/kierunek."
                       className={`${inputClass(Boolean(errors.message))} resize-none`}
                     />
                     {errors.message && (
@@ -285,15 +295,14 @@ export default function Contact() {
                   </div>
 
                   <Button type="submit" size="lg" className="mt-7 w-full sm:w-auto" aria-disabled={status === "sending"}>
-                    {status === "sending" ? "Wysyłanie…" : "Wyślij wiadomość"}
+                    {status === "sending" ? "Wysyłanie…" : "Zapisz się na bezpłatną konsultację"}
                     {status !== "sending" && (
                       <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                     )}
                   </Button>
 
                   <p className="mt-4 text-xs leading-relaxed text-slate-400">
-                    Wysyłając formularz, zgadzasz się na kontakt w sprawie lekcji.
-                    Twoje dane nie są udostępniane nikomu innemu.
+                    Wysyłając formularz, zgadzasz się na kontakt w sprawie konsultacji i przygotowania do egzaminów.
                   </p>
                 </form>
               )}

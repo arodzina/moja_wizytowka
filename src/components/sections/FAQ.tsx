@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, MessageCircle } from "lucide-react";
+import { ChevronDown, MessageCircle, HelpCircle } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { faqItems } from "@/lib/site";
@@ -16,7 +16,7 @@ function FaqItem({ item, index }: { item: (typeof faqItems)[number]; index: numb
   return (
     <div
       className={`rounded-2xl bg-white ring-1 transition-shadow duration-300 ${
-        open ? "shadow-card ring-brand-200" : "ring-slate-200/70"
+        open ? "shadow-card ring-brand-300" : "ring-slate-200/80"
       }`}
     >
       <h3>
@@ -67,17 +67,22 @@ export default function FAQ() {
           <SectionHeading
             align="left"
             eyebrow="FAQ"
-            title="Częste pytania i odpowiedzi"
-            lead="Nie znalazłeś odpowiedzi na swoje pytanie? Napisz do mnie — chętnie pomogę."
+            title="Najczęściej zadawane pytania"
+            lead="Wszystko, co musisz wiedzieć o przygotowaniach do E8, Matury i strategii CKE."
           />
           <Reveal delay={0.15}>
-            <a
-              href="#kontakt"
-              className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-brand-50 px-5 py-4 text-sm font-semibold text-brand-700 ring-1 ring-brand-100 transition-colors hover:bg-brand-100"
-            >
-              <MessageCircle className="size-5" aria-hidden="true" />
-              Zadaj pytanie bezpośrednio
-            </a>
+            <div className="mt-8 space-y-4">
+              <a
+                href="#kontakt"
+                className="inline-flex items-center gap-3 rounded-2xl bg-brand-50 px-5 py-4 text-sm font-semibold text-brand-700 ring-1 ring-brand-100 transition-colors hover:bg-brand-100"
+              >
+                <MessageCircle className="size-5" aria-hidden="true" />
+                Zadaj pytanie bezpośrednio
+              </a>
+              <p className="text-xs text-slate-400">
+                Odpowiadamy zwykle w ciągu kilku godzin.
+              </p>
+            </div>
           </Reveal>
         </div>
 
