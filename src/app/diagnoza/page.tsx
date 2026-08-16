@@ -1286,13 +1286,13 @@ export default function DiagnozaPage() {
         {/* Nagłówek */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 mb-8 text-center relative overflow-hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold mb-4">
-            <Sparkles className="size-4 text-accent-500" /> Bezpłatna Diagnoza Egzaminacyjna CKE
+            <Sparkles className="size-4 text-accent-500" /> Bezpłatny Quiz Poziomujący CKE
           </div>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Diagnoza Poziomu E8 & Matura Angielski
+            Sprawdzenie Poziomu E8 & Matura Angielski
           </h1>
           <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Sprawdźmy bezstresowo Twoje przygotowanie do oficjalnych wymagań CKE. Wyłapiemy luki w wiedzy, wyznaczymy słabe punkty i ułożymy plan na Twój maksymalny wynik!
+            Sprawdźmy bezstresowo Twoje przygotowanie do oficjalnych wymagań CKE. Wyłapiemy luki w wiedzy, wyznaczymy słabsze punkty i ułożymy plan na Twój maksymalny wynik!
           </p>
 
           {/* BANER Z PROŚBĄ O SZCZERE WYPEŁNIANIE BEZ ŚCIĄGANIA */}

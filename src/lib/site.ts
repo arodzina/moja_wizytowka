@@ -77,7 +77,7 @@ export const faqItems = [
   },
   {
     q: "Jak wyznaczasz cele i monitorujesz postępy ucznia?",
-    a: "Zaczynam od dokładnej diagnozy luk w wiedzy na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalam ambitny, lecz realny cel punktowy (dopasowany do aktualnych możliwości ucznia). Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie zrobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
+    a: "Zaczynam od dokładnego sprawdzenia wiedzy i wyłapania luk na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalam ambitny, lecz realny cel punktowy (dopasowany do aktualnych możliwości ucznia). Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie zrobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji próbnych?",

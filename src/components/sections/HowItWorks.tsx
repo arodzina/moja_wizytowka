@@ -10,8 +10,8 @@ const methodologySteps = [
     icon: FileSearch,
     title: "Analiza luk w wiedzy",
     description:
-      "Na wstępie precyzyjnie diagnozuję, w których działach i typach zadań uczeń traci punkty. Zamiast powtarzać to, co już umie, skupiam się na eliminacji słabych punktów.",
-    badge: "Diagnoza początkowa",
+      "Na wstępie precyzyjnie sprawdzam, w których działach i typach zadań uczeń traci punkty. Zamiast powtarzać to, co już umie, skupiam się na eliminacji słabych punktów.",
+    badge: "Quiz poziomujący",
   },
   {
     step: "02",
