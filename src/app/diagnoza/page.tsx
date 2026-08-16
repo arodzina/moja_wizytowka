@@ -856,33 +856,33 @@ const ENG_SP_VOCAB_TOPICS = [
 const GOAL_OPTIONS = [
   {
     id: "egzamin",
-    label: "🎯 Przygotowanie do Egzaminu Ósmoklasisty / Matury CKE",
-    sub: "Test wymagań egzaminacyjnych, arkusze i zadania z poprzednich lat",
+    label: "🎯 Maksymalny wynik na Egzaminie Ósmoklasisty / Maturze CKE",
+    sub: "Pewniaki CKE, arkusze z poprzednich lat i klucz punktowania",
   },
   {
     id: "nadrabianie",
-    label: "🩹 Nadrabianie zaległości z poprzednich lat / lekcji",
-    sub: "Spokojne tłumaczenie podstaw od zera bez pośpiechu i stresu",
+    label: "🩹 Nadrabianie zaległości z poprzednich klas pod egzamin",
+    sub: "Uzupełnienie zaległości i budowa solidnych fundamentów pod test CKE",
   },
   {
-    id: "biezacy",
-    label: "📖 Bieżący materiał ze szkoły & sprawdziany",
-    sub: "Utrwalanie lekcji na bieżąco i dobre przygotowanie do kartkówek",
+    id: "arkusze-czas",
+    label: "⏱️ Trening arkuszy, zadań otwartych i zarządzania czasem",
+    sub: "Nauka pisania pod klucz CKE bez stresu i paniki z zegarkiem",
   },
   {
-    id: "mowienie",
-    label: "🗣️ Przełamanie oporu w mówieniu & konwersacje",
-    sub: "Praktyczne używanie języka i budowanie pewności siebie",
+    id: "mowienie-matura",
+    label: "🗣️ Matura Ustna z Angielskiego & Swoboda w konwersacjach",
+    sub: "Rozmowy z materiałem stymulującym, odebranie paraliżu językowego",
   },
   {
-    id: "wyzsze-wyniki",
-    label: "🚀 Wyższe oceny (5-6) & głębszy rozwój",
-    sub: "Robienie ambitniejszych rzeczy i rozwiązywanie trudniejszych zadań",
+    id: "wysokie-punkty",
+    label: "🚀 Wyższe punkty rekrutacyjne do liceum lub na studia",
+    sub: "Celowanie w najwyższe progi punktowe i opanowanie trudnych zadań",
   },
   {
     id: "inny",
-    label: "✏️ Inny cel...",
-    sub: "Wpisz własny cel lub szczegółowe oczekiwania",
+    label: "✏️ Inny cel egzaminacyjny...",
+    sub: "Wpisz własne oczekiwania i indywidualny przypadek",
   },
 ];
 
@@ -1286,13 +1286,13 @@ export default function DiagnozaPage() {
         {/* Nagłówek */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 mb-8 text-center relative overflow-hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold mb-4">
-            <Sparkles className="size-4 text-accent-500" /> Bezstresowy Formularz Diagnostyczny
+            <Sparkles className="size-4 text-accent-500" /> Bezpłatna Diagnoza Egzaminacyjna CKE
           </div>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Diagnoza Przed Lekcją Zapoznawczą
+            Diagnoza Poziomu E8 & Matura Angielski
           </h1>
           <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Sprawdźmy spokojnie i bez stresu, jak Ci idzie, z czym czujesz się pewnie, a nad czym razem popracujemy!
+            Sprawdźmy bezstresowo Twoje przygotowanie do oficjalnych wymagań CKE. Wyłapiemy luki w wiedzy, wyznaczymy słabe punkty i ułożymy plan na Twój maksymalny wynik!
           </p>
 
           {/* BANER Z PROŚBĄ O SZCZERE WYPEŁNIANIE BEZ ŚCIĄGANIA */}
