@@ -79,7 +79,7 @@ export const faqItems = [
   },
   {
     q: "Jak wyznaczamy cele i monitorujemy postępy ucznia?",
-    a: "Zaczynamy od dokładnej diagnozy luk w wiedzy na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalamy cel punktowy (np. 85%+ potrzebne do wymarzonego liceum lub na dany kierunek studiów). Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie zrobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
+    a: "Zaczynamy od dokładnej diagnozy luk w wiedzy na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalamy ambitny, lecz realny cel punktowy (dopasowany do aktualnych możliwości ucznia). Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie zrobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji próbnych?",

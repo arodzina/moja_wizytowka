@@ -156,7 +156,7 @@ export default function Hero() {
             className="absolute -top-5 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-5"
           >
             <Sparkles className="size-4 text-accent-500" />
-            <span className="text-xs font-bold text-ink">Średnia cel: 85%+</span>
+            <span className="text-xs font-bold text-ink">Cel: Maksymalny Wynik Ucznia</span>
           </motion.div>
 
           <motion.div

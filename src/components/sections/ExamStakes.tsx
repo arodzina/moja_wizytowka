@@ -32,7 +32,7 @@ const stakes = [
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
     title: "Kompetencje, które zostają na całe życie",
     description:
-      "Nie wierzymy w bezmyślne kucie pod klucz, o którym zapomina się dzień po egzaminie. Matematyka uczy analitycznego myślenia, łączenia faktów i radzenia sobie ze złożonymi problemami. Angielski daje swobodę komunikacji, pewność siebie w podróżach i dostęp do globalnej wiedzy. Uczymy tak, by zdać na 85%+, ale też zyskać przewagę na lata.",
+      "Nie wierzymy w bezmyślne kucie pod klucz, o którym zapomina się dzień po egzaminie. Matematyka uczy analitycznego myślenia, łączenia faktów i radzenia sobie ze złożonymi problemami. Angielski daje swobodę komunikacji, pewność siebie w podróżach i dostęp do globalnej wiedzy. Uczymy tak, by wyciągnąć Twój maksymalny wynik, ale też zyskać przewagę na lata.",
     takeaway: "Logika i swoboda językowa, które procentują na studiach i w dorosłym życiu.",
     accentColor: "border-emerald-400/40",
   },
