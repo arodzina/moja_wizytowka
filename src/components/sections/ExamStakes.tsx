@@ -12,7 +12,7 @@ const stakes = [
     badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
     title: "Presja rekrutacji: Kilka punktów waży o przyszłości",
     description:
-      "Wiemy, z jaką presją mierzy się ósmoklasista i jego rodzice. Kilka punktów różnicy na E8 decyduje o tym, czy uczeń trafi do wymarzonego liceum lub technikum z wyższym poziomem nauczania, czy do szkoły z przypadku. Zdejmujemy ten ciężar — zamieniamy chaos i panikę w uporządkowany plan działania tydzień po tygodniu.",
+      "Wiem, z jaką presją mierzy się ósmoklasista i jego rodzice. Kilka punktów różnicy na E8 decyduje o tym, czy uczeń trafi do wymarzonego liceum lub technikum z wyższym poziomem nauczania, czy do szkoły z przypadku. Zdejmuję ten ciężar — zamieniam chaos i panikę w uporządkowany plan działania tydzień po tygodniu.",
     takeaway: "Eliminacja stresu + pewność dostania się do klasy pierwszego wyboru.",
     accentColor: "border-amber-400/40",
   },
@@ -32,7 +32,7 @@ const stakes = [
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
     title: "Kompetencje, które zostają na całe życie",
     description:
-      "Nie wierzymy w bezmyślne kucie pod klucz, o którym zapomina się dzień po egzaminie. Matematyka uczy analitycznego myślenia, łączenia faktów i radzenia sobie ze złożonymi problemami. Angielski daje swobodę komunikacji, pewność siebie w podróżach i dostęp do globalnej wiedzy. Uczymy tak, by wyciągnąć Twój maksymalny wynik, ale też zyskać przewagę na lata.",
+      "Nie wierzę w bezmyślne kucie pod klucz, o którym zapomina się dzień po egzaminie. Matematyka uczy analitycznego myślenia, łączenia faktów i radzenia sobie ze złożonymi problemami. Angielski daje swobodę komunikacji, pewność siebie w podróżach i dostęp do globalnej wiedzy. Uczę tak, by wyciągnąć Twój maksymalny wynik, ale też zyskać przewagę na lata.",
     takeaway: "Logika i swoboda językowa, które procentują na studiach i w dorosłym życiu.",
     accentColor: "border-emerald-400/40",
   },

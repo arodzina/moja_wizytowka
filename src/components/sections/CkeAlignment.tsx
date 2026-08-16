@@ -22,12 +22,12 @@ export default function CkeAlignment() {
                 </div>
 
                 <h2 id="cke-title" className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl leading-[1.2]">
-                  Nie marnujemy czasu na zbędny materiał.{" "}
-                  <span className="text-accent-400">Uczymy ściśle pod wymagania CKE.</span>
+                  Nie marnuję czasu na zbędny materiał.{" "}
+                  <span className="text-accent-400">Uczę ściśle pod wymagania CKE.</span>
                 </h2>
 
                 <p className="text-base sm:text-lg leading-relaxed text-slate-300">
-                  Szkoła musi zrealizować cały opasły podręcznik – my skupiamy się w 100% na tym, co naprawdę pojawia się na arkuszu egzaminacyjnym.
+                  Szkoła musi zrealizować cały opasły podręcznik – ja skupiam się w 100% na tym, co naprawdę pojawia się na arkuszu egzaminacyjnym.
                 </p>
 
                 <p className="text-sm sm:text-base leading-relaxed text-slate-300">
@@ -83,7 +83,7 @@ export default function CkeAlignment() {
                   <div className="rounded-2xl bg-emerald-950/40 p-4 ring-1 ring-emerald-500/30">
                     <div className="flex items-center gap-2 text-xs font-bold text-emerald-300">
                       <CheckCircle2 className="size-4" />
-                      Nasza strategia CKE
+                      Moja strategia CKE
                     </div>
                     <p className="mt-1.5 text-xs text-slate-300">
                       Precyzyjne pewniaki, szablony zadań otwartych i wyuczone strategie zarządzania czasem.

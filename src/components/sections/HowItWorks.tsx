@@ -10,7 +10,7 @@ const methodologySteps = [
     icon: FileSearch,
     title: "Analiza luk w wiedzy",
     description:
-      "Na wstępie precyzyjnie diagnozujemy, w których działach i typach zadań uczeń traci punkty. Zamiast powtarzać to, co już umie, skupiamy się na eliminacji słabych punktów.",
+      "Na wstępie precyzyjnie diagnozuję, w których działach i typach zadań uczeń traci punkty. Zamiast powtarzać to, co już umie, skupiam się na eliminacji słabych punktów.",
     badge: "Diagnoza początkowa",
   },
   {
@@ -18,7 +18,7 @@ const methodologySteps = [
     icon: Target,
     title: "Strategia CKE i myślenie kluczem",
     description:
-      "Uczymy jak czytać polecenia egzaminatorów i konstruować odpowiedzi pod kryteria oceniania. Pokazujemy, jak bezpiecznie zdobywać punkty cząstkowe nawet w trudnych zadaniach.",
+      "Uczę jak czytać polecenia egzaminatorów i konstruować odpowiedzi pod kryteria oceniania. Pokazuję, jak bezpiecznie zdobywać punkty cząstkowe nawet w trudnych zadaniach.",
     badge: "Maksymalizacja punktów",
   },
   {
@@ -34,7 +34,7 @@ const methodologySteps = [
     icon: HeartHandshake,
     title: "Wsparcie, spokój i redukcja stresu",
     description:
-      "Lekcje w bezstresowej, partnerskiej atmosferze. Zdejmujemy presję z barków ucznia i rodzica, budując realne poczucie kontroli i pewność siebie.",
+      "Lekcje w bezstresowej, partnerskiej atmosferze. Zdejmuję presję z barków ucznia i rodzica, budując realne poczucie kontroli i pewność siebie.",
     badge: "Pewność psychiczna",
   },
 ];
@@ -61,7 +61,7 @@ export default function HowItWorks() {
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
             </p>
             <h2 id="methodology-title" className="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-              Jak wygląda nasz 4-etapowy system nauki?
+              Jak wygląda mój 4-etapowy system nauki?
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
               Nie ma tu miejsca na przypadek. Każdy krok ma na celu zamianę lęku przed testem w opanowaną strategię i wysoki wynik procentowy.

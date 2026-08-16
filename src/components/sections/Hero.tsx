@@ -75,7 +75,7 @@ export default function Hero() {
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
             <Button href="#stawka-egzaminu" variant="secondary" size="lg">
-              Sprawdź jak pomagamy
+              Sprawdź jak pomagam
             </Button>
           </motion.div>
 
