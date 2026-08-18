@@ -132,15 +132,15 @@ export default function ExamStakes() {
                   </div>
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-accent-300">
-                      Standard Egzaminacyjny
+                      Aktualna struktura egzaminu
                     </span>
                     <h4 className="text-base font-bold text-white">
-                      Zgodność z CKE 2024/2025/2026
+                      Praca na oficjalnych arkuszach CKE
                     </h4>
                   </div>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Bieżąca aktualizacja zadań pod kątem zmian w aneksach egzaminacyjnych, arkuszach pokazowych i kluczach punktowania CKE.
+                  Na zajęciach ćwiczymy autentyczne zadania egzaminacyjne. Uczeń uczy się czytać polecenia i wie, za co dokładnie przyznawane są punkty.
                 </p>
               </div>
             </div>
