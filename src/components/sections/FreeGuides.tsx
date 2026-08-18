@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, CheckCircle2, X, FileText, ArrowRight } from "lucide-react";
+import { Download, CheckCircle2, X, FileText, ArrowRight, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
 interface GuideItem {
   id: string;
+  category: "e8" | "matura-pp" | "matura-pr";
   badge: string;
   badgeColor: string;
   title: string;
@@ -22,6 +23,7 @@ interface GuideItem {
 const guides: GuideItem[] = [
   {
     id: "matematyka-e8",
+    category: "e8",
     badge: "E8 Matematyka",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
     title: "Pewniaki Egzaminu Ósmoklasisty z Matematyki",
@@ -38,6 +40,7 @@ const guides: GuideItem[] = [
   },
   {
     id: "angielski-e8",
+    category: "e8",
     badge: "E8 Język Angielski",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
     title: "E8 z Angielskiego pod Klucz CKE",
@@ -54,10 +57,11 @@ const guides: GuideItem[] = [
   },
   {
     id: "matematyka-pp",
+    category: "matura-pp",
     badge: "Matura Podstawowa • Matematyka",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
     title: "Strategia Matury Podstawowej z Matematyki",
-    subtitle: "Jak Wykorzystać Kartę Wzorów i Zdobyć Pewne 70%+",
+    subtitle: "Karta Wzorów CKE i Pewne 70%+",
     description: "Praktyczny przewodnik po maturze podstawowej. Zobacz, jak odczytywać darmowe punkty bezpośrednio z Karty Wzorów CKE i bezpiecznie opanować zadania otwarte.",
     icon: "🎓",
     features: [
@@ -69,27 +73,12 @@ const guides: GuideItem[] = [
     fileUrl: "/poradniki/poradnik_3_matematyka_pp.html",
   },
   {
-    id: "matematyka-pr",
-    badge: "Matura Rozszerzona • Matematyka",
-    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Masterclass Matury Rozszerzonej z Matematyki",
-    subtitle: "Optymalizacja z Pochodną i Równania z Parametrem",
-    description: "Strategia dla zdających maturę rozszerzoną. Rozłóż na czynniki pierwsze zadania optymalizacyjne za 6 punktów, równania z parametrem i dowody.",
-    icon: "🚀",
-    features: [
-      "Algorytm zadania optymalizacyjnego z pochodną (5-6 pkt)",
-      "Równania z parametrem (pełny zestaw warunków i Viète)",
-      "Niezbędne dowody algebraiczne i geometryczne",
-      "Logistyka i zarządzanie czasem na Rozszerzeniu",
-    ],
-    fileUrl: "/poradniki/poradnik_4_matematyka_pr.html",
-  },
-  {
     id: "angielski-pp",
+    category: "matura-pp",
     badge: "Matura Podstawowa • Angielski",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
     title: "Bezstresowa Matura Podstawowa z Angielskiego",
-    subtitle: "Szablony E-maila, Pewniaki Gramatyczne i Słownictwo",
+    subtitle: "Szablony E-maila i Pewniaki Gramatyczne",
     description: "Jak wycisnąć maksymalny wynik z matury podstawowej z angielskiego. Uniwersalne szablony e-maila na 12 punktów i zestawienie pewniaków gramatycznych.",
     icon: "💬",
     features: [
@@ -101,11 +90,29 @@ const guides: GuideItem[] = [
     fileUrl: "/poradniki/poradnik_5_angielski_pp.html",
   },
   {
+    id: "matematyka-pr",
+    category: "matura-pr",
+    badge: "Matura Rozszerzona • Matematyka",
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
+    title: "Masterclass Matury Rozszerzonej z Matematyki",
+    subtitle: "Optymalizacja z Pochodną i Parametr",
+    description: "Strategia dla zdających maturę rozszerzoną. Rozłóż na czynniki pierwsze zadania optymalizacyjne za 6 punktów, równania z parametrem i dowody.",
+    icon: "🚀",
+    features: [
+      "Algorytm zadania optymalizacyjnego z pochodną (5-6 pkt)",
+      "Równania z parametrem (pełny zestaw warunków i Viète)",
+      "Niezbędne dowody algebraiczne i geometryczne",
+      "Logistyka i zarządzanie czasem na Rozszerzeniu",
+    ],
+    fileUrl: "/poradniki/poradnik_4_matematyka_pr.html",
+  },
+  {
     id: "angielski-pr",
+    category: "matura-pr",
     badge: "Matura Rozszerzona • Angielski",
     badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
     title: "Masterclass Matury Rozszerzonej z Angielskiego",
-    subtitle: "Szablony C1, Use of English i Ustna bez Stresu",
+    subtitle: "Szablony C1, Use of English i Ustny C1",
     description: "Dla maturzystów walczących o punkty rekrutacyjne na wymarzone kierunki. Szablony rozprawek B2/C1, zaawansowane transformacje i przygotowanie do matury ustnej.",
     icon: "🗣️",
     features: [
@@ -118,12 +125,21 @@ const guides: GuideItem[] = [
   },
 ];
 
+type CategoryFilter = "all" | "e8" | "matura-pp" | "matura-pr";
+
 export default function FreeGuides() {
   const [selectedGuide, setSelectedGuide] = useState<GuideItem | null>(null);
+  const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const toggleExpand = (id: string) => {
+    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const handleOpenModal = (guide: GuideItem) => {
     setSelectedGuide(guide);
@@ -178,8 +194,13 @@ export default function FreeGuides() {
     }
   };
 
+  const filteredGuides = guides.filter((g) => {
+    if (activeFilter === "all") return true;
+    return g.category === activeFilter;
+  });
+
   return (
-    <section id="poradniki" aria-labelledby="guides-title" className="relative overflow-x-clip bg-slate-50 py-20 lg:py-28">
+    <section id="poradniki" aria-labelledby="guides-title" className="relative overflow-x-clip bg-slate-50 py-16 lg:py-24">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/4 right-[-10%] h-80 w-80 rounded-full bg-brand-100/50 blur-3xl" />
         <div className="absolute bottom-10 left-[-10%] h-96 w-96 rounded-full bg-accent-100/40 blur-3xl" />
@@ -187,66 +208,116 @@ export default function FreeGuides() {
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Baza wiedzy & Pewniaki CKE"
-          title="Darmowe Poradniki Egzaminacyjne"
-          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przez Olę. Wybierz materiał dopasowany dokładnie do Twojego egzaminu i poziomu!"
+          eyebrow="Baza wiedzy • 100% Bezpłatnie"
+          title="Darmowe Poradniki Egzaminacyjne (PDF)"
+          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przez Olę. Wybierz materiał dopasowany do Twojego egzaminu!"
         />
 
-        {/* Grid z 6 dedykowanymi poradnikami */}
-        <div className="mt-14 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {guides.map((guide) => (
-            <motion.div
-              key={guide.id}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="relative flex flex-col justify-between rounded-3xl bg-white p-6 sm:p-7 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-lg"
+        {/* Filtr kategorii (Kompaktowe zakładki) */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {[
+            { id: "all", label: "Wszystkie (6)" },
+            { id: "e8", label: "Egzamin Ósmoklasisty (E8)" },
+            { id: "matura-pp", label: "Matura Podstawowa" },
+            { id: "matura-pr", label: "Matura Rozszerzona" },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveFilter(tab.id as CategoryFilter)}
+              className={`rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all ${
+                activeFilter === tab.id
+                  ? "bg-brand-900 text-white shadow-md"
+                  : "bg-white text-slate-700 hover:bg-slate-200 ring-1 ring-slate-200"
+              }`}
             >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="grid size-11 place-items-center rounded-2xl bg-brand-50 text-2xl">
-                    {guide.icon}
-                  </span>
-                  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${guide.badgeColor}`}>
-                    {guide.badge}
-                  </span>
-                </div>
-
-                <h3 className="mt-4 text-lg font-bold leading-snug text-ink sm:text-xl">
-                  {guide.title}
-                </h3>
-                <p className="mt-1 text-[11px] font-bold text-brand-700 uppercase tracking-wide">
-                  {guide.subtitle}
-                </p>
-
-                <p className="mt-2 text-xs leading-relaxed text-slate-soft">
-                  {guide.description}
-                </p>
-
-                <ul className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
-                  {guide.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-1.5 text-xs text-slate-700 font-medium">
-                      <CheckCircle2 className="size-3.5 shrink-0 text-emerald-600 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 pt-2">
-                <Button
-                  type="button"
-                  onClick={() => handleOpenModal(guide)}
-                  className="w-full justify-center text-xs"
-                >
-                  <Download className="mr-2 size-3.5" /> Pobierz poradnik (PDF)
-                </Button>
-              </div>
-            </motion.div>
+              {tab.label}
+            </button>
           ))}
         </div>
 
+        {/* Kompaktowe kafelki poradników */}
+        <div className="mt-10 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredGuides.map((guide) => {
+            const isExpanded = !!expandedCards[guide.id];
+
+            return (
+              <motion.div
+                key={guide.id}
+                layout
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="relative flex flex-col justify-between rounded-3xl bg-white p-5 sm:p-6 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-md"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="grid size-10 place-items-center rounded-2xl bg-brand-50 text-xl">
+                      {guide.icon}
+                    </span>
+                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-extrabold ${guide.badgeColor}`}>
+                      {guide.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-3 text-base sm:text-lg font-bold leading-snug text-ink">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-0.5 text-[11px] font-bold text-brand-700 uppercase tracking-wide">
+                    {guide.subtitle}
+                  </p>
+
+                  {/* Rozwijana zawartość (Accordion) */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="mt-3 text-xs leading-relaxed text-slate-soft border-t border-slate-100 pt-3">
+                          {guide.description}
+                        </p>
+
+                        <ul className="mt-3 space-y-1.5">
+                          {guide.features.map((feat) => (
+                            <li key={feat} className="flex items-start gap-1.5 text-[11px] sm:text-xs text-slate-700 font-medium">
+                              <CheckCircle2 className="size-3.5 shrink-0 text-emerald-600 mt-0.5" />
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="mt-5 space-y-2 border-t border-slate-100 pt-3">
+                  <Button
+                    type="button"
+                    onClick={() => handleOpenModal(guide)}
+                    className="w-full justify-center text-xs py-2.5"
+                  >
+                    <Download className="mr-2 size-3.5" /> Pobierz bezpłatny PDF
+                  </Button>
+
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(guide.id)}
+                    className="w-full text-center text-[11px] font-bold text-slate-500 hover:text-brand-700 py-1 inline-flex items-center justify-center gap-1 transition-colors"
+                  >
+                    <span>{isExpanded ? "Zwiń szczegóły" : "Zobacz co w środku"}</span>
+                    {isExpanded ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />}
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
         {/* Baner pomocniczy */}
-        <div className="mt-12 rounded-3xl bg-brand-900 p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-10 rounded-3xl bg-brand-900 p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg font-bold">Chcesz skonsultować indywidualny plan przygotowań?</h4>
             <p className="text-xs sm:text-sm text-brand-200 max-w-xl">

@@ -66,9 +66,14 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-brand-700"
+                className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-brand-700"
               >
                 {link.label}
+                {link.href.includes("poradniki") && (
+                  <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider shadow-xs">
+                    FREE
+                  </span>
+                )}
               </a>
             ))}
           </nav>
@@ -107,9 +112,14 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-brand-50"
+                    className="flex items-center justify-between rounded-xl px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-brand-50"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {link.href.includes("poradniki") && (
+                      <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-extrabold text-emerald-800 uppercase tracking-wider">
+                        DARMOWE
+                      </span>
+                    )}
                   </a>
                 ))}
                 <Button
