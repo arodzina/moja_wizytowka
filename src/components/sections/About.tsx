@@ -73,7 +73,7 @@ export default function About() {
                 Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i przełamywaniu bariery w mówieniu.
               </p>
               <p>
-                Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. Stworzyłam również autorski kurs <strong className="font-semibold text-ink">Notion Master</strong> — pasjonuję się cyfrową organizacją nauki i pomagam uczniom trzymać idealny ład w materiałach i notatkach do egzaminu.
+                Praktyczny angielski szlifowałam podczas wyjazdu na <strong className="font-semibold text-ink">Erasmus+ w Portugalii</strong> (poziom C1 wg testu OLS). Jestem też autorką kursu <strong className="font-semibold text-ink">Notion Master</strong> na Udemy, w którym pokazuję, jak sprawnie organizować pracę i cyfrowe notatki.
               </p>
             </div>
           </Reveal>
@@ -89,7 +89,7 @@ export default function About() {
               >
                 <span className="flex items-center gap-2.5 text-sm sm:text-base">
                   <Sparkles className="size-5 text-accent-500" aria-hidden="true" />
-                  Kwalifikacje, wykształcenie & organizacja nauki
+                  Wykształcenie, doświadczenie & organizacja pracy
                 </span>
                 <ChevronDown
                   className={`size-5 text-brand-600 transition-transform duration-300 ${
@@ -114,15 +114,15 @@ export default function About() {
                           <GraduationCap className="size-5 text-brand-600 shrink-0 mt-0.5" />
                           <div>
                             <strong className="text-ink block">Informatyka i Ekonometria — AGH Kraków:</strong>
-                            <p>Studia na renomowanej uczelni technicznej to gwarancja logicznego, uporządkowanego podejścia do matematyki.</p>
+                            <p>Studia na renomowanej uczelni technicznej to gwarancja analitycznego, uporządkowanego podejścia do matematyki.</p>
                           </div>
                         </div>
 
                         <div className="flex items-start gap-2.5 pt-2.5 border-t border-slate-100">
                           <Globe className="size-5 text-brand-600 shrink-0 mt-0.5" />
                           <div>
-                            <strong className="text-ink block">Certyfikat C1 & Doświadczenie z Portugalii:</strong>
-                            <p>Praktyczne używanie języka w międzynarodowym środowisku (Erasmus+), eliminujące barierę przed mówieniem.</p>
+                            <strong className="text-ink block">Doświadczenie z wymiany Erasmus+ w Portugalii:</strong>
+                            <p>Semestr spędzony za granicą — codzienna komunikacja w języku angielskim (poziom C1 wg testu OLS) i przełamywanie bariery językowej.</p>
                           </div>
                         </div>
 
@@ -130,7 +130,7 @@ export default function About() {
                           <Sparkles className="size-5 text-brand-600 shrink-0 mt-0.5" />
                           <div>
                             <strong className="text-ink block">Autorka kursu Notion Master (Udemy):</strong>
-                            <p>Wiedzę ze szkolenia z organizacji i zarządzania czasem wykorzystuję, pomagając uczniom układać bezstresowy harmonogram powtórek.</p>
+                            <p>Stworzyłam autorski kurs z obsługi narzędzia Notion do organizacji pracy, zadań i notatek.</p>
                             <a
                               href="https://www.udemy.com/course/notion-master/"
                               target="_blank"
