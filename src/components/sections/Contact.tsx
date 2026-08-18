@@ -13,8 +13,8 @@ import { site } from "@/lib/site";
 const topics = [
   "Egzamin Ósmoklasisty — Matematyka",
   "Egzamin Ósmoklasisty — Język Angielski",
+  "Matura z Matematyki (Podstawa / Rozszerzenie)",
   "Matura z Języka Angielskiego (Podstawa / Rozszerzenie)",
-  "Pakiet E8: Matematyka + Angielski",
   "Darmowa konsultacja wstępna (15 min)",
   "Inne / mam pytanie",
 ];
@@ -273,7 +273,7 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Wiadomość / Aktualna sytuacja <span aria-hidden="true" className="text-accent-600">*</span>
+                      Wiadomość <span aria-hidden="true" className="text-accent-600">*</span>
                     </label>
                     <textarea
                       id="message"
