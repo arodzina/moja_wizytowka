@@ -34,7 +34,7 @@ const collaborationSteps = [
     icon: TrendingUp,
     title: "Systematyka i raport postępów",
     description:
-      "Uczymy się bez stresu pod wymogi CKE. Rodzic ma stały wgląd w przerabiany materiał i postępy, a uczeń zyskuje realną pewność siebie przed egzaminem.",
+      "Uczymy się regularnie pod wymogi CKE. Rodzic ma stały wgląd w przerabiany materiał i postępy, a uczeń zyskuje realną pewność siebie przed egzaminem.",
     badge: "Stały kontakt z rodzicem",
   },
 ];
