@@ -20,9 +20,9 @@ const stakes = [
     icon: GraduationCap,
     badge: "Dla Maturzysty",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Angielski: Uniwersalna wartość na studia",
+    title: "Matura z Matematyki i Angielskiego",
     description:
-      "Język angielski jest punktowany w rekrutacji na niemal każdym kierunku — od informatyki po medycynę i prawo. Dobre przygotowanie do matury podstawowej i rozszerzonej pomaga zdobyć wartościowe punkty rekrutacyjne i ułatwia dostanie się na wymarzoną uczelnię.",
+      "Matematyka i język angielski stanowią kluczowy filar rekrutacji na studia. Dobre przygotowanie do matury podstawowej oraz rozszerzonej pozwala zdobyć cenne punkty rekrutacyjne i spokojnie dostać się na wymarzony kierunek.",
     takeaway: "Lepszy wynik rekrutacyjny bez względu na wybrany kierunek.",
     accentColor: "border-brand-400/40",
   },
