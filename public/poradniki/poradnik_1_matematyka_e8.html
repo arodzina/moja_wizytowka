@@ -7,8 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -119,57 +120,11 @@
       font-style: italic;
       color: #1e293b;
     }
-    .author-box {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-      border: 1px solid #cbd5e1;
-      border-radius: 1rem;
-      padding: 1.25rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 9999px;
-      background-color: #2563eb;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.25rem;
-      flex-shrink: 0;
-    }
-    .cta-box {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      color: white;
-      border-radius: 1.25rem;
-      padding: 2rem;
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .cta-box h3 { color: white; margin-top: 0; }
-    .cta-box p { color: #cbd5e1; font-size: 0.875rem; margin-bottom: 1.25rem; }
-    .cta-btn {
-      display: inline-block;
-      background-color: #10b981;
-      color: white;
-      font-weight: 700;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-size: 0.875rem;
-    }
 
     @media print {
       body { background-color: #ffffff; padding-bottom: 0; }
       .top-bar { display: none; }
       .card { border: none; box-shadow: none; padding: 0; }
-      .cta-box { border: 1px solid #000; color: #000; background: none; }
-      .cta-box h3, .cta-box p { color: #000; }
-      .cta-btn { border: 1px solid #000; color: #000; background: none; }
     }
   </style>
 </head>
@@ -192,9 +147,9 @@
 <strong>Wydanie:</strong> Rekrutacja 2024 / 2025 / 2026</p>
 <hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
 <h2>🖐️ Słowo wstępne od Oli</h2>
-<p>Cześć! Nazywam się Ola. Od lat pomagam ósmoklasistom rozbrajać Egzamin Ósmoklasisty z matematyki.</p>
-<p>Wiem zświadczenia, jak wygląda przygotowanie do tego egzaminu. Z jednej strony są rodzice, którzy martwią się o punkty rekrutacyjne do wymarzonego liceum lub technikum. Z drugiej — uczeń, który często czuje chaos w głowie na samą myśl o geometrii czy zadaniach z treścią.</p>
-<p>Ten poradnik powstał po to, aby odczarować ten egzamin. Nie znajdziesz tu nudnej teorii wyjętej z podręcznika. Spisałam konkretną strategię: <strong>które działy dają najwięcej punktów, jak uniknąć błędów, na których uciekają najcenniejsze punkty, oraz jak prawidłowo rozpatrywać zadania otwarte pod klucz CKE</strong>.</p>
+<p>Cześć! Nazywam się Ola. Od lat pomagam ósmoklasistom spokojnie i skutecznie przygotować się do Egzaminu Ósmoklasisty z matematyki.</p>
+<p>Wiem z doświadczenia, jak wygląda ten czas. Z jednej strony są rodzice, którzy martwią się o punkty rekrutacyjne do wymarzonego liceum lub technikum. Z drugiej — uczeń, który często czuje chaos w głowie na samą myśl o geometrii czy zadaniach z treścią.</p>
+<p>Ten poradnik przygotowałam po to, aby uporządkować przygotowania i pokazać Ci jasną strategię krok po kroku. Nie znajdziesz tu nudnej teorii wyjętej z podręcznika. Spisałam konkretny plan: <strong>które działy dają najwięcej punktów, jak uniknąć błędów, na których uciekają najcenniejsze punkty, oraz jak prawidłowo opisywać zadania otwarte pod klucz CKE</strong>.</p>
 <p>Zaczynamy!</p>
 <hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
 <h2>🎯 Rozdział 1: 10 Działów CKE, które dają 80%+ punktów</h2>
@@ -206,11 +161,11 @@
 <ul><li><strong>Na czym polega:</strong> Obliczanie procentu z danej liczby, zmiana ceny po obniżce/podwyżce, procentowy udział danej grupy.</li></ul>
 <em> <strong>Typowe zadanie:</strong> </em>„Cena kurtki wynosiła 200 zł. Najpierw obniżono ją o 10%, a potem nową cenę obniżono o kolejne 20%. Ile wynosi końcowa cena?”*
 <h3>3. Potęgi i pierwiastki</h3>
-<ul><li><strong>Na czym polega:</strong> Wyłączanie czynnika przed znak pierwiastka (np. $\sqrt{12} = 2\sqrt{3}$), szacowanie wartości (np. między jakimi liczbami leży $\sqrt{50}$), mnożenie i dzielenie potęg o tej samej podstawie.</li><li><strong>Pamiętaj:</strong> $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$! To jeden z najczęstszych błędów.</li></ul>
+<ul><li><strong>Na czym polega:</strong> Wyłączanie czynnika przed znak pierwiastka (np. $\sqrt{12} = 2\sqrt{3}$), szacowanie wartości (np. między jakimi liczbami leży $\sqrt{50}$), mnożenie i dzielenie potęg o tej samej podstawie.</li><li><strong>Pamiętaj:</strong> $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$! To jeden z najczęściej popełnianych błędów.</li></ul>
 <h3>4. Wyrażenia algebraiczne</h3>
-<ul><li><strong>Na czym polega:</strong> Redukcja wyrazów podobnych, mnożenie sum algebraicznych, prawidłowe usuwanie nawiasów.</li><li><strong>Pułapka CKE:</strong> Minus przed nawiasem zmienia znaki WSZYSTKICH wyrazów w nawiasie: $-(2x - 5) = -2x + 5$.</li></ul>
+<ul><li><strong>Na czym polega:</strong> Redukcja wyrazów podobnych, mnożenie sum algebraicznych, prawidłowe opuszczanie nawiasów.</li><li><strong>Pułapka CKE:</strong> Minus przed nawiasem zmienia znaki WSZYSTKICH wyrazów w nawiasie: $-(2x - 5) = -2x + 5$.</li></ul>
 <h3>5. Równania z jedną niewiadomą i zadania z treścią</h3>
-<ul><li><strong>Na czym polega:</strong> Przekształcanie równań (metoda przenoszenia stronami) i układanie równania na podstawie treści zadania słownego.</li><li><strong>Zasada Oli:</strong> Wyznacz nieznaną jako $x$, zapisz zależność i ZAWSZE na końcu sprawdź, czy odpowiedź odpowiada na pytanie z zadania!</li></ul>
+<ul><li><strong>Na czym polega:</strong> Przekształcanie równań (metoda przenoszenia stronami) i układanie równania na podstawie treści zadania słownego.</li><li><strong>Zasada Oli:</strong> Wyznacz niewiadomą jako $x$, zapisz zależność i ZAWSZE na końcu sprawdź, czy odpowiedź odpowiada na pytanie z zadania!</li></ul>
 <h3>6. Planimetria (Geometria płaska)</h3>
 <ul><li><strong>Na czym polega:</strong> Pola i obwody trójkątów, prostokątów, kwadratów, rombów i trapezów. </li><li><strong>Twierdzenie Pitagorasa:</strong> $a^2 + b^2 = c^2$ — działa TYLKO w trójkątach prostokątnych, gdzie $c$ to najdłuższy bok (przeciwprostokątna).</li></ul>
 <h3>7. Kąty w geometrii</h3>
@@ -222,17 +177,17 @@
 <h3>10. Układ współrzędnych i skala</h3>
 <ul><li><strong>Na czym polega:</strong> Odczytywanie współrzędnych punktów $(x, y)$, obliczanie długości odcinków na siatce, przeliczanie odległości na mapie w skali (np. $1:200000$).</li></ul>
 <hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
-<h2>⚠️ Rozdział 2: Top 5 „głupich błędów”, na których uciekają punkty</h2>
-<p>Najwięcej punktów na E8 nie ucieka z braku wiedzy, lecz z powodu pospiechu i niedokładności. Oto 5 potknięć, które widzę u uczniów najczęściej:</p>
+<h2>⚠️ Rozdział 2: Top 5 drobnych błędów, na których uciekają punkty</h2>
+<p>Najwięcej punktów na E8 nie ucieka z braku wiedzy, lecz z powodu pośpiechu i niedokładności. Oto 5 potknięć, które widzę u uczniów najczęściej:</p>
 <p>1. <strong>Niedoczytanie polecenia do końca</strong>
    <em> </em>Przykład:<em> Uczeń ułożył równanie, wyliczył $x = 8$ i wpisał wynik. Tymczasem pytanie brzmiało: </em>„O ile więcej zeszytów kupił Janek niż Kasia?”*. 
    <em> </em>Rozwiązanie:* Po wyliczeniu $x$, ZAWSZE podkreśl ostatnie zdanie w treści zadania i sprawdź, czy to na nie odpowiadasz.</p>
 <p>2. <strong>Minus przed nawiasem</strong>
    * Zapis $-(3x - 4)$ uczeń przekształca w $-3x - 4$. 
-   <em> </em>Rozwiązanie:<em> Zapamiętaj zasadę: </em>Minus przed nawiasem to jak kasownik — otwiera nawias i odwraca każdy znak na przeciwny!*</p>
+   <em> </em>Rozwiązanie:<em> Zapamiętaj zasadę: </em>Minus przed nawiasem otwiera nawias i odwraca każdy znak wewnątrz na przeciwny!*</p>
 <p>3. <strong>Mieszanie jednostek w geometrii</strong>
    * Boki prostokąta wynoszą $4\text{ cm}$ oraz $3\text{ dm}$. Uczeń mnoży $4 \cdot 3 = 12$.
-   <em> </em>Rozwiązanie:* Zanim wykonasz jakiekolwiek działanie geometryczne, UJEDNOLIC jednostki ($3\text{ dm} = 30\text{ cm} \implies P = 4 \cdot 30 = 120\text{ cm}^2$).</p>
+   <em> </em>Rozwiązanie:* Zanim wykonasz jakiekolwiek działanie geometryczne, ujednolić jednostki ($3\text{ dm} = 30\text{ cm} \implies P = 4 \cdot 30 = 120\text{ cm}^2$).</p>
 <p>4. <strong>Błędne zastosowanie Twierdzenia Pitagorasa</strong>
    * Podstawienie przyprostokątnych i przeciwprostokątnej w złe miejsca.
    <em> </em>Rozwiązanie:* Przeciwprostokątna ($c$) to ZAWSZE bok leżący naprzeciwko kąta prostego!</p>

@@ -7,8 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -119,57 +120,11 @@
       font-style: italic;
       color: #1e293b;
     }
-    .author-box {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-      border: 1px solid #cbd5e1;
-      border-radius: 1rem;
-      padding: 1.25rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 9999px;
-      background-color: #2563eb;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.25rem;
-      flex-shrink: 0;
-    }
-    .cta-box {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      color: white;
-      border-radius: 1.25rem;
-      padding: 2rem;
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .cta-box h3 { color: white; margin-top: 0; }
-    .cta-box p { color: #cbd5e1; font-size: 0.875rem; margin-bottom: 1.25rem; }
-    .cta-btn {
-      display: inline-block;
-      background-color: #10b981;
-      color: white;
-      font-weight: 700;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-size: 0.875rem;
-    }
 
     @media print {
       body { background-color: #ffffff; padding-bottom: 0; }
       .top-bar { display: none; }
       .card { border: none; box-shadow: none; padding: 0; }
-      .cta-box { border: 1px solid #000; color: #000; background: none; }
-      .cta-box h3, .cta-box p { color: #000; }
-      .cta-btn { border: 1px solid #000; color: #000; background: none; }
     }
   </style>
 </head>
@@ -246,7 +201,7 @@ To najbardziej powtarzalne i wysoko punktowane zadanie na PR!
    Nawet jeśli nie wiesz, jak dokończyć zadanie, wypisz dane, ułóż pierwsze równanie lub wypisz warunki parametru. W kluczu CKE pierwsze kroki są często punktowane (np. 1 pkt za samą dziedzinę lub wzór!).</p>
 <hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
 <h2>🤝 Chcesz poukładać strategię pod Twój kierunek studiów?</h2>
-<p>Jeśli chcesz sprawdzić swój obecny poziom, wyeliminować błędy rachunkowe i przygotować się do Matury z Matematyki (PP lub PR) z podejście AGH:</p>
+<p>Jeśli chcesz sprawdzić swój obecny poziom, wyeliminować błędy rachunkowe i przygotować się do Matury z Matematyki (PP lub PR) z podejściem AGH:</p>
 <p>👉 <strong>Umów się na bezpłatną 15-minutową konsultację</strong> na mojej stronie:  
 [https://moja-wizytowka-vert.vercel.app/poziom](https://moja-wizytowka-vert.vercel.app/poziom)</p>
 <p>Przeanalizujemy Twój przypadek i ułożymy jasny plan powtórek!</p>
