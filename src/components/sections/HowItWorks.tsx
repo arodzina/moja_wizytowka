@@ -1,41 +1,41 @@
 "use client";
 
-import { FileSearch, HeartHandshake, ListOrdered, Sparkles, Target, Timer } from "lucide-react";
+import { Calendar, Sparkles, CreditCard, TrendingUp, ArrowRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 
-const methodologySteps = [
+const collaborationSteps = [
   {
     step: "01",
-    icon: FileSearch,
-    title: "Analiza luk w wiedzy",
+    icon: Calendar,
+    title: "15 min rozmowy zapoznawczej",
     description:
-      "Na wstępie precyzyjnie sprawdzam, w których działach i typach zadań uczeń traci punkty. Zamiast powtarzać to, co już umie, skupiam się na eliminacji słabych punktów.",
-    badge: "Quiz poziomujący",
+      "Łączymy się na bezpłatną 15-minutową rozmowę online. Poznajemy się, omawiamy cele egzaminacyjne i ubiegamy się o pierwsze próbne terminy bez żadnych zobowiązań.",
+    badge: "100% Bezpłatnie",
   },
   {
     step: "02",
-    icon: Target,
-    title: "Strategia CKE i myślenie kluczem",
+    icon: Sparkles,
+    title: "3 Lekcje próbne na start",
     description:
-      "Uczę jak czytać polecenia egzaminatorów i konstruować odpowiedzi pod kryteria oceniania. Pokazuję, jak bezpiecznie zdobywać punkty cząstkowe nawet w trudnych zadaniach.",
-    badge: "Maksymalizacja punktów",
+      "Pierwsze 3 spotkania są płatne pojedynczo po zajęciach (ze zniżką na rozruch). Uczeń i rodzic testują atmosferę, styl tłumaczenia i przydatność lekcji.",
+    badge: "Pakiet próbny",
   },
   {
     step: "03",
-    icon: Timer,
-    title: "Praktyka na prawdziwych arkuszach",
+    icon: CreditCard,
+    title: "Stały grafik i rozliczenie",
     description:
-      "Regularny trening na oficjalnych arkuszach CKE. Uczeń trenuje tempo pracy i zarządzanie czasem, dzięki czemu w dniu egzaminu nie ma mowy o zaskoczeniu.",
-    badge: "Obycie z egzaminem",
+      "Gdy uczeń czuje się dobrze i chce kontynuować, rezerwujemy stałe miejsce w tygodniowym grafiku i przechodzimy na wygodne płatności z góry za dany miesiąc.",
+    badge: "Płatność z góry za miesiąc",
   },
   {
     step: "04",
-    icon: HeartHandshake,
-    title: "Wsparcie, spokój i redukcja stresu",
+    icon: TrendingUp,
+    title: "Systematyka i raport postępów",
     description:
-      "Lekcje w bezstresowej, partnerskiej atmosferze. Zdejmuję presję z barków ucznia i rodzica, budując realne poczucie kontroli i pewność siebie.",
-    badge: "Pewność psychiczna",
+      "Uczymy się bez stresu pod wymogi CKE. Rodzic ma stały wgląd w przerabiany materiał i postępy, a uczeń zyskuje realną pewność siebie przed egzaminem.",
+    badge: "Stały kontakt z rodzicem",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function HowItWorks() {
   return (
     <section
       id="metodologia"
-      aria-labelledby="methodology-title"
+      aria-labelledby="how-it-works-title"
       className="relative overflow-x-clip bg-brand-950 text-white"
     >
       {/* Ozdobne światła */}
@@ -57,20 +57,20 @@ export default function HowItWorks() {
           <Reveal>
             <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-300">
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
-              Metodologia Nauczania
+              Zasady Współpracy
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
             </p>
-            <h2 id="methodology-title" className="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-              Jak wygląda mój 4-etapowy system nauki?
+            <h2 id="how-it-works-title" className="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+              Jak wygląda rozpoczęcie nauki?
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
-              Nie ma tu miejsca na przypadek. Każdy krok ma na celu zamianę lęku przed testem w opanowaną strategię i wysoki wynik procentowy.
+              Przejrzysta ścieżka od pierwszego bezpłatnego spotkania, przez lekcje próbne, aż po stałą współpracę i pewność na egzaminie.
             </p>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {methodologySteps.map((step, i) => (
+          {collaborationSteps.map((step, i) => (
             <Reveal key={step.title} delay={i * 0.1} className="h-full">
               <div className="relative flex h-full flex-col justify-between rounded-3xl bg-white/5 p-7 ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
                 <div>
@@ -102,11 +102,11 @@ export default function HowItWorks() {
 
         <Reveal delay={0.25} className="mt-14 text-center">
           <div className="inline-flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="#kontakt" variant="accent" size="lg">
-              Umów darmową 15-minutową konsultację
+            <Button href="/poziom" variant="accent" size="lg">
+              Umów rozmowę zapoznawczą <ArrowRight className="ml-2 size-4" />
             </Button>
-            <Button href="#materialy" variant="outline" size="lg">
-              Pobierz darmowy poradnik CKE
+            <Button href="#poradniki" variant="outline" size="lg">
+              Pobierz darmowe poradniki CKE
             </Button>
           </div>
         </Reveal>

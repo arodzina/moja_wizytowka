@@ -57,9 +57,11 @@ export default function About() {
               O mnie & Metoda pracy
             </p>
             <h2 id="about-title" className="mt-4 text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-              Cześć, jestem {site.tutorName}.{" "}
-              <span className="text-brand-600">Pomagam zamienić presję egzaminacyjną w spokój i wysokie wyniki.</span>
+              Cześć, jestem {site.tutorName}.
             </h2>
+            <p className="mt-3 text-lg font-medium leading-relaxed text-slate-soft">
+              Pomagam uczniom rozpracować wytyczne CKE, wyeliminować błędy i spokojnie zdobyć wysoki wynik z Matematyki i Angielskiego.
+            </p>
           </Reveal>
 
           <Reveal delay={0.1}>
