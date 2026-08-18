@@ -1612,7 +1612,7 @@ export default function DiagnozaPage() {
             </motion.div>
           )}
 
-          {/* KROK 3: WYNIKI — RAPORT ZAPISANY AUTOMATYCZNIE W TLE DLA OLI */}
+          {/* KROK 3: PODSUMOWANIE — RAPORT ZAPISANY AUTOMATYCZNIE W TLE DLA OLI */}
           {step === 3 && (
             <motion.div
               key="step3"
@@ -1629,47 +1629,67 @@ export default function DiagnozaPage() {
                   Dziękuję! Formularz został pomyślnie wypełniony.
                 </h2>
                 <p className="text-sm font-semibold text-brand-800 max-w-lg mx-auto leading-relaxed bg-brand-50 p-4 rounded-2xl border border-brand-100">
-                  Super! Twoje wyniki trafiły na moją skrzynkę. Przeanalizuję je i odezwę się do Was w ciągu 24 godzin z propozycją dogodnego terminu darmowej 15-minutowej rozmowy zapoznawczej!
+                  Super! Twoja odpowiedź trafiła na moją skrzynkę. Przeanalizuję ją i odezwę się do Was w ciągu 24 godzin z propozycją dogodnego terminu darmowej 15-minutowej rozmowy zapoznawczej!
                 </p>
               </div>
 
-              {/* Wynik numeryczny */}
-              <div className="bg-gradient-to-r from-brand-500 to-accent-400 p-6 rounded-2xl text-white text-center shadow-md">
-                <div className="text-xs uppercase tracking-wider font-semibold opacity-90">
-                  Wynik z testu wiedzy twardej
+              {/* Wpisane dane i samoocena */}
+              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs sm:text-sm space-y-4 text-slate-700">
+                <div className="space-y-1.5 border-b border-slate-200/60 pb-3">
+                  <div><strong className="text-slate-900">Imię:</strong> {studentName}</div>
+                  <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
+                  <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
+                  <div><strong className="text-slate-900">Częstotliwość:</strong> {getFrequencyDisplay(frequency)}</div>
+                  <div><strong className="text-slate-900">Pora dnia:</strong> {getPreferredTimeDisplay(preferredTime)}</div>
                 </div>
-                <div className="text-4xl font-extrabold mt-1">
-                  {calculateScore().score} / {calculateScore().total}
-                </div>
-                <p className="text-xs mt-2 opacity-95">
-                  Spokojnie! Wszystkie niepewne obszary przeanalizujemy razem na darmowej lekcji.
-                </p>
-              </div>
 
-              {/* Wpisane dane */}
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs sm:text-sm space-y-2 text-slate-700">
-                <div><strong className="text-slate-900">Imię:</strong> {studentName}</div>
-                <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
-                <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
-                <div><strong className="text-slate-900">Częstotliwość:</strong> {getFrequencyDisplay(frequency)}</div>
-                <div><strong className="text-slate-900">Pora dnia:</strong> {getPreferredTimeDisplay(preferredTime)}</div>
+                {/* Sekcja A - Samoocena */}
+                <div className="space-y-1.5 border-b border-slate-200/60 pb-3">
+                  <strong className="text-slate-900 block mb-1">Twój poziom w zagadnieniach CKE:</strong>
+                  <ul className="space-y-1 pl-1">
+                    {getSubjectTopics(subject).map((t) => (
+                      <li key={t} className="flex items-center justify-between gap-2 text-xs sm:text-sm">
+                        <span className="text-slate-700">• {t}</span>
+                        <span className="font-semibold text-slate-900 shrink-0">
+                          {conceptMap[t] || "Brak oceny"}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Sekcja B - Obszary do wzmocnienia */}
+                {mathFears.length > 0 && (
+                  <div className="space-y-1.5 border-b border-slate-200/60 pb-3">
+                    <strong className="text-slate-900 block mb-1">Wybrane obszary do wzmocnienia:</strong>
+                    <ul className="space-y-1 pl-1">
+                      {mathFears.map((item) => (
+                        <li key={item} className="text-xs sm:text-sm text-slate-800">
+                          ✓ {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {additionalNotes.trim() && (
-                  <div className="pt-2 border-t border-slate-200/60 mt-2">
-                    <strong className="text-slate-900">Twój komentarz do Oli:</strong> "{additionalNotes.trim()}"
+                  <div className="pt-1">
+                    <strong className="text-slate-900 block mb-1">Twój komentarz do Oli:</strong>
+                    <p className="italic text-slate-700">"{additionalNotes.trim()}"</p>
                   </div>
                 )}
               </div>
 
-              {/* PRZYCISK KOPIOWANIA DLA UCZNIA (OPCJONALNY DLA JEGO WIADOMOŚCI) */}
+              {/* PRZYCISK KOPIOWANIA DLA UCZNIA */}
               <div className="pt-2">
                 <Button onClick={handleCopySummary} size="lg" className="w-full">
                   {copied ? (
                     <>
-                      <CheckCircle2 className="mr-2 size-5 text-emerald-300" /> Skopiowano Twoje wyniki!
+                      <CheckCircle2 className="mr-2 size-5 text-emerald-300" /> Skopiowano Twoją odpowiedź!
                     </>
                   ) : (
                     <>
-                      <Copy className="mr-2 size-5" /> 📋 Skopiuj swoje wyniki (dla siebie)
+                      <Copy className="mr-2 size-5" /> 📋 Skopiuj swoją odpowiedź (dla siebie)
                     </>
                   )}
                 </Button>
