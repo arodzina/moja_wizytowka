@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Calculator, Languages, BookOpenCheck, GraduationCap } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const container = {
@@ -19,24 +19,26 @@ export default function Hero() {
 
   const float = (duration = 5, delay = 0) => ({
     animate: reduce ? undefined : { y: [0, -8, 0] },
-    transition: { duration, delay, repeat: Infinity, ease: "easeInOut" as const },
+    transition: reduce
+      ? undefined
+      : { duration, repeat: Infinity, ease: "easeInOut", delay },
   });
 
   return (
-    <section id="start" className="relative overflow-x-clip bg-white">
-      {/* Dekoracyjne tło */}
+    <section id="start" className="relative overflow-x-clip bg-mist pt-10 pb-20 lg:pt-16 lg:pb-28">
+      {/* Tło ozdobne */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 right-[-10%] h-[30rem] w-[30rem] rounded-full bg-brand-100/60 blur-3xl" />
-        <div className="absolute top-1/2 left-[-12%] h-[26rem] w-[26rem] rounded-full bg-accent-100/70 blur-3xl" />
-        <div className="absolute bottom-[-6rem] right-[25%] h-80 w-80 rounded-full bg-brand-50 blur-2xl" />
+        <div className="absolute top-[-10%] left-[-10%] h-[40rem] w-[40rem] rounded-full bg-brand-100/60 blur-3xl" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-accent-100/70 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:pt-36 lg:pb-24">
-        {/* Tekst Hero */}
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
+        {/* Lewa kolumna: Tekst i CTA */}
         <motion.div
-          variants={reduce ? undefined : container}
-          initial={reduce ? undefined : "hidden"}
+          variants={container}
+          initial="hidden"
           animate="show"
+          className="lg:col-span-7"
         >
           <motion.h1
             variants={item}
@@ -66,12 +68,12 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Kokpit Strategii Egzaminacyjnej */}
+        {/* Prawa kolumna: Karta z zakresem przygotowań */}
         <motion.div
-          initial={reduce ? undefined : { opacity: 0, scale: 0.96, y: 20 }}
-          animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+          initial={reduce ? undefined : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          className="lg:col-span-5"
         >
           {/* Główna karta oferty i zakresu */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
@@ -86,11 +88,11 @@ export default function Hero() {
               </span>
             </div>
 
-            <div className="space-y-2.5 pt-1">
+            <div className="space-y-3 pt-1">
               {/* Karta 1: Matematyka E8 */}
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
-                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm">
-                  📐
+              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
+                  <Calculator className="size-5 text-brand-700" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Matematyka</h4>
@@ -101,9 +103,9 @@ export default function Hero() {
               </div>
 
               {/* Karta 2: Angielski E8 */}
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
-                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm">
-                  🇬🇧
+              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-blue-100/90 border border-blue-200/80 shadow-xs">
+                  <Languages className="size-5 text-blue-700" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Język Angielski</h4>
@@ -114,9 +116,9 @@ export default function Hero() {
               </div>
 
               {/* Karta 3: Matura Matematyka */}
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
-                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-sm font-bold">
-                  📐
+              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
+                  <BookOpenCheck className="size-5 text-amber-800" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki (Podstawa & Rozszerzenie)</h4>
@@ -127,9 +129,9 @@ export default function Hero() {
               </div>
 
               {/* Karta 4: Matura Angielski */}
-              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
-                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-sm font-bold">
-                  🎓
+              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-purple-100/90 border border-purple-200/80 shadow-xs">
+                  <GraduationCap className="size-5 text-purple-700" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
