@@ -92,52 +92,55 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-full max-w-md pb-12 lg:max-w-none"
         >
-          {/* Główna karta strategiczna */}
+          {/* Główna karta oferty i zakresu */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">
                 <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-sm font-bold text-ink">System Sukcesu CKE</span>
+                <span className="text-sm font-bold text-ink">Zakres przygotowania:</span>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
                 <ShieldCheck className="size-3.5" aria-hidden="true" />
-                Standard 2024/2025/2026
+                Zgodnie z wytycznymi CKE
               </span>
             </div>
 
             <div className="space-y-3 pt-1">
+              {/* Karta 1: Matematyka E8 */}
               <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm font-bold">
-                  E8
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-amber-500 text-white text-base">
+                  📐
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty (Matematyka & Angielski)</h4>
+                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty: Matematyka</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Koniec z paniką przed geometrią i pisaniem e-maili. Rozkładamy zadania CKE na proste schematy punkt po punkcie.
+                    Rozkładanie zadań CKE na proste kroki, algebra, geometria i pewniaki egzaminacyjne.
                   </p>
                 </div>
               </div>
 
+              {/* Karta 2: Angielski E8 */}
               <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-400 text-ink text-sm font-bold">
-                  C1
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-base">
+                  🇬🇧
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
+                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty: Język Angielski</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Use of English, transformacje i rozprawka bez utraty cennych punktów rekrutacyjnych na uczelnie.
+                    Niezawodne szablony e-maila, pewniaki gramatyczne, słownictwo i reakcje językowe CKE.
                   </p>
                 </div>
               </div>
 
+              {/* Karta 3: Matura Angielski */}
               <div className="flex items-start gap-3.5 rounded-2xl bg-slate-900 text-white p-4 ring-1 ring-slate-800">
                 <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-400 text-ink text-base">
-                  <Zap className="size-5" />
+                  🎓
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Spokój & Strategia zamiast kucia</h4>
+                  <h4 className="text-sm font-bold text-white">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-300">
-                    Precyzyjne wyłapywanie luk w wiedzy i regularna praca na prawdziwych arkuszach.
+                    Use of English, pisanie (rozprawka, list), transformacje oraz bezstresowa matura ustna.
                   </p>
                 </div>
               </div>
