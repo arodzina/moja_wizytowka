@@ -18,7 +18,7 @@ const collaborationSteps = [
     icon: Sparkles,
     title: "3 Lekcje próbne na start",
     description:
-      "Pierwsze 3 spotkania są płatne pojedynczo po zajęciach (ze zniżką na rozruch). Uczeń i rodzic testują atmosferę, styl tłumaczenia i przydatność lekcji.",
+      "Pierwsze 3 spotkania są płatne pojedynczo przed zajęciami (do 24h przed konkretną lekcją, bez płacenia z góry za cały miesiąc). Uczeń i rodzic testują atmosferę i styl pracy.",
     badge: "Pakiet próbny",
   },
   {
