@@ -1931,15 +1931,11 @@ export default function DiagnozaPage() {
 
               {/* Wpisane dane */}
               <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs sm:text-sm space-y-2 text-slate-700">
-                <div><strong className="text-slate-900">Uczeń:</strong> {studentName} ({schoolClass})</div>
-                <div><strong className="text-slate-900">Wypełnia:</strong> {filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}</div>
+                <div><strong className="text-slate-900">Imię:</strong> {studentName}</div>
                 <div><strong className="text-slate-900">Kontakt:</strong> {contact}</div>
                 <div><strong className="text-slate-900">Przedmiot:</strong> {getSubjectLabel(subject)}</div>
-                <div><strong className="text-slate-900">Główny cel nauki:</strong> {getGoalDisplay()}</div>
                 <div><strong className="text-slate-900">Częstotliwość:</strong> {getFrequencyDisplay(frequency)}</div>
                 <div><strong className="text-slate-900">Pora dnia:</strong> {getPreferredTimeDisplay(preferredTime)}</div>
-                <div><strong className="text-slate-900">Czas współpracy:</strong> {getDurationDisplay(duration)}</div>
-                <div><strong className="text-slate-900">Ocena w szkole:</strong> {grade}</div>
                 {additionalNotes.trim() && (
                   <div className="pt-2 border-t border-slate-200/60 mt-2">
                     <strong className="text-slate-900">Twój komentarz do Oli:</strong> "{additionalNotes.trim()}"
