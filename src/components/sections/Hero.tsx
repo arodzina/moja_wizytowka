@@ -42,18 +42,17 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Solidna wiedza i strategia na{" "}
+            Spokojne i skuteczne przygotowanie do{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
-              Twój najlepszy wynik
-            </span>{" "}
-            z egzaminu.
+              Egzaminów CKE
+            </span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Przekazuję sprawdzony materiał, motywację i wytyczne CKE z <strong className="font-semibold text-ink">Matematyki i Angielskiego</strong>. Pomagam przygotować się do E8 oraz Matury z Matematyki i Angielskiego mądrze i bez chaotycznego kucia.
+            Wspieram uczniów w przygotowaniach z <strong className="font-semibold text-ink">Matematyki i Języka Angielskiego</strong>. Pomagam poukładać wiedzę, rozpracować wytyczne CKE i spokojnie zdobyć wysoki wynik na Egzaminie Ósmoklasisty oraz Maturze.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
@@ -79,7 +78,7 @@ export default function Hero() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">
                 <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-sm font-bold text-ink">Zakres przygotowania:</span>
+                <span className="text-sm font-bold text-ink">Zakres przygotowań</span>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
                 <ShieldCheck className="size-3.5" aria-hidden="true" />
@@ -94,9 +93,9 @@ export default function Hero() {
                   📐
                 </span>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty: Matematyka</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Matematyka</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Rozkładanie zadań CKE na proste kroki, algebra, geometria i pewniaki egzaminacyjne.
+                    Rozkładanie skomplikowanych zadań CKE na proste kroki, algebra, geometria i sprawdzony plan powtórek.
                   </p>
                 </div>
               </div>
@@ -107,9 +106,9 @@ export default function Hero() {
                   🇬🇧
                 </span>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty: Język Angielski</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Język Angielski</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Niezawodne szablony e-maila, pewniaki gramatyczne, słownictwo i reakcje językowe CKE.
+                    Niezawodne szablony e-maila, pewniaki gramatyczne, słownictwo i praktyczne zwroty egzaminacyjne.
                   </p>
                 </div>
               </div>
@@ -122,7 +121,7 @@ export default function Hero() {
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki (Podstawa & Rozszerzenie)</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Podejście AGH — funkcja kwadratowa, ciągi, pochodne, wielomiany i zadania optymalizacyjne.
+                    Logiczne schematy zadań — praca z Kartą Wzorów CKE, funkcja kwadratowa, pochodne i optymalizacja.
                   </p>
                 </div>
               </div>
@@ -135,7 +134,7 @@ export default function Hero() {
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Use of English, pisanie (rozprawka, list), transformacje oraz bezstresowa matura ustna.
+                    Gramatyka, transformacje zdań, pisanie (rozprawka, list) oraz pewność siebie na maturze ustnej.
                   </p>
                 </div>
               </div>
