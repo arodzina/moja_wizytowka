@@ -1285,14 +1285,11 @@ export default function DiagnozaPage() {
 
         {/* Nagłówek */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 mb-8 text-center relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold mb-4">
-            <Sparkles className="size-4 text-accent-500" /> Bezpłatny Quiz Poziomujący CKE
-          </div>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Sprawdzenie Poziomu E8 & Matura Angielski
+            Quiz Poziomujący CKE
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Sprawdźmy bezstresowo Twoje przygotowanie do oficjalnych wymagań CKE. Wyłapiemy luki w wiedzy, wyznaczymy słabsze punkty i ułożymy plan na Twój maksymalny wynik!
+          <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-medium">
+            Szybki sprawdzian wiedzy przed Egzaminem Ósmoklasisty lub Maturą.
           </p>
 
           {/* BANER Z PROŚBĄ O SZCZERE WYPEŁNIANIE BEZ ŚCIĄGANIA */}
@@ -1308,7 +1305,7 @@ export default function DiagnozaPage() {
             <div className="flex items-center justify-between text-xs font-medium text-slate-500 mb-2">
               <span>Krok {step} z 3</span>
               <span>
-                {step === 1 ? "Dane i cel" : step === 2 ? "Test i samoocena" : "Wynik i podsumowanie"}
+                {step === 1 ? "Podstawowe informacje" : step === 2 ? "Test i samoocena" : "Wynik i podsumowanie"}
               </span>
             </div>
             <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -1331,79 +1328,35 @@ export default function DiagnozaPage() {
               className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 space-y-6"
             >
               <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
-                CZĘŚĆ 1: Dane ucznia, cel i preferencje zajęć
+                CZĘŚĆ 1: Podstawowe informacje
               </h2>
-
-              {/* PYTANIE O OSOBĘ WYPEŁNIAJĄCĄ */}
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-1.5">
-                  <Users className="size-4 text-brand-600" /> Kto wypełnia formularz? *
-                </label>
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setFilledBy("uczen")}
-                    className={`flex-1 py-3 px-4 rounded-xl border text-center text-xs sm:text-sm font-semibold transition-all ${
-                      filledBy === "uczen"
-                        ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
-                    }`}
-                  >
-                    🧑 Wypełnia uczeń
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setFilledBy("rodzic")}
-                    className={`flex-1 py-3 px-4 rounded-xl border text-center text-xs sm:text-sm font-semibold transition-all ${
-                      filledBy === "rodzic"
-                        ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
-                    }`}
-                  >
-                    👪 Wypełnia rodzic z dzieckiem
-                  </button>
-                </div>
-              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Imię i nazwisko ucznia *
+                    Imię *
                   </label>
                   <input
                     type="text"
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
-                    placeholder="np. Ania Kowalska"
+                    placeholder="np. Ania lub Maciek"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Klasa / Szkoła *
+                    Kontakt (E-mail lub Telefon / WhatsApp) *
                   </label>
                   <input
                     type="text"
-                    value={schoolClass}
-                    onChange={(e) => setSchoolClass(e.target.value)}
-                    placeholder="np. 4 klasa, 8 klasa E8, 1 klasa liceum"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                    placeholder="np. ania@gmail.com lub 500 111 222"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
-                  Adres e-mail / Kontakt (np. Telefon lub WhatsApp) *
-                </label>
-                <input
-                  type="text"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  placeholder="np. ania@gmail.com lub 500 111 222"
-                  className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                />
               </div>
 
               {/* LISTA ROZWIJANA PRZEDMIOTU I POZIOMU */}
@@ -1416,52 +1369,17 @@ export default function DiagnozaPage() {
                   onChange={(e) => setSubject(e.target.value as SubjectType)}
                   className="w-full rounded-xl border border-slate-200 px-4 py-3 text-xs sm:text-sm font-semibold focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-white text-slate-900"
                 >
-                  <option value="matematyka-4-6">📐 Matematyka — Klasy 4–6 (podstawy rachunkowe i ułamki)</option>
-                  <option value="matematyka-7-8">📐 Matematyka — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
-                  <option value="matematyka-matura-podstawowa">📐 Matematyka — Liceum / Matura Podstawowa</option>
-                  <option value="matematyka-matura-rozszerzona">📐 Matematyka — Liceum / Matura Rozszerzona</option>
-                  <option value="angielski-4-6">🇬🇧 Język Angielski — Klasy 4–6 (podstawy języka A1/A2)</option>
-                  <option value="angielski-7-8">🇬🇧 Język Angielski — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
-                  <option value="angielski-matura-podstawowa">🎓 Język Angielski — Liceum / Matura Podstawowa (B1/B2)</option>
-                  <option value="angielski-matura-rozszerzona">🎓 Język Angielski — Liceum / Matura Rozszerzona (B2+/C1)</option>
+                  <option value="matematyka-7-8">📐 Egzamin Ósmoklasisty: Matematyka</option>
+                  <option value="angielski-7-8">🇬🇧 Egzamin Ósmoklasisty: Język Angielski</option>
+                  <option value="matematyka-matura-podstawowa">📐 Matura z Matematyki: Poziom Podstawowy</option>
+                  <option value="matematyka-matura-rozszerzona">📐 Matura z Matematyki: Poziom Rozszerzony</option>
+                  <option value="angielski-matura-podstawowa">🇬🇧 Matura z Angielskiego: Poziom Podstawowy</option>
+                  <option value="angielski-matura-rozszerzona">🇬🇧 Matura z Angielskiego: Poziom Rozszerzony</option>
                 </select>
               </div>
 
-              {/* LISTA ROZWIJANA GŁÓWNEGO CELU */}
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                  Jaki jest Twój główny cel nauki ze mną? *
-                </label>
-                <select
-                  value={selectedGoal}
-                  onChange={(e) => setSelectedGoal(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-xs sm:text-sm font-semibold focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-white text-slate-900"
-                >
-                  {GOAL_OPTIONS.map((g) => (
-                    <option key={g.id} value={g.id}>
-                      {g.label} — {g.sub}
-                    </option>
-                  ))}
-                </select>
-
-                {selectedGoal === "inny" && (
-                  <div className="mt-3">
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Wpisz swój własny cel / oczekiwanie:
-                    </label>
-                    <input
-                      type="text"
-                      value={customGoalText}
-                      onChange={(e) => setCustomGoalText(e.target.value)}
-                      placeholder="np. Przygotowanie do wyjazdu za granicę, poprawa wymowy, zdanie egzaminu poprawkowego..."
-                      className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* PREFEROWANA CZĘSTOTLIWOŚĆ, PORA DNIA I CZAS WSPÓŁPRACY */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 border-t border-slate-100">
+              {/* PREFEROWANA CZĘSTOTLIWOŚĆ I PORA DNIA */}
+              <div className="space-y-5 pt-2 border-t border-slate-100">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1.5">
                     <Clock className="size-4 text-brand-600" /> Preferowana częstotliwość zajęć:
@@ -1472,79 +1390,36 @@ export default function DiagnozaPage() {
                     className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   >
                     <option value="1x-tydzien">1 raz w tygodniu (60 min) — regularnie</option>
-                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie (egzamin / matura)</option>
-                    <option value="1x-tydzien-45">1 raz w tygodniu (45 min) — krótsza lekcja</option>
-                    <option value="2x-tydzien-45">2 razy w tygodniu (2x 45 min)</option>
-                    <option value="doraznie">Przed sprawdzianami i kartkówkami (doraźne powtórki)</option>
+                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie</option>
                     <option value="do-ustalenia">Chcę ustalić częstotliwość podczas darmowej rozmowy</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1.5">
-                    <Calendar className="size-4 text-brand-600" /> Przewidywany czas współpracy:
+                  <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-1.5">
+                    <Sun className="size-4 text-amber-500" /> Preferowana pora dnia na zajęcia:
                   </label>
-                  <select
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                  >
-                    <option value="caly-rok">Stała współpraca na cały rok szkolny</option>
-                    <option value="do-egzaminu">Do Egzaminu Ósmoklasisty / Matury (intensywne powtórki)</option>
-                    <option value="krotkoterminowo">Krótkoterminowo (np. 1–2 miesiące — nadrabianie działu)</option>
-                    <option value="przed-klasowka">Przed konkretnym sprawdzianem / kartkówką</option>
-                    <option value="do-ustalenia">Do omówienia podczas darmowego spotkania</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* PORA DNIA NA ZAJĘCIA */}
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-1.5">
-                  <Sun className="size-4 text-amber-500" /> Preferowana pora dnia na zajęcia:
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {[
-                    { id: "popoludnia", label: "🌅 Popołudnia (15:00–18:00)" },
-                    { id: "wieczory", label: "🌙 Wieczory (18:00–21:00)" },
-                    { id: "weekendy", label: "📅 Weekendy" },
-                    { id: "elastycznie", label: "⚡ Elastycznie / Do uzgodnienia" },
-                  ].map((t) => (
-                    <button
-                      key={t.id}
-                      type="button"
-                      onClick={() => setPreferredTime(t.id)}
-                      className={`p-3 rounded-xl border text-center text-xs font-semibold transition-all ${
-                        preferredTime === t.id
-                          ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
-                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
-                      }`}
-                    >
-                      {t.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Ocena obecna w szkole z tego przedmiotu:
-                </label>
-                <div className="flex gap-2">
-                  {["1", "2", "3", "4", "5", "6"].map((val) => (
-                    <button
-                      key={val}
-                      type="button"
-                      onClick={() => setGrade(val)}
-                      className={`flex-1 py-3 rounded-xl border text-center font-bold text-sm transition-all ${
-                        grade === val
-                          ? "border-brand-500 bg-brand-600 text-white shadow-sm"
-                          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                      }`}
-                    >
-                      {val}
-                    </button>
-                  ))}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    {[
+                      { id: "popoludnia", label: "🌅 Popołudnia (15:00–18:00)" },
+                      { id: "wieczory", label: "🌙 Wieczory (18:00–21:00)" },
+                      { id: "weekendy", label: "📅 Weekendy" },
+                      { id: "elastycznie", label: "⚡ Elastycznie / Do uzgodnienia" },
+                    ].map((t) => (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() => setPreferredTime(t.id)}
+                        className={`p-3 rounded-xl border text-center text-xs font-semibold transition-all ${
+                          preferredTime === t.id
+                            ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                            : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
+                        }`}
+                      >
+                        {t.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
