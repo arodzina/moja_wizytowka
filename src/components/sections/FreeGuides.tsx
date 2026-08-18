@@ -26,13 +26,13 @@ const guides: GuideItem[] = [
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
     title: "Pewniaki Egzaminu Ósmoklasisty z Matematyki",
     subtitle: "10 Działów, Wytyczne CKE i Unikanie Błędów",
-    description: "Kompleksowa strategia przygotowań. Dowiedz się, które działy dają 80%+ punktów, jak uniknąć 5 najczęstszych potknięć i prawidłowo opisywać zadania otwarte pod klucz CKE.",
+    description: "Kompleksowa strategia przygotowań do E8. Dowiedz się, które działy dają 80%+ punktów i jak prawidłowo opisywać zadania otwarte pod klucz CKE.",
     icon: "📐",
     features: [
-      "10 Działów CKE (80% wszystkich punktów na E8)",
-      "Top 5 „głupich błędów” i sposoby na ich unikanie",
-      "Wzorcowy zapis zadania otwartego na max punktów",
-      "6-tygodniowa checklista powtórkowa do druku/Notion",
+      "10 Działów CKE (80% punktów na E8)",
+      "Top 5 drobnych błędów i sposoby na ich unikanie",
+      "Wzorcowy zapis zadania otwartego pod klucz CKE",
+      "6-tygodniowa checklista powtórkowa do odhaczania",
     ],
     fileUrl: "/poradniki/poradnik_1_matematyka_e8.html",
   },
@@ -48,41 +48,73 @@ const guides: GuideItem[] = [
       "Master szablon e-maila ze zwrotami łączącymi",
       "Checklista 14 działów słownictwa CKE",
       "Reakcje językowe i pewniaki gramatyczne",
-      "Sposoby na podchwytliwe pułapki w czytaniu/słuchaniu",
+      "Sposoby na podchwytliwe pułapki w słuchaniu i czytaniu",
     ],
     fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
   },
   {
-    id: "matematyka-matura",
-    badge: "Matura Matematyka (PP & PR)",
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Strategia Maturalna z Matematyki",
-    subtitle: "Podejście AGH, Karta Wzorów i Schematy CKE",
-    description: "Praktyczny przewodnik maturzysty oparty na podejściu AGH. Zobacz, jak wykorzystać Kartę Wzorów CKE, by zdobyć darmowe punkty i jak opanować optymalizację z pochodną.",
+    id: "matematyka-pp",
+    badge: "Matura Podstawowa • Matematyka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
+    title: "Strategia Matury Podstawowej z Matematyki",
+    subtitle: "Jak Wykorzystać Kartę Wzorów i Zdobyć Pewne 70%+",
+    description: "Praktyczny przewodnik po maturze podstawowej. Zobacz, jak odczytywać darmowe punkty bezpośrednio z Karty Wzorów CKE i bezpiecznie opanować zadania otwarte.",
     icon: "🎓",
     features: [
-      "Sekrety i nawigacja po Kartach Wzorów CKE",
-      "5 schematów zadań otwartych na Podstawie",
-      "Algorytm optymalizacji z pochodną na Rozszerzeniu",
+      "Nawigacja po Kartach Wzorów CKE (darmowe punkty)",
+      "5 powtarzalnych schematów zadań otwartych",
+      "Nierówności kwadratowe i ciągi krok po kroku",
       "Taktyka 3 obiegów na 180 minut egzaminu",
     ],
-    fileUrl: "/poradniki/poradnik_3_matematyka_matura.html",
+    fileUrl: "/poradniki/poradnik_3_matematyka_pp.html",
   },
   {
-    id: "angielski-matura",
-    badge: "Matura Angielski (PP & PR)",
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Masterclass Maturalny z Angielskiego",
+    id: "matematyka-pr",
+    badge: "Matura Rozszerzona • Matematyka",
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
+    title: "Masterclass Matury Rozszerzonej z Matematyki",
+    subtitle: "Optymalizacja z Pochodną i Równania z Parametrem",
+    description: "Strategia dla zdających maturę rozszerzoną. Rozłóż na czynniki pierwsze zadania optymalizacyjne za 6 punktów, równania z parametrem i dowody.",
+    icon: "🚀",
+    features: [
+      "Algorytm zadania optymalizacyjnego z pochodną (5-6 pkt)",
+      "Równania z parametrem (pełny zestaw warunków i Viète)",
+      "Niezbędne dowody algebraiczne i geometryczne",
+      "Logistyka i zarządzanie czasem na Rozszerzeniu",
+    ],
+    fileUrl: "/poradniki/poradnik_4_matematyka_pr.html",
+  },
+  {
+    id: "angielski-pp",
+    badge: "Matura Podstawowa • Angielski",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
+    title: "Bezstresowa Matura Podstawowa z Angielskiego",
+    subtitle: "Szablony E-maila, Pewniaki Gramatyczne i Słownictwo",
+    description: "Jak wycisnąć maksymalny wynik z matury podstawowej z angielskiego. Uniwersalne szablony e-maila na 12 punktów i zestawienie pewniaków gramatycznych.",
+    icon: "💬",
+    features: [
+      "Master szablon e-maila / wpisu na bloga (12 pkt)",
+      "Zwroty łączące i słownictwo tematyczne CKE",
+      "Pewniaki gramatyczne (Past Simple, Continuous, If)",
+      "Sposoby na bezstresowe rozwiązywanie arkusza",
+    ],
+    fileUrl: "/poradniki/poradnik_5_angielski_pp.html",
+  },
+  {
+    id: "angielski-pr",
+    badge: "Matura Rozszerzona • Angielski",
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
+    title: "Masterclass Matury Rozszerzonej z Angielskiego",
     subtitle: "Szablony C1, Use of English i Ustna bez Stresu",
-    description: "Strategia na maksymalne punkty rekrutacyjne na studia. Szablony rozprawek B2/C1, trening zaawansowanych transformacji i przewodnik po maturze ustnej.",
+    description: "Dla maturzystów walczących o punkty rekrutacyjne na wymarzone kierunki. Szablony rozprawek B2/C1, zaawansowane transformacje i przygotowanie do matury ustnej.",
     icon: "🗣️",
     features: [
-      "Master szablon rozprawki i artykułu B2/C1",
-      "Trening transformacji (Inwersja, Wish, Had better)",
+      "Master szablon rozprawki For & Against B2/C1 (13 pkt)",
+      "Trening transformacji C1 (Inwersja, Wish, Passive)",
       "Przewodnik po 3 zadaniach matury ustnej z przykładami",
-      "Zwroty łączące gwarantujące punkty za spójność",
+      "Zwroty C1 podnoszące ocenę za zakres środków",
     ],
-    fileUrl: "/poradniki/poradnik_4_angielski_matura.html",
+    fileUrl: "/poradniki/poradnik_6_angielski_pr.html",
   },
 ];
 
@@ -112,7 +144,6 @@ export default function FreeGuides() {
     setIsSubmitting(true);
 
     try {
-      // 1. Zapis do /api/diagnoza
       await fetch("/api/diagnoza", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -123,7 +154,6 @@ export default function FreeGuides() {
         }),
       });
 
-      // 2. Powiadomienie e-mail do Oli przez FormSubmit
       fetch(`https://formsubmit.co/ajax/${site.email}`, {
         method: "POST",
         headers: {
@@ -159,56 +189,56 @@ export default function FreeGuides() {
         <SectionHeading
           eyebrow="Baza wiedzy & Pewniaki CKE"
           title="Darmowe Poradniki Egzaminacyjne"
-          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przez Olę. Wybierz materiał dopasowany do Twojego egzaminu!"
+          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przez Olę. Wybierz materiał dopasowany dokładnie do Twojego egzaminu i poziomu!"
         />
 
-        {/* Karta z 4 poradnikami */}
-        <div className="mt-14 grid gap-6 sm:gap-8 md:grid-cols-2">
+        {/* Grid z 6 dedykowanymi poradnikami */}
+        <div className="mt-14 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((guide) => (
             <motion.div
               key={guide.id}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="relative flex flex-col justify-between rounded-3xl bg-white p-7 sm:p-8 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-lg"
+              className="relative flex flex-col justify-between rounded-3xl bg-white p-6 sm:p-7 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-lg"
             >
               <div>
-                <div className="flex items-center justify-between gap-3">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-brand-50 text-2xl">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="grid size-11 place-items-center rounded-2xl bg-brand-50 text-2xl">
                     {guide.icon}
                   </span>
-                  <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold ${guide.badgeColor}`}>
+                  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${guide.badgeColor}`}>
                     {guide.badge}
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold leading-snug text-ink sm:text-2xl">
+                <h3 className="mt-4 text-lg font-bold leading-snug text-ink sm:text-xl">
                   {guide.title}
                 </h3>
-                <p className="mt-1 text-xs font-bold text-brand-700 uppercase tracking-wide">
+                <p className="mt-1 text-[11px] font-bold text-brand-700 uppercase tracking-wide">
                   {guide.subtitle}
                 </p>
 
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-soft">
+                <p className="mt-2 text-xs leading-relaxed text-slate-soft">
                   {guide.description}
                 </p>
 
-                <ul className="mt-5 space-y-2 border-t border-slate-100 pt-4">
+                <ul className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
                   {guide.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-medium">
-                      <CheckCircle2 className="size-4 shrink-0 text-emerald-600 mt-0.5" />
+                    <li key={feat} className="flex items-start gap-1.5 text-xs text-slate-700 font-medium">
+                      <CheckCircle2 className="size-3.5 shrink-0 text-emerald-600 mt-0.5" />
                       <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-7 pt-4">
+              <div className="mt-6 pt-2">
                 <Button
                   type="button"
                   onClick={() => handleOpenModal(guide)}
-                  className="w-full justify-center"
+                  className="w-full justify-center text-xs"
                 >
-                  <Download className="mr-2 size-4" /> Pobierz bezpłatny poradnik
+                  <Download className="mr-2 size-3.5" /> Pobierz poradnik (PDF)
                 </Button>
               </div>
             </motion.div>
@@ -220,7 +250,7 @@ export default function FreeGuides() {
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg font-bold">Chcesz skonsultować indywidualny plan przygotowań?</h4>
             <p className="text-xs sm:text-sm text-brand-200 max-w-xl">
-              Umów się na bezpłatną 15-minutową rozmowę. Przeanalizujemy dotychczasowe wyniki i wyznaczymy najszybszą drogę do celu!
+              Umów się na bezpłatną 15-minutową rozmowę zapoznawczą. Przeanalizujemy sytuację i wyznaczymy najlepsze kroki!
             </p>
           </div>
           <Button href="/poziom" variant="secondary" size="lg" className="shrink-0">

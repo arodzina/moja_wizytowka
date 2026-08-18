@@ -126,11 +126,8 @@ function wrapHtml(title, category, icon, contentHtml) {
 
 // Convert markdown line to inline HTML (bold, italic, links)
 function parseInline(text) {
-  // 1. Linki [text](url)
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline; font-weight: 600;">$1</a>');
-  // 2. Pogrubienie **text**
   text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  // 3. Kursywa *text*
   text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
   return text;
 }
@@ -146,12 +143,8 @@ function convertMarkdownToHtml(mdPath) {
   for (let line of lines) {
     const trimmed = line.trim();
 
-    // Check line types
     if (!trimmed) {
-      if (inList) {
-        htmlLines.push("</ul>");
-        inList = false;
-      }
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
       continue;
     }
 
@@ -185,7 +178,6 @@ function convertMarkdownToHtml(mdPath) {
       continue;
     }
 
-    // Checkbox items: - [ ] text
     if (trimmed.startsWith("- [ ] ")) {
       if (!inList) {
         htmlLines.push('<ul style="margin-bottom: 1.25rem; padding-left: 1.5rem;">');
@@ -195,7 +187,6 @@ function convertMarkdownToHtml(mdPath) {
       continue;
     }
 
-    // Standard list items: - text or * text or 1. text
     const listMatch = trimmed.match(/^([-*]|\d+\.)\s+(.*)$/);
     if (listMatch) {
       if (!inList) {
@@ -206,7 +197,6 @@ function convertMarkdownToHtml(mdPath) {
       continue;
     }
 
-    // Normal paragraph line
     if (inList) {
       htmlLines.push("</ul>");
       inList = false;
@@ -214,9 +204,7 @@ function convertMarkdownToHtml(mdPath) {
     htmlLines.push(`<p style="margin-bottom: 1.25rem; color: #334155; font-size: 1rem;">${parseInline(trimmed)}</p>`);
   }
 
-  if (inList) {
-    htmlLines.push("</ul>");
-  }
+  if (inList) { htmlLines.push("</ul>"); }
 
   return htmlLines.join("\n");
 }
@@ -231,12 +219,20 @@ fs.writeFileSync(path.join(publicDir, "poradnik_1_matematyka_e8.html"), wrapHtml
 const p2Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_2_angielski_e8.md"));
 fs.writeFileSync(path.join(publicDir, "poradnik_2_angielski_e8.html"), wrapHtml("E8 z Angielskiego pod Klucz CKE", "Egzamin Ósmoklasisty • Angielski", "🇬🇧", p2Html));
 
-// 3. Poradnik 3: Matematyka Matura
-const p3Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_3_matematyka_matura.md"));
-fs.writeFileSync(path.join(publicDir, "poradnik_3_matematyka_matura.html"), wrapHtml("Strategia Maturalna z Matematyki", "Matura Podstawowa & Rozszerzona • Matematyka", "🎓", p3Html));
+// 3. Poradnik 3: Matematyka Matura Podstawowa
+const p3Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_3_matematyka_pp.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_3_matematyka_pp.html"), wrapHtml("Strategia Matury Podstawowej z Matematyki", "Matura Podstawowa • Matematyka", "🎓", p3Html));
 
-// 4. Poradnik 4: Angielski Matura
-const p4Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_4_angielski_matura.md"));
-fs.writeFileSync(path.join(publicDir, "poradnik_4_angielski_matura.html"), wrapHtml("Masterclass Matury z Angielskiego", "Matura Podstawowa & Rozszerzona • Angielski", "🗣️", p4Html));
+// 4. Poradnik 4: Matematyka Matura Rozszerzona
+const p4Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_4_matematyka_pr.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_4_matematyka_pr.html"), wrapHtml("Masterclass Matury Rozszerzonej z Matematyki", "Matura Rozszerzona • Matematyka", "🚀", p4Html));
 
-console.log("Successfully regenerated 4 clean HTML guide documents!");
+// 5. Poradnik 5: Angielski Matura Podstawowa
+const p5Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_5_angielski_pp.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_5_angielski_pp.html"), wrapHtml("Bezstresowa Matura Podstawowa z Angielskiego", "Matura Podstawowa • Angielski", "💬", p5Html));
+
+// 6. Poradnik 6: Angielski Matura Rozszerzona
+const p6Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_6_angielski_pr.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_6_angielski_pr.html"), wrapHtml("Masterclass Matury Rozszerzonej z Angielskiego", "Matura Rozszerzona • Angielski", "🗣️", p6Html));
+
+console.log("Successfully generated 6 distinct HTML guide documents!");
