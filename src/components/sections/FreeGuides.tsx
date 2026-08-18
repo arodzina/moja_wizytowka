@@ -209,8 +209,8 @@ export default function FreeGuides() {
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Baza wiedzy • 100% Bezpłatnie"
-          title="Darmowe Poradniki Egzaminacyjne (PDF)"
-          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przez Olę. Wybierz materiał dopasowany do Twojego egzaminu!"
+          title="Darmowe Poradniki Egzaminacyjne"
+          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przeze mnie. Wybierz materiał dopasowany do Twojego egzaminu!"
         />
 
         {/* Filtr kategorii (Kompaktowe zakładki) */}

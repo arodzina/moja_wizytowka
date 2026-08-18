@@ -10,7 +10,7 @@ const collaborationSteps = [
     icon: Calendar,
     title: "15 min rozmowy zapoznawczej",
     description:
-      "Łączymy się na bezpłatną 15-minutową rozmowę online. Poznajemy się, omawiamy cele egzaminacyjne i ubiegamy się o pierwsze próbne terminy bez żadnych zobowiązań.",
+      "Łączymy się na bezpłatną 15-minutową rozmowę online. Poznajemy się, omawiamy cele egzaminacyjne, przedstawiam plan działania i umawiamy pierwsze lekcje próbne bez żadnych zobowiązań.",
     badge: "100% Bezpłatnie",
   },
   {
