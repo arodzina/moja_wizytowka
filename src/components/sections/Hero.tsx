@@ -32,13 +32,12 @@ export default function Hero() {
         <div className="absolute bottom-[-10%] right-[-10%] h-[35rem] w-[35rem] rounded-full bg-accent-100/70 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-12">
         {/* Lewa kolumna: Tekst i CTA */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="lg:col-span-7"
         >
           <motion.h1
             variants={item}
@@ -68,12 +67,11 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Prawa kolumna: Karta z zakresem przygotowań */}
+        {/* Prawa kolumna: Karta z zakresem przygotowań (50/50 szerokość) */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="lg:col-span-5"
         >
           {/* Główna karta oferty i zakresu */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
@@ -89,7 +87,7 @@ export default function Hero() {
             </div>
 
             <div className="space-y-3 pt-1">
-              {/* Karta 1: Matematyka E8 */}
+              {/* Karta 1: Matematyka E8 (Niebieska) */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Calculator className="size-5 text-brand-700" />
@@ -102,10 +100,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Karta 2: Angielski E8 */}
+              {/* Karta 2: Angielski E8 (Niebieska) */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-blue-100/90 border border-blue-200/80 shadow-xs">
-                  <Languages className="size-5 text-blue-700" />
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
+                  <Languages className="size-5 text-brand-700" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Język Angielski</h4>
@@ -115,7 +113,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Karta 3: Matura Matematyka */}
+              {/* Karta 3: Matura Matematyka (Żółta/Bursztynowa) */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <BookOpenCheck className="size-5 text-amber-800" />
@@ -128,10 +126,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Karta 4: Matura Angielski */}
+              {/* Karta 4: Matura Angielski (Żółta/Bursztynowa) */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-purple-100/90 border border-purple-200/80 shadow-xs">
-                  <GraduationCap className="size-5 text-purple-700" />
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
+                  <GraduationCap className="size-5 text-amber-800" />
                 </span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
