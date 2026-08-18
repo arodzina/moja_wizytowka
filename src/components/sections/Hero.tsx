@@ -1,15 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, ShieldCheck, Sparkles, Target, Zap } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import Button from "@/components/ui/Button";
-
-const trustPoints = [
-  "100% zgodności z wytycznymi CKE",
-  "Sprawdzony materiał i jasny plan",
-  "E8 Matematyka & Angielski",
-  "Matura Matematyka & Angielski",
-];
 
 const container = {
   hidden: {},
@@ -72,17 +65,6 @@ export default function Hero() {
               Sprawdź jak pomagam
             </Button>
           </motion.div>
-
-          <motion.ul variants={item} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-            {trustPoints.map((point) => (
-              <li key={point} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                <span className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700">
-                  <Check className="size-3" aria-hidden="true" />
-                </span>
-                {point}
-              </li>
-            ))}
-          </motion.ul>
         </motion.div>
 
         {/* Kokpit Strategii Egzaminacyjnej */}
@@ -90,7 +72,7 @@ export default function Hero() {
           initial={reduce ? undefined : { opacity: 0, scale: 0.96, y: 20 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md pb-12 lg:max-w-none"
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
           {/* Główna karta oferty i zakresu */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
@@ -159,22 +141,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
-          {/* Dymki pływające */}
-          <motion.div
-            {...float(5.2, 0.3)}
-            className="absolute -top-5 -right-3 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-slate-100 sm:-right-5"
-          >
-            <Sparkles className="size-4 text-accent-500" />
-            <span className="text-xs font-bold text-ink">Cel: Maksymalny Wynik Ucznia</span>
-          </motion.div>
-
-          <motion.div
-            {...float(5.8, 0.7)}
-            className="absolute -bottom-3 left-4 max-w-[18rem] rounded-2xl bg-accent-200 px-4 py-3 text-xs font-bold text-ink shadow-soft sm:left-8"
-          >
-            🎯 15 min bezpłatnej konsultacji na start
-          </motion.div>
         </motion.div>
       </div>
     </section>
