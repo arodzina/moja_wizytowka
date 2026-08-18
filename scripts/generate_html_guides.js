@@ -1,0 +1,259 @@
+const fs = require("fs");
+const path = require("path");
+
+const publicDir = path.join(__dirname, "..", "public", "poradniki");
+
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+function wrapHtml(title, category, icon, contentHtml) {
+  return `<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | Ola — Korepetycje Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.7;
+      padding-bottom: 4rem;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+    .top-bar .brand {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .top-bar .btn-print {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+      transition: all 0.2s;
+    }
+    .top-bar .btn-print:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .card {
+      background-color: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+    }
+    .badge {
+      display: inline-block;
+      background-color: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f1f5f9;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p { margin-bottom: 1.25rem; color: #334155; font-size: 1rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; color: #334155; }
+    blockquote {
+      background-color: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: #1e293b;
+    }
+    .author-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 9999px;
+      background-color: #2563eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      color: white;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 { color: white; margin-top: 0; }
+    .cta-box p { color: #cbd5e1; font-size: 0.875rem; margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-block;
+      background-color: #10b981;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    @media print {
+      body { background-color: #ffffff; padding-bottom: 0; }
+      .top-bar { display: none; }
+      .card { border: none; box-shadow: none; padding: 0; }
+      .cta-box { border: 1px solid #000; color: #000; background: none; }
+      .cta-box h3, .cta-box p { color: #000; }
+      .cta-btn { border: 1px solid #000; color: #000; background: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="brand">
+      <span>✨</span> Ola — Korepetycje Online
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      📄 Drukuj / Zapisz jako PDF
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="badge">${icon} ${category}</div>
+      ${contentHtml}
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+// Convert markdown file to clean HTML
+function convertMarkdownToHtml(mdPath) {
+  let text = fs.readFileSync(mdPath, "utf-8");
+
+  // Format headers
+  text = text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+  text = text.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+  text = text.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+  
+  // Format bold & italic
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  
+  // Format blockquotes
+  text = text.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+  
+  // Format lists
+  text = text.replace(/^\* (.*$)/gim, '<ul><li>$1</li></ul>');
+  text = text.replace(/^- (.*$)/gim, '<ul><li>$1</li></ul>');
+  text = text.replace(/<\/ul>\s*<ul>/g, '');
+
+  // Format paragraphs
+  const paragraphs = text.split(/\n\n+/);
+  const htmlParts = paragraphs.map(p => {
+    p = p.trim();
+    if (p.startsWith('<h') || p.startsWith('<blockquote') || p.startsWith('<ul') || p.startsWith('<hr')) {
+      return p;
+    }
+    if (p === '---') return '<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">';
+    return `<p>${p}</p>`;
+  });
+
+  return htmlParts.join('\n');
+}
+
+const brainDir = "/Users/ola/.gemini/antigravity/brain/fac548ab-4beb-485d-be94-896036fa7ad6";
+
+// 1. Poradnik 1: Matematyka E8
+const p1Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_1_matematyka_e8.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_1_matematyka_e8.html"), wrapHtml("Pewniaki E8 Matematyka", "Egzamin Ósmoklasisty • Matematyka", "📐", p1Html));
+
+// 2. Poradnik 2: Angielski E8
+const p2Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_2_angielski_e8.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_2_angielski_e8.html"), wrapHtml("E8 z Angielskiego pod Klucz CKE", "Egzamin Ósmoklasisty • Angielski", "🇬🇧", p2Html));
+
+// 3. Poradnik 3: Matematyka Matura
+const p3Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_3_matematyka_matura.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_3_matematyka_matura.html"), wrapHtml("Strategia Maturalna z Matematyki", "Matura Podstawowa & Rozszerzona • Matematyka", "🎓", p3Html));
+
+// 4. Poradnik 4: Angielski Matura
+const p4Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_4_angielski_matura.md"));
+fs.writeFileSync(path.join(publicDir, "poradnik_4_angielski_matura.html"), wrapHtml("Masterclass Matury z Angielskiego", "Matura Podstawowa & Rozszerzona • Angielski", "🗣️", p4Html));
+
+console.log("Successfully generated 4 styled HTML guide documents in public/poradniki/");

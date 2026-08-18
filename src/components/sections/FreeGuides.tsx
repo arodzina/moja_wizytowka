@@ -34,7 +34,7 @@ const guides: GuideItem[] = [
       "Wzorcowy zapis zadania otwartego na max punktów",
       "6-tygodniowa checklista powtórkowa do druku/Notion",
     ],
-    fileUrl: "/poradniki/poradnik_1_matematyka_e8.md",
+    fileUrl: "/poradniki/poradnik_1_matematyka_e8.html",
   },
   {
     id: "angielski-e8",
@@ -50,7 +50,7 @@ const guides: GuideItem[] = [
       "Reakcje językowe i pewniaki gramatyczne",
       "Sposoby na podchwytliwe pułapki w czytaniu/słuchaniu",
     ],
-    fileUrl: "/poradniki/poradnik_2_angielski_e8.md",
+    fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
   },
   {
     id: "matematyka-matura",
@@ -66,7 +66,7 @@ const guides: GuideItem[] = [
       "Algorytm optymalizacji z pochodną na Rozszerzeniu",
       "Taktyka 3 obiegów na 180 minut egzaminu",
     ],
-    fileUrl: "/poradniki/poradnik_3_matematyka_matura.md",
+    fileUrl: "/poradniki/poradnik_3_matematyka_matura.html",
   },
   {
     id: "angielski-matura",
@@ -82,7 +82,7 @@ const guides: GuideItem[] = [
       "Przewodnik po 3 zadaniach matury ustnej z przykładami",
       "Zwroty łączące gwarantujące punkty za spójność",
     ],
-    fileUrl: "/poradniki/poradnik_4_angielski_matura.md",
+    fileUrl: "/poradniki/poradnik_4_angielski_matura.html",
   },
 ];
 

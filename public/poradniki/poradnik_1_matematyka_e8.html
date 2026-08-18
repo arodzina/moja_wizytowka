@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pewniaki E8 Matematyka | Ola — Korepetycje Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.7;
+      padding-bottom: 4rem;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+    .top-bar .brand {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .top-bar .btn-print {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+      transition: all 0.2s;
+    }
+    .top-bar .btn-print:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .card {
+      background-color: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+    }
+    .badge {
+      display: inline-block;
+      background-color: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f1f5f9;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p { margin-bottom: 1.25rem; color: #334155; font-size: 1rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; color: #334155; }
+    blockquote {
+      background-color: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: #1e293b;
+    }
+    .author-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 9999px;
+      background-color: #2563eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      color: white;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 { color: white; margin-top: 0; }
+    .cta-box p { color: #cbd5e1; font-size: 0.875rem; margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-block;
+      background-color: #10b981;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    @media print {
+      body { background-color: #ffffff; padding-bottom: 0; }
+      .top-bar { display: none; }
+      .card { border: none; box-shadow: none; padding: 0; }
+      .cta-box { border: 1px solid #000; color: #000; background: none; }
+      .cta-box h3, .cta-box p { color: #000; }
+      .cta-btn { border: 1px solid #000; color: #000; background: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="brand">
+      <span>✨</span> Ola — Korepetycje Online
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      📄 Drukuj / Zapisz jako PDF
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="badge">📐 Egzamin Ósmoklasisty • Matematyka</div>
+      <h1>Pewniaki Egzaminu Ósmoklasisty z Matematyki (E8)</h1>
+<h3>10 Kluczowych Działów, Wytyczne CKE i Jak Unikać Głupich Błędów</h3>
+<p><strong>Autor:</strong> Ola — Korepetycje Online (AGH Kraków)  
+<strong>Wydanie:</strong> Rekrutacja 2024 / 2025 / 2026</p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🖐️ Słowo wstępne od Oli</h2>
+<p>Cześć! Nazywam się Ola. Od lat pomagam ósmoklasistom rozbrajać Egzamin Ósmoklasisty z matematyki.</p>
+<p>Wiem zświadczenia, jak wygląda przygotowanie do tego egzaminu. Z jednej strony są rodzice, którzy martwią się o punkty rekrutacyjne do wymarzonego liceum lub technikum. Z drugiej — uczeń, który często czuje chaos w głowie na samą myśl o geometrii czy zadaniach z treścią.</p>
+<p>Ten poradnik powstał po to, aby odczarować ten egzamin. Nie znajdziesz tu nudnej teorii wyjętej z podręcznika. Spisałam konkretną strategię: <strong>które działy dają najwięcej punktów, jak uniknąć błędów, na których uciekają najcenniejsze punkty, oraz jak prawidłowo rozpatrywać zadania otwarte pod klucz CKE</strong>.</p>
+<p>Zaczynamy!</p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🎯 Rozdział 1: 10 Działów CKE, które dają 80%+ punktów</h2>
+<p>Analiza arkuszy egzaminacyjnych z ostatnich lat pokazuje jednoznaczną prawidłowość: CKE nie wymyśla matematyki na nowo. Ponad 80% wszystkich punktów na egzaminie zdobywa się na dokładnie tych samych 10 zagadnieniach.</p>
+<h3>1. Liczby i działania (Ułamki zwykłe i dziesiętne)</h3>
+<ul><li><strong>Na czym polega:</strong> Dodawanie, odejmowanie, mnożenie i dzielenie ułamków. Przeliczanie ułamków zwykłych na dziesiętne.</li></ul>
+<em> <strong>Typowe zadanie:</strong> Zadania zakupy/przepisy (np. </em>„W przepisie potrzeba 3/4 kg mąki. Kasia ma 0.6 kg...”*).
+<h3>2. Procenty i obniżki cen</h3>
+<ul><li><strong>Na czym polega:</strong> Obliczanie procentu z danej liczby, zmiana ceny po obniżce/podwyżce, procentowy udział danej grupy.</li></ul>
+<em> <strong>Typowe zadanie:</strong> </em>„Cena kurtki wynosiła 200 zł. Najpierw obniżono ją o 10%, a potem nową cenę obniżono o kolejne 20%. Ile wynosi końcowa cena?”*
+<h3>3. Potęgi i pierwiastki</h3>
+<ul><li><strong>Na czym polega:</strong> Wyłączanie czynnika przed znak pierwiastka (np. $\sqrt{12} = 2\sqrt{3}$), szacowanie wartości (np. między jakimi liczbami leży $\sqrt{50}$), mnożenie i dzielenie potęg o tej samej podstawie.</li><li><strong>Pamiętaj:</strong> $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$! To jeden z najczęstszych błędów.</li></ul>
+<h3>4. Wyrażenia algebraiczne</h3>
+<ul><li><strong>Na czym polega:</strong> Redukcja wyrazów podobnych, mnożenie sum algebraicznych, prawidłowe usuwanie nawiasów.</li><li><strong>Pułapka CKE:</strong> Minus przed nawiasem zmienia znaki WSZYSTKICH wyrazów w nawiasie: $-(2x - 5) = -2x + 5$.</li></ul>
+<h3>5. Równania z jedną niewiadomą i zadania z treścią</h3>
+<ul><li><strong>Na czym polega:</strong> Przekształcanie równań (metoda przenoszenia stronami) i układanie równania na podstawie treści zadania słownego.</li><li><strong>Zasada Oli:</strong> Wyznacz nieznaną jako $x$, zapisz zależność i ZAWSZE na końcu sprawdź, czy odpowiedź odpowiada na pytanie z zadania!</li></ul>
+<h3>6. Planimetria (Geometria płaska)</h3>
+<ul><li><strong>Na czym polega:</strong> Pola i obwody trójkątów, prostokątów, kwadratów, rombów i trapezów. </li><li><strong>Twierdzenie Pitagorasa:</strong> $a^2 + b^2 = c^2$ — działa TYLKO w trójkątach prostokątnych, gdzie $c$ to najdłuższy bok (przeciwprostokątna).</li></ul>
+<h3>7. Kąty w geometrii</h3>
+<ul><li><strong>Na czym polega:</strong> Suma kątów w trójkącie ($180^\circ$) oraz w czworokącie ($360^\circ$). Kąty wierzchołkowe, przyległe i odpowiadające przy dwóch prostych równoległych.</li></ul>
+<h3>8. Stereometria (Geometria przestrzenna)</h3>
+<ul><li><strong>Na czym polega:</strong> Objętość ($V$) i pole powierzchni całkowitej ($P_c$) sześcianów, prostopadłościanów i graniastosłupów prostych.</li><li><strong>Wzór ogólny:</strong> $V = P_p \cdot h$ (pole podstawy razy wysokość bryły).</li></ul>
+<h3>9. Statystyka i prawdopodobieństwo</h3>
+<ul><li><strong>Na czym polega:</strong> Średnia arytmetyczna zestawu liczb, odczytywanie danych z diagramów słupkowych i kołowych, proste prawdopodobieństwo (np. losowanie kuli z urny).</li></ul>
+<h3>10. Układ współrzędnych i skala</h3>
+<ul><li><strong>Na czym polega:</strong> Odczytywanie współrzędnych punktów $(x, y)$, obliczanie długości odcinków na siatce, przeliczanie odległości na mapie w skali (np. $1:200000$).</li></ul>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>⚠️ Rozdział 2: Top 5 „głupich błędów”, na których uciekają punkty</h2>
+<p>Najwięcej punktów na E8 nie ucieka z braku wiedzy, lecz z powodu pospiechu i niedokładności. Oto 5 potknięć, które widzę u uczniów najczęściej:</p>
+<p>1. <strong>Niedoczytanie polecenia do końca</strong>
+   <em> </em>Przykład:<em> Uczeń ułożył równanie, wyliczył $x = 8$ i wpisał wynik. Tymczasem pytanie brzmiało: </em>„O ile więcej zeszytów kupił Janek niż Kasia?”*. 
+   <em> </em>Rozwiązanie:* Po wyliczeniu $x$, ZAWSZE podkreśl ostatnie zdanie w treści zadania i sprawdź, czy to na nie odpowiadasz.</p>
+<p>2. <strong>Minus przed nawiasem</strong>
+   * Zapis $-(3x - 4)$ uczeń przekształca w $-3x - 4$. 
+   <em> </em>Rozwiązanie:<em> Zapamiętaj zasadę: </em>Minus przed nawiasem to jak kasownik — otwiera nawias i odwraca każdy znak na przeciwny!*</p>
+<p>3. <strong>Mieszanie jednostek w geometrii</strong>
+   * Boki prostokąta wynoszą $4\text{ cm}$ oraz $3\text{ dm}$. Uczeń mnoży $4 \cdot 3 = 12$.
+   <em> </em>Rozwiązanie:* Zanim wykonasz jakiekolwiek działanie geometryczne, UJEDNOLIC jednostki ($3\text{ dm} = 30\text{ cm} \implies P = 4 \cdot 30 = 120\text{ cm}^2$).</p>
+<p>4. <strong>Błędne zastosowanie Twierdzenia Pitagorasa</strong>
+   * Podstawienie przyprostokątnych i przeciwprostokątnej w złe miejsca.
+   <em> </em>Rozwiązanie:* Przeciwprostokątna ($c$) to ZAWSZE bok leżący naprzeciwko kąta prostego!</p>
+<p>5. <strong>Wpisanie samego wyniku w zadaniu otwartym</strong>
+   * W zadaniu za 3 punkty uczeń wpisuje w brudnopisie obliczenia, a w arkuszu podaje tylko wynik.
+   <em> </em>Rozwiązanie:* CKE przyznaje punkty za KROKI ROZUMOWANIA. Nawet jeśli pomylisz się w ostatnim dodawaniu, za prawidłowo ułożony tok myślenia dostaniesz np. 2 z 3 punktów!</p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>📝 Rozdział 3: Jak prawidłowo zapisywać zadania otwarte pod klucz CKE</h2>
+<p>Zobaczmy, jak wygląda wzorcowy zapis zadania otwartego na 3 punkty:</p>
+<h3>Treść zadania:</h3>
+<em>W dwóch koszykach jest łącznie 36 jabłek. W pierwszym koszyku jest o 8 jabłek więcej niż w drugim. Ile jabłek jest w każdym koszyku?</em>
+<h3>❌ Zły zapis (Ryzyko utraty punktów):</h3>
+<blockquote>$36 - 8 = 28$  </blockquote>
+<blockquote>$28 : 2 = 14$  </blockquote>
+<blockquote>$14 + 8 = 22$  </blockquote>
+<blockquote>Odp: 22 i 14.  </blockquote>
+<em>(Egzaminator nie wie, skąd wzięły się te liczby i co oznaczają).</em>
+<h3>✅ Wzorcowy zapis pod klucz CKE:</h3>
+<p><strong>Krok 1: Oznaczenie niewiadomych</strong>
+<ul><li>Niech $x$ — liczba jabłek w drugim koszyku</li><li>Wtedy $x + 8$ — liczba jabłek w pierwszym koszyku</li></ul></p>
+<p><strong>Krok 2: Ułożenie i rozwiązanie równania</strong>
+$$x + (x + 8) = 36$$
+$$2x + 8 = 36$$
+$$2x = 36 - 8$$
+$$2x = 28 \quad / : 2$$
+$$x = 14$$</p>
+<p><strong>Krok 3: Obliczenie drugiej wartości i sprawdzenie</strong>
+<ul><li>Drugi koszyk: $14$ jabłek</li><li>Pierwszy koszyk: $14 + 8 = 22$ jabłka</li><li>Sprawdzenie: $14 + 22 = 36$ (zgadza się z treścią zadania)</li></ul></p>
+<p><strong>Krok 4: Jasna odpowiedź słowna</strong>
+<em>Odpowiedź: W pierwszym koszyku są 22 jabłka, a w drugim 14 jabłek.</em></p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>📅 Rozdział 4: 6-Tygodniowa Checklista Powtórkowa E8</h2>
+<p>Oto prosty plan powtórek do odhaczania tydzień po tygodniu:</p>
+<ul><li>[ ] <strong>Tydzień 1:</strong> Liczby i ułamki (działania na ułamkach zwykłych, dziesiętnych, zamiana).</li><li>[ ] <strong>Tydzień 2:</strong> Procenty, potęgi i pierwiastki (szacowanie, wyłączanie przed pierwiastek).</li><li>[ ] <strong>Tydzień 3:</strong> Wyrażenia algebraiczne i równania (układanie równań do zadań z treścią).</li><li>[ ] <strong>Tydzień 4:</strong> Geometria płaska (pola, obwody, Twierdzenie Pitagorasa).</li><li>[ ] <strong>Tydzień 5:</strong> Geometria przestrzenna (objętości i pola sześcianów, prostopadłościanów).</li><li>[ ] <strong>Tydzień 6:</strong> Statystyka, skala na mapie + rozwiązywanie autentycznych arkuszy CKE.</li></ul>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🤝 Chcesz skonsultować przygotowanie do E8?</h2>
+<p>Jeśli chcesz, abyśmy przeanalizowali trudności Twojego dziecka, wyłapali luki w wiedzy i ułożyli spokojny, skuteczny plan przygotowań:</p>
+<p>👉 <strong>Zapisz się na bezpłatną 15-minutową rozmowę zapoznawczą</strong> na mojej stronie:  
+[https://moja-wizytowka-vert.vercel.app/poziom](https://moja-wizytowka-vert.vercel.app/poziom)</p>
+<p>Przeanalizujemy sytuację bez stresu i ustalimy najlepsze kroki!</p>
+<p><em>Powodzenia na powtórkach!</em>  
+<strong>Ola</strong></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterclass Matury z Angielskiego | Ola — Korepetycje Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.7;
+      padding-bottom: 4rem;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+    .top-bar .brand {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .top-bar .btn-print {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+      transition: all 0.2s;
+    }
+    .top-bar .btn-print:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .card {
+      background-color: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+    }
+    .badge {
+      display: inline-block;
+      background-color: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f1f5f9;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p { margin-bottom: 1.25rem; color: #334155; font-size: 1rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; color: #334155; }
+    blockquote {
+      background-color: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: #1e293b;
+    }
+    .author-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 9999px;
+      background-color: #2563eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      color: white;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 { color: white; margin-top: 0; }
+    .cta-box p { color: #cbd5e1; font-size: 0.875rem; margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-block;
+      background-color: #10b981;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    @media print {
+      body { background-color: #ffffff; padding-bottom: 0; }
+      .top-bar { display: none; }
+      .card { border: none; box-shadow: none; padding: 0; }
+      .cta-box { border: 1px solid #000; color: #000; background: none; }
+      .cta-box h3, .cta-box p { color: #000; }
+      .cta-btn { border: 1px solid #000; color: #000; background: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="brand">
+      <span>✨</span> Ola — Korepetycje Online
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      📄 Drukuj / Zapisz jako PDF
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="badge">🗣️ Matura Podstawowa & Rozszerzona • Angielski</div>
+      <h1>Masterclass Maturalny z Języka Angielskiego (Podstawa & Rozszerzenie)</h1>
+<h3>Szablony Pisemne C1, Trening Use of English i Bezstresowa Matura Ustna</h3>
+<p><strong>Autor:</strong> Ola — Korepetycje Online (C1 Advanced / Erasmus+ Portugal)  
+<strong>Wydanie:</strong> Matura 2024 / 2025 / 2026 (Formuła 2023)</p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🎓 Słowo wstępne od Oli</h2>
+<p>Cześć! Z tej strony Ola. Język angielski na maturze to niesamowita szansa na łatwe punkty rekrutacyjne na studia. Bez względu na to, czy celujesz w informatykę, prawo, medycynę czy kierunki biznesowe — wysoki wynik z matury podstawowej i rozszerzonej przelicza się na punkty na niemal każdej uczelni w Polsce.</p>
+<p>Podczas studiów miałam okazję spędzić semestr w Portugalii na wymianie Erasmus+, gdzie język angielski był moim codziennym narzędziem komunikacji. Wiem, jak przestawić się z surowej gramatyki na <strong>płynne, naturalne i pewne posługiwanie się językiem</strong>.</p>
+<p>W tym poradniku daję Ci konkretne narzędzia pod oficjalne wymogi CKE: szablony wypracowań B2/C1, zaawansowane struktury gramatyczne i przewodnik po maturze ustnej.</p>
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>✍️ Rozdział 1: Master Szablon Rozprawki i Artykułu pod Klucz CKE (Matura PR)</h2>
+<p>Wypowiedź pisemna na maturze rozszerzonej (limit 200–250 słów) to aż <strong>13 punktów</strong>. Egzaminator ocenia: Treść (0-5), Spójność i logikę (0-2), Zakres środków językowych (0-3) oraz Poprawność (0-3).</p>
+<p>Oto sprawdzona struktura <strong>Rozprawki typu For and Against (Za i Przeciw)</strong>:</p>
+<h3>1. Wstęp (Introduction) — ok. 40 słów</h3>
+Przedstaw problem ogólnie (bez wyrażania własnej opinii!) i postaw tezę, że zagadnienie ma zarówno zalety, jak i wady.
+<ul><li><strong>Zwroty do wstępu:</strong></li></ul>
+  <em> </em>Nowadays, the issue of [topic] has become a subject of heated debate.* (Obecnie kwestia [temat] stała się przedmiotem gorącej debaty.)
+  <em> </em>While some people claim that [argument A], others argue that [argument B].* (Podczas gdy niektórzy twierdzą, że..., inni argumentują, że...)
+  <em> </em>This essay will examine both the advantages and disadvantages of this trend.* (Niniejsza rozprawka przeanalizuje zarówno zalety, jak i wady tego trendu.)
+<h3>2. Akapit 1: Argumenty ZA (Pros) — ok. 70 słów</h3>
+Przedstaw 2 konkretne zalety, podając przykłady lub uzasadnienie.
+<ul><li><strong>Zwroty wprowadzające:</strong></li></ul>
+  <em> </em>On the one hand, there are several undeniable benefits of...* (Z jednej strony istnieje kilka niezaprzeczalnych korzyści z...)
+  <em> </em>First and foremost, it allows individuals to...* (Przede wszystkim pozwala to jednostkom na...)
+  <em> </em>Furthermore / Moreover, another convincing argument is that...* (Co więcej / Ponadto, kolejnym przekonującym argumentem jest to, że...)
+<h3>3. Akapit 2: Argumenty PRZECIW (Cons) — ok. 70 słów</h3>
+Przedstaw 2 wady z płynnym przejściem.
+<ul><li><strong>Zwroty wprowadzające:</strong></li></ul>
+  <em> </em>On the other hand, opponents of this idea point out that...* (Z drugiej strony przeciwnicy tego pomysłu zwracają uwagę, że...)
+  <em> </em>However, one major drawback is...* (Jednakże jedną z głównych wad jest...)
+  <em> </em>In addition, it can lead to negative consequences, such as...* (Dodatkowo może to prowadzić do negatywnych konsekwencji, takich jak...)
+<h3>4. Zakończenie (Conclusion) — ok. 40 słów</h3>
+Podsumuj argumenty i wyraź swoją stonowaną opinię.
+<ul><li><strong>Zwroty do podsumowania:</strong></li></ul>
+  <em> </em>Taking all these factors into account, it appears that...* (Biorąc pod uwagę wszystkie te czynniki, wydaje się, że...)
+  <em> </em>In conclusion, although [topic] has certain disadvantages, its benefits seem to outweigh the risks.* (Podsumowując, chociaż... ma pewne wady, jego korzyści przeważają nad ryzykiem.)
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🔤 Rozdział 2: Trening Use of English C1 (Transformacje i Środki Językowe)</h2>
+<p>W zadaniach ze środkami językowymi na maturze rozszerzonej (parafrazy ze słowem-kluczem, luki otwarte, słowotwórstwo) CKE sprawdza zaawansowane struktury gramatyczne. Oto 4 pewniaki:</p>
+<h3>1. Inwersja stylistyczna (Inversion)</h3>
+Używana po przysłówkach przeczących (<em>Hardly, Scarcely, Seldom, Not only, Under no circumstances</em>).
+<em> </em>Zwykłe zdanie:* I had hardly entered the room when the phone rang.
+<em> </em>Inwersja C1:* <strong>Hardly had I entered</strong> the room when the phone rang.
+<em> </em>Zwykłe zdanie:* She not only passed the exam, but also got the highest mark.
+<em> </em>Inwersja C1:* <strong>Not only did she pass</strong> the exam, but also got the highest mark.
+<h3>2. Konstrukcja z <em>wish</em> oraz <em>if only</em></h3>
+<ul><li>Odniesienie do teraźniejszości (żal, że coś nie jest inne): $Wish + Past\ Simple$  </li></ul>
+  <em> </em>I wish I <strong>had</strong> more time for studying.* (Żałuję, że nie mam więcej czasu.)
+<ul><li>Odniesienie do przeszłości (żal z powodu minionego wydarzenia): $Wish + Past\ Perfect$  </li></ul>
+  <em> </em>I wish I <strong>had listened</strong> to my teacher last month.* (Żałuję, że nie posłuchałem nauczyciela w zeszłym miesiącu.)
+<h3>3. Konstrukcje <em>had better</em> oraz <em>would rather</em></h3>
+<em> </em>You <strong>had better start</strong> revising now.* (Lepiej zacznij się uczyć teraz.)
+<em> </em>I <strong>would rather stay</strong> home tonight.* (Wolałbym zostać dziś w domu.)
+<em> </em>I <strong>would rather you didn't call</strong> him now.* (Wolałbym, żebyś do niego teraz nie dzwonił — uwaga na Past Simple po osobie!).
+<h3>4. Strona bierna w strukturach zaawansowanych (Impersonal Passive)</h3>
+<em> </em>People say he is rich.<em> $\to$ </em>He <strong>is said to be</strong> rich.*
+<em> </em>They believe the company lost millions.<em> $\to$ </em>The company <strong>is believed to have lost</strong> millions.*
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🗣️ Rozdział 3: Bezstresowa Matura Ustna z Angielskiego</h2>
+<p>Matura ustna trwa około 15 minut i składa się z 3 zadań. Jej celem jest sprawdzenie <strong>komunikatywności i płynności</strong>, a nie idealnej bezbłędności!</p>
+<h3>Zadanie 1: Rozmowa z odgrywaniem roli (ok. 3 minuty)</h3>
+Musisz omówić 4 elementy z chmurki zadań.
+<em> </em>Trik Oli:<em> Nie czekaj na egzaminatora! Przejmij inicjatywę: </em>„Hi! As you know, we need to organize our trip. What do you think about...”*
+<h3>Zadanie 2: Opis ilustracji i 3 pytania (ok. 4 minuty)</h3>
+<ul><li><strong>Opis obrazka:</strong>  </li></ul>
+  <em> </em>In the foreground of the picture, I can see...* (Na pierwszym planie widzę...)  
+  <em> </em>In the background, there is / there are...* (W tle znajduje się...)  
+  <em> </em>The person looks as if she is feeling...* (Ta osoba wygląda, jakby czuła się...)
+<ul><li><strong>Pytania egzaminatora:</strong>  </li></ul>
+  Drugie pytanie zawsze dotyczy Twoich własnych doświadczeń z przeszłości (użyj czasy Past Simple!), a trzecie polega na wyrażeniu opinii na dany temat.
+<h3>Zadanie 3: Wybór elementu z materiału stymulującego i uzasadnienie (ok. 5 minut)</h3>
+Wybierasz 1 z 2–3 propozycji plakatów/zdjęć i uzasadniasz wybór, a następnie odrzucasz pozostałe.
+<em> </em>Wybór:<em> </em>I would definitely choose option A because it immediately catches the viewer's attention.*
+<em> </em>Odrzucenie:<em> </em>I would reject option B mainly because it seems a bit boring and unclear.*
+<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">
+<h2>🤝 Chcesz przełamać blokadę i zdobyć max punktów na maturze?</h2>
+<p>Jeśli chcesz przeanalizować swoje prace pisemne pod kryteria CKE, przetestować transformacje C1 lub po prostu rozgadać się przed maturą ustną:</p>
+<p>👉 <strong>Umów się na bezpłatną 15-minutową rozmowę zapoznawczą</strong> na mojej stronie:  
+[https://moja-wizytowka-vert.vercel.app/poziom](https://moja-wizytowka-vert.vercel.app/poziom)</p>
+<p><em>Finger crossed for your matura exam!</em>  
+<strong>Ola</strong></p>
+    </div>
+  </div>
+</body>
+</html>
