@@ -70,7 +70,7 @@ export default function About() {
                 Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne, uporządkowane podejście, które przekładam na proste tłumaczenie matematyki i schematów CKE. Z korepetycjami zaczynałam na dużych platformach edukacyjnych, gdzie przeprowadziłam setki lekcji z uczniami przygotowującymi się do egzaminów.
               </p>
               <p>
-                Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i odwadze językowej.
+                Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i przełamywaniu bariery w mówieniu.
               </p>
               <p>
                 Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. Stworzyłam też autorski kurs <strong className="font-semibold text-ink">Notion Master</strong>, pomagając uczniom układać bezstresowy harmonogram powtórek do samego dnia testu!
