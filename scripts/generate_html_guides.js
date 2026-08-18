@@ -95,41 +95,6 @@ function wrapHtml(title, category, icon, contentHtml) {
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #f1f5f9;
-    }
-    h3 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p { margin-bottom: 1.25rem; color: #334155; font-size: 1rem; }
-    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
-    li { margin-bottom: 0.5rem; color: #334155; }
-    blockquote {
-      background-color: #f8fafc;
-      border-left: 4px solid #3b82f6;
-      padding: 1rem 1.25rem;
-      border-radius: 0.5rem;
-      margin: 1.25rem 0;
-      font-style: italic;
-      color: #1e293b;
-    }
 
     @media print {
       body { background-color: #ffffff; padding-bottom: 0; }
@@ -158,39 +123,101 @@ function wrapHtml(title, category, icon, contentHtml) {
 </html>`;
 }
 
+// Convert markdown line to inline HTML (bold, italic, links)
+function parseInline(text) {
+  // 1. Linki [text](url)
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline; font-weight: 600;">$1</a>');
+  // 2. Pogrubienie **text**
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // 3. Kursywa *text*
+  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  return text;
+}
+
 // Convert markdown file to clean HTML
 function convertMarkdownToHtml(mdPath) {
-  let text = fs.readFileSync(mdPath, "utf-8");
+  const rawText = fs.readFileSync(mdPath, "utf-8");
+  const lines = rawText.split("\n");
 
-  // Format headers
-  text = text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-  text = text.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  text = text.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  
-  // Format bold & italic
-  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  
-  // Format blockquotes
-  text = text.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
-  
-  // Format lists
-  text = text.replace(/^\* (.*$)/gim, '<ul><li>$1</li></ul>');
-  text = text.replace(/^- (.*$)/gim, '<ul><li>$1</li></ul>');
-  text = text.replace(/<\/ul>\s*<ul>/g, '');
+  const htmlLines = [];
+  let inList = false;
 
-  // Format paragraphs
-  const paragraphs = text.split(/\n\n+/);
-  const htmlParts = paragraphs.map(p => {
-    p = p.trim();
-    if (p.startsWith('<h') || p.startsWith('<blockquote') || p.startsWith('<ul') || p.startsWith('<hr')) {
-      return p;
+  for (let line of lines) {
+    const trimmed = line.trim();
+
+    // Check line types
+    if (!trimmed) {
+      if (inList) {
+        htmlLines.push("</ul>");
+        inList = false;
+      }
+      continue;
     }
-    if (p === '---') return '<hr style="border:0; border-top:1px solid #e2e8f0; margin: 2rem 0;">';
-    return `<p>${p}</p>`;
-  });
 
-  return htmlParts.join('\n');
+    if (trimmed === "---") {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      htmlLines.push('<hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 2rem 0;">');
+      continue;
+    }
+
+    if (trimmed.startsWith("# ")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      htmlLines.push(`<h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; line-height: 1.25; margin-bottom: 0.75rem;">${parseInline(trimmed.substring(2))}</h1>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("## ")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      htmlLines.push(`<h2 style="font-size: 1.5rem; font-weight: 700; color: #1e3a8a; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9;">${parseInline(trimmed.substring(3))}</h2>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("### ")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      htmlLines.push(`<h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-top: 1.5rem; margin-bottom: 0.5rem;">${parseInline(trimmed.substring(4))}</h3>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("> ")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      htmlLines.push(`<blockquote style="background-color: #f8fafc; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0.5rem; margin: 1.25rem 0; font-style: italic; color: #1e293b;">${parseInline(trimmed.substring(2))}</blockquote>`);
+      continue;
+    }
+
+    // Checkbox items: - [ ] text
+    if (trimmed.startsWith("- [ ] ")) {
+      if (!inList) {
+        htmlLines.push('<ul style="margin-bottom: 1.25rem; padding-left: 1.5rem;">');
+        inList = true;
+      }
+      htmlLines.push(`<li style="list-style: none; margin-bottom: 0.5rem; font-weight: 500; color: #334155;">☐ ${parseInline(trimmed.substring(6))}</li>`);
+      continue;
+    }
+
+    // Standard list items: - text or * text or 1. text
+    const listMatch = trimmed.match(/^([-*]|\d+\.)\s+(.*)$/);
+    if (listMatch) {
+      if (!inList) {
+        htmlLines.push('<ul style="margin-bottom: 1.25rem; padding-left: 1.5rem;">');
+        inList = true;
+      }
+      htmlLines.push(`<li style="margin-bottom: 0.5rem; color: #334155;">${parseInline(listMatch[2])}</li>`);
+      continue;
+    }
+
+    // Normal paragraph line
+    if (inList) {
+      htmlLines.push("</ul>");
+      inList = false;
+    }
+    htmlLines.push(`<p style="margin-bottom: 1.25rem; color: #334155; font-size: 1rem;">${parseInline(trimmed)}</p>`);
+  }
+
+  if (inList) {
+    htmlLines.push("</ul>");
+  }
+
+  return htmlLines.join("\n");
 }
 
 const brainDir = "/Users/ola/.gemini/antigravity/brain/fac548ab-4beb-485d-be94-896036fa7ad6";
@@ -211,4 +238,4 @@ fs.writeFileSync(path.join(publicDir, "poradnik_3_matematyka_matura.html"), wrap
 const p4Html = convertMarkdownToHtml(path.join(brainDir, "poradnik_4_angielski_matura.md"));
 fs.writeFileSync(path.join(publicDir, "poradnik_4_angielski_matura.html"), wrapHtml("Masterclass Matury z Angielskiego", "Matura Podstawowa & Rozszerzona • Angielski", "🗣️", p4Html));
 
-console.log("Successfully generated 4 styled HTML guide documents in public/poradniki/");
+console.log("Successfully regenerated 4 clean HTML guide documents!");
