@@ -10,6 +10,8 @@ import { site } from "@/lib/site";
 type SubjectType =
   | "matematyka-4-6"
   | "matematyka-7-8"
+  | "matematyka-matura-podstawowa"
+  | "matematyka-matura-rozszerzona"
   | "angielski-4-6"
   | "angielski-7-8"
   | "angielski-liceum-biezacy"
@@ -1010,6 +1012,10 @@ export default function DiagnozaPage() {
         return "Matematyka (klasy 4–6)";
       case "matematyka-7-8":
         return "Matematyka (klasy 7–8 & Egzamin Ósmoklasisty E8)";
+      case "matematyka-matura-podstawowa":
+        return "Matematyka — Matura Podstawowa";
+      case "matematyka-matura-rozszerzona":
+        return "Matematyka — Matura Rozszerzona";
       case "angielski-4-6":
         return "Język Angielski (klasy 4–6 / A1–A2)";
       case "angielski-7-8":
@@ -1096,66 +1102,113 @@ export default function DiagnozaPage() {
     }
   };
 
-  const buildSummaryText = () => {
-    const questions = getQuestions();
-    const { score, total } = calculateScore();
+  const getSubjectTopics = (subj: SubjectType): string[] => {
+    switch (subj) {
+      case "matematyka-7-8":
+        return [
+          "Liczby, ułamki zwykłe/dziesiętne i procenty",
+          "Algebra, wyrażenia i równania z niewiadomą",
+          "Geometria płaska (planimetria — pola, obwody, kąty)",
+          "Geometria przestrzenna (stereometria — objętość i pole brył)",
+          "Potęgi, pierwiastki i zadania z treścią CKE",
+        ];
+      case "angielski-7-8":
+        return [
+          "Tworzenie wypowiedzi pisemnej (e-mail, wpis na bloga)",
+          "Gramatyka CKE (czasy, parafrazy, transformacje)",
+          "Słownictwo tematyczne i reakcje językowe",
+          "Czytanie i słuchanie ze zrozumieniem",
+        ];
+      case "matematyka-matura-podstawowa":
+        return [
+          "Funkcja kwadratowa oraz równania i nierówności",
+          "Ciągi (arytmetyczny i geometryczny)",
+          "Geometria płaska i przestrzenna (planimetria & stereometria)",
+          "Logarytmy, potęgi i pierwiastki",
+          "Rachunek prawdopodobieństwa i statystyka",
+        ];
+      case "matematyka-matura-rozszerzona":
+        return [
+          "Pochodne funkcji i zadania optymalizacyjne",
+          "Wielomiany, dzielenie i twierdzenie Bézouta",
+          "Szereg geometryczny i własności ciągów",
+          "Dowody geometryczne (planimetria i stereometria)",
+          "Równania z parametrem i trygonometria",
+        ];
+      case "angielski-matura-podstawowa":
+        return [
+          "Tworzenie form pisemnych (e-mail, wpis na bloga/forum)",
+          "Gramatyka CKE (czasy, strona bierna, mowa zależna)",
+          "Słownictwo tematyczne i parafrazy",
+          "Rozumienie ze słuchu i tekstów pisanych",
+        ];
+      case "angielski-matura-rozszerzona":
+        return [
+          "Zaawansowane formy pisemne (rozprawka, artykuł, list)",
+          "Use of English (inwersja, okresy warunkowe, transformacje)",
+          "Matura ustna i swoboda wypowiedzi",
+          "Zaawansowane słownictwo i struktury gramatyczne C1",
+        ];
+      default:
+        return [
+          "Podstawy teoretyczne i zadania CKE",
+          "Zarządzanie czasem na arkuszu",
+          "Tworzenie rozwiązań i pisanie form pod klucz",
+        ];
+    }
+  };
 
-    let text = `📄 RAPORT DIAGNOSTYCZNY:\n`;
-    text += `👤 Uczeń: ${studentName || "Nie podano"}\n`;
-    text += `👥 Osoba wypełniająca: ${filledBy === "uczen" ? "Uczeń" : "Rodzic z dzieckiem"}\n`;
-    text += `🏫 Klasa/Szkoła: ${schoolClass || "Nie podano"}\n`;
+  const getSubjectStrengtheningPoints = (subj: SubjectType): string[] => {
+    if (subj.startsWith("matematyka")) {
+      return [
+        "⏱️ Zarządzanie czasem na arkuszu egzaminacyjnym",
+        "✍️ Eliminacja drobnych błędów rachunkowych przy stresie",
+        "📝 Rozpisywanie toku rozumowania w zadaniach otwartych pod klucz CKE",
+        "📋 Ułożenie przejrzystego planu powtórek krok po kroku",
+      ];
+    }
+
+    if (subj === "angielski-matura-rozszerzona") {
+      return [
+        "✍️ Pisanie form pisemnych pod oficjalne kryteria i limit słów CKE",
+        "🔤 Zaawansowany Use of English (inwersja, transformacje, parafrazy)",
+        "💬 Swoboda wypowiedzi i pokonanie bariery na maturze ustnej",
+        "⏱️ Tempo rozwiązywania arkusza egzaminacyjnego",
+        "📋 Ułożenie przejrzystego planu powtórek krok po kroku",
+      ];
+    }
+
+    return [
+      "✍️ Pisanie form pisemnych pod oficjalne kryteria CKE",
+      "🔤 Pewność w gramatyce, transformacjach i słownictwie",
+      "⏱️ Tempo rozwiązywania arkusza egzaminacyjnego",
+      "📋 Ułożenie przejrzystego planu powtórek krok po kroku",
+    ];
+  };
+
+  const buildSummaryText = () => {
+    let text = `📄 RAPORT QUIZU POZIOMUJĄCEGO:\n`;
+    text += `👤 Imię: ${studentName || "Nie podano"}\n`;
     text += `📧 Kontakt: ${contact || "Nie podano"}\n`;
     text += `📚 Przedmiot i poziom: ${getSubjectLabel(subject)}\n`;
-    text += `🎯 Główny cel nauki: ${getGoalDisplay()}\n`;
     text += `🗓️ Preferowana częstotliwość: ${getFrequencyDisplay(frequency)}\n`;
-    text += `⏰ Preferowana pora dnia: ${getPreferredTimeDisplay(preferredTime)}\n`;
-    text += `⏳ Przewidywany czas współpracy: ${getDurationDisplay(duration)}\n`;
-    text += `⭐ Ocena w szkole: ${grade}\n\n`;
-    text += `📊 WYNIK QUIZU SPRAWDZAJĄCEGO: ${score} / ${total} poprawnych\n\n`;
+    text += `⏰ Preferowana pora dnia: ${getPreferredTimeDisplay(preferredTime)}\n\n`;
 
-    text += `--- SZCZEGÓŁY ODPOWIEDZI ---\n`;
-    questions.forEach((q, idx) => {
-      const ans = answers[q.id] || "Brak odpowiedzi";
-      text += `${idx + 1}. ${q.question}\n   -> Odpowiedź: ${ans}\n`;
+    text += `--- SEKCJA A: SAMOOCENA ZAGADNIEŃ CKE ---\n`;
+    const topics = getSubjectTopics(subject);
+    topics.forEach((t) => {
+      text += `- ${t}: ${conceptMap[t] || "Brak oceny"}\n`;
     });
 
-    if (subject.startsWith("matematyka")) {
-      text += `\n--- MAPA POJĘĆ MATEMATYCZNYCH ---\n`;
-      MATH_CONCEPT_MAP.forEach((c) => {
-        text += `- ${c}: ${conceptMap[c] || "Brak oceny"}\n`;
+    if (mathFears.length > 0) {
+      text += `\n--- SEKCJA B: OBSZARY DO WZMOCNIENIA ---\n`;
+      mathFears.forEach((item) => {
+        text += `- ${item}\n`;
       });
-      const allFears = [...mathFears];
-      if (customMathFear.trim()) {
-        allFears.push(`Własny problem: ${customMathFear.trim()}`);
-      }
-      if (allFears.length > 0) {
-        text += `\n⚠️ Główne lęki i trudności:\n- ${allFears.join("\n- ")}\n`;
-      }
-    }
-
-    if (subject.startsWith("angielski-4") || subject.startsWith("angielski-7")) {
-      text += `\n--- SAMOOCENA SPRAWNOŚCI (ANGIELSKI SP) ---\n`;
-      text += `- Mówienie: ${speakingEval}\n`;
-      text += `- Słuchanie: ${listeningEval}\n`;
-      text += `- Pisanie: ${writingEvalSP}\n`;
-      text += `- Gramatyka: ${grammarEvalSP}\n`;
-      if (engVocabDiffs.length > 0) {
-        text += `\n📚 Trudne działy słownictwa E8 (CKE):\n- ${engVocabDiffs.join("\n- ")}\n`;
-      }
-    }
-
-    if (subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") {
-      text += `\n--- SAMOOCENA LICEALNA & MATURALNA ---\n`;
-      if (subject === "angielski-liceum-biezacy") {
-        text += `- Oczekiwany charakter lekcji: ${getLicLessonCharDisplay(licLessonCharacter)}\n`;
-      }
-      text += `- Wypowiedź pisemna: ${writingEvalLic}\n`;
-      text += `- Mówienie / Ustna: ${oralMaturaEvalLic}\n`;
-      text += `- Środki językowe (Use of English): ${useOfEnglishEval}\n`;
     }
 
     if (additionalNotes.trim()) {
-      text += `\n💬 DODATKOWA WIADOMOŚĆ OD UCZNIA DO OLI:\n"${additionalNotes.trim()}"\n`;
+      text += `\n💬 DODATKOWA WIADOMOŚĆ DLA OLI:\n"${additionalNotes.trim()}"\n`;
     }
 
     return text;
@@ -1440,7 +1493,7 @@ export default function DiagnozaPage() {
             </motion.div>
           )}
 
-          {/* KROK 2: TEST I SAMOOCENA */}
+          {/* KROK 2: SAMOOCENA ZAGADNIEŃ & WZMACNIANIE */}
           {step === 2 && (
             <motion.div
               key="step2"
@@ -1449,434 +1502,102 @@ export default function DiagnozaPage() {
               exit={{ opacity: 0, y: -12 }}
               className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 space-y-8"
             >
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                <div>
-                  <h2 className="text-xl font-bold text-slate-900">
-                    Test wiedzy twardej & Samoocena
-                  </h2>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Rozwiązuj samodzielnie bez kalkulatora i słowników. Przy każdym pytaniu masz opcję "Nie wiem".
-                  </p>
-                </div>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
-                  {Object.keys(answers).length} / {currentQuestions.length} pytań
-                </span>
+              <div className="border-b border-slate-100 pb-4">
+                <h2 className="text-xl font-bold text-slate-900">
+                  CZĘŚĆ 2: Samoocena zagadnień & Obszary rozwoju
+                </h2>
+                <p className="text-xs text-slate-500 mt-1">
+                  Wybierz opcje, które najlepiej opisują Twój obecny poziom. Zajmie to mniej niż minutę!
+                </p>
               </div>
 
-              {/* PYTANIA TESTOWE */}
-              <div className="space-y-6">
-                {currentQuestions.map((q, idx) => (
-                  <div key={q.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-3">
-                    <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
-                      <span>{q.levelLabel}</span>
-                      <span>Pytanie {idx + 1} z {currentQuestions.length}</span>
-                    </div>
-                    <p className="font-semibold text-slate-900 text-sm sm:text-base">
-                      {q.question}
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                      {q.options.map((opt, optIdx) => {
-                        const isSelected = answers[q.id] === opt.label;
-                        const prefix = String.fromCharCode(65 + optIdx);
-                        const isLastOption = optIdx === q.options.length - 1;
-
-                        return (
-                          <button
-                            key={opt.label}
-                            type="button"
-                            onClick={() => handleOptionSelect(q.id, opt.label)}
-                            className={`px-4 py-2.5 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all ${
-                              isLastOption ? "sm:col-span-2" : ""
-                            } ${
-                              isSelected
-                                ? "border-brand-500 bg-brand-600 text-white shadow-sm"
-                                : isLastOption
-                                ? "border-slate-200 bg-slate-100/70 text-slate-600 hover:border-slate-300 hover:bg-slate-200/60"
-                                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-100/60"
-                            }`}
-                          >
-                            <span className="font-bold mr-1.5">{prefix})</span> {opt.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* MATEMATYKA: MAPA POJĘĆ & TRUDNOŚCI */}
-              {subject.startsWith("matematyka") && (
-                <>
-                  <div className="pt-6 border-t border-slate-100 space-y-4">
-                    <h3 className="font-bold text-slate-900 text-base">
-                      CZĘŚĆ A2: Szczegółowa mapa pojęć z matematyki
-                    </h3>
-                    <p className="text-xs text-slate-500">Oceń swoją pewność w poniższych zagadnieniach:</p>
-                    
-                    <div className="space-y-3">
-                      {MATH_CONCEPT_MAP.map((concept) => (
-                        <div key={concept} className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-                          <div className="text-xs sm:text-sm font-medium text-slate-800">{concept}</div>
-                          <div className="grid grid-cols-3 gap-2">
-                            {["Znam dobrze", "Muszę powtórzyć", "Czarna magia"].map((choice) => {
-                              const active = conceptMap[concept] === choice;
-                              return (
-                                <button
-                                  key={choice}
-                                  type="button"
-                                  onClick={() =>
-                                    setConceptMap((prev) => ({ ...prev, [concept]: choice }))
-                                  }
-                                  className={`py-2 px-1 rounded-lg border text-center text-xs font-semibold transition-all ${
-                                    active
-                                      ? choice === "Znam dobrze"
-                                        ? "bg-emerald-600 text-white border-emerald-600"
-                                        : choice === "Muszę powtórzyć"
-                                        ? "bg-amber-500 text-white border-amber-500"
-                                        : "bg-rose-600 text-white border-rose-600"
-                                      : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
-                                  }`}
-                                >
-                                  {choice}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-100 space-y-3">
-                    <h3 className="font-bold text-slate-900 text-base">
-                      CZĘŚĆ A3: Główne lęki i trudności z matematyki
-                    </h3>
-                    <div className="space-y-2">
-                      {[
-                        "Zadania z treścią — nie wiem od czego zacząć i jak ułożyć równanie",
-                        "Głupie błędy rachunkowe, gubienie minusów i nawiasów",
-                        "Geometria i brak pamięci do wzorów",
-                        "Stres i paraliż przed odpowiadaniem przy tablicy / klasówką",
-                        "Wolne tempo rozwiązywania zadań na sprawdzianach",
-                      ].map((item) => {
-                        const active = mathFears.includes(item);
-                        return (
-                          <button
-                            key={item}
-                            type="button"
-                            onClick={() => toggleArrayItem(setMathFears, item)}
-                            className={`w-full p-3 rounded-xl border text-left text-xs sm:text-sm transition-all ${
-                              active
-                                ? "border-brand-500 bg-brand-50 text-brand-900 font-semibold"
-                                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                            }`}
-                          >
-                            {active ? "☑ " : "☐ "} {item}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <div className="pt-2">
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
-                        Inny problem / dopisz własną odpowiedź:
-                      </label>
-                      <input
-                        type="text"
-                        value={customMathFear}
-                        onChange={(e) => setCustomMathFear(e.target.value)}
-                        placeholder="np. Przeliczanie skali na mapie, ułamki dziesiętne pod kreską..."
-                        className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                      />
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* ANGIELSKI SP: SAMOOCENA & SŁOWNICTWO CKE */}
-              {(subject === "angielski-4-6" || subject === "angielski-7-8") && (
-                <>
-                  <div className="pt-6 border-t border-slate-100 space-y-4">
-                    <h3 className="font-bold text-slate-900 text-base">
-                      CZĘŚĆ B2: Samoocena umiejętności językowych
-                    </h3>
-                    <div className="space-y-4 text-xs sm:text-sm">
-                      <div>
-                        <span className="font-medium text-slate-700 block mb-1">Mówienie po angielsku:</span>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {[
-                            "🟢 Mówię chętnie",
-                            "🟡 Mam blokadę i szukam słów w głowie",
-                            "🔴 Paraliżuje mnie stres",
-                          ].map((v) => (
-                            <button
-                              key={v}
-                              type="button"
-                              onClick={() => setSpeakingEval(v)}
-                              className={`p-2.5 rounded-xl border text-center text-xs font-medium ${
-                                speakingEval === v
-                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
-                              }`}
-                            >
-                              {v}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <span className="font-medium text-slate-700 block mb-1">Słuchanie ze słuchu:</span>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {[
-                            "🟢 Rozumiem bez problemu",
-                            "🟡 Rozumiem tylko gdy ktoś mówi wolno",
-                            "🔴 Nic nie wyłapuję",
-                          ].map((v) => (
-                            <button
-                              key={v}
-                              type="button"
-                              onClick={() => setListeningEval(v)}
-                              className={`p-2.5 rounded-xl border text-center text-xs font-medium ${
-                                listeningEval === v
-                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
-                              }`}
-                            >
-                              {v}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <span className="font-medium text-slate-700 block mb-1">Pisanie e-maili / wpisów:</span>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {[
-                            "🟢 Wiem jak zacząć i skończyć",
-                            "🟡 Brak mi zasobu słów",
-                            "🔴 Robię dużo błędów",
-                          ].map((v) => (
-                            <button
-                              key={v}
-                              type="button"
-                              onClick={() => setWritingEvalSP(v)}
-                              className={`p-2.5 rounded-xl border text-center text-xs font-medium ${
-                                writingEvalSP === v
-                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
-                              }`}
-                            >
-                              {v}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <span className="font-medium text-slate-700 block mb-1">Gramatyka:</span>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {[
-                            "🟢 Znam czasy",
-                            "🟡 Czasy mi się mieszają",
-                            "🔴 Czarna magia",
-                          ].map((v) => (
-                            <button
-                              key={v}
-                              type="button"
-                              onClick={() => setGrammarEvalSP(v)}
-                              className={`p-2.5 rounded-xl border text-center text-xs font-medium ${
-                                grammarEvalSP === v
-                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
-                              }`}
-                            >
-                              {v}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-100 space-y-3">
-                    <h3 className="font-bold text-slate-900 text-base">
-                      CZĘŚĆ B3: Checklista słownictwa tematycznego CKE
-                    </h3>
-                    <p className="text-xs text-slate-500">Zaznacz działy, w których brakuje Ci słówek:</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {ENG_SP_VOCAB_TOPICS.map((topic) => {
-                        const active = engVocabDiffs.includes(topic);
-                        return (
-                          <button
-                            key={topic}
-                            type="button"
-                            onClick={() => toggleArrayItem(setEngVocabDiffs, topic)}
-                            className={`p-3 rounded-xl border text-left text-xs sm:text-sm transition-all ${
-                              active
-                                ? "border-brand-500 bg-brand-50 text-brand-900 font-semibold"
-                                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                            }`}
-                          >
-                            {active ? "☑ " : "☐ "} {topic}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* ANGIELSKI LICEUM & MATURA: SAMOOCENA SPRAWNOŚCI */}
-              {(subject.startsWith("angielski-matura") || subject === "angielski-liceum-biezacy") && (
-                <div className="pt-6 border-t border-slate-100 space-y-4">
-                  <h3 className="font-bold text-slate-900 text-base">
-                    CZĘŚĆ C2: Sprawności językowe i maturalne (Samoocena)
-                  </h3>
-
-                  <div className="space-y-4 text-xs sm:text-sm">
-                    {/* Opcja dla Liceum Bieżącego */}
-                    {subject === "angielski-liceum-biezacy" && (
-                      <div>
-                        <span className="font-medium text-slate-700 block mb-1">
-                          Preferowany główny charakter lekcji:
-                        </span>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {[
-                            { id: "mowienie", label: "🗣️ Głównie konwersacje & słownictwo" },
-                            { id: "gramatyka", label: "📖 Bieżący materiał & sprawdziany" },
-                            { id: "miks", label: "⚖️ Zrównoważony miks (mówienie + gramatyka)" },
-                          ].map((item) => (
-                            <button
-                              key={item.id}
-                              type="button"
-                              onClick={() => setLicLessonCharacter(item.id)}
-                              className={`p-3 rounded-xl border text-center text-xs font-medium transition-all ${
-                                licLessonCharacter === item.id
-                                  ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
-                                  : "border-slate-200 text-slate-600 hover:border-slate-300"
-                              }`}
-                            >
-                              {item.label}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Pisanie maturalne / wypowiedź pisemna */}
-                    <div>
-                      <span className="font-medium text-slate-700 block mb-1">
-                        Rozprawka / E-mail / Wpis na bloga (Pisanie):
-                      </span>
-                      <div className="space-y-2">
-                        {[
-                          "🟢 Znam limity (100–150 słów) i łączniki (however, in addition, moreover)",
-                          "🟡 Znam strukturę, ale brakuje mi bogatego słownictwa C1",
-                          "🔴 Boję się wypowiedzi pisemnej i robię błędy gramatyczne",
-                        ].map((v) => (
-                          <button
-                            key={v}
-                            type="button"
-                            onClick={() => setWritingEvalLic(v)}
-                            className={`w-full p-3 rounded-xl border text-left text-xs font-medium ${
-                              writingEvalLic === v
-                                ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                : "border-slate-200 text-slate-600 hover:border-slate-300"
-                            }`}
-                          >
-                            {v}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Ustny angielski / matura ustna */}
-                    <div>
-                      <span className="font-medium text-slate-700 block mb-1">
-                        Mówienie / Ustna komunikacja:
-                      </span>
-                      <div className="space-y-2">
-                        {[
-                          "Mówię płynnie, potrafię opisać ilustrację i uzasadnić wybór w rozmowie",
-                          "Mówię, ale mam pauzy na szukanie słówek w głowie",
-                          "Mam paraliżujący stres na samej myśli o mówieniu po angielsku",
-                        ].map((v) => (
-                          <button
-                            key={v}
-                            type="button"
-                            onClick={() => setOralMaturaEvalLic(v)}
-                            className={`w-full p-3 rounded-xl border text-left text-xs font-medium ${
-                              oralMaturaEvalLic === v
-                                ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                : "border-slate-200 text-slate-600 hover:border-slate-300"
-                            }`}
-                          >
-                            {v}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Środki językowe Use of English C1 */}
-                    <div>
-                      <span className="font-medium text-slate-700 block mb-1">
-                        Środki językowe (Use of English C1 / Parafrazy / Słowotwórstwo):
-                      </span>
-                      <div className="space-y-2">
-                        {[
-                          "🟢 Dobrze radzę sobie z parafrazami ze słowem-kluczem i słowotwórstwem",
-                          "🟡 Trafiają się trudne luki otwarte i słowotwórstwo C1, w których gubię punkty",
-                          "🔴 Środki językowe C1 to dla mnie największy problem",
-                        ].map((v) => (
-                          <button
-                            key={v}
-                            type="button"
-                            onClick={() => setUseOfEnglishEval(v)}
-                            className={`w-full p-3 rounded-xl border text-left text-xs sm:text-sm transition-all ${
-                              useOfEnglishEval === v
-                                ? "border-brand-500 bg-brand-50 text-brand-900 font-bold"
-                                : "border-slate-200 text-slate-600 hover:border-slate-300"
-                            }`}
-                          >
-                            {v}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* KAFELEK: CZY CHCESZ MI COŚ JESZCZE PRZEKAZAĆ? */}
-              <div className="pt-6 border-t border-slate-100 space-y-3">
-                <div className="flex items-center gap-2">
-                  <MessageSquarePlus className="size-5 text-brand-600" />
-                  <h3 className="font-bold text-slate-900 text-base">
-                    Czy chcesz mi coś jeszcze przekazać? (Opcjonalnie)
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Wpisz tutaj cokolwiek ważnego, o czym powinnam wiedzieć przed naszą pierwszą darmową rozmową.
+              {/* SEKCJA A: SAMOOCENA ZAGADNIEŃ DLA WYBRANEGO PRZEDMIOTU */}
+              <div className="space-y-4">
+                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+                  <CheckCircle2 className="size-5 text-brand-600" />
+                  SEKCJA A: Kluczowe zagadnienia egzaminacyjne CKE
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Oceń swój obecny poziom w poniższych działach:
                 </p>
 
-                <div className="p-4 rounded-2xl bg-brand-50/70 border border-brand-100 text-xs text-brand-900 space-y-1.5">
-                  <span className="font-bold block text-brand-900">💡 Podpowiedzi: co możesz wpisać?</span>
-                  <ul className="list-disc list-inside space-y-1 text-slate-700 font-medium">
-                    <li>Ile czasu tygodniowo chcesz przeznaczyć na samodzielną naukę i zadania domowe?</li>
-                    <li>W czym czujesz się najsłabiej, a z czym radzisz sobie super?</li>
-                    <li>Co lubisz w nauce, a za czym bardzo nie przepadasz (np. "wolę przykłady z życia niż czystą teorię")?</li>
-                    <li>Inne ważne pytania lub oczekiwania do mnie!</li>
-                  </ul>
+                <div className="space-y-3">
+                  {getSubjectTopics(subject).map((topic) => (
+                    <div key={topic} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
+                      <div className="text-xs sm:text-sm font-semibold text-slate-800">{topic}</div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {[
+                          { label: "🟢 Znam dobrze", value: "Znam dobrze", style: "bg-emerald-600 text-white border-emerald-600" },
+                          { label: "🟡 Chcę utrwalić", value: "Chcę utrwalić", style: "bg-amber-500 text-white border-amber-500" },
+                          { label: "🟠 Muszę powtórzyć", value: "Muszę powtórzyć", style: "bg-orange-500 text-white border-orange-500" },
+                          { label: "🔴 Wymaga nauki od zera", value: "Wymaga nauki od zera", style: "bg-rose-600 text-white border-rose-600" },
+                        ].map((choice) => {
+                          const active = conceptMap[topic] === choice.value;
+                          return (
+                            <button
+                              key={choice.value}
+                              type="button"
+                              onClick={() =>
+                                setConceptMap((prev) => ({ ...prev, [topic]: choice.value }))
+                              }
+                              className={`py-2 px-2 rounded-xl border text-center text-xs font-semibold transition-all ${
+                                active
+                                  ? `${choice.style} shadow-sm font-bold`
+                                  : "bg-white border-slate-200 text-slate-700 hover:border-slate-300"
+                              }`}
+                            >
+                              {choice.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SEKCJA B: OBSZARY DO WZMOCNIENIA I ORGANIZACJA NAUKI */}
+              <div className="pt-6 border-t border-slate-100 space-y-4">
+                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+                  <Sparkles className="size-5 text-accent-500" />
+                  SEKCJA B: Obszary do wzmocnienia i organizacja nauki
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Zaznacz tematy, na których chcesz się ze mną skupić w pierwszej kolejności:
+                </p>
+
+                <div className="space-y-2.5">
+                  {getSubjectStrengtheningPoints(subject).map((item) => {
+                    const active = mathFears.includes(item);
+                    return (
+                      <button
+                        key={item}
+                        type="button"
+                        onClick={() => toggleArrayItem(setMathFears, item)}
+                        className={`w-full p-3.5 rounded-2xl border text-left text-xs sm:text-sm font-medium transition-all ${
+                          active
+                            ? "border-brand-500 bg-brand-50 text-brand-900 font-bold ring-2 ring-brand-200"
+                            : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                        }`}
+                      >
+                        {active ? "☑ " : "☐ "} {item}
+                      </button>
+                    );
+                  })}
                 </div>
 
-                <textarea
-                  rows={4}
-                  value={additionalNotes}
-                  onChange={(e) => setAdditionalNotes(e.target.value)}
-                  placeholder="Napisz mi cokolwiek chcesz — np. ile czasu masz na zadania domowe, co najbardziej lubisz w nauce lub o czym chcesz porozmawiać..."
-                  className="w-full rounded-2xl border border-slate-200 p-4 text-xs sm:text-sm text-slate-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
-                />
+                <div className="pt-2">
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Dopisz własne uwagi lub pytania do Oli (opcjonalnie):
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={additionalNotes}
+                    onChange={(e) => setAdditionalNotes(e.target.value)}
+                    placeholder="Wpisz cokolwiek chcesz — np. o czym chcesz porozmawiać podczas darmowej konsultacji..."
+                    className="w-full rounded-2xl border border-slate-200 p-3.5 text-xs sm:text-sm text-slate-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                  />
+                </div>
               </div>
 
               {/* Nawigacja w krokach */}
@@ -1884,12 +1605,8 @@ export default function DiagnozaPage() {
                 <Button variant="secondary" onClick={() => setStep(1)}>
                   <ArrowLeft className="mr-2 size-4" /> Wstecz
                 </Button>
-                <Button
-                  onClick={() => setStep(3)}
-                  disabled={!allQuestionsAnswered}
-                  className={!allQuestionsAnswered ? "opacity-60 cursor-not-allowed" : ""}
-                >
-                  Zobacz wynik i podsumowanie <CheckCircle2 className="ml-2 size-4" />
+                <Button onClick={() => setStep(3)}>
+                  Zobacz podsumowanie <CheckCircle2 className="ml-2 size-4" />
                 </Button>
               </div>
             </motion.div>
