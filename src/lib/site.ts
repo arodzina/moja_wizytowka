@@ -3,13 +3,13 @@
  */
 
 export const site = {
-  name: "Ola — Przygotowanie do E8 & Matury z Angielskiego",
+  name: "Ola — Przygotowanie do E8 & Matury (Matematyka & Angielski)",
   /** Użyj domeny produkcyjnej po publikacji */
   url: "https://korepetycje-ola.pl",
   tutorName: "Ola",
   headline: "Solidna wiedza i strategia na Twój najlepszy wynik z egzaminu.",
   description:
-    "Przekazuję sprawdzony materiał, motywację i wytyczne CKE z Matematyki i Angielskiego. Pomagam uczniom przygotować się do E8 i Matury z Angielskiego mądrze i bez chaotycznego kucia.",
+    "Przekazuję sprawdzony materiał, motywację i wytyczne CKE z Matematyki i Angielskiego. Pomagam uczniom przygotować się do E8 i Matury (z Matematyki i Angielskiego) mądrze i bez chaotycznego kucia.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",
@@ -50,14 +50,25 @@ export const services = [
     ],
   },
   {
+    id: "matura-matematyka",
+    title: "Matura z Matematyki (Podstawa & Rozszerzenie)",
+    description:
+      "Praca na oficjalnych arkuszach CKE, nauka toku rozumowania w zadaniach otwartych, algebra, funkcja kwadratowa, wielomiany, pochodne i optymalizacja.",
+    bullets: [
+      "Przygotowanie do Matury Podstawowej oraz Rozszerzonej dla kandydatów na uczelnie techniczne i ścisłe",
+      "Analiza toku rozumowania w zadaniach otwartych pod klucz oceniania CKE",
+      "Wyłapywanie pewniaków: funkcja kwadratowa, ciągi, pochodne i zadania optymalizacyjne",
+    ],
+  },
+  {
     id: "matura-angielski",
     title: "Matura z Języka Angielskiego (Podstawa & Rozszerzenie)",
     description:
-      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz pewność w rozumieniu ze słuchu i tekstu.",
+      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz bezstresowa matura ustna.",
     bullets: [
       "Budowanie przewagi rekrutacyjnej na studia (angielski liczy się wszędzie)",
       "Trening pisania rozprawki, artykułu i listu pod klucz CKE",
-      "Zaawansowane struktury gramatyczne (inwersja, okresy warunkowe, strona bierna)",
+      "Zaawansowane struktury gramatyczne (inwersja, okresy warunkowe, strona bierna) & matura ustna",
     ],
   },
 ] as const;

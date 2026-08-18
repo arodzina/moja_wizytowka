@@ -63,6 +63,24 @@ const plans = [
       "Podsumowanie postępów i strategia optymalizacji punktów rekrutacyjnych",
     ],
   },
+  {
+    id: "matura-matematyka",
+    icon: GraduationCap,
+    label: "Matura z Matematyki",
+    sub: "Liceum & Technikum · Poziom Podstawowy & Rozszerzony",
+    price: "60",
+    unit: "zł / 60 min",
+    badge: "Matura CKE",
+    color: "brand",
+    includes: [
+      "Praca na oficjalnych arkuszach CKE (funkcja kwadratowa, ciągi, planimetria)",
+      "Tok rozumowania w zadaniach otwartych krótkiej i rozszerzonej odpowiedzi",
+      "Dla poziomu rozszerzonego: pochodne, wielomiany, optymalizacja i dowody",
+      "Darmowa wstępna konsultacja online (15 min)",
+      "Pakiet startowy 3 lekcji próbnych (odpłatnych, niezobowiązujących)",
+      "Podsumowanie po każdej lekcji z zaleconymi zadaniami",
+    ],
+  },
 ];
 
 const rules = [

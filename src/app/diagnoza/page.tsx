@@ -1418,9 +1418,10 @@ export default function DiagnozaPage() {
                 >
                   <option value="matematyka-4-6">📐 Matematyka — Klasy 4–6 (podstawy rachunkowe i ułamki)</option>
                   <option value="matematyka-7-8">📐 Matematyka — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
+                  <option value="matematyka-matura-podstawowa">📐 Matematyka — Liceum / Matura Podstawowa</option>
+                  <option value="matematyka-matura-rozszerzona">📐 Matematyka — Liceum / Matura Rozszerzona</option>
                   <option value="angielski-4-6">🇬🇧 Język Angielski — Klasy 4–6 (podstawy języka A1/A2)</option>
                   <option value="angielski-7-8">🇬🇧 Język Angielski — Klasy 7–8 & Egzamin Ósmoklasisty E8</option>
-                  <option value="angielski-liceum-biezacy">🎓 Język Angielski — Liceum (Bieżąca nauka / Konwersacje bez matury)</option>
                   <option value="angielski-matura-podstawowa">🎓 Język Angielski — Liceum / Matura Podstawowa (B1/B2)</option>
                   <option value="angielski-matura-rozszerzona">🎓 Język Angielski — Liceum / Matura Rozszerzona (B2+/C1)</option>
                 </select>
