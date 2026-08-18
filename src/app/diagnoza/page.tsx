@@ -1339,17 +1339,17 @@ export default function DiagnozaPage() {
         {/* Nagłówek */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-100 mb-8 text-center relative overflow-hidden">
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Quiz Poziomujący CKE
+            Weryfikacja Poziomu & Celów CKE
           </h1>
           <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-medium">
-            Szybki sprawdzian wiedzy przed Egzaminem Ósmoklasisty lub Maturą.
+            Szybka samoocena zagadnień przed Egzaminem Ósmoklasisty lub Maturą (zajmuje 60 sekund).
           </p>
 
-          {/* BANER Z PROŚBĄ O SZCZERE WYPEŁNIANIE BEZ ŚCIĄGANIA */}
-          <div className="mt-6 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs sm:text-sm text-left flex items-start gap-3">
-            <HeartHandshake className="size-5 shrink-0 text-amber-600 mt-0.5" />
+          {/* BANER Z INFORMACJĄ JAK TO DZIAŁA */}
+          <div className="mt-6 p-4 rounded-2xl bg-brand-50/80 border border-brand-200/80 text-brand-900 text-xs sm:text-sm text-left flex items-start gap-3">
+            <HeartHandshake className="size-5 shrink-0 text-brand-600 mt-0.5" />
             <p className="leading-relaxed font-medium">
-              <strong>Ważna prośba:</strong> Bardzo proszę o szczere wypełnianie quizu — bez używania kalkulatora, słowników ani pomocy osób trzecich. Dzięki temu na naszej darmowej 15-minutowej rozmowie zapoznawczej skupimy się dokładnie na tym, w czym najbardziej potrzebujesz wsparcia! 😊
+              <strong>Jak to działa?</strong> Wybierz swój przedmiot i zaznacz opcje, które najlepiej opisują Twój obecny poziom. Dzięki temu na naszej darmowej 15-minutowej rozmowie zapoznawczej przygotuję dla Was konkretny plan działania! 😊
             </p>
           </div>
 
@@ -1358,7 +1358,7 @@ export default function DiagnozaPage() {
             <div className="flex items-center justify-between text-xs font-medium text-slate-500 mb-2">
               <span>Krok {step} z 3</span>
               <span>
-                {step === 1 ? "Podstawowe informacje" : step === 2 ? "Test i samoocena" : "Wynik i podsumowanie"}
+                {step === 1 ? "Podstawowe informacje" : step === 2 ? "Samoocena i cele" : "Podsumowanie"}
               </span>
             </div>
             <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
