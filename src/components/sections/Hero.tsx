@@ -45,14 +45,9 @@ export default function Hero() {
           initial={reduce ? undefined : "hidden"}
           animate="show"
         >
-          <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-700 ring-1 ring-brand-100">
-            <Target className="size-3.5 text-accent-600" aria-hidden="true" />
-            Specjalizacja: Egzamin Ósmoklasisty & Matura Angielski
-          </motion.div>
-
           <motion.h1
             variants={item}
-            className="mt-6 text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
+            className="text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
             Solidna wiedza i strategia na{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
