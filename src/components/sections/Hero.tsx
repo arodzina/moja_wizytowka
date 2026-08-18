@@ -8,7 +8,7 @@ const trustPoints = [
   "100% zgodności z wytycznymi CKE",
   "Sprawdzony materiał i jasny plan",
   "E8 Matematyka & Angielski",
-  "Matura Angielski (Podst. & Rozsz.)",
+  "Matura Matematyka & Angielski",
 ];
 
 const container = {
@@ -60,7 +60,7 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Przekazuję sprawdzony materiał, motywację i wytyczne CKE z <strong className="font-semibold text-ink">Matematyki i Angielskiego</strong>. Pomagam przygotować się do E8 i Matury z Angielskiego mądrze i bez chaotycznego kucia.
+            Przekazuję sprawdzony materiał, motywację i wytyczne CKE z <strong className="font-semibold text-ink">Matematyki i Angielskiego</strong>. Pomagam przygotować się do E8 oraz Matury z Matematyki i Angielskiego mądrze i bez chaotycznego kucia.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
@@ -105,14 +105,14 @@ export default function Hero() {
               </span>
             </div>
 
-            <div className="space-y-3 pt-1">
+            <div className="space-y-2.5 pt-1">
               {/* Karta 1: Matematyka E8 */}
-              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-base">
+              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
+                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm">
                   📐
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty: Matematyka</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty: Matematyka</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
                     Rozkładanie zadań CKE na proste kroki, algebra, geometria i pewniaki egzaminacyjne.
                   </p>
@@ -120,25 +120,38 @@ export default function Hero() {
               </div>
 
               {/* Karta 2: Angielski E8 */}
-              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-base">
+              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
+                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-sm">
                   🇬🇧
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Egzamin Ósmoklasisty: Język Angielski</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty: Język Angielski</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
                     Niezawodne szablony e-maila, pewniaki gramatyczne, słownictwo i reakcje językowe CKE.
                   </p>
                 </div>
               </div>
 
-              {/* Karta 3: Matura Angielski */}
-              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-base font-bold">
+              {/* Karta 3: Matura Matematyka */}
+              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
+                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-sm font-bold">
+                  📐
+                </span>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki (Podstawa & Rozszerzenie)</h4>
+                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
+                    Podejście AGH — funkcja kwadratowa, ciągi, pochodne, wielomiany i zadania optymalizacyjne.
+                  </p>
+                </div>
+              </div>
+
+              {/* Karta 4: Matura Angielski */}
+              <div className="flex items-start gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70">
+                <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-sm font-bold">
                   🎓
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
                     Use of English, pisanie (rozprawka, list), transformacje oraz bezstresowa matura ustna.
                   </p>
