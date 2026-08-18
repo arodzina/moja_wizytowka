@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 const trustPoints = [
   "100% zgodności z wytycznymi CKE",
-  "Redukcja stresu i jasny plan",
+  "Sprawdzony materiał i jasny plan",
   "E8 Matematyka & Angielski",
   "Matura Angielski (Podst. & Rozsz.)",
 ];
@@ -54,19 +54,18 @@ export default function Hero() {
             variants={item}
             className="mt-6 text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Przekształć stres przed egzaminem w{" "}
+            Solidna wiedza i strategia na{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
-              pewność siebie
+              Twój najlepszy wynik
             </span>{" "}
-            i wysoki wynik.
+            z egzaminu.
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Dostanie się do dobrego liceum i na wymarzone studia to nie przypadek.
-            Kompleksowe przygotowanie do <strong className="font-semibold text-ink">E8 z Matematyki i Angielskiego</strong> oraz <strong className="font-semibold text-ink">Matury z Angielskiego</strong>, które uczy myślenia i strategii CKE.
+            Przekazuję sprawdzony materiał, motywację i wytyczne CKE z <strong className="font-semibold text-ink">Matematyki i Angielskiego</strong>. Pomagam przygotować się do E8 i Matury z Angielskiego mądrze i bez chaotycznego kucia.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">

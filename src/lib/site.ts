@@ -7,9 +7,9 @@ export const site = {
   /** Użyj domeny produkcyjnej po publikacji */
   url: "https://korepetycje-ola.pl",
   tutorName: "Ola",
-  headline: "Przekształć stres przed egzaminem w pewność siebie i wysoki wynik.",
+  headline: "Solidna wiedza i strategia na Twój najlepszy wynik z egzaminu.",
   description:
-    "Dostanie się do dobrego liceum i na wymarzone studia to nie przypadek. Kompleksowe przygotowanie do E8 z Matematyki i Angielskiego oraz Matury z Angielskiego, które uczy myślenia i strategii CKE.",
+    "Przekazuję sprawdzony materiał, motywację i wytyczne CKE z Matematyki i Angielskiego. Pomagam uczniom przygotować się do E8 i Matury z Angielskiego mądrze i bez chaotycznego kucia.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",
