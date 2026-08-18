@@ -1390,7 +1390,8 @@ export default function DiagnozaPage() {
                     className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   >
                     <option value="1x-tydzien">1 raz w tygodniu (60 min) — regularnie</option>
-                    <option value="2x-tydzien">2 razy w tygodniu (2x 60 min) — intensywnie</option>
+                    <option value="2x-tydzien-pakiet">2 razy w tygodniu (2x 60 min) — Pakiet Promocyjny (-5 zł/h)</option>
+                    <option value="1x-tydzien-45">1 raz w tygodniu (45 min) — krótsza lekcja</option>
                     <option value="do-ustalenia">Chcę ustalić częstotliwość podczas darmowej rozmowy</option>
                   </select>
                 </div>
@@ -1426,8 +1427,8 @@ export default function DiagnozaPage() {
               <div className="pt-4 flex justify-end">
                 <Button
                   onClick={() => {
-                    if (!studentName || !contact || !schoolClass) {
-                      alert("Proszę wpisać imię, klasę oraz kontakt.");
+                    if (!studentName || !contact) {
+                      alert("Proszę wpisać imię oraz kontakt.");
                       return;
                     }
                     setStep(2);

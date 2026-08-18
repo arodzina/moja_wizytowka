@@ -14,15 +14,16 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Klasa 8 (oraz zaległości kl. 4–7)",
     price: "60",
     unit: "zł / 60 min",
+    discountNote: "lub 55 zł / 60 min przy 2x w tygodniu",
     badge: "Ścieżka E8",
     color: "brand",
     includes: [
+      "Zniżka pakietowa: 55 zł / 60 min przy lekcjach 2x w tygodniu",
       "Rozpracowywanie zadań otwartych i zamkniętych CKE z matematyki lub angielskiego",
       "Pewniaki egzaminacyjne: algebra, geometria, szablony wypowiedzi (e-mail)",
       "Darmowa wstępna konsultacja online (15 min)",
       "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
       "Przejście na abonament miesięczny z góry po okresie próbnym",
-      "Podsumowanie po każdej lekcji z zaleconymi materiałami",
     ],
   },
   {
@@ -32,15 +33,16 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Poziom Podstawowy CKE",
     price: "70",
     unit: "zł / 60 min",
+    discountNote: "lub 65 zł / 60 min przy 2x w tygodniu",
     badge: "Matura PP",
     color: "brand",
     includes: [
+      "Zniżka pakietowa: 65 zł / 60 min przy lekcjach 2x w tygodniu",
       "Praca na autentycznych arkuszach CKE (matematyka lub angielski)",
       "Pewniaki maturalne: funkcja kwadratowa, ciągi, szablony pisania, słuchanie",
       "Darmowa wstępna konsultacja online (15 min)",
       "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
       "Przejście na abonament miesięczny z góry po okresie próbnym",
-      "Naukę prowadzi studentka AGH (angielski C1, autorka kursu Notion Master)",
     ],
   },
   {
@@ -50,17 +52,18 @@ const plans = [
     sub: "Matematyka (AGH) lub Język Angielski (C1) · Poziom Rozszerzony",
     price: "85",
     unit: "zł / 60 min",
+    discountNote: "lub 80 zł / 60 min przy 2x w tygodniu",
     badge: "Matura PR",
     popular: true,
     badgeHighlight: "Klucz na studia",
     color: "accent",
     includes: [
+      "Zniżka pakietowa: 80 zł / 60 min przy lekcjach 2x w tygodniu",
       "Zaawansowana strategia CKE dla kandydatów na renomowane uczelnie i kierunki ścisłe",
       "Matematyka PR: pochodne, wielomiany, optymalizacja, dowody i tok rozumowania",
       "Angielski PR: Use of English, transformacje, pisanie (rozprawka, list) & matura ustna",
       "Darmowa wstępna konsultacja online (15 min)",
       "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
-      "Przejście na abonament miesięczny z góry po okresie próbnym",
     ],
   },
 ];
@@ -142,13 +145,20 @@ export default function Pricing() {
                   {plan.sub}
                 </p>
 
-                <div className="mt-5 flex flex-wrap items-baseline gap-1.5 border-y py-3 border-slate-100 dark:border-white/10">
-                  <span className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-ink"}`}>
-                    {plan.price}
-                  </span>
-                  <span className={`text-sm font-semibold ${plan.popular ? "text-white/70" : "text-slate-soft"}`}>
-                    {plan.unit}
-                  </span>
+                <div className="mt-5 border-y py-3 border-slate-100 dark:border-white/10">
+                  <div className="flex flex-wrap items-baseline gap-1.5">
+                    <span className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-ink"}`}>
+                      {plan.price}
+                    </span>
+                    <span className={`text-sm font-semibold ${plan.popular ? "text-white/70" : "text-slate-soft"}`}>
+                      {plan.unit}
+                    </span>
+                  </div>
+                  {plan.discountNote && (
+                    <p className={`mt-1 text-xs font-semibold ${plan.popular ? "text-accent-300" : "text-emerald-700"}`}>
+                      ⚡ {plan.discountNote}
+                    </p>
+                  )}
                 </div>
 
                 <ul className="mt-5 space-y-3 flex-1">
