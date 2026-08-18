@@ -108,7 +108,7 @@ export default function Hero() {
             <div className="space-y-3 pt-1">
               {/* Karta 1: Matematyka E8 */}
               <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-amber-500 text-white text-base">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white text-base">
                   📐
                 </span>
                 <div>
@@ -133,13 +133,13 @@ export default function Hero() {
               </div>
 
               {/* Karta 3: Matura Angielski */}
-              <div className="flex items-start gap-3.5 rounded-2xl bg-slate-900 text-white p-4 ring-1 ring-slate-800">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-400 text-ink text-base">
+              <div className="flex items-start gap-3.5 rounded-2xl bg-mist p-4 ring-1 ring-brand-100/70">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-amber-400 text-ink text-base font-bold">
                   🎓
                 </span>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-300">
+                  <h4 className="text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
+                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
                     Use of English, pisanie (rozprawka, list), transformacje oraz bezstresowa matura ustna.
                   </p>
                 </div>
