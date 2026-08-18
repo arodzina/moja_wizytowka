@@ -25,7 +25,7 @@ export default function Hero() {
   });
 
   return (
-    <section id="start" className="relative overflow-x-clip bg-mist pt-10 pb-20 lg:pt-16 lg:pb-28">
+    <section id="start" className="relative overflow-x-clip bg-mist pt-14 pb-24 lg:pt-20 lg:pb-32">
       {/* Tło ozdobne */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute top-[-10%] left-[-10%] h-[40rem] w-[40rem] rounded-full bg-brand-100/60 blur-3xl" />

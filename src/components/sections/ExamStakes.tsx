@@ -49,7 +49,7 @@ export default function ExamStakes() {
         <div className="absolute bottom-10 right-[-10%] h-96 w-96 rounded-full bg-accent-100/50 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+      <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-28">
         <SectionHeading
           eyebrow="Dlaczego to takie ważne"
           title="O co tak naprawdę toczy się gra?"
