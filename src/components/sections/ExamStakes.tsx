@@ -10,7 +10,7 @@ const stakes = [
     icon: School,
     badge: "Dla Ósmoklasisty i Rodziców",
     badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Punkty na E8: Dobry plan przygotowań",
+    title: "Przepustka do wymarzonego liceum (E8)",
     description:
       "Rozumiem obawy ósmoklasisty i jego rodziców. Na egzaminie liczy się każdy punkt, który wpływa na wyniki rekrutacyjne do liceów i techników. Pomagam uporządkować materiał, uzupełnić luki w wiedzy i krok po kroku przygotować ucznia do zadań egzaminacyjnych.",
     takeaway: "Jasny plan działania + rzetelne wsparcie w nauce.",
