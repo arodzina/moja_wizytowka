@@ -22,6 +22,7 @@ export const navLinks = [
   { label: "O egzaminach", href: "/#stawka-egzaminu" },
   { label: "O mnie", href: "/#o-mnie" },
   { label: "Jak uczę", href: "/#metodologia" },
+  { label: "Poradniki", href: "/#poradniki" },
   { label: "Cennik", href: "/#cennik" },
   { label: "FAQ", href: "/#faq" },
 ] as const;
