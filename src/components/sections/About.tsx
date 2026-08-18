@@ -26,9 +26,9 @@ export default function About() {
             <Image
               src="/images/ola-portrait.jpg"
               alt="Zdjęcie Oli — mentorki egzaminacyjnej E8 i Matury"
-              width={640}
-              height={800}
-              loading="lazy"
+              width={576}
+              height={1024}
+              unoptimized
               className="w-full rounded-[2.5rem] object-cover shadow-float ring-1 ring-white aspect-[4/5]"
             />
             <motion.div
