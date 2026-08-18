@@ -73,7 +73,7 @@ export default function About() {
                 Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i przełamywaniu bariery w mówieniu.
               </p>
               <p>
-                Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. W nauce stawiam na świetną organizację i sprawne narzędzia, które pomagają uczniom trzymać porządek w notatkach i spokojnie realizować plan powtórek.
+                Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. Stworzyłam również autorski kurs <strong className="font-semibold text-ink">Notion Master</strong> — pasjonuję się cyfrową organizacją nauki i pomagam uczniom trzymać idealny ład w materiałach i notatkach do egzaminu.
               </p>
             </div>
           </Reveal>
