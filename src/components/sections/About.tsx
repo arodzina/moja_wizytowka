@@ -68,44 +68,11 @@ export default function About() {
                 Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne, uporządkowane podejście, które przekładam na proste tłumaczenie matematyki i schematów CKE. Z korepetycjami zaczynałam na dużych platformach edukacyjnych, gdzie przeprowadziłam setki lekcji z uczniami przygotowującymi się do egzaminów.
               </p>
               <p>
-                Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładamy skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiamy się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i odwadze językowej.
+                Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i odwadze językowej.
               </p>
               <p>
                 Praktyczny angielski szlifowałam podczas wyjazdu <strong className="font-semibold text-ink">Erasmus+ w Portugalii (poziom C1)</strong>. Stworzyłam też autorski kurs <strong className="font-semibold text-ink">Notion Master</strong>, pomagając uczniom układać bezstresowy harmonogram powtórek do samego dnia testu!
               </p>
-            </div>
-          </Reveal>
-
-          {/* DOŚWIADCZENIE W LICZBACH */}
-          <Reveal delay={0.15}>
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
-                <div className="text-2xl sm:text-3xl font-extrabold text-brand-600">Setki+</div>
-                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
-                  👨‍🏫 Przeprowadzonych lekcji online z uczniami E8 i liceum
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
-                <div className="text-2xl sm:text-3xl font-extrabold text-amber-500">1 na 1</div>
-                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
-                  🎯 Indywidualny plan powtórek dopasowany do ucznia
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
-                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600">100%</div>
-                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
-                  📋 Zgodności z wytycznymi i informatorami CKE
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-5 ring-1 ring-slate-200/70 shadow-card">
-                <div className="text-lg sm:text-xl font-bold text-ink">AGH & C1</div>
-                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
-                  🎓 Informatyka AGH + Angielski C1 (Erasmus+ Portugalia)
-                </div>
-              </div>
             </div>
           </Reveal>
 
