@@ -18,11 +18,11 @@ const plans = [
     badge: "Ścieżka E8",
     color: "brand",
     includes: [
+      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
       "Zniżka pakietowa: 55 zł / 60 min przy lekcjach 2x w tygodniu",
       "Rozpracowywanie zadań otwartych i zamkniętych CKE z matematyki lub angielskiego",
       "Pewniaki egzaminacyjne: algebra, geometria, szablony wypowiedzi (e-mail)",
       "Darmowa wstępna konsultacja online (15 min)",
-      "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
       "Przejście na abonament miesięczny z góry po okresie próbnym",
     ],
   },
@@ -37,11 +37,11 @@ const plans = [
     badge: "Matura PP",
     color: "brand",
     includes: [
+      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
       "Zniżka pakietowa: 65 zł / 60 min przy lekcjach 2x w tygodniu",
       "Praca na autentycznych arkuszach CKE (matematyka lub angielski)",
       "Pewniaki maturalne: funkcja kwadratowa, ciągi, szablony pisania, słuchanie",
       "Darmowa wstępna konsultacja online (15 min)",
-      "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
       "Przejście na abonament miesięczny z góry po okresie próbnym",
     ],
   },
@@ -58,12 +58,12 @@ const plans = [
     badgeHighlight: "Klucz na studia",
     color: "accent",
     includes: [
+      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
       "Zniżka pakietowa: 80 zł / 60 min przy lekcjach 2x w tygodniu",
       "Zaawansowana strategia CKE dla kandydatów na renomowane uczelnie i kierunki ścisłe",
       "Matematyka PR: pochodne, wielomiany, optymalizacja, dowody i tok rozumowania",
       "Angielski PR: Use of English, transformacje, pisanie (rozprawka, list) & matura ustna",
       "Darmowa wstępna konsultacja online (15 min)",
-      "Okres próbny: 3 pierwsze lekcje płatne z lekcji na lekcję",
     ],
   },
 ];
@@ -71,7 +71,7 @@ const plans = [
 const rules = [
   "Przejrzyste warunki ustalamy na początku, żeby uczeń i rodzic mieli 100% spokoju.",
   "Darmowa rozmowa zapoznawcza (15 min) — omówienie celów i preferencji bez zobowiązań.",
-  "Okres próbny (3 pierwsze lekcje) — płatne pojedynczo z lekcji na lekcję. Dopiero potem rozliczenie miesięczne z góry.",
+  "Okres próbny (3 pierwsze lekcje) — każda lekcja z rabatem -25%, płatne pojedynczo z lekcji na lekcję. Dopiero potem rozliczenie miesięczne z góry.",
   "Przełożenie lekcji min. 24h wcześniej — bezpłatny nowy termin w tym samym miesiącu.",
 ];
 
@@ -102,6 +102,19 @@ export default function Pricing() {
             </p>
             <p className="mt-1 text-sm text-slate-soft">
               Omawiamy dotychczasowe trudności ucznia, cel punktowy i dobieramy strategię.
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Rabaty na 3 lekcje próbne — baner promocyjny */}
+        <Reveal delay={0.05}>
+          <div className="mx-auto mt-4 max-w-2xl rounded-3xl bg-amber-50 px-6 py-4 ring-1 ring-amber-300/80 text-center shadow-soft">
+            <p className="flex items-center justify-center gap-2 text-sm font-bold text-amber-950">
+              <Sparkles className="size-4 text-amber-600" aria-hidden="true" />
+              Oferta startowa: <span className="text-amber-700 underline underline-offset-2">Pierwsze 3 lekcje próbne aż o 25% tańsze!</span>
+            </p>
+            <p className="mt-1 text-xs font-medium text-amber-900/90">
+              Każda z 3 pierwszych lekcji objęta jest rabatem -25% i płatna pojedynczo z lekcji na lekcję (bez płacenia z góry).
             </p>
           </div>
         </Reveal>

@@ -16,10 +16,10 @@ const collaborationSteps = [
   {
     step: "02",
     icon: Sparkles,
-    title: "3 Lekcje próbne na start",
+    title: "3 Lekcje próbne (-25% na start)",
     description:
-      "Pierwsze 3 spotkania są płatne pojedynczo przed zajęciami (do 24h przed konkretną lekcją, bez płacenia z góry za cały miesiąc). Uczeń i rodzic testują atmosferę i styl pracy.",
-    badge: "Pakiet próbny",
+      "Pierwsze 3 spotkania objęte są rabatem -25% na każdą lekcję i płatne pojedynczo przed zajęciami (do 24h przed lekcją, bez płacenia z góry za cały miesiąc). Uczeń i rodzic testują atmosferę i styl pracy.",
+    badge: "Rabat -25% na 3 pierwsze lekcje",
   },
   {
     step: "03",
