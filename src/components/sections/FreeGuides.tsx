@@ -325,7 +325,7 @@ export default function FreeGuides() {
             </p>
           </div>
           <Button href="/poziom" variant="secondary" size="lg" className="shrink-0">
-            Weryfikacja poziomu <ArrowRight className="ml-2 size-4" />
+            Ankieta rozpoznawcza <ArrowRight className="ml-2 size-4" />
           </Button>
         </div>
       </div>
