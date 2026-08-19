@@ -80,7 +80,7 @@ export default function FAQ() {
                 Zadaj pytanie bezpośrednio
               </a>
               <p className="text-xs text-slate-400">
-                Odpowiadamy zwykle w ciągu kilku godzin.
+                Odpowiadam zwykle w ciągu kilku godzin.
               </p>
             </div>
           </Reveal>
