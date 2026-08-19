@@ -217,7 +217,7 @@ export default function FreeGuides() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {[
             { id: "all", label: "Wszystkie (6)" },
-            { id: "e8", label: "Egzamin Ósmoklasisty (E8)" },
+            { id: "e8", label: "Egzamin Ósmoklasisty" },
             { id: "matura-pp", label: "Matura Podstawowa" },
             { id: "matura-pr", label: "Matura Rozszerzona" },
           ].map((tab) => (
