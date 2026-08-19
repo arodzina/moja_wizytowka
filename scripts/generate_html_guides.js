@@ -149,9 +149,47 @@ function convertMarkdownToHtml(mdPath) {
   let inList = false;
   let inBlockquote = false;
   let blockquoteLines = [];
+  let inTable = false;
+  let tableRows = [];
 
   for (let line of lines) {
     let trimmed = line.trim();
+
+    if (trimmed.startsWith("|")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      if (inBlockquote) {
+        htmlLines.push(`<div class="task-box">${blockquoteLines.join("<br>")}</div>`);
+        inBlockquote = false;
+        blockquoteLines = [];
+      }
+      // Skip markdown table separator lines like | --- | --- |
+      if (/^\|[\s-:]+\|/.test(trimmed)) {
+        continue;
+      }
+      inTable = true;
+      const cells = trimmed.split("|").slice(1, -1).map(c => c.trim());
+      tableRows.push(cells);
+      continue;
+    } else if (inTable) {
+      if (tableRows.length > 0) {
+        let tableHtml = '<div style="overflow-x: auto; margin: 1.5rem 0;"><table style="width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem;">';
+        tableRows.forEach((row, rowIndex) => {
+          tableHtml += '<tr style="border-bottom: 1px solid #e2e8f0;">';
+          row.forEach(cell => {
+            if (rowIndex === 0) {
+              tableHtml += `<th style="padding: 0.75rem 1rem; background-color: #f1f5f9; color: #1e3a8a; font-weight: 700; text-align: left; border: 1px solid #e2e8f0;">${parseInline(cell)}</th>`;
+            } else {
+              tableHtml += `<td style="padding: 0.75rem 1rem; color: #334155; border: 1px solid #e2e8f0;">${parseInline(cell)}</td>`;
+            }
+          });
+          tableHtml += '</tr>';
+        });
+        tableHtml += '</table></div>';
+        htmlLines.push(tableHtml);
+      }
+      inTable = false;
+      tableRows = [];
+    }
 
     if (trimmed.startsWith("> ")) {
       if (inList) { htmlLines.push("</ul>"); inList = false; }
@@ -217,6 +255,23 @@ function convertMarkdownToHtml(mdPath) {
       inList = false;
     }
     htmlLines.push(`<p style="margin-bottom: 1.25rem; color: #334155; font-size: 1rem;">${parseInline(trimmed)}</p>`);
+  }
+
+  if (inTable && tableRows.length > 0) {
+    let tableHtml = '<div style="overflow-x: auto; margin: 1.5rem 0;"><table style="width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem;">';
+    tableRows.forEach((row, rowIndex) => {
+      tableHtml += '<tr style="border-bottom: 1px solid #e2e8f0;">';
+      row.forEach(cell => {
+        if (rowIndex === 0) {
+          tableHtml += `<th style="padding: 0.75rem 1rem; background-color: #f1f5f9; color: #1e3a8a; font-weight: 700; text-align: left; border: 1px solid #e2e8f0;">${parseInline(cell)}</th>`;
+        } else {
+          tableHtml += `<td style="padding: 0.75rem 1rem; color: #334155; border: 1px solid #e2e8f0;">${parseInline(cell)}</td>`;
+        }
+      });
+      tableHtml += '</tr>';
+    });
+    tableHtml += '</table></div>';
+    htmlLines.push(tableHtml);
   }
 
   if (inBlockquote) {
