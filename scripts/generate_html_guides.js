@@ -96,6 +96,14 @@ function wrapHtml(title, category, icon, contentHtml) {
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+    .task-box {
+      background-color: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+      margin: 1.25rem 0;
+      color: #1e293b;
+    }
 
     @media print {
       body { background-color: #ffffff; padding-bottom: 0; }
@@ -139,9 +147,22 @@ function convertMarkdownToHtml(mdPath) {
 
   const htmlLines = [];
   let inList = false;
+  let inBlockquote = false;
+  let blockquoteLines = [];
 
   for (let line of lines) {
-    const trimmed = line.trim();
+    let trimmed = line.trim();
+
+    if (trimmed.startsWith("> ")) {
+      if (inList) { htmlLines.push("</ul>"); inList = false; }
+      inBlockquote = true;
+      blockquoteLines.push(parseInline(trimmed.substring(2)));
+      continue;
+    } else if (inBlockquote) {
+      htmlLines.push(`<div class="task-box">${blockquoteLines.join("<br>")}</div>`);
+      inBlockquote = false;
+      blockquoteLines = [];
+    }
 
     if (!trimmed) {
       if (inList) { htmlLines.push("</ul>"); inList = false; }
@@ -168,13 +189,7 @@ function convertMarkdownToHtml(mdPath) {
 
     if (trimmed.startsWith("### ")) {
       if (inList) { htmlLines.push("</ul>"); inList = false; }
-      htmlLines.push(`<h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-top: 1.5rem; margin-bottom: 0.5rem;">${parseInline(trimmed.substring(4))}</h3>`);
-      continue;
-    }
-
-    if (trimmed.startsWith("> ")) {
-      if (inList) { htmlLines.push("</ul>"); inList = false; }
-      htmlLines.push(`<blockquote style="background-color: #f8fafc; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0.5rem; margin: 1.25rem 0; font-style: italic; color: #1e293b;">${parseInline(trimmed.substring(2))}</blockquote>`);
+      htmlLines.push(`<h3 style="font-size: 1.2rem; font-weight: 800; color: #1e40af; background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 0.5rem 0.75rem; border-radius: 0.5rem; margin-top: 1.75rem; margin-bottom: 0.75rem;">${parseInline(trimmed.substring(4))}</h3>`);
       continue;
     }
 
@@ -202,6 +217,10 @@ function convertMarkdownToHtml(mdPath) {
       inList = false;
     }
     htmlLines.push(`<p style="margin-bottom: 1.25rem; color: #334155; font-size: 1rem;">${parseInline(trimmed)}</p>`);
+  }
+
+  if (inBlockquote) {
+    htmlLines.push(`<div class="task-box">${blockquoteLines.join("<br>")}</div>`);
   }
 
   if (inList) { htmlLines.push("</ul>"); }
