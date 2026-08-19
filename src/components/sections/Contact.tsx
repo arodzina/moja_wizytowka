@@ -128,16 +128,6 @@ export default function Contact() {
                 </span>
               </div>
 
-              <div className="rounded-3xl bg-brand-50 p-6 ring-1 ring-brand-200/70 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-800">
-                  <Sparkles className="size-4 text-accent-500" />
-                  Gwarancja braku ryzyka
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Konsultacja (15 min) jest w 100% niezobowiązująca. Nie wymagamy żadnych deklaracji ani podpisywania długoterminowych umów.
-                </p>
-              </div>
-
               {site.facebook || site.instagram ? (
                 <div className="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/70">
                   <span className="text-sm font-semibold text-ink">Obserwuj mnie:</span>
