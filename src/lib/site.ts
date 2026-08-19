@@ -85,7 +85,7 @@ export const faqItems = [
   },
   {
     q: "Czy można łączyć korepetycje z matematyki i języka angielskiego?",
-    a: "Tak! Bardzo wielu moich uczniów decyduje się na kompleksowe przygotowanie z obu przedmiotów u jednej osoby. To duża wygoda: uczeń pracuje w stałym, zaufanym środowisku, łatwiej ułożyć elastyczny grafik zajęć, a rodzic ma pełen wgląd w postępy z obu przedmiotów w jednym miejscu.",
+    a: "Tak, jak najbardziej! Oferuję kompleksowe przygotowanie zarówno z matematyki, jak i języka angielskiego. To duża wygoda: uczeń uczy się w stałym, zaufanym środowisku, łatwiej ułożyć elastyczny grafik zajęć, a rodzic ma pełen wgląd w postępy z obu przedmiotów w jednym miejscu.",
   },
   {
     q: "Dlaczego warto uczyć się ze strategią CKE, a nie tylko samodzielnie z podręczników?",
