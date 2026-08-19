@@ -92,8 +92,8 @@ export const faqItems = [
     a: "Szkoła realizuje cały program podręcznikowy, w którym jest mnóstwo materiału niemającego bezpośredniego odzwierciedlenia na egzaminie. Ja uczę ściśle pod aktualne Wytyczne i Informatory CKE: jak czytać polecenia, jak konstruować odpowiedzi pod klucz punktowania i jak nie tracić punktów na drobnych pułapkach formalnych.",
   },
   {
-    q: "Jak wyznaczasz cele i monitorujesz postępy ucznia?",
-    a: "Zaczynam od dokładnego sprawdzenia wiedzy i wyłapania luk na podstawie autentycznych zadań egzaminacyjnych. Następnie ustalam ambitny, lecz realny cel punktowy. Po każdych zajęciach uczeń i rodzic otrzymują podsumowanie przerobionego materiału, a regularne mini-arkusze pokazują realny przyrost punktów.",
+    q: "Jak wygląda informacja zwrotna i monitorowanie postępów po lekcji?",
+    a: "Po każdych zajęciach rodzic i uczeń wiedzą dokładnie, nad czym pracowaliśmy i na co przeznaczony był czas lekcji. Przesyłam podsumowanie przerobionego materiału, krótki feedback z przebiegu spotkania oraz konkretne wskazówki, co uczeń powinien powtórzyć w domu.",
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji próbnych z rabatem -25%?",
