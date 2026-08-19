@@ -5,7 +5,7 @@
 export const site = {
   name: "Ola — Przygotowanie do E8 & Matury (Matematyka & Angielski)",
   /** Użyj domeny produkcyjnej po publikacji */
-  url: "https://korepetycje-ola.pl",
+  url: "https://ola-korepetycje.pl",
   tutorName: "Ola",
   headline: "Solidna wiedza i strategia na Twój najlepszy wynik z egzaminu.",
   description:
