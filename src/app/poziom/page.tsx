@@ -1586,15 +1586,22 @@ export default function DiagnozaPage() {
                   })}
                 </div>
 
-                <div className="pt-2">
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Dopisz własne uwagi lub pytania do Oli (opcjonalnie):
+                <div className="pt-3 border-t border-slate-100 space-y-2">
+                  <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-950 text-xs sm:text-sm flex items-start gap-2.5">
+                    <Sparkles className="size-4 shrink-0 text-amber-600 mt-0.5" />
+                    <p className="leading-relaxed font-medium">
+                      <strong>Im więcej dowiem się o Tobie teraz, tym bardziej konkretny plan działania zaproponuję podczas naszej darmowej rozmowy!</strong>
+                    </p>
+                  </div>
+
+                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                    Napisz krótko: z czym masz największy problem, nad czym chcesz ze mną popracować lub jak wygląda Twoje dotychczasowe przygotowanie (opcjonalnie):
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     value={additionalNotes}
                     onChange={(e) => setAdditionalNotes(e.target.value)}
-                    placeholder="Wpisz cokolwiek chcesz — np. o czym chcesz porozmawiać podczas darmowej konsultacji..."
+                    placeholder="np. Z algebrą radzę sobie nieźle, ale gubię się w geometrii. Chcę powtórzyć zadania otwarte, przełamać stres na arkuszu lub zacząć przygotowania praktycznie od zera..."
                     className="w-full rounded-2xl border border-slate-200 p-3.5 text-xs sm:text-sm text-slate-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
                   />
                 </div>
