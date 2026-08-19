@@ -14,12 +14,12 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Klasa 8 (oraz zaległości kl. 4–7)",
     price: "60",
     unit: "zł / 60 min",
-    discountNote: "lub 55 zł / 60 min przy 2x w tygodniu",
+    discountNote: "lub 50 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
     badge: "Ścieżka E8",
     color: "brand",
     includes: [
       "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 55 zł / 60 min przy lekcjach 2x w tygodniu",
+      "Zniżka pakietowa: 50 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
       "Rozpracowywanie zadań otwartych i zamkniętych CKE z matematyki lub angielskiego",
       "Pewniaki egzaminacyjne: algebra, geometria, szablony wypowiedzi (e-mail)",
       "Darmowa wstępna konsultacja online (15 min)",
@@ -33,12 +33,12 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Poziom Podstawowy CKE",
     price: "70",
     unit: "zł / 60 min",
-    discountNote: "lub 65 zł / 60 min przy 2x w tygodniu",
+    discountNote: "lub 60 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
     badge: "Matura PP",
     color: "brand",
     includes: [
       "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 65 zł / 60 min przy lekcjach 2x w tygodniu",
+      "Zniżka pakietowa: 60 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
       "Praca na autentycznych arkuszach CKE (matematyka lub angielski)",
       "Pewniaki maturalne: funkcja kwadratowa, ciągi, szablony pisania, słuchanie",
       "Darmowa wstępna konsultacja online (15 min)",
@@ -52,14 +52,14 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Poziom Rozszerzony",
     price: "85",
     unit: "zł / 60 min",
-    discountNote: "lub 80 zł / 60 min przy 2x w tygodniu",
+    discountNote: "lub 75 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
     badge: "Matura PR",
     popular: true,
     badgeHighlight: "Klucz na studia",
     color: "accent",
     includes: [
       "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 80 zł / 60 min przy lekcjach 2x w tygodniu",
+      "Zniżka pakietowa: 75 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
       "Zaawansowana strategia CKE dla kandydatów na renomowane uczelnie i kierunki ścisłe",
       "Matematyka PR: pochodne, wielomiany, optymalizacja, dowody i tok rozumowania",
       "Angielski PR: Use of English, transformacje, pisanie (rozprawka, list) & matura ustna",
@@ -201,27 +201,6 @@ export default function Pricing() {
             </Reveal>
           ))}
         </div>
-
-        {/* Wyróżnik: Pakiet Premium Kwartalny */}
-        <Reveal delay={0.2}>
-          <div className="mx-auto mt-10 max-w-4xl rounded-3xl bg-gradient-to-r from-amber-500/10 via-brand-50 to-brand-100/50 p-6 sm:p-8 ring-1 ring-amber-300/60 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-200 text-amber-900 text-xs font-bold">
-                <Crown className="size-3.5" />
-                Opcja dla maksymalnych rezultatów
-              </div>
-              <h4 className="text-lg sm:text-xl font-bold text-ink">
-                Pakiet Kwartalny z Pełnymi Notatkami z Lekcji
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
-                Dla uczniów chcących stałego, zarezerwowanego terminu w grafiku oraz pełnych, szczegółowych notatek cyfrowych po każdych zajęciach wraz z dedykowanymi zestawami powtórkowymi do domu.
-              </p>
-            </div>
-            <Button href="#kontakt" variant="secondary" size="md" className="shrink-0">
-              Zapytaj o pakiet
-            </Button>
-          </div>
-        </Reveal>
 
         {/* 🛡️ Przejrzyste zasady współpracy */}
         <Reveal delay={0.25}>
