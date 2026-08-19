@@ -97,7 +97,7 @@ export const faqItems = [
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji próbnych z rabatem -25%?",
-    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy od 3 lekcji próbnych (każda lekcja objęta jest rabatem -25% i płatna pojedynczo, bez konieczności wiązania się długą umową). To czas, w którym uczeń sprawdza mój styl nauczania, a ja poznaję jego tempo pracy. Dopiero po tym etapie decydujecie o stałej współpracy.",
+    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy okres próbny — pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu (np. dla E8: 45 zł zamiast 60 zł za lekcję, dla Matury PP: 52,50 zł zamiast 70 zł). Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dopiero po tym etapie decydujecie o stałej współpracy.",
   },
   {
     q: "Czy zajęcia odbywają się w 100% online?",
