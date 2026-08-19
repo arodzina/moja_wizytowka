@@ -49,7 +49,7 @@ const plans = [
     id: "matura-rozszerzona",
     icon: GraduationCap,
     label: "Matura Rozszerzona (PR)",
-    sub: "Matematyka (AGH) lub Język Angielski (C1) · Poziom Rozszerzony",
+    sub: "Matematyka lub Język Angielski · Poziom Rozszerzony",
     price: "85",
     unit: "zł / 60 min",
     discountNote: "lub 80 zł / 60 min przy 2x w tygodniu",
