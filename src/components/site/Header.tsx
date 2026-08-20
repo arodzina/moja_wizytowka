@@ -45,16 +45,16 @@ export default function Header() {
       />
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 pt-1 sm:pt-0 transition-all duration-300 ${
           solid
-            ? "border-b border-slate-100 bg-white/90 shadow-sm backdrop-blur-md"
+            ? "border-b border-slate-100 bg-white/95 shadow-sm backdrop-blur-md"
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-3.5 sm:h-20 sm:px-8 py-2 sm:py-0">
           <a
             href="/#start"
-            className="rounded-xl"
+            className="rounded-xl shrink-0"
             aria-label="Przejdź do początku strony"
             onClick={() => setOpen(false)}
           >
@@ -78,19 +78,19 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Button href="/#kontakt" className="hidden sm:inline-flex">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <Button href="/#kontakt" size="md" className="hidden sm:inline-flex px-3.5 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
               Umów rozmowę
             </Button>
             <button
               type="button"
-              className="grid size-11 place-items-center rounded-xl text-ink transition-colors hover:bg-brand-50 lg:hidden"
+              className="grid size-10 sm:size-11 place-items-center rounded-xl text-ink transition-colors hover:bg-brand-50 lg:hidden"
               aria-expanded={open}
               aria-controls="menu-mobilne"
               aria-label={open ? "Zamknij menu" : "Otwórz menu"}
               onClick={() => setOpen((v) => !v)}
             >
-              {open ? <X className="size-6" /> : <Menu className="size-6" />}
+              {open ? <X className="size-5 sm:size-6" /> : <Menu className="size-5 sm:size-6" />}
             </button>
           </div>
         </div>

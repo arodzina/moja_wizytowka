@@ -93,54 +93,54 @@ export default function Contact() {
           lead="Wypełnij krótki formularz. Podczas 15-minutowej rozmowy online omówimy cele, trudności i ułożymy plan działania."
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
+        <div className="mt-10 grid gap-6 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
           {/* Kanały kontaktu */}
           <Reveal>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <a
                 href={`mailto:${site.email}`}
-                className="group flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group flex items-center gap-3.5 rounded-2xl bg-white p-4.5 sm:p-6 sm:rounded-3xl shadow-card ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
               >
-                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-brand-600 text-white">
-                  <Mail className="size-6" aria-hidden="true" />
+                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand-600 text-white sm:size-14 sm:rounded-2xl">
+                  <Mail className="size-5 sm:size-6" aria-hidden="true" />
                 </span>
-                <span className="min-w-0">
-                  <span className="block text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400 sm:text-xs">
                     E-mail kontaktowy
                   </span>
-                  <span className="mt-1 block truncate text-base font-bold text-ink group-hover:text-brand-700 sm:text-lg">
+                  <span className="mt-0.5 block break-all text-xs font-bold text-ink group-hover:text-brand-700 sm:text-base md:text-lg">
                     {site.email}
                   </span>
                 </span>
               </a>
 
-              <div className="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/70">
-                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-accent-100 text-accent-600">
-                  <Clock className="size-6" aria-hidden="true" />
+              <div className="flex items-center gap-3.5 rounded-2xl bg-white p-4.5 sm:p-6 sm:rounded-3xl shadow-card ring-1 ring-slate-200/70">
+                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-accent-100 text-accent-600 sm:size-14 sm:rounded-2xl">
+                  <Clock className="size-5 sm:size-6" aria-hidden="true" />
                 </span>
-                <span>
-                  <span className="block text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400 sm:text-xs">
                     Czas odpowiedzi
                   </span>
-                  <span className="mt-1 block text-lg font-bold text-ink">
+                  <span className="mt-0.5 block text-xs font-bold text-ink sm:text-base md:text-lg">
                     Zwykle w ciągu kilku godzin
                   </span>
                 </span>
               </div>
 
               {site.facebook || site.instagram ? (
-                <div className="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/70">
-                  <span className="text-sm font-semibold text-ink">Obserwuj mnie:</span>
-                  <div className="flex gap-3">
+                <div className="flex items-center gap-3.5 rounded-2xl bg-white p-4.5 sm:p-6 sm:rounded-3xl shadow-card ring-1 ring-slate-200/70">
+                  <span className="text-xs font-semibold text-ink sm:text-sm">Obserwuj mnie:</span>
+                  <div className="flex gap-2.5">
                     {site.facebook && (
                       <a
                         href={site.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Facebook"
-                        className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
+                        className="grid size-9 sm:size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
                       >
-                        <FacebookIcon className="size-5" />
+                        <FacebookIcon className="size-4 sm:size-5" />
                       </a>
                     )}
                     {site.instagram && (
@@ -149,9 +149,9 @@ export default function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
-                        className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
+                        className="grid size-9 sm:size-11 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
                       >
-                        <InstagramIcon className="size-5" />
+                        <InstagramIcon className="size-4 sm:size-5" />
                       </a>
                     )}
                   </div>
@@ -162,7 +162,7 @@ export default function Contact() {
 
           {/* Formularz */}
           <Reveal delay={0.1}>
-            <div className="rounded-[2rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-9">
+            <div className="rounded-2xl bg-white p-4.5 shadow-float ring-1 ring-slate-100 sm:rounded-[2rem] sm:p-9 min-w-0 max-w-full">
               {status === "sent" ? (
                 <motion.div
                   initial={reduce ? undefined : { opacity: 0, scale: 0.97 }}

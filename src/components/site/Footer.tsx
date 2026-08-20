@@ -18,10 +18,7 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-300">
               Kompleksowe przygotowanie do Egzaminu Ósmoklasisty (E8 - Matematyka & Angielski) oraz Matury z Języka Angielskiego. 100% zgodności ze standardem CKE.
             </p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-accent-300">
-              <ShieldCheck className="size-3.5" />
-              Standard CKE 2024/2025/2026
-            </div>
+
 
             {(site.facebook || site.instagram) && (
               <div className="mt-6 flex items-center gap-3">
