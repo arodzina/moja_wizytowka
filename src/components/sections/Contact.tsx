@@ -260,7 +260,7 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Wiadomość
+                      Wiadomość <span className="text-slate-400 font-normal text-xs">(opcjonalnie)</span>
                     </label>
                     <textarea
                       id="message"

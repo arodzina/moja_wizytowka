@@ -16,7 +16,7 @@ export default function Footer() {
               <Logo inverse />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-300">
-              Kompleksowe przygotowanie do Egzaminu Ósmoklasisty (E8) oraz Matury z Matematyki i Języka Angielskiego.
+              Przygotowanie do Egzaminu Ósmoklasisty i Matury z matematyki oraz języka angielskiego.
             </p>
 
 

@@ -77,7 +77,7 @@ export const services = [
 export const faqItems = [
   {
     q: "Kiedy najlepiej zacząć przygotowania do E8 i Matury?",
-    a: "Najbardziej optymalny czas to początek roku szkolnego (wrzesień/październik), co pozwala na spokojne uzupełnienie zaległości i regularne arkusze bez pośpiechu. Jeśli jednak do egzaminu zostało mniej czasu (np. 3–5 miesięcy), wdrażam plan skupiony na najważniejszych zagadnieniach i typach zadań, które dają najwięcej punktów.",
+    a: "Najlepiej zacząć odpowiednio wcześnie, żeby mieć czas na uzupełnienie braków, powtórkę materiału i regularną pracę z arkuszami. Jeśli do egzaminu zostało mniej czasu, skupiamy się na najważniejszych zagadnieniach i zadaniach wymagających dodatkowego przećwiczenia.",
   },
   {
     q: "Jak pomagasz uczniom, którzy odczuwają stres przed egzaminem?",

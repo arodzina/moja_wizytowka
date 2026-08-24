@@ -38,14 +38,6 @@ export default function About() {
               <Globe className="size-4 text-brand-600" aria-hidden="true" />
               Angielski <span className="text-brand-600">C1</span> · Erasmus+
             </motion.div>
-
-            <motion.div
-              {...float(5.6, 0.8)}
-              className="absolute -bottom-4 right-4 flex items-center gap-2 rounded-2xl bg-accent-200 px-4 py-2.5 text-sm font-bold text-ink shadow-soft sm:right-6"
-            >
-              <Target className="size-4 text-accent-600" aria-hidden="true" />
-              Przygotowanie zgodne z wymaganiami CKE
-            </motion.div>
           </div>
 
           {/* Wyniki z matur pod zdjęciem */}
@@ -132,53 +124,60 @@ export default function About() {
 
           {/* 4 Kafelki wyróżnień: Wykształcenie, szkolenia i doświadczenie */}
           <Reveal delay={0.2}>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <GraduationCap className="size-4 text-brand-600 shrink-0" />
-                  <span>AGH — Informatyka i Ekonometria</span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Studia na renomowanej uczelni technicznej — analityczne, uporządkowane podejście do matematyki.
-                </p>
-              </div>
+            <div className="mt-8 pt-6 border-t border-slate-200/80">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-900 flex items-center gap-2 mb-4">
+                <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
+                Wykształcenie, szkolenia CKE & organizacja pracy
+              </h3>
 
-              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <Target className="size-4 text-brand-600 shrink-0" />
-                  <span>Szkolenie z egzaminatorem CKE</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                    <GraduationCap className="size-4 text-brand-600 shrink-0" />
+                    <span>AGH — Informatyka i Ekonometria</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Studia na renomowanej uczelni technicznej — analityczne, uporządkowane podejście do matematyki.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Udział w szkoleniach prowadzonych przez egzaminatorów CKE — znajomość kryteriów oceniania i arkuszy.
-                </p>
-              </div>
 
-              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <Globe className="size-4 text-brand-600 shrink-0" />
-                  <span>Erasmus+ — Portugalia · angielski C1</span>
+                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                    <Target className="size-4 text-brand-600 shrink-0" />
+                    <span>Szkolenie prowadzone przez egzaminatora CKE</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Udział w szkoleniach prowadzonych przez egzaminatorów CKE — znajomość kryteriów oceniania i arkuszy.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem C1.
-                </p>
-              </div>
 
-              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <Sparkles className="size-4 text-brand-600 shrink-0" />
-                  <span>Autorka kursu Notion Master (Udemy)</span>
+                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                    <Globe className="size-4 text-brand-600 shrink-0" />
+                    <span>Erasmus+ — Portugalia · angielski C1</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem C1.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Autorski kurs z organizacji pracy, nauki i cyfrowych notatek.{" "}
-                  <a
-                    href="https://www.udemy.com/course/notion-master/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold text-brand-700 underline"
-                  >
-                    Zobacz kurs →
-                  </a>
-                </p>
+
+                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                    <Sparkles className="size-4 text-brand-600 shrink-0" />
+                    <span>Autorka kursu Notion Master na Udemy</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Autorski kurs z organizacji pracy, nauki i cyfrowych notatek.{" "}
+                    <a
+                      href="https://www.udemy.com/course/notion-master/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-brand-700 underline"
+                    >
+                      Zobacz kurs →
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>

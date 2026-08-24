@@ -51,9 +51,7 @@ const plans = [
     price: "85",
     unit: "zł / 60 min",
     discountNote: "75 zł / 60 min przy zajęciach 2× w tygodniu",
-    badge: "Poziom rozszerzony",
     popular: true,
-    badgeHighlight: "Klucz na studia",
     color: "accent",
     includes: [
       "przygotowanie zgodne z wymaganiami CKE",
@@ -141,12 +139,6 @@ export default function Pricing() {
                     : "bg-white ring-slate-200/80"
                 }`}
               >
-                {plan.badgeHighlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent-400 px-4 py-1 text-xs font-bold text-ink shadow-soft">
-                    {plan.badgeHighlight}
-                  </span>
-                )}
-
                 <div className="flex items-center justify-between">
                   <div className={`inline-flex size-12 items-center justify-center rounded-2xl ${
                     plan.popular ? "bg-white/10 text-accent-300" : "bg-brand-50 text-brand-600"
