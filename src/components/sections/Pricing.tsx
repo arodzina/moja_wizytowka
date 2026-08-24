@@ -10,67 +10,64 @@ const plans = [
   {
     id: "e8-przygotowanie",
     icon: Target,
-    label: "Egzamin Ósmoklasisty (E8)",
-    sub: "Matematyka lub Język Angielski · Klasa 8 (oraz zaległości kl. 4–7)",
+    label: "Egzamin Ósmoklasisty",
+    sub: "Matematyka lub Język Angielski · Klasa 8",
     price: "60",
     unit: "zł / 60 min",
-    discountNote: "lub 50 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
-    badge: "Ścieżka E8",
+    discountNote: "50 zł / 60 min przy zajęciach 2× w tygodniu",
+    badge: "Klasa 8",
     color: "brand",
     includes: [
-      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 50 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
-      "Rozpracowywanie zadań otwartych i zamkniętych CKE z matematyki lub angielskiego",
-      "Pewniaki egzaminacyjne: algebra, geometria, szablony wypowiedzi (e-mail)",
-      "Darmowa wstępna konsultacja online (15 min)",
-      "Przejście na abonament miesięczny z góry po okresie próbnym",
+      "przygotowanie zgodne z wymaganiami CKE",
+      "praca z zadaniami i arkuszami egzaminacyjnymi",
+      "uzupełnianie braków i powtórka najważniejszych zagadnień",
+      "materiały i plan nauki dopasowane do ucznia",
+      "pierwsze 3 lekcje -25%",
     ],
   },
   {
     id: "matura-podstawa",
     icon: BookOpen,
-    label: "Matura Podstawowa (PP)",
-    sub: "Matematyka lub Język Angielski · Poziom Podstawowy CKE",
+    label: "Matura Podstawowa",
+    sub: "Matematyka lub Język Angielski · Poziom podstawowy",
     price: "70",
     unit: "zł / 60 min",
-    discountNote: "lub 60 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
-    badge: "Matura PP",
+    discountNote: "60 zł / 60 min przy zajęciach 2× w tygodniu",
+    badge: "Poziom podstawowy",
     color: "brand",
     includes: [
-      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 60 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
-      "Praca na autentycznych arkuszach CKE (matematyka lub angielski)",
-      "Pewniaki maturalne: funkcja kwadratowa, ciągi, szablony pisania, słuchanie",
-      "Darmowa wstępna konsultacja online (15 min)",
-      "Przejście na abonament miesięczny z góry po okresie próbnym",
+      "przygotowanie zgodne z wymaganiami CKE",
+      "praca z arkuszami i zadaniami maturalnymi",
+      "powtórka najważniejszych zagadnień",
+      "analiza błędów i sposobów zdobywania punktów",
+      "pierwsze 3 lekcje -25%",
     ],
   },
   {
     id: "matura-rozszerzona",
     icon: GraduationCap,
-    label: "Matura Rozszerzona (PR)",
-    sub: "Matematyka lub Język Angielski · Poziom Rozszerzony",
+    label: "Matura Rozszerzona",
+    sub: "Matematyka lub Język Angielski · Poziom rozszerzony",
     price: "85",
     unit: "zł / 60 min",
-    discountNote: "lub 75 zł / 60 min przy 2x w tygodniu (-10 zł/h)",
-    badge: "Matura PR",
+    discountNote: "75 zł / 60 min przy zajęciach 2× w tygodniu",
+    badge: "Poziom rozszerzony",
     popular: true,
     badgeHighlight: "Klucz na studia",
     color: "accent",
     includes: [
-      "Okres próbny: pierwsze 3 lekcje z rabatem -25% (płatne z lekcji na lekcję)",
-      "Zniżka pakietowa: 75 zł / 60 min przy intensywnych lekcjach 2x w tygodniu",
-      "Zaawansowana strategia CKE dla kandydatów na renomowane uczelnie i kierunki ścisłe",
-      "Matematyka PR: pochodne, wielomiany, optymalizacja, dowody i tok rozumowania",
-      "Angielski PR: Use of English, transformacje, pisanie (rozprawka, list) & matura ustna",
-      "Darmowa wstępna konsultacja online (15 min)",
+      "przygotowanie zgodne z wymaganiami CKE",
+      "praca z arkuszami i trudniejszymi zadaniami",
+      "matematyka: m.in. pochodne, wielomiany, optymalizacja i dowody",
+      "angielski: m.in. Use of English, transformacje i wypowiedź pisemna",
+      "pierwsze 3 lekcje -25%",
     ],
   },
 ];
 
 const rules = [
   "Przejrzyste warunki ustalamy na początku, żeby uczeń i rodzic mieli 100% spokoju.",
-  "Darmowa rozmowa zapoznawcza (15 min) — omówienie celów i preferencji bez zobowiązań.",
+  "Darmowa rozmowa zapoznawcza (15 min) — omówienie celów i potrzeb ucznia bez zobowiązań.",
   "Okres próbny (3 pierwsze lekcje) — każda lekcja z rabatem -25%, płatne pojedynczo z lekcji na lekcję. Dopiero potem rozliczenie miesięczne z góry.",
   "Przełożenie lekcji min. 24h wcześniej — bezpłatny nowy termin w tym samym miesiącu.",
 ];
@@ -87,9 +84,9 @@ export default function Pricing() {
 
       <div id="cennik" className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionHeading
-          eyebrow="Filary oferty & Cennik"
-          title="3 dedykowane ścieżki egzaminacyjne"
-          lead="Precyzyjnie dopasowane programy nauczania oparte wyłącznie na wytycznych CKE. Przejrzyste stawki bez ukrytych kosztów."
+          eyebrow="Wybierz formę przygotowania"
+          title="Oferta i cennik"
+          lead="Zajęcia z matematyki lub języka angielskiego dopasowane do poziomu ucznia i celu egzaminacyjnego."
         />
 
         {/* Darmowa konsultacja — baner */}
@@ -97,11 +94,11 @@ export default function Pricing() {
           <div className="mx-auto mt-10 max-w-2xl rounded-3xl bg-brand-50 px-6 py-5 ring-1 ring-brand-200/60 text-center">
             <p className="flex items-center justify-center gap-2 text-sm font-bold text-brand-800">
               <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
-              Pierwsza konsultacja wstępna (15 min) jest zawsze{" "}
+              Pierwsza 15-minutowa konsultacja jest{" "}
               <span className="text-brand-600">bezpłatna i niezobowiązująca.</span>
             </p>
             <p className="mt-1 text-sm text-slate-soft">
-              Omawiamy dotychczasowe trudności ucznia, cel punktowy i dobieramy strategię.
+              Krótko omawiamy potrzeby ucznia, cel przygotowań i ustalamy, jak możemy pracować.
             </p>
           </div>
         </Reveal>
@@ -111,10 +108,10 @@ export default function Pricing() {
           <div className="mx-auto mt-4 max-w-2xl rounded-3xl bg-amber-50 px-6 py-4 ring-1 ring-amber-300/80 text-center shadow-soft">
             <p className="flex items-center justify-center gap-2 text-sm font-bold text-amber-950">
               <Sparkles className="size-4 text-amber-600" aria-hidden="true" />
-              Oferta startowa: <span className="text-amber-700 underline underline-offset-2">Pierwsze 3 lekcje próbne aż o 25% tańsze!</span>
+              Na start: <span className="text-amber-700 underline underline-offset-2">25% rabatu na 3 pierwsze lekcje.</span>
             </p>
             <p className="mt-1 text-xs font-medium text-amber-900/90">
-              Każda z 3 pierwszych lekcji objęta jest rabatem -25% i płatna pojedynczo z lekcji na lekcję (bez płacenia z góry).
+              Pierwsze trzy lekcje są opłacane pojedynczo, dzięki czemu możesz najpierw sprawdzić, czy taka forma współpracy Ci odpowiada.
             </p>
           </div>
         </Reveal>
