@@ -13,9 +13,9 @@ import { site } from "@/lib/site";
 const topics = [
   "Egzamin Ósmoklasisty — Matematyka",
   "Egzamin Ósmoklasisty — Język Angielski",
-  "Matura z Matematyki (Podstawa / Rozszerzenie)",
-  "Matura z Języka Angielskiego (Podstawa / Rozszerzenie)",
-  "Darmowa konsultacja wstępna (15 min)",
+  "Matura — Matematyka",
+  "Matura — Język Angielski",
+  "Darmowa konsultacja wstępna — 15 min",
   "Inne / mam pytanie",
 ];
 
@@ -37,13 +37,10 @@ export default function Contact() {
   const validate = (): boolean => {
     const next: Partial<Record<keyof FormState, string>> = {};
     if (!form.name.trim() || form.name.trim().length < 2) {
-      next.name = "Podaj swoje imię i nazwisko.";
+      next.name = "Podaj swoje imię.";
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       next.email = "Podaj poprawny adres e-mail.";
-    }
-    if (!form.message.trim() || form.message.trim().length < 10) {
-      next.message = "Wiadomość powinna mieć co najmniej 10 znaków.";
     }
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -61,12 +58,12 @@ export default function Contact() {
         "Accept": "application/json",
       },
       body: JSON.stringify({
-        _subject: `Zgłoszenie E8/Matura od: ${form.name}`,
+        _subject: `Wiadomość ze strony od: ${form.name}`,
         _captcha: "false",
         imie: form.name,
         email: form.email,
-        sciezka_egzaminacyjna: form.topic,
-        wiadomosc: form.message,
+        temat_kontaktu: form.topic,
+        wiadomosc: form.message || "(brak wiadomości)",
       }),
     })
       .then(() => setStatus("sent"))
@@ -88,9 +85,9 @@ export default function Contact() {
 
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionHeading
-          eyebrow="Zapisz się"
-          title="Zapisz się na bezpłatną konsultację"
-          lead="Wypełnij krótki formularz. Podczas 15-minutowej rozmowy online omówimy cele, trudności i ułożymy plan działania."
+          eyebrow="Kontakt"
+          title="Skontaktuj się ze mną"
+          lead="Napisz krótko, czego potrzebujesz lub na jakim etapie przygotowań jesteś."
         />
 
         <div className="mt-10 grid gap-6 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
@@ -175,9 +172,9 @@ export default function Contact() {
                   <span className="grid size-16 place-items-center rounded-full bg-accent-100 text-accent-600">
                     <Check className="size-8" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-6 text-2xl text-ink">Dziękuję za zgłoszenie!</h3>
+                  <h3 className="mt-6 text-2xl text-ink">Dziękuję za wiadomość!</h3>
                   <p className="mt-3 max-w-sm text-slate-soft">
-                    Odezwę się na adres <strong className="text-ink">{form.email}</strong> najszybciej, jak to możliwe, aby ustalić termin bezpłatnej rozmowy.
+                    Odezwę się na adres <strong className="text-ink">{form.email}</strong> najszybciej, jak to możliwe.
                   </p>
                   <Button
                     variant="secondary"
@@ -195,7 +192,7 @@ export default function Contact() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
-                        Imię i nazwisko (rodzica lub ucznia) <span aria-hidden="true" className="text-accent-600">*</span>
+                        Imię <span aria-hidden="true" className="text-accent-600">*</span>
                       </label>
                       <input
                         id="name"
@@ -207,7 +204,7 @@ export default function Contact() {
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         aria-invalid={Boolean(errors.name)}
                         aria-describedby={errors.name ? "name-error" : undefined}
-                        placeholder="np. Anna Nowak"
+                        placeholder="np. Ania"
                         className={inputClass(Boolean(errors.name))}
                       />
                       {errors.name && (
@@ -244,7 +241,7 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="topic" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Ścieżka egzaminacyjna
+                      Czego dotyczy kontakt? <span aria-hidden="true" className="text-accent-600">*</span>
                     </label>
                     <select
                       id="topic"
@@ -263,29 +260,21 @@ export default function Contact() {
 
                   <div className="mt-5">
                     <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
-                      Wiadomość <span aria-hidden="true" className="text-accent-600">*</span>
+                      Wiadomość
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      required
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      aria-invalid={Boolean(errors.message)}
-                      aria-describedby={errors.message ? "message-error" : undefined}
-                      placeholder="Napisz krótko: z czym uczeń ma największy problem, jaki jest docelowy wynik lub wymarzona szkoła/kierunek."
-                      className={`${inputClass(Boolean(errors.message))} resize-none`}
+                      placeholder="Napisz krótko, czego potrzebujesz lub na jakim etapie przygotowań jesteś."
+                      className={`${inputClass(false)} resize-none`}
                     />
-                    {errors.message && (
-                      <p id="message-error" role="alert" className="mt-1.5 text-sm font-medium text-red-600">
-                        {errors.message}
-                      </p>
-                    )}
                   </div>
 
                   <Button type="submit" size="lg" className="mt-7 w-full sm:w-auto" aria-disabled={status === "sending"}>
-                    {status === "sending" ? "Wysyłanie…" : "Zapisz się na bezpłatną konsultację"}
+                    {status === "sending" ? "Wysyłanie…" : "Wyślij wiadomość"}
                     {status !== "sending" && (
                       <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                     )}
