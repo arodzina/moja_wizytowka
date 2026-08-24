@@ -8,34 +8,34 @@ const collaborationSteps = [
   {
     step: "01",
     icon: Calendar,
-    title: "15 min rozmowy zapoznawczej",
+    title: "Bezpłatna rozmowa",
     description:
-      "Łączymy się na bezpłatną 15-minutową rozmowę online. Poznajemy się, omawiamy cele egzaminacyjne, przedstawiam plan działania i umawiamy pierwsze lekcje próbne bez żadnych zobowiązań.",
-    badge: "100% Bezpłatnie",
+      "Krótka rozmowa online, podczas której poznajemy potrzeby ucznia, omawiamy cel przygotowań i ustalamy, jak możemy pracować.",
+    badge: "15 minut na poznanie się",
   },
   {
     step: "02",
     icon: Sparkles,
-    title: "3 Lekcje próbne (-25% na start)",
+    title: "3 lekcje na start",
     description:
-      "Pierwsze 3 spotkania objęte są rabatem -25% na każdą lekcję i płatne pojedynczo przed zajęciami (do 24h przed lekcją, bez płacenia z góry za cały miesiąc). Uczeń i rodzic testują atmosferę i styl pracy.",
-    badge: "Rabat -25% na 3 pierwsze lekcje",
+      "Pierwsze trzy lekcje są objęte rabatem 25% i opłacane pojedynczo przed zajęciami. To dobry moment, żeby sprawdzić, czy forma zajęć i sposób pracy odpowiadają uczniowi.",
+    badge: "25% rabatu na pierwsze 3 lekcje",
   },
   {
     step: "03",
     icon: CreditCard,
-    title: "Stały grafik i rozliczenie",
+    title: "Stała współpraca",
     description:
-      "Gdy uczeń czuje się dobrze i chce kontynuować, rezerwujemy stałe miejsce w tygodniowym grafiku i przechodzimy na wygodne płatności z góry za dany miesiąc.",
-    badge: "Płatność z góry za miesiąc",
+      "Jeśli decydujemy się na dalszą współpracę, rezerwujemy stały termin w tygodniu i przechodzimy na płatność z góry za dany miesiąc.",
+    badge: "Stały termin i miesięczne rozliczenie",
   },
   {
     step: "04",
     icon: TrendingUp,
-    title: "Systematyka i raport postępów",
+    title: "Kontakt i monitorowanie postępów",
     description:
-      "Uczymy się regularnie pod wymogi CKE. Rodzic ma stały wgląd w przerabiany materiał i postępy, a uczeń zyskuje realną pewność siebie przed egzaminem.",
-    badge: "Stały kontakt z rodzicem",
+      "Na bieżąco śledzimy przerabiany materiał i postępy ucznia. Rodzic może mieć wgląd w to, nad czym aktualnie pracujemy i co wymaga jeszcze powtórzenia.",
+    badge: "Regularna informacja o nauce",
   },
 ];
 
@@ -57,14 +57,14 @@ export default function HowItWorks() {
           <Reveal>
             <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-300">
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
-              Zasady Współpracy
+              Zasady współpracy
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
             </p>
             <h2 id="how-it-works-title" className="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               Jak wygląda rozpoczęcie nauki?
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
-              Przejrzysta ścieżka od pierwszego bezpłatnego spotkania, przez lekcje próbne, aż po stałą współpracę i pewność na egzaminie.
+              Najpierw krótko się poznajemy, ustalamy potrzeby ucznia i sprawdzamy, czy taki sposób pracy nam odpowiada. Jeśli wszystko pasuje, ustalamy stały termin zajęć.
             </p>
           </Reveal>
         </div>
