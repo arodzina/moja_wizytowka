@@ -43,7 +43,7 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Spokojne i skuteczne przygotowanie do{" "}
+            Skuteczne przygotowanie do{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
               Egzaminów CKE
             </span>

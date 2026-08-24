@@ -67,13 +67,13 @@ export default function About() {
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-4 text-base sm:text-lg leading-relaxed text-slate-soft">
               <p>
-                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne, uporządkowane podejście, które przekładam na proste tłumaczenie matematyki i schematów CKE. Z korepetycjami zaczynałam na dużych platformach edukacyjnych, gdzie przeprowadziłam setki lekcji z uczniami przygotowującymi się do egzaminów.
+                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne, uporządkowane podejście, które przekładam na proste tłumaczenie matematyki i schematów CKE.
               </p>
               <p>
-                Wierzę, że sukces na egzaminie to w 50% wiedza, a w 50% spokój i wyćwiczona strategia. W <strong className="font-semibold text-ink">matematyce</strong> rozkładam skomplikowane zadania na proste kroki, aż wszystko „zaskoczy” bez kucia wzorów na pamięć. Na <strong className="font-semibold text-ink">angielskim</strong> skupiam się na szablonach wypowiedzi pisemnej, pewniakach gramatycznych i przełamywaniu bariery w mówieniu.
+                Moje podejście opiera się na nauce <strong className="font-semibold text-ink">stricte pod egzaminy CKE</strong>. Sama napisałam egzaminy CKE na najwyższym poziomie — z własnego doświadczenia doskonale wiem, jak się uczyć, by zdobyć najwyższe wyniki i ominąć pułapki w kluczu odpowiedzi.
               </p>
               <p>
-                Praktyczny angielski szlifowałam podczas wyjazdu na <strong className="font-semibold text-ink">Erasmus+ w Portugalii</strong> (poziom C1 wg testu OLS). Jestem też autorką kursu <strong className="font-semibold text-ink">Notion Master</strong> na Udemy, w którym pokazuję, jak sprawnie organizować pracę i cyfrowe notatki.
+                Spędziłam mnóstwo czasu na opracowaniu <strong className="font-semibold text-ink">autorskich materiałów, strategii i poukładanego planu nauki</strong> krok po kroku. Ponadto regularnie biorę udział w <strong className="font-semibold text-ink">webinarach i szkoleniach z egzaminatorami CKE</strong>, dzięki czemu dokładnie znam wytyczne, strukturę arkuszy oraz kryteria oceniania prac.
               </p>
             </div>
           </Reveal>
@@ -89,7 +89,7 @@ export default function About() {
               >
                 <span className="flex items-center gap-2.5 text-sm sm:text-base">
                   <Sparkles className="size-5 text-accent-500" aria-hidden="true" />
-                  Wykształcenie, doświadczenie & organizacja pracy
+                  Wykształcenie, szkolenia CKE & organizacja pracy
                 </span>
                 <ChevronDown
                   className={`size-5 text-brand-600 transition-transform duration-300 ${
@@ -111,6 +111,14 @@ export default function About() {
                     <div className="mt-3 rounded-2xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 space-y-4">
                       <div className="space-y-3 text-sm text-slate-soft">
                         <div className="flex items-start gap-2.5">
+                          <Target className="size-5 text-brand-600 shrink-0 mt-0.5" />
+                          <div>
+                            <strong className="text-ink block">Szkolenia i webinary z egzaminatorami CKE:</strong>
+                            <p>Biorę udział w specjalistycznych webinarach prowadzonych przez egzaminatorów CKE, co gwarantuje pełną znajomość struktury arkuszy, kluczy odpowiedzi i aktualnych wymagań.</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-2.5 pt-2.5 border-t border-slate-100">
                           <GraduationCap className="size-5 text-brand-600 shrink-0 mt-0.5" />
                           <div>
                             <strong className="text-ink block">Informatyka i Ekonometria — AGH Kraków:</strong>
