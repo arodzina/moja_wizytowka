@@ -66,10 +66,22 @@ const plans = [
 ];
 
 const rules = [
-  "Przejrzyste warunki ustalamy na początku, żeby uczeń i rodzic mieli 100% spokoju.",
-  "Darmowa rozmowa zapoznawcza (15 min) — omówienie celów i potrzeb ucznia bez zobowiązań.",
-  "Okres próbny (3 pierwsze lekcje) — każda lekcja z rabatem -25%, płatne pojedynczo z lekcji na lekcję. Dopiero potem rozliczenie miesięczne z góry.",
-  "Przełożenie lekcji min. 24h wcześniej — bezpłatny nowy termin w tym samym miesiącu.",
+  {
+    title: "Bezpłatna rozmowa zapoznawcza — 15 min",
+    desc: "Omawiamy potrzeby ucznia, cel przygotowań i sposób pracy. Bez zobowiązań.",
+  },
+  {
+    title: "3 pierwsze lekcje z rabatem 25%",
+    desc: "Każda lekcja jest płatna osobno. To czas na sprawdzenie, czy forma zajęć odpowiada uczniowi.",
+  },
+  {
+    title: "Płatność miesięczna po okresie próbnym",
+    desc: "Przy dalszej współpracy rezerwujemy stały termin i rozliczamy zajęcia z góry za dany miesiąc.",
+  },
+  {
+    title: "Przekładanie lekcji",
+    desc: "Jeśli potrzebujesz przełożyć zajęcia, wystarczy poinformować mnie co najmniej 24 godziny wcześniej. W takim przypadku ustalamy nowy termin w tym samym miesiącu.",
+  },
 ];
 
 export default function Pricing() {
@@ -211,23 +223,26 @@ export default function Pricing() {
               <div className="space-y-3 flex-1">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-accent-400">
-                    Gwarancja spokoju
+                    Jasne zasady od początku
                   </span>
                   <h3 className="mt-1 text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    Przejrzyste zasady współpracy
+                    Zasady współpracy
                   </h3>
                 </div>
 
-                <ul className="space-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {rules.map((rule, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                      <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-brand-500/30 text-accent-400 text-xs">
-                        ✓
-                      </span>
-                      <span>{rule}</span>
-                    </li>
+                    <div key={idx} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 space-y-1">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white">
+                        <span className="text-accent-400 font-extrabold text-sm">✓</span>
+                        <span>{rule.title}</span>
+                      </div>
+                      <p className="text-xs text-slate-300 leading-relaxed pl-5">
+                        {rule.desc}
+                      </p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
