@@ -54,27 +54,42 @@ export default function About() {
           <Reveal>
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
               <span aria-hidden="true" className="h-px w-6 bg-accent-400" />
-              O mnie & Metoda pracy
+              O mnie i moim podejściu
             </p>
             <h2 id="about-title" className="mt-4 text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               Cześć, jestem {site.tutorName}.
             </h2>
             <p className="mt-3 text-lg font-medium leading-relaxed text-slate-soft">
-              Pomagam uczniom rozpracować wytyczne CKE, wyeliminować błędy i spokojnie zdobyć wysoki wynik z Matematyki i Angielskiego.
+              Pomagam uczniom dobrze przygotować się do egzaminów z matematyki i języka angielskiego — spokojnie, konkretnie i krok po kroku.
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-4 text-base sm:text-lg leading-relaxed text-slate-soft">
               <p>
-                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong> — to daje mi analityczne, uporządkowane podejście, które przekładam na proste tłumaczenie matematyki i schematów CKE.
+                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong>. Analityczne podejście, które wykorzystuję na studiach, pomaga mi porządkować materiał i tłumaczyć trudniejsze zagadnienia w prosty i zrozumiały sposób.
               </p>
               <p>
-                Moje podejście opiera się na nauce <strong className="font-semibold text-ink">stricte pod egzaminy CKE</strong>. Sama napisałam egzaminy CKE na najwyższym poziomie — z własnego doświadczenia doskonale wiem, jak się uczyć, by zdobyć najwyższe wyniki i ominąć pułapki w kluczu odpowiedzi.
+                W przygotowaniach skupiam się na <strong className="font-semibold text-ink">wymaganiach CKE i praktycznej pracy z zadaniami egzaminacyjnymi</strong>. Sama dobrze znam realia egzaminów i wiem, jak ważne jest nie tylko opanowanie materiału, ale też znajomość sposobu formułowania poleceń, kryteriów oceniania i typowych błędów.
               </p>
               <p>
-                Spędziłam mnóstwo czasu na opracowaniu <strong className="font-semibold text-ink">autorskich materiałów, strategii i poukładanego planu nauki</strong> krok po kroku. Ponadto regularnie biorę udział w <strong className="font-semibold text-ink">webinarach i szkoleniach z egzaminatorami CKE</strong>, dzięki czemu dokładnie znam wytyczne, strukturę arkuszy oraz kryteria oceniania prac.
+                Tworzę <strong className="font-semibold text-ink">własne materiały i plany nauki</strong>, które pomagają uporządkować przygotowania i skupić się na tym, co najważniejsze. Regularnie korzystam też ze <strong className="font-semibold text-ink">szkoleń i webinarów dotyczących egzaminów CKE</strong>, żeby na bieżąco śledzić wymagania i zmiany w egzaminach.
               </p>
+
+              <div className="pt-3 space-y-2.5">
+                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>Wykształcenie i analityczne podejście</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>Znajomość wymagań CKE</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>Własne materiały i uporządkowany plan nauki</span>
+                </div>
+              </div>
             </div>
           </Reveal>
 
