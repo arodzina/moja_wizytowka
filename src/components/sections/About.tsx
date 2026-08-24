@@ -121,10 +121,10 @@ export default function About() {
                 Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong>. Analityczne podejście, które wykorzystuję na studiach, pomaga mi porządkować materiał i tłumaczyć trudniejsze zagadnienia w prosty i zrozumiały sposób.
               </p>
               <p>
-                W przygotowaniach skupiam się na <strong className="font-semibold text-ink">wymaganiach CKE i praktycznej pracy z zadaniami egzaminacyjnymi</strong>. Sama dobrze znam realia egzaminów i wiem, jak ważne jest nie tylko opanowanie materiału, ale też znajomość sposobu formułowania poleceń, kryteriów oceniania i typowych błędów.
+                W przygotowaniach skupiam się na <strong className="font-semibold text-ink">wymaganiach CKE i praktycznej pracy z zadaniami egzaminacyjnymi</strong>. Zwracam uwagę nie tylko na znajomość materiału, ale też na sposób czytania poleceń, kryteria oceniania i typowe błędy.
               </p>
               <p>
-                Tworzę <strong className="font-semibold text-ink">własne materiały i plany nauki</strong>, które pomagają uporządkować przygotowania i skupić się na tym, co najważniejsze. Regularnie korzystam też ze <strong className="font-semibold text-ink">szkoleń i webinarów dotyczących egzaminów CKE</strong>, żeby na bieżąco śledzić wymagania i zmiany w egzaminach.
+                Tworzę <strong className="font-semibold text-ink">własne materiały i plany nauki</strong>, które pomagają uporządkować przygotowania i skupić się na najważniejszych zagadnieniach.
               </p>
 
               <div className="pt-3 space-y-2.5">
