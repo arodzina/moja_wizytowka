@@ -32,10 +32,10 @@ export const services = [
     id: "e8-matematyka",
     title: "Egzamin Ósmoklasisty: Matematyka",
     description:
-      "Nauka rozpracowywania zadań CKE, unikanie typowych pułapek egzaminacyjnych, geometria i algebra bez paniki.",
+      "Nauka rozwiązywania zadań CKE, unikanie typowych błędów, geometria i algebra bez paniki.",
     bullets: [
-      "Rozpracowywanie schematów zadań otwartych i zamkniętych CKE",
-      "Pewniaki egzaminacyjne: ułamki, procenty, równania i planimetria",
+      "Rozpracowywanie zadań otwartych i zamkniętych CKE",
+      "Najważniejsze zagadnienia: ułamki, procenty, równania i planimetria",
       "Techniki oszczędzania czasu i sprawdzania wyników na arkuszu",
     ],
   },
@@ -43,10 +43,10 @@ export const services = [
     id: "e8-angielski",
     title: "Egzamin Ósmoklasisty: Język Angielski",
     description:
-      "Pewniaki gramatyczne, schematy wypowiedzi pisemnej (e-mail, wpis na blog), reakcje językowe i słownictwo tematyczne.",
+      "Zagadnienia gramatyczne, schematy wypowiedzi pisemnej (e-mail, wpis na blog), reakcje językowe i słownictwo tematyczne.",
     bullets: [
       "Niezawodne szablony do form pisemnych (e-mail / wpis na bloga)",
-      "Transformacje, parafrazy i słowotwórstwo w standardzie CKE",
+      "Transformacje, parafrazy i słowotwórstwo zgodne z wymaganiami CKE",
       "Słuchanie ze zrozumieniem i reakcje językowe bez utraty punktów",
     ],
   },
@@ -58,17 +58,17 @@ export const services = [
     bullets: [
       "Przygotowanie do Matury Podstawowej oraz Rozszerzonej dla kandydatów na uczelnie techniczne i ścisłe",
       "Analiza toku rozumowania w zadaniach otwartych pod klucz oceniania CKE",
-      "Wyłapywanie pewniaków: funkcja kwadratowa, ciągi, pochodne i zadania optymalizacyjne",
+      "Najważniejsze typy zadań: funkcja kwadratowa, ciągi, pochodne i zadania optymalizacyjne",
     ],
   },
   {
     id: "matura-angielski",
     title: "Matura z Języka Angielskiego (Podstawa & Rozszerzenie)",
     description:
-      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz bezstresowa matura ustna.",
+      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz przygotowanie do części ustnej.",
     bullets: [
-      "Budowanie przewagi rekrutacyjnej na studia (angielski liczy się wszędzie)",
-      "Trening pisania rozprawki, artykułu i listu pod klucz CKE",
+      "Dobre przygotowanie do matury z angielskiego na obu poziomach",
+      "Trening pisania rozprawki, artykułu i listu pod kryteria CKE",
       "Zaawansowane struktury gramatyczne (inwersja, okresy warunkowe, strona bierna) & matura ustna",
     ],
   },
@@ -77,19 +77,19 @@ export const services = [
 export const faqItems = [
   {
     q: "Kiedy najlepiej zacząć przygotowania do E8 i Matury?",
-    a: "Najbardziej optymalny czas to początek roku szkolnego (wrzesień/październik), co pozwala na spokojne uzupełnienie zaległości i regularne arkusze bez pośpiechu. Jeśli jednak do egzaminu zostało mniej czasu (np. 3–5 miesięcy), wdrażam intensywny plan strategiczny skupiony na kluczowych pewniakach CKE, które dają najwięcej punktów.",
+    a: "Najbardziej optymalny czas to początek roku szkolnego (wrzesień/październik), co pozwala na spokojne uzupełnienie zaległości i regularne arkusze bez pośpiechu. Jeśli jednak do egzaminu zostało mniej czasu (np. 3–5 miesięcy), wdrażam plan skupiony na najważniejszych zagadnieniach i typach zadań, które dają najwięcej punktów.",
   },
   {
     q: "Jak pomagasz uczniom, którzy odczuwają stres przed egzaminem?",
-    a: "Rozumiem to doskonale — Egzamin Ósmoklasisty czy Matura to pierwsze tak ważne i poważne egzaminy w życiu, więc niepokój jest całkowicie naturalny. Stres najczęściej wynika z lęku przed niespodziankami w arkuszu. Im solidniej i bardziej systematycznie się przygotujemy, przerabiając powtarzalne schematy CKE krok po kroku, tym szybciej niepewność ustępuje miejsca spokojowi i realnej pewności siebie.",
+    a: "Rozumiem to doskonale — Egzamin Ósmoklasisty czy Matura to pierwsze tak ważne egzaminy w życiu, więc niepokój jest całkowicie naturalny. Stres najczęściej wynika z lęku przed niespodziankami w arkuszu. Im solidniej i bardziej systematycznie się przygotujemy, przerabiając zadania krok po kroku, tym szybciej niepewność ustępuje miejsca spokojowi i realnej pewności siebie.",
   },
   {
     q: "Czy można łączyć korepetycje z matematyki i języka angielskiego?",
     a: "Tak, jak najbardziej! Oferuję kompleksowe przygotowanie zarówno z matematyki, jak i języka angielskiego. To duża wygoda: uczeń uczy się w stałym, zaufanym środowisku, łatwiej ułożyć elastyczny grafik zajęć, a rodzic ma pełen wgląd w postępy z obu przedmiotów w jednym miejscu.",
   },
   {
-    q: "Dlaczego warto uczyć się ze strategią CKE, a nie tylko samodzielnie z podręczników?",
-    a: "Szkoła realizuje cały program podręcznikowy, w którym jest mnóstwo materiału niemającego bezpośredniego odzwierciedlenia na egzaminie. Ja uczę ściśle pod aktualne Wytyczne i Informatory CKE: jak czytać polecenia, jak konstruować odpowiedzi pod klucz punktowania i jak nie tracić punktów na drobnych pułapkach formalnych.",
+    q: "Dlaczego warto uczyć się pod wymagania CKE, a nie tylko z podręczników?",
+    a: "Szkoła realizuje cały opasły podręcznik, w którym jest mnóstwo materiału niemającego bezpośredniego odzwierciedlenia na egzaminie. Ja skupiam się na aktualnych Wytycznych i Informatorach CKE: jak czytać polecenia, jak konstruować odpowiedzi pod kryteria oceniania i jak nie tracić punktów na drobnych błędach.",
   },
   {
     q: "Jak wygląda informacja zwrotna i monitorowanie postępów po lekcji?",
@@ -97,7 +97,7 @@ export const faqItems = [
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji próbnych z rabatem -25%?",
-    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy okres próbny — pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu (np. dla E8: 45 zł zamiast 60 zł za lekcję, dla Matury PP: 52,50 zł zamiast 70 zł). Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dopiero po tym etapie decydujecie o stałej współpracy.",
+    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy okres próbny — pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu. Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dopiero po tym etapie decydujecie o stałej współpracy.",
   },
   {
     q: "Czy zajęcia odbywają się w 100% online?",

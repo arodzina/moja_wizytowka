@@ -16,7 +16,7 @@ export default function Footer() {
               <Logo inverse />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-300">
-              Kompleksowe przygotowanie do Egzaminu Ósmoklasisty (E8 - Matematyka & Angielski) oraz Matury z Języka Angielskiego. 100% zgodności ze standardem CKE.
+              Kompleksowe przygotowanie do Egzaminu Ósmoklasisty (E8) oraz Matury z Matematyki i Języka Angielskiego.
             </p>
 
 
@@ -97,7 +97,7 @@ export default function Footer() {
 
         <div className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>© {year} {site.name}. Wszelkie prawa zastrzeżone.</p>
-          <p>Skuteczna strategia egzaminacyjna bez zbędnego stresu.</p>
+          <p>Przygotowanie do egzaminów bez zbędnego stresu.</p>
         </div>
       </div>
     </footer>

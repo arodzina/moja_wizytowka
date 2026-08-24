@@ -26,16 +26,6 @@ const stakes = [
     takeaway: "Lepsze przygotowanie i większa pewność przed maturą.",
     accentColor: "border-brand-400/40",
   },
-  {
-    icon: Compass,
-    badge: "Umiejętności na przyszłość",
-    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Wiedza, która przydaje się także poza szkołą",
-    description:
-      "Nie chodzi tylko o zapamiętanie materiału na egzamin. Matematyka rozwija logiczne i analityczne myślenie, a angielski pozwala swobodniej komunikować się w nauce, pracy i codziennym życiu. Zależy mi na tym, żeby zdobyta wiedza została z uczniem na dłużej.",
-    takeaway: "Logiczne myślenie i większa swoboda w języku angielskim.",
-    accentColor: "border-emerald-400/40",
-  },
 ];
 
 export default function ExamStakes() {
@@ -56,7 +46,7 @@ export default function ExamStakes() {
           lead="Egzamin to nie tylko sprawdzenie wiedzy. To także umiejętność rozwiązywania zadań, wykorzystania zdobytej wiedzy w praktyce i radzenia sobie z presją czasu. Dobre przygotowanie pomaga osiągnąć lepszy wynik, ale też daje uczniowi większą pewność siebie i solidne podstawy na przyszłość."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-3">
+        <div className="mt-14 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {stakes.map((stake, idx) => (
             <Reveal key={stake.title} delay={idx * 0.12} className="h-full">
               <motion.div

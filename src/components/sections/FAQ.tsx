@@ -68,7 +68,7 @@ export default function FAQ() {
             align="left"
             eyebrow="FAQ"
             title="Najczęściej zadawane pytania"
-            lead="Wszystko, co musisz wiedzieć o przygotowaniach do E8, Matury i strategii CKE."
+            lead="Odpowiedzi na najważniejsze pytania dotyczące zajęć, przygotowań i zasad współpracy."
           />
           <Reveal delay={0.15}>
             <div className="mt-8 space-y-4">

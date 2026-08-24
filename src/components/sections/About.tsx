@@ -44,7 +44,7 @@ export default function About() {
               className="absolute -bottom-4 right-4 flex items-center gap-2 rounded-2xl bg-accent-200 px-4 py-2.5 text-sm font-bold text-ink shadow-soft sm:right-6"
             >
               <Target className="size-4 text-accent-600" aria-hidden="true" />
-              Strategia CKE bez stresu
+              Przygotowanie zgodne z wymaganiami CKE
             </motion.div>
           </div>
 
@@ -130,82 +130,56 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* Rozwijana sekcja z kwalifikacjami */}
+          {/* 4 Kafelki wyróżnień: Wykształcenie, szkolenia i doświadczenie */}
           <Reveal delay={0.2}>
-            <div className="mt-7">
-              <button
-                type="button"
-                onClick={() => setShowQualifications(!showQualifications)}
-                aria-expanded={showQualifications}
-                className="group flex items-center justify-between w-full rounded-2xl bg-brand-50 px-5 py-4 text-left font-semibold text-brand-800 transition-colors hover:bg-brand-100 ring-1 ring-brand-200/60"
-              >
-                <span className="flex items-center gap-2.5 text-sm sm:text-base">
-                  <Sparkles className="size-5 text-accent-500" aria-hidden="true" />
-                  Wykształcenie, szkolenia CKE & organizacja pracy
-                </span>
-                <ChevronDown
-                  className={`size-5 text-brand-600 transition-transform duration-300 ${
-                    showQualifications ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                  <GraduationCap className="size-4 text-brand-600 shrink-0" />
+                  <span>AGH — Informatyka i Ekonometria</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Studia na renomowanej uczelni technicznej — analityczne, uporządkowane podejście do matematyki.
+                </p>
+              </div>
 
-              <AnimatePresence>
-                {showQualifications && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
+              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                  <Target className="size-4 text-brand-600 shrink-0" />
+                  <span>Szkolenie z egzaminatorem CKE</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Udział w szkoleniach prowadzonych przez egzaminatorów CKE — znajomość kryteriów oceniania i arkuszy.
+                </p>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                  <Globe className="size-4 text-brand-600 shrink-0" />
+                  <span>Erasmus+ — Portugalia · angielski C1</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem C1.
+                </p>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                  <Sparkles className="size-4 text-brand-600 shrink-0" />
+                  <span>Autorka kursu Notion Master (Udemy)</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Autorski kurs z organizacji pracy, nauki i cyfrowych notatek.{" "}
+                  <a
+                    href="https://www.udemy.com/course/notion-master/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-brand-700 underline"
                   >
-                    <div className="mt-3 rounded-2xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 space-y-4">
-                      <div className="space-y-3 text-sm text-slate-soft">
-                        <div className="flex items-start gap-2.5">
-                          <Target className="size-5 text-brand-600 shrink-0 mt-0.5" />
-                          <div>
-                            <strong className="text-ink block">Szkolenia i webinary z egzaminatorami CKE:</strong>
-                            <p>Biorę udział w specjalistycznych webinarach prowadzonych przez egzaminatorów CKE, co gwarantuje pełną znajomość struktury arkuszy, kluczy odpowiedzi i aktualnych wymagań.</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-2.5 pt-2.5 border-t border-slate-100">
-                          <GraduationCap className="size-5 text-brand-600 shrink-0 mt-0.5" />
-                          <div>
-                            <strong className="text-ink block">Informatyka i Ekonometria — AGH Kraków:</strong>
-                            <p>Studia na renomowanej uczelni technicznej to gwarancja analitycznego, uporządkowanego podejścia do matematyki.</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-2.5 pt-2.5 border-t border-slate-100">
-                          <Globe className="size-5 text-brand-600 shrink-0 mt-0.5" />
-                          <div>
-                            <strong className="text-ink block">Doświadczenie z wymiany Erasmus+ w Portugalii:</strong>
-                            <p>Semestr spędzony za granicą — codzienna komunikacja w języku angielskim (poziom C1 wg testu OLS) i przełamywanie bariery językowej.</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-2.5 pt-2.5 border-t border-slate-100">
-                          <Sparkles className="size-5 text-brand-600 shrink-0 mt-0.5" />
-                          <div>
-                            <strong className="text-ink block">Autorka kursu Notion Master (Udemy):</strong>
-                            <p>Stworzyłam autorski kurs z obsługi narzędzia Notion do organizacji pracy, zadań i notatek.</p>
-                            <a
-                              href="https://www.udemy.com/course/notion-master/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-1.5 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
-                            >
-                              Zobacz mój kurs na Udemy →
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    Zobacz kurs →
+                  </a>
+                </p>
+              </div>
             </div>
           </Reveal>
 
