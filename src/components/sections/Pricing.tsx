@@ -51,6 +51,7 @@ const plans = [
     price: "85",
     unit: "zł / 60 min",
     discountNote: "75 zł / 60 min przy zajęciach 2× w tygodniu",
+    badge: "Poziom rozszerzony",
     popular: true,
     color: "accent",
     includes: [
