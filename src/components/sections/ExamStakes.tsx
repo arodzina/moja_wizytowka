@@ -8,32 +8,32 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const stakes = [
   {
     icon: School,
-    badge: "Dla Ósmoklasisty i Rodziców",
+    badge: "Dla ósmoklasisty i rodziców",
     badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Większe szanse na dostanie się do wybranej szkoły",
+    title: "Większa szansa na dostanie się do wybranej szkoły",
     description:
-      "Rozumiem obawy ósmoklasisty i jego rodziców. Na egzaminie liczy się każdy punkt, który wpływa na wyniki rekrutacyjne do liceów i techników. Pomagam uporządkować materiał, uzupełnić luki w wiedzy i krok po kroku przygotować ucznia do zadań egzaminacyjnych.",
-    takeaway: "Jasny plan działania + rzetelne wsparcie w nauce.",
+      "Na egzaminie liczy się każdy punkt, który może mieć znaczenie przy rekrutacji do liceum lub technikum. Pomagam uporządkować materiał, uzupełnić braki i krok po kroku przygotować się do zadań egzaminacyjnych.",
+    takeaway: "Jasny plan nauki i regularne wsparcie.",
     accentColor: "border-amber-400/40",
   },
   {
     icon: GraduationCap,
-    badge: "Dla Maturzysty",
+    badge: "Dla maturzysty",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Matura z Matematyki i Angielskiego",
+    title: "Lepsze przygotowanie do matury",
     description:
-      "Matematyka i język angielski stanowią kluczowy filar rekrutacji na studia. Dobre przygotowanie do matury podstawowej oraz rozszerzonej pozwala zdobyć cenne punkty rekrutacyjne i spokojnie dostać się na wymarzony kierunek.",
-    takeaway: "Lepszy wynik rekrutacyjny bez względu na wybrany kierunek.",
+      "Wynik z matury ma duże znaczenie przy rekrutacji na studia. Pomagam dobrze przygotować się zarówno do poziomu podstawowego, jak i rozszerzonego, tak aby uczeń mógł podejść do egzaminu z większym spokojem i osiągnąć wynik odpowiadający jego możliwościom.",
+    takeaway: "Lepsze przygotowanie i większa pewność przed maturą.",
     accentColor: "border-brand-400/40",
   },
   {
     icon: Compass,
-    badge: "Wartość Ponadprogramowa",
+    badge: "Umiejętności na przyszłość",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Umiejętności, które zostają na lata",
+    title: "Wiedza, która przydaje się także poza szkołą",
     description:
-      "Nie uciekamy się do bezmyślnego kucia, o którym zapomina się dzień po testach. Matematyka uczy analitycznego myślenia i wyciągania wniosków, a język angielski buduje swobodę komunikacji. Stawiam na to, by przekazana wiedza procentowała także w dorosłym życiu.",
-    takeaway: "Logiczne myślenie i pewność w posługiwaniu się językiem.",
+      "Nie chodzi tylko o zapamiętanie materiału na egzamin. Matematyka rozwija logiczne i analityczne myślenie, a angielski pozwala swobodniej komunikować się w nauce, pracy i codziennym życiu. Zależy mi na tym, żeby zdobyta wiedza została z uczniem na dłużej.",
+    takeaway: "Logiczne myślenie i większa swoboda w języku angielskim.",
     accentColor: "border-emerald-400/40",
   },
 ];
@@ -51,9 +51,9 @@ export default function ExamStakes() {
 
       <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-28">
         <SectionHeading
-          eyebrow="Dlaczego to takie ważne"
-          title="O co tak naprawdę toczy się gra?"
-          lead="Egzaminy nie sprawdzają wrodzonego talentu, lecz opanowanie strategii i radzenie sobie z presją. Zobacz, dlaczego odpowiednie przygotowanie decyduje o kolejnych latach edukacji."
+          eyebrow="Dobre przygotowanie to coś więcej niż wynik"
+          title="Dlaczego warto się dobrze przygotować?"
+          lead="Egzamin to nie tylko sprawdzenie wiedzy. To także umiejętność rozwiązywania zadań, wykorzystania zdobytej wiedzy w praktyce i radzenia sobie z presją czasu. Dobre przygotowanie pomaga osiągnąć lepszy wynik, ale też daje uczniowi większą pewność siebie i solidne podstawy na przyszłość."
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
