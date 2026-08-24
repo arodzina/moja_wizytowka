@@ -1,6 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import ExamStakes from "@/components/sections/ExamStakes";
-import CkeAlignment from "@/components/sections/CkeAlignment";
 import About from "@/components/sections/About";
 import HowItWorks from "@/components/sections/HowItWorks";
 import FreeGuides from "@/components/sections/FreeGuides";
@@ -13,7 +12,6 @@ export default function Home() {
     <>
       <Hero />
       <ExamStakes />
-      <CkeAlignment />
       <About />
       <HowItWorks />
       <FreeGuides />
