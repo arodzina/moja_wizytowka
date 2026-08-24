@@ -53,7 +53,7 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Wspieram uczniów w przygotowaniach z <strong className="font-semibold text-ink">Matematyki i Języka Angielskiego</strong>. Pomagam poukładać wiedzę, rozpracować wytyczne CKE i spokojnie zdobyć wysoki wynik na Egzaminie Ósmoklasisty oraz Maturze.
+            Pomagam uczniom dobrze przygotować się z matematyki i angielskiego do Egzaminu Ósmoklasisty i Matury. Porządkujemy materiał, wyjaśniamy trudniejsze tematy i ćwiczymy dokładnie to, co może pojawić się na egzaminie.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
