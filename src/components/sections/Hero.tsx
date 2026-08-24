@@ -78,16 +78,16 @@ export default function Hero() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">
                 <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-sm font-bold text-ink">Zakres przygotowań</span>
+                <span className="text-sm font-bold text-ink">Z czym możemy pracować?</span>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
                 <ShieldCheck className="size-3.5" aria-hidden="true" />
-                Zgodnie z wytycznymi CKE
+                Przygotowanie zgodne z wymaganiami CKE
               </span>
             </div>
 
             <div className="space-y-3 pt-1">
-              {/* Karta 1: Matematyka E8 (Niebieska) */}
+              {/* Karta 1: Matematyka E8 */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Calculator className="size-5 text-brand-700" />
@@ -95,12 +95,12 @@ export default function Hero() {
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Matematyka</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Rozkładanie skomplikowanych zadań CKE na proste kroki, algebra, geometria i sprawdzony plan powtórek.
+                    Zadania egzaminacyjne, algebra, geometria i powtórki najważniejszych tematów.
                   </p>
                 </div>
               </div>
 
-              {/* Karta 2: Angielski E8 (Niebieska) */}
+              {/* Karta 2: Angielski E8 */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Languages className="size-5 text-brand-700" />
@@ -108,33 +108,33 @@ export default function Hero() {
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Język Angielski</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Niezawodne szablony e-maila, pewniaki gramatyczne, słownictwo i praktyczne zwroty egzaminacyjne.
+                    Gramatyka, słownictwo, e-maile, zadania egzaminacyjne i praktyczne zwroty.
                   </p>
                 </div>
               </div>
 
-              {/* Karta 3: Matura Matematyka (Żółta/Bursztynowa) */}
+              {/* Karta 3: Matura Matematyka */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <BookOpenCheck className="size-5 text-amber-800" />
                 </span>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki (Podstawa & Rozszerzenie)</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki — Podstawa i Rozszerzenie</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Logiczne schematy zadań — praca z Kartą Wzorów CKE, funkcja kwadratowa, pochodne i optymalizacja.
+                    Zadania maturalne, karta wzorów CKE, funkcje, geometria, pochodne i optymalizacja.
                   </p>
                 </div>
               </div>
 
-              {/* Karta 4: Matura Angielski (Żółta/Bursztynowa) */}
+              {/* Karta 4: Matura Angielski */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <GraduationCap className="size-5 text-amber-800" />
                 </span>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego (Podstawa & Rozszerzenie)</h4>
+                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego — Podstawa i Rozszerzenie</h4>
                   <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Gramatyka, transformacje zdań, pisanie (rozprawka, list) oraz pewność siebie na maturze ustnej.
+                    Gramatyka, słownictwo, transformacje, pisanie i przygotowanie do matury ustnej.
                   </p>
                 </div>
               </div>
