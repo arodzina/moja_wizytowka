@@ -24,11 +24,11 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-e8",
     category: "e8",
-    badge: "E8 Matematyka",
+    badge: "📐 Egzamin Ósmoklasisty — Matematyka",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Pewniaki Egzaminu Ósmoklasisty z Matematyki",
-    subtitle: "10 Działów, Wytyczne CKE i Unikanie Błędów",
-    description: "Kompleksowa strategia przygotowań do E8. Dowiedz się, które działy dają 80%+ punktów i jak prawidłowo opisywać zadania otwarte pod klucz CKE.",
+    title: "Najważniejsze zagadnienia przed E8 z matematyki",
+    subtitle: "10 działów, wymagania CKE i najczęstsze błędy",
+    description: "10 działów, wymagania CKE i najczęstsze błędy",
     icon: "📐",
     features: [
       "10 Działów CKE (80% punktów na E8)",
@@ -41,11 +41,11 @@ const guides: GuideItem[] = [
   {
     id: "angielski-e8",
     category: "e8",
-    badge: "E8 Język Angielski",
+    badge: "🇬🇧 Egzamin Ósmoklasisty — Język Angielski",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "E8 z Angielskiego pod Klucz CKE",
-    subtitle: "Szablony E-maila, Pewniaki i Słownictwo",
-    description: "Niezbędnik każdego ósmoklasisty. Uniwersalny master szablon wypowiedzi pisemnej na 10 punktów, wykaz 14 tematów leksykalnych CKE i gramatyczne pewniaki.",
+    title: "Przygotowanie do E8 z angielskiego",
+    subtitle: "E-mail, gramatyka, słownictwo i praktyczne zwroty",
+    description: "E-mail, gramatyka, słownictwo i praktyczne zwroty",
     icon: "🇬🇧",
     features: [
       "Master szablon e-maila ze zwrotami łączącymi",
@@ -58,11 +58,11 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-pp",
     category: "matura-pp",
-    badge: "Matura Podstawowa • Matematyka",
+    badge: "🎓 Matura Podstawowa — Matematyka",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Strategia Matury Podstawowej z Matematyki",
-    subtitle: "Karta Wzorów CKE i Pewne 70%+",
-    description: "Praktyczny przewodnik po maturze podstawowej. Zobacz, jak odczytywać darmowe punkty bezpośrednio z Karty Wzorów CKE i bezpiecznie opanować zadania otwarte.",
+    title: "Przygotowanie do matury podstawowej z matematyki",
+    subtitle: "Karta wzorów CKE, najważniejsze zagadnienia i typy zadań",
+    description: "Karta wzorów CKE, najważniejsze zagadnienia i typy zadań",
     icon: "🎓",
     features: [
       "Nawigacja po Kartach Wzorów CKE (darmowe punkty)",
@@ -75,11 +75,11 @@ const guides: GuideItem[] = [
   {
     id: "angielski-pp",
     category: "matura-pp",
-    badge: "Matura Podstawowa • Angielski",
+    badge: "💬 Matura Podstawowa — Język Angielski",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Bezstresowa Matura Podstawowa z Angielskiego",
-    subtitle: "Szablony E-maila i Pewniaki Gramatyczne",
-    description: "Jak wycisnąć maksymalny wynik z matury podstawowej z angielskiego. Uniwersalne szablony e-maila na 12 punktów i zestawienie pewniaków gramatycznych.",
+    title: "Przygotowanie do matury podstawowej z angielskiego",
+    subtitle: "E-mail, gramatyka, słownictwo i najważniejsze typy zadań",
+    description: "E-mail, gramatyka, słownictwo i najważniejsze typy zadań",
     icon: "💬",
     features: [
       "Master szablon e-maila / wpisu na bloga (12 pkt)",
@@ -92,11 +92,11 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-pr",
     category: "matura-pr",
-    badge: "Matura Rozszerzona • Matematyka",
+    badge: "🚀 Matura Rozszerzona — Matematyka",
     badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Masterclass Matury Rozszerzonej z Matematyki",
-    subtitle: "Optymalizacja z Pochodną i Parametr",
-    description: "Strategia dla zdających maturę rozszerzoną. Rozłóż na czynniki pierwsze zadania optymalizacyjne za 6 punktów, równania z parametrem i dowody.",
+    title: "Przygotowanie do matury rozszerzonej z matematyki",
+    subtitle: "Pochodne, optymalizacja, parametry i najważniejsze typy zadań",
+    description: "Pochodne, optymalizacja, parametry i najważniejsze typy zadań",
     icon: "🚀",
     features: [
       "Algorytm zadania optymalizacyjnego z pochodną (5-6 pkt)",
@@ -109,11 +109,11 @@ const guides: GuideItem[] = [
   {
     id: "angielski-pr",
     category: "matura-pr",
-    badge: "Matura Rozszerzona • Angielski",
+    badge: "🗣️ Matura Rozszerzona — Język Angielski",
     badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Masterclass Matury Rozszerzonej z Angielskiego",
-    subtitle: "Szablony C1, Use of English i Ustny C1",
-    description: "Dla maturzystów walczących o punkty rekrutacyjne na wymarzone kierunki. Szablony rozprawek B2/C1, zaawansowane transformacje i przygotowanie do matury ustnej.",
+    title: "Przygotowanie do matury rozszerzonej z angielskiego",
+    subtitle: "Use of English, wypowiedź pisemna i przygotowanie do części ustnej",
+    description: "Use of English, wypowiedź pisemna i przygotowanie do części ustnej",
     icon: "🗣️",
     features: [
       "Master szablon rozprawki For & Against B2/C1 (13 pkt)",
@@ -208,9 +208,9 @@ export default function FreeGuides() {
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Baza wiedzy • 100% Bezpłatnie"
-          title="Darmowe Poradniki Egzaminacyjne"
-          lead="Pobierz sprawdzone strategie, wytyczne CKE i szablony odpowiedzi przygotowane przeze mnie. Wybierz materiał dopasowany do Twojego egzaminu!"
+          eyebrow="Baza wiedzy • Bezpłatnie"
+          title="Darmowe materiały do egzaminów"
+          lead="Przygotowałam bezpłatne materiały, które pomogą Ci uporządkować naukę i lepiej przygotować się do egzaminu. Znajdziesz w nich najważniejsze zagadnienia, wskazówki oraz przykładowe zadania."
         />
 
         {/* Filtr kategorii (Kompaktowe zakładki) */}
@@ -319,13 +319,13 @@ export default function FreeGuides() {
         {/* Baner pomocniczy */}
         <div className="mt-10 rounded-3xl bg-brand-900 p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-lg font-bold">Chcesz skonsultować indywidualny plan przygotowań?</h4>
+            <h4 className="text-lg font-bold">Potrzebujesz pomocy w przygotowaniach?</h4>
             <p className="text-xs sm:text-sm text-brand-200 max-w-xl">
-              Umów się na bezpłatną 15-minutową rozmowę zapoznawczą. Przeanalizujemy sytuację i wyznaczymy najlepsze kroki!
+              Umów się na bezpłatną 15-minutową rozmowę. Porozmawiamy o sytuacji ucznia, celu egzaminacyjnym i możliwym planie nauki.
             </p>
           </div>
-          <Button href="/poziom" variant="secondary" size="lg" className="shrink-0">
-            Ankieta rozpoznawcza <ArrowRight className="ml-2 size-4" />
+          <Button href="#kontakt" variant="secondary" size="lg" className="shrink-0">
+            Umów bezpłatną rozmowę <ArrowRight className="ml-2 size-4" />
           </Button>
         </div>
       </div>
