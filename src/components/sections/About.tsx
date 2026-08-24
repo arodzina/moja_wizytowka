@@ -56,44 +56,30 @@ export default function About() {
                 Wyniki, które mówią same za siebie
               </div>
               <p className="mt-1.5 text-xs sm:text-sm text-slate-soft leading-relaxed">
-                Sama bardzo dobrze znam wymagania egzaminacyjne — zarówno z perspektywy uczennicy, jak i osoby przygotowującej dziś innych do matury.
+                Do matury przygotowywałam się dokładnie tak, jak dziś pomagam przygotowywać się innym uczniom.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full items-stretch">
               {/* Karta 1: Język angielski */}
-              <div className="rounded-2xl bg-brand-50/80 p-4 ring-1 ring-brand-200/70 space-y-2">
+              <div className="flex flex-col justify-between rounded-2xl bg-brand-50/80 p-4 ring-1 ring-brand-200/70 space-y-2 w-full">
                 <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <Globe className="size-4 text-brand-600" />
-                  Język angielski
+                  <Globe className="size-4 text-brand-600 shrink-0" />
+                  <span>Język angielski</span>
                 </div>
-                <div className="space-y-1.5 pt-1 border-t border-brand-100">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-600">poziom podstawowy</span>
-                    <span className="font-extrabold text-brand-700 text-sm">100%</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-600">poziom rozszerzony</span>
-                    <span className="font-extrabold text-brand-700 text-sm">100%</span>
-                  </div>
+                <div className="pt-1 border-t border-brand-100/80 text-xs text-slate-700 font-medium leading-relaxed">
+                  Podstawa <strong className="font-extrabold text-brand-700">100%</strong> · Rozszerzenie <strong className="font-extrabold text-brand-700">100%</strong>
                 </div>
               </div>
 
               {/* Karta 2: Matematyka */}
-              <div className="rounded-2xl bg-amber-50/80 p-4 ring-1 ring-amber-200/70 space-y-2">
+              <div className="flex flex-col justify-between rounded-2xl bg-amber-50/80 p-4 ring-1 ring-amber-200/70 space-y-2 w-full">
                 <div className="flex items-center gap-2 text-xs font-bold text-amber-900">
-                  <Target className="size-4 text-amber-600" />
-                  Matematyka
+                  <Target className="size-4 text-amber-600 shrink-0" />
+                  <span>Matematyka</span>
                 </div>
-                <div className="space-y-1.5 pt-1 border-t border-amber-100">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-600">poziom podstawowy</span>
-                    <span className="font-extrabold text-amber-800 text-sm">100%</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-600">poziom rozszerzony</span>
-                    <span className="font-extrabold text-amber-800 text-sm">98%</span>
-                  </div>
+                <div className="pt-1 border-t border-amber-100/80 text-xs text-slate-700 font-medium leading-relaxed">
+                  Podstawa <strong className="font-extrabold text-amber-800">100%</strong> · Rozszerzenie <strong className="font-extrabold text-amber-800">98%</strong>
                 </div>
               </div>
             </div>
