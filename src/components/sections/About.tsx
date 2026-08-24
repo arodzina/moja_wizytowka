@@ -20,7 +20,7 @@ export default function About() {
   return (
     <section id="o-mnie" aria-labelledby="about-title" className="relative overflow-x-clip bg-mist">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:py-28">
-        {/* Portret z plakietkami */}
+        {/* Portret z plakietkami & Wynikami z matur */}
         <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
           <div className="relative">
             <Image
@@ -46,6 +46,57 @@ export default function About() {
               <Target className="size-4 text-accent-600" aria-hidden="true" />
               Strategia CKE bez stresu
             </motion.div>
+          </div>
+
+          {/* Wyniki z matur pod zdjęciem */}
+          <div className="mt-8 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/80 space-y-4">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600">
+                <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
+                Wyniki, które mówią same za siebie
+              </div>
+              <p className="mt-1.5 text-xs sm:text-sm text-slate-soft leading-relaxed">
+                Sama bardzo dobrze znam wymagania egzaminacyjne — zarówno z perspektywy uczennicy, jak i osoby przygotowującej dziś innych do matury.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {/* Karta 1: Język angielski */}
+              <div className="rounded-2xl bg-brand-50/80 p-4 ring-1 ring-brand-200/70 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                  <Globe className="size-4 text-brand-600" />
+                  Język angielski
+                </div>
+                <div className="space-y-1.5 pt-1 border-t border-brand-100">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-600">poziom podstawowy</span>
+                    <span className="font-extrabold text-brand-700 text-sm">100%</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-600">poziom rozszerzony</span>
+                    <span className="font-extrabold text-brand-700 text-sm">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Karta 2: Matematyka */}
+              <div className="rounded-2xl bg-amber-50/80 p-4 ring-1 ring-amber-200/70 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-900">
+                  <Target className="size-4 text-amber-600" />
+                  Matematyka
+                </div>
+                <div className="space-y-1.5 pt-1 border-t border-amber-100">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-600">poziom podstawowy</span>
+                    <span className="font-extrabold text-amber-800 text-sm">100%</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-600">poziom rozszerzony</span>
+                    <span className="font-extrabold text-amber-800 text-sm">98%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Reveal>
 
