@@ -59,34 +59,16 @@ export default function Hero() {
               Zobacz, jak pracujemy
             </Button>
           </motion.div>
-
-          {/* Pasek zaufania (Trust badges) */}
-          <motion.div variants={item} className="mt-8 border-t border-slate-200/80 pt-5 space-y-2">
-            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-ink">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-brand-900 ring-1 ring-brand-200/60">
-                <span className="text-emerald-600 font-bold">✓</span> 100% z matury podstawowej z matematyki i angielskiego
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-amber-900 ring-1 ring-amber-200/60">
-                <span className="text-emerald-600 font-bold">✓</span> AGH — Informatyka i Ekonometria
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-900 ring-1 ring-emerald-200/60">
-                <span className="text-emerald-600 font-bold">✓</span> Doświadczenie w lekcjach online
-              </span>
-            </div>
-            <p className="text-xs text-slate-500 font-medium pt-0.5">
-              Doświadczenie w prowadzeniu zajęć online i pracy z uczniami.
-            </p>
-          </motion.div>
         </motion.div>
 
-        {/* Prawa kolumna: Karta z zakresem przygotowań (Z awatarem Oli) */}
+        {/* Prawa kolumna: Karta z zakresem przygotowań i wyróżnikami (Z awatarem Oli) */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         >
           {/* Główna karta oferty i zakresu */}
-          <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-5">
+          <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
@@ -111,8 +93,13 @@ export default function Hero() {
               </span>
             </div>
 
+            {/* Nagłówek sekcji z przedmiotami */}
+            <div className="pt-0.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Z czym pracujemy?</span>
+            </div>
+
             {/* Siatka 2x2: Kafelki przedmiotów */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Karta 1: Egzamin Ósmoklasisty - Matematyka (Góra lewa) */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
@@ -151,6 +138,26 @@ export default function Hero() {
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
                   Matura z angielskiego (podstawowa i rozszerzona)
                 </span>
+              </div>
+            </div>
+
+            {/* Pasek zaufania (4 wyróżniki wewnątrz karty na dole) */}
+            <div className="border-t border-slate-100 pt-4 space-y-2">
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                <span>100% z matury podstawowej z matematyki i angielskiego</span>
+              </div>
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                <span>100% z matury rozszerzonej z angielskiego i 98% z matematyki</span>
+              </div>
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                <span>AGH — Informatyka i Ekonometria</span>
+              </div>
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                <span>Doświadczenie w prowadzeniu zajęć online i pracy z uczniami</span>
               </div>
             </div>
           </div>
