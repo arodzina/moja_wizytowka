@@ -95,7 +95,7 @@ export default function Hero() {
 
             {/* Nagłówek sekcji z przedmiotami */}
             <div className="pt-0.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Z czym pracujemy?</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Do czego się przygotowujemy?</span>
             </div>
 
             {/* Siatka 2x2: Kafelki przedmiotów */}
