@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronDown, Globe, GraduationCap, Sparkles, Target, Zap } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Globe, GraduationCap, Sparkles, Target } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
 export default function About() {
-  const [showQualifications, setShowQualifications] = useState(false);
   const reduce = useReducedMotion();
 
   const float = (duration: number, delay: number) => ({
@@ -19,13 +17,13 @@ export default function About() {
 
   return (
     <section id="o-mnie" aria-labelledby="about-title" className="relative overflow-x-clip bg-mist">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:py-28">
-        {/* Portret z plakietkami & Wynikami z matur */}
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:py-28">
+        {/* Portret z plakietką Erasmus+ */}
         <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
           <div className="relative">
             <Image
               src="/images/ola-portrait.jpg"
-              alt="Zdjęcie Oli — mentorki egzaminacyjnej E8 i Matury"
+              alt="Zdjęcie Oli — korepetytorki E8 i Matury"
               width={576}
               height={1024}
               unoptimized
@@ -38,43 +36,6 @@ export default function About() {
               <Globe className="size-4 text-brand-600" aria-hidden="true" />
               Angielski <span className="text-brand-600">C1</span> · Erasmus+
             </motion.div>
-          </div>
-
-          {/* Wyniki z matur pod zdjęciem */}
-          <div className="mt-8 rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/80 space-y-4">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600">
-                <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
-                Wyniki, które mówią same za siebie
-              </div>
-              <p className="mt-1.5 text-xs sm:text-sm text-slate-soft leading-relaxed">
-                Do matury przygotowywałam się dokładnie tak, jak dziś pomagam przygotowywać się innym uczniom.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full items-stretch">
-              {/* Karta 1: Język angielski */}
-              <div className="flex flex-col justify-between rounded-2xl bg-brand-50/80 p-4 ring-1 ring-brand-200/70 space-y-2 w-full">
-                <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                  <Globe className="size-4 text-brand-600 shrink-0" />
-                  <span>Język angielski</span>
-                </div>
-                <div className="pt-1 border-t border-brand-100/80 text-xs text-slate-700 font-medium leading-relaxed">
-                  Podstawa <strong className="font-extrabold text-brand-700">100%</strong> · Rozszerzenie <strong className="font-extrabold text-brand-700">100%</strong>
-                </div>
-              </div>
-
-              {/* Karta 2: Matematyka */}
-              <div className="flex flex-col justify-between rounded-2xl bg-amber-50/80 p-4 ring-1 ring-amber-200/70 space-y-2 w-full">
-                <div className="flex items-center gap-2 text-xs font-bold text-amber-900">
-                  <Target className="size-4 text-amber-600 shrink-0" />
-                  <span>Matematyka</span>
-                </div>
-                <div className="pt-1 border-t border-amber-100/80 text-xs text-slate-700 font-medium leading-relaxed">
-                  Podstawa <strong className="font-extrabold text-amber-800">100%</strong> · Rozszerzenie <strong className="font-extrabold text-amber-800">98%</strong>
-                </div>
-              </div>
-            </div>
           </div>
         </Reveal>
 
@@ -94,7 +55,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-6 space-y-4 text-base sm:text-lg leading-relaxed text-slate-soft">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-soft">
               <p>
                 Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong>. Analityczne podejście, które wykorzystuję na studiach, pomaga mi porządkować materiał i tłumaczyć trudniejsze zagadnienia w prosty i zrozumiały sposób.
               </p>
@@ -125,7 +86,7 @@ export default function About() {
           {/* 4 Kafelki wyróżnień: Wykształcenie, szkolenia i doświadczenie */}
           <Reveal delay={0.2}>
             <div className="mt-8 pt-6 border-t border-slate-200/80">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-900 flex items-center gap-2 mb-4">
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-900 flex items-center gap-2 mb-4">
                 <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
                 Wykształcenie, szkolenia CKE & organizacja pracy
               </h3>
