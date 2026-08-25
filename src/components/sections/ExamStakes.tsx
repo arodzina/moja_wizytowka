@@ -89,7 +89,7 @@ export default function ExamStakes() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="stawka-egzaminu" aria-labelledby="stakes-title" className="relative overflow-x-clip bg-mist">
+    <section id="jak-pracujemy" aria-labelledby="stakes-title" className="relative overflow-x-clip bg-mist">
       {/* Tło ozdobne */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/3 left-[-10%] h-80 w-80 rounded-full bg-brand-200/40 blur-3xl" />

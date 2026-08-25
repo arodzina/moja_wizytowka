@@ -19,9 +19,9 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { label: "O egzaminach", href: "/#stawka-egzaminu" },
+  { label: "O przygotowaniach", href: "/#jak-pracujemy" },
   { label: "O mnie", href: "/#o-mnie" },
-  { label: "Współpraca", href: "/#metodologia" },
+  { label: "Opinie", href: "/#opinie" },
   { label: "Poradniki", href: "/#poradniki" },
   { label: "Cennik", href: "/#cennik" },
   { label: "FAQ", href: "/#faq" },
