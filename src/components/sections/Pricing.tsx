@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BookOpen, Check, Crown, FileCode2, GraduationCap, Sparkles, Target } from "lucide-react";
+import { ArrowRight, BookOpen, Check, Crown, FileCode2, GraduationCap, ShieldCheck, Sparkles, Target } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -61,6 +61,25 @@ const plans = [
       "angielski: m.in. Use of English, transformacje i wypowiedź pisemna",
       "pierwsze 3 lekcje -25%",
     ],
+  },
+];
+
+const rules = [
+  {
+    title: "Bezpłatna rozmowa zapoznawcza — 15 min",
+    desc: "Omawiamy potrzeby ucznia, cel przygotowań i sposób pracy. Bez zobowiązań.",
+  },
+  {
+    title: "3 pierwsze lekcje z rabatem 25%",
+    desc: "Każda lekcja jest płatna osobno. To czas na sprawdzenie, czy forma zajęć odpowiada uczniowi.",
+  },
+  {
+    title: "Płatność miesięczna po okresie próbnym",
+    desc: "Przy dalszej współpracy rezerwujemy stały termin i rozliczamy zajęcia z góry za dany miesiąc.",
+  },
+  {
+    title: "Przekładanie lekcji (zasady 24h)",
+    desc: "Jeśli potrzebujesz przełożyć zajęcia, wystarczy poinformować mnie co najmniej 24 godziny wcześniej. W takim przypadku ustalamy nowy termin w tym samym miesiącu.",
   },
 ];
 
@@ -141,7 +160,7 @@ export default function Pricing() {
                   {plan.sub}
                 </p>
 
-                <div className="mt-5 border-y py-3 border-slate-100 dark:border-white/10">
+                <div className="mt-5 border-y py-3.5 border-slate-100 dark:border-white/10">
                   <div className="flex flex-wrap items-baseline gap-1.5">
                     <span className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-ink"}`}>
                       {plan.price}
@@ -150,10 +169,16 @@ export default function Pricing() {
                       {plan.unit}
                     </span>
                   </div>
+
                   {plan.discountNote && (
-                    <p className={`mt-1 text-xs font-semibold ${plan.popular ? "text-accent-300" : "text-emerald-700"}`}>
-                      ⚡ {plan.discountNote}
-                    </p>
+                    <div className={`mt-2.5 rounded-xl p-2.5 text-xs font-medium leading-tight ${
+                      plan.popular
+                        ? "bg-accent-400/20 text-amber-200 ring-1 ring-accent-400/40"
+                        : "bg-emerald-50 text-emerald-900 ring-1 ring-emerald-200/80"
+                    }`}>
+                      <span className="font-bold text-emerald-700 dark:text-amber-300">💡 Bardziej opłacalna opcja:</span>{" "}
+                      {plan.discountNote}
+                    </div>
                   )}
                 </div>
 
@@ -184,6 +209,43 @@ export default function Pricing() {
             </Reveal>
           ))}
         </div>
+
+        {/* 🛡️ Przejrzyste zasady współpracy (Regulamin / warunki przy cenniku) */}
+        <Reveal delay={0.25}>
+          <div className="mx-auto mt-12 max-w-4xl rounded-3xl bg-slate-900 p-7 sm:p-8 text-white shadow-xl ring-1 ring-slate-800 relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mt-8 -mr-8 size-40 rounded-full bg-brand-500/10 blur-2xl pointer-events-none" />
+            <div className="flex flex-col sm:flex-row sm:items-start gap-5 relative z-10">
+              <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/30">
+                <ShieldCheck className="size-8 text-accent-400" aria-hidden="true" />
+              </div>
+
+              <div className="space-y-3 flex-1">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent-400">
+                    Warunki i ustalenia
+                  </span>
+                  <h3 className="mt-1 text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    Zasady współpracy
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {rules.map((rule, idx) => (
+                    <div key={idx} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 space-y-1">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white">
+                        <span className="text-accent-400 font-extrabold text-sm">✓</span>
+                        <span>{rule.title}</span>
+                      </div>
+                      <p className="text-xs text-slate-300 leading-relaxed pl-5">
+                        {rule.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
