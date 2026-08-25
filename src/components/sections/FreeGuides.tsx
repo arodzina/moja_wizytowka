@@ -180,7 +180,6 @@ export default function FreeGuides() {
         <SectionHeading
           eyebrow="Baza wiedzy • Bezpłatnie"
           title="Darmowe materiały do egzaminów"
-          lead="Przygotowałam bezpłatne materiały, które pomogą Ci uporządkować naukę i lepiej przygotować się do egzaminu. Znajdziesz w nich najważniejsze zagadnienia, wskazówki oraz przykładowe zadania."
         />
 
         {/* Filtr kategorii (Kompaktowe zakładki) */}
