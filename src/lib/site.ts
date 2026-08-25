@@ -96,8 +96,8 @@ export const faqItems = [
     a: "Po każdych zajęciach rodzic i uczeń wiedzą dokładnie, nad czym pracowaliśmy i na co przeznaczony był czas lekcji. Przesyłam podsumowanie przerobionego materiału, krótki feedback z przebiegu spotkania oraz konkretne wskazówki, co uczeń powinien powtórzyć w domu.",
   },
   {
-    q: "Jak wygląda pakiet startowy 3 lekcji próbnych z rabatem -25%?",
-    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie rozpoczynamy okres próbny — pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu. Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dopiero po tym etapie decydujecie o stałej współpracy.",
+    q: "Jak wygląda pakiet startowy 3 lekcji z rabatem -25%?",
+    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu. Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dzięki temu możecie na spokojnie sprawdzić sposób pracy i podjąć decyzję o stałej współpracy.",
   },
   {
     q: "Czy zajęcia odbywają się w 100% online?",
