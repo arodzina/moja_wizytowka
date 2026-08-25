@@ -17,13 +17,6 @@ const plans = [
     discountNote: "50 zł / 60 min przy zajęciach 2× w tygodniu",
     badge: "Klasa 8",
     color: "brand",
-    includes: [
-      "przygotowanie zgodne z wymaganiami CKE",
-      "praca z zadaniami i arkuszami egzaminacyjnymi",
-      "uzupełnianie braków i powtórka najważniejszych zagadnień",
-      "materiały i plan nauki dopasowane do ucznia",
-      "pierwsze 3 lekcje -25%",
-    ],
   },
   {
     id: "matura-podstawa",
@@ -35,13 +28,6 @@ const plans = [
     discountNote: "60 zł / 60 min przy zajęciach 2× w tygodniu",
     badge: "Poziom podstawowy",
     color: "brand",
-    includes: [
-      "przygotowanie zgodne z wymaganiami CKE",
-      "praca z arkuszami i zadaniami maturalnymi",
-      "powtórka najważniejszych zagadnień",
-      "analiza błędów i sposobów zdobywania punktów",
-      "pierwsze 3 lekcje -25%",
-    ],
   },
   {
     id: "matura-rozszerzona",
@@ -54,13 +40,6 @@ const plans = [
     badge: "Poziom rozszerzony",
     popular: true,
     color: "accent",
-    includes: [
-      "przygotowanie zgodne z wymaganiami CKE",
-      "praca z arkuszami i trudniejszymi zadaniami",
-      "matematyka: m.in. pochodne, wielomiany, optymalizacja i dowody",
-      "angielski: m.in. Use of English, transformacje i wypowiedź pisemna",
-      "pierwsze 3 lekcje -25%",
-    ],
   },
 ];
 
@@ -182,20 +161,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <ul className="mt-5 space-y-3 flex-1">
-                  {plan.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug">
-                      <span className={`mt-0.5 grid size-4.5 shrink-0 place-items-center rounded-full ${
-                        plan.popular ? "bg-accent-400 text-ink" : "bg-emerald-100 text-emerald-700"
-                      }`}>
-                        <Check className="size-2.5" aria-hidden="true" />
-                      </span>
-                      <span className={plan.popular ? "text-white/85" : "text-slate-700"}>
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex-1" />
 
                 <Button
                   href="#kontakt"
