@@ -1,30 +1,45 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Award, CheckCircle2, Compass, GraduationCap, School, ShieldAlert, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
+import { Target, BookOpen, Pencil, FileText, TrendingUp } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const stakes = [
+const processSteps = [
   {
-    icon: School,
-    badge: "Dla ósmoklasisty i rodziców",
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Większa szansa na dostanie się do wybranej szkoły",
-    description:
-      "Na egzaminie liczy się każdy punkt, który może mieć znaczenie przy rekrutacji do liceum lub technikum. Pomagam uporządkować materiał, uzupełnić braki i krok po kroku przygotować się do zadań egzaminacyjnych.",
-    takeaway: "Jasny plan nauki i regularne wsparcie.",
-    accentColor: "border-amber-400/40",
+    step: "01",
+    icon: Target,
+    title: "1. Ustalamy plan",
+    description: "Poziom, cel, priorytety i czas do egzaminu.",
+    accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
   },
   {
-    icon: GraduationCap,
-    badge: "Dla maturzysty",
-    badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Lepsze przygotowanie do matury",
-    description:
-      "Wynik z matury ma duże znaczenie przy rekrutacji na studia. Pomagam dobrze przygotować się zarówno do poziomu podstawowego, jak i rozszerzonego, tak aby uczeń mógł podejść do egzaminu z większym spokojem i osiągnąć wynik odpowiadający jego możliwościom.",
-    takeaway: "Lepsze przygotowanie i większa pewność przed maturą.",
-    accentColor: "border-brand-400/40",
+    step: "02",
+    icon: BookOpen,
+    title: "2. Uzupełniamy braki",
+    description: "Tłumaczę trudne zagadnienia i pracujemy nad tym, czego jeszcze nie rozumiesz.",
+    accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
+  },
+  {
+    step: "03",
+    icon: Pencil,
+    title: "3. Ćwiczymy zadania",
+    description: "Rozwiązujemy zadania i uczymy się sposobu myślenia potrzebnego do ich samodzielnego rozwiązywania.",
+    accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
+  },
+  {
+    step: "04",
+    icon: FileText,
+    title: "4. Pracujemy z arkuszami CKE",
+    description: "Oswajamy się z formatem egzaminu i typami zadań, które mogą się pojawić.",
+    accentColor: "border-amber-500/40 text-amber-800 bg-amber-50",
+  },
+  {
+    step: "05",
+    icon: TrendingUp,
+    title: "5. Monitorujemy postępy",
+    description: "Na bieżąco sprawdzam, co już potrafisz, a co trzeba jeszcze przećwiczyć, i odpowiednio modyfikujemy plan.",
+    accentColor: "border-emerald-500/40 text-emerald-800 bg-emerald-50",
   },
 ];
 
@@ -33,7 +48,7 @@ export default function ExamStakes() {
 
   return (
     <section id="stawka-egzaminu" aria-labelledby="stakes-title" className="relative overflow-x-clip bg-mist">
-      {/* Tło */}
+      {/* Tło ozdobne */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/3 left-[-10%] h-80 w-80 rounded-full bg-brand-200/40 blur-3xl" />
         <div className="absolute bottom-10 right-[-10%] h-96 w-96 rounded-full bg-accent-100/50 blur-3xl" />
@@ -41,43 +56,37 @@ export default function ExamStakes() {
 
       <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-28">
         <SectionHeading
-          eyebrow="Dobre przygotowanie to coś więcej niż wynik"
-          title="Dlaczego warto się dobrze przygotować?"
-          lead="Egzamin to nie tylko sprawdzenie wiedzy. To także umiejętność rozwiązywania zadań, wykorzystania zdobytej wiedzy w praktyce i radzenia sobie z presją czasu. Dobre przygotowanie pomaga osiągnąć lepszy wynik, ale też daje uczniowi większą pewność siebie i solidne podstawy na przyszłość."
+          eyebrow="Jak pracujemy?"
+          title="Jak wygląda proces przygotowania do egzaminu?"
+          lead="Najpierw ustalamy, gdzie jesteś i dokąd chcesz dojść. Potem wspólnie realizujemy konkretny plan przygotowań — od uzupełnienia braków, przez ćwiczenie zadań, aż po pracę z arkuszami egzaminacyjnymi."
         />
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-          {stakes.map((stake, idx) => (
-            <Reveal key={stake.title} delay={idx * 0.12} className="h-full">
+        {/* Siatka 5 kroków (3 na górze, 2 na dole wyśrodkowane) */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          {processSteps.map((step, idx) => (
+            <Reveal key={step.title} delay={idx * 0.08} className={idx >= 3 ? "sm:col-span-1 lg:col-span-1" : ""}>
               <motion.div
-                whileHover={reduce ? undefined : { y: -6 }}
+                whileHover={reduce ? undefined : { y: -5 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className={`relative flex h-full flex-col justify-between rounded-3xl bg-white p-7 sm:p-8 shadow-card ring-1 ring-slate-200/80 border-t-4 ${stake.accentColor}`}
+                className={`relative flex h-full flex-col justify-between rounded-3xl bg-white p-7 shadow-card ring-1 ring-slate-200/80 border-t-4 ${step.accentColor.split(' ')[0]}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-700">
-                      <stake.icon className="size-6" aria-hidden="true" />
+                    <span className={`grid size-12 place-items-center rounded-2xl ${step.accentColor}`}>
+                      <step.icon className="size-6" aria-hidden="true" />
                     </span>
-                    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold ${stake.badgeColor}`}>
-                      {stake.badge}
+                    <span className="font-display text-3xl font-extrabold text-slate-200" aria-hidden="true">
+                      {step.step}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 text-xl font-bold leading-snug text-ink sm:text-2xl">
-                    {stake.title}
+                  <h3 className="mt-5 text-lg font-bold text-ink sm:text-xl">
+                    {step.title}
                   </h3>
 
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-soft">
-                    {stake.description}
+                  <p className="mt-2.5 text-sm leading-relaxed text-slate-soft">
+                    {step.description}
                   </p>
-                </div>
-
-                <div className="mt-6 border-t border-slate-100 pt-5">
-                  <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                    <Sparkles className="size-4 shrink-0 text-amber-500 mt-0.5" />
-                    <span>{stake.takeaway}</span>
-                  </div>
                 </div>
               </motion.div>
             </Reveal>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Sparkles, CreditCard, TrendingUp, ArrowRight } from "lucide-react";
+import { Calendar, Sparkles, CreditCard, ArrowRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 
@@ -10,32 +10,24 @@ const collaborationSteps = [
     icon: Calendar,
     title: "Bezpłatna rozmowa",
     description:
-      "Krótka rozmowa online, podczas której poznajemy potrzeby ucznia, omawiamy cel przygotowań i ustalamy, jak możemy pracować.",
+      "Krótka rozmowa online (15 min), podczas której poznajemy potrzeby ucznia, omawiamy cel przygotowań i ustalamy, jak możemy pracować.",
     badge: "15 minut na poznanie się",
   },
   {
     step: "02",
     icon: Sparkles,
-    title: "3 lekcje na start",
+    title: "3 lekcje na start z rabatem",
     description:
-      "Pierwsze trzy lekcje są objęte rabatem 25% i opłacane pojedynczo przed zajęciami. To dobry moment, żeby sprawdzić, czy forma zajęć i sposób pracy odpowiadają uczniowi.",
-    badge: "25% rabatu na pierwsze 3 lekcje",
+      "Pierwsze trzy lekcje są objęte rabatem 25% i opłacane pojedynczo. To czas na sprawdzenie, czy forma zajęć odpowiada uczniowi.",
+    badge: "25% rabatu na 3 pierwsze lekcje",
   },
   {
     step: "03",
     icon: CreditCard,
     title: "Stała współpraca",
     description:
-      "Jeśli decydujemy się na dalszą współpracę, rezerwujemy stały termin w tygodniu i przechodzimy na płatność z góry za dany miesiąc.",
-    badge: "Stały termin i miesięczne rozliczenie",
-  },
-  {
-    step: "04",
-    icon: TrendingUp,
-    title: "Kontakt i monitorowanie postępów",
-    description:
-      "Na bieżąco śledzimy przerabiany materiał i postępy ucznia. Rodzic może mieć wgląd w to, nad czym aktualnie pracujemy i co wymaga jeszcze powtórzenia.",
-    badge: "Regularna informacja o nauce",
+      "Przy dalszej współpracy rezerwujemy stały termin w tygodniu i rozliczamy zajęcia z góry za dany miesiąc.",
+    badge: "Stały termin i rozliczenie miesięczne",
   },
 ];
 
@@ -57,19 +49,19 @@ export default function HowItWorks() {
           <Reveal>
             <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-300">
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
-              Zasady współpracy
+              Kolejne kroki współpracy
               <span aria-hidden="true" className="h-px w-6 bg-accent-400/70" />
             </p>
             <h2 id="how-it-works-title" className="mt-4 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               Jak wygląda rozpoczęcie nauki?
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
-              Najpierw krótko się poznajemy, ustalamy potrzeby ucznia i sprawdzamy, czy taki sposób pracy nam odpowiada. Jeśli wszystko pasuje, ustalamy stały termin zajęć.
+              Proste i przejrzyste zasady od samego początku. Najpierw rozmawiamy bez zobowiązań, sprawdzamy zajęcia na preferencyjnych warunkach, a potem ustalamy stałą współpracę.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto">
           {collaborationSteps.map((step, i) => (
             <Reveal key={step.title} delay={i * 0.1} className="h-full">
               <div className="relative flex h-full flex-col justify-between rounded-3xl bg-white/5 p-7 ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
@@ -102,11 +94,8 @@ export default function HowItWorks() {
 
         <Reveal delay={0.25} className="mt-14 text-center">
           <div className="inline-flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="/poziom" variant="accent" size="lg">
-              Umów rozmowę zapoznawczą <ArrowRight className="ml-2 size-4" />
-            </Button>
-            <Button href="#poradniki" variant="outline" size="lg">
-              Pobierz darmowe poradniki CKE
+            <Button href="#kontakt" variant="accent" size="lg">
+              Umów bezpłatną rozmowę zapoznawczą <ArrowRight className="ml-2 size-4" />
             </Button>
           </div>
         </Reveal>
