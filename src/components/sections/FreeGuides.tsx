@@ -24,9 +24,9 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-e8",
     category: "e8",
-    badge: "📐 Egzamin Ósmoklasisty — Matematyka",
+    badge: "Egzamin Ósmoklasisty",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Najważniejsze zagadnienia przed E8 z matematyki",
+    title: "Poradnik dla ósmoklasisty — matematyka",
     subtitle: "Wymagania CKE i najważniejsze typy zadań",
     description: "Poradnik zawierający zestawienie kluczowych zagadnień CKE, wskazówki dotyczące typowych błędów oraz sposób zapisu zadań otwartych.",
     icon: "📐",
@@ -36,9 +36,9 @@ const guides: GuideItem[] = [
   {
     id: "angielski-e8",
     category: "e8",
-    badge: "🇬🇧 Egzamin Ósmoklasisty — Język Angielski",
+    badge: "Egzamin Ósmoklasisty",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Przygotowanie do E8 z angielskiego",
+    title: "Poradnik dla ósmoklasisty — język angielski",
     subtitle: "Gramatyka, słownictwo, e-mail i przydatne zwroty",
     description: "Poradnik ze strukturami gramatycznymi, słownictwem, szablonymi e-maila oraz praktycznymi zwrotami na egzamin.",
     icon: "🇬🇧",
@@ -48,9 +48,9 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-pp",
     category: "matura-pp",
-    badge: "🎓 Matura Podstawowa — Matematyka",
+    badge: "Matura Podstawowa",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Przygotowanie do matury podstawowej z matematyki",
+    title: "Poradnik dla maturzysty — matematyka podstawowa",
     subtitle: "Karta wzorów CKE i najważniejsze typy zadań",
     description: "Przewodnik po Karcie Wzorów CKE, najważniejszych działach i powtarzalnych typach zadań na maturze podstawowej.",
     icon: "🎓",
@@ -60,9 +60,9 @@ const guides: GuideItem[] = [
   {
     id: "angielski-pp",
     category: "matura-pp",
-    badge: "💬 Matura Podstawowa — Język Angielski",
+    badge: "Matura Podstawowa",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    title: "Przygotowanie do matury podstawowej z angielskiego",
+    title: "Poradnik dla maturzysty — język angielski podstawowy",
     subtitle: "E-mail, gramatyka, słownictwo i praca z arkuszem",
     description: "Praktyczny poradnik z kluczową gramatyką, przydatnym słownictwem oraz gotowymi zwrotami do wypowiedzi pisemnej.",
     icon: "💬",
@@ -72,9 +72,9 @@ const guides: GuideItem[] = [
   {
     id: "matematyka-pr",
     category: "matura-pr",
-    badge: "🚀 Matura Rozszerzona — Matematyka",
+    badge: "Matura Rozszerzona",
     badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Przygotowanie do matury rozszerzonej z matematyki",
+    title: "Poradnik dla maturzysty — matematyka rozszerzona",
     subtitle: "Pochodne, optymalizacja i trudniejsze zagadnienia",
     description: "Omówienie trudniejszych zagadnień maturalnych, pochodnych, zadań z parametrem oraz sposobu pracy z arkuszem rozszerzonym.",
     icon: "🚀",
@@ -84,9 +84,9 @@ const guides: GuideItem[] = [
   {
     id: "angielski-pr",
     category: "matura-pr",
-    badge: "🗣️ Matura Rozszerzona — Język Angielski",
+    badge: "Matura Rozszerzona",
     badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Przygotowanie do matury rozszerzonej z angielskiego",
+    title: "Poradnik dla maturzysty — język angielski rozszerzony",
     subtitle: "Use of English, wypowiedź pisemna i matura ustna",
     description: "Zestawienie struktur C1, Use of English, transformacji oraz wskazówki do napisania wypowiedzi argumentacyjnej i części ustnej.",
     icon: "🗣️",
@@ -206,44 +206,39 @@ export default function FreeGuides() {
           ))}
         </div>
 
-        {/* Kompaktowe kafelki poradników */}
-        <div className="mt-10 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Kompaktowe małe kafelki poradników */}
+        <div className="mt-8 grid gap-3.5 sm:grid-cols-2">
           {filteredGuides.map((guide) => (
             <motion.div
               key={guide.id}
               layout
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="relative flex flex-col justify-between rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-float hover:-translate-y-1"
+              exit={{ opacity: 0, y: 8 }}
+              className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 transition-all hover:shadow-float"
             >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="grid size-10 place-items-center rounded-2xl bg-brand-50 text-xl">
-                    {guide.icon}
-                  </span>
-                  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-extrabold ${guide.badgeColor}`}>
+              <div className="flex items-center gap-3">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-50 text-xl">
+                  {guide.icon}
+                </span>
+                <div>
+                  <span className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-extrabold mb-1 ${guide.badgeColor}`}>
                     {guide.badge}
                   </span>
+                  <h3 className="text-sm font-bold text-ink leading-snug">
+                    {guide.title}
+                  </h3>
                 </div>
-
-                <h3 className="mt-4 text-base sm:text-lg font-bold leading-snug text-ink">
-                  {guide.title}
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-soft">
-                  {guide.description}
-                </p>
               </div>
 
-              <div className="mt-6 border-t border-slate-100 pt-4">
-                <Button
-                  type="button"
-                  onClick={() => handleOpenModal(guide)}
-                  className="w-full justify-center text-xs sm:text-sm py-2.5"
-                >
-                  <Download className="mr-2 size-4" /> Pobierz bezpłatny PDF
-                </Button>
-              </div>
+              <Button
+                type="button"
+                onClick={() => handleOpenModal(guide)}
+                size="md"
+                className="shrink-0 text-xs py-2 px-3.5 whitespace-nowrap justify-center"
+              >
+                <Download className="mr-1.5 size-3.5" /> Pobierz bezpłatny PDF
+              </Button>
             </motion.div>
           ))}
         </div>
