@@ -93,7 +93,7 @@ export default function About() {
                     <span>Erasmus+ — Portugalia · angielski C1</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem C1.
+                    Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem OLS (poziom C1).
                   </p>
                 </div>
 
