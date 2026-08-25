@@ -68,15 +68,15 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* 4 Kafelki wyróżnień: Wykształcenie, szkolenia i doświadczenie */}
+          {/* Kafelki wyróżnień: Wykształcenie i organizacja pracy */}
           <Reveal delay={0.2}>
             <div className="mt-8 pt-6 border-t border-slate-200/80">
               <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-900 flex items-center gap-2 mb-4">
                 <Sparkles className="size-4 text-accent-500" aria-hidden="true" />
-                Wykształcenie, szkolenia CKE & organizacja pracy
+                Wykształcenie & organizacja pracy
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
                     <GraduationCap className="size-4 text-brand-600 shrink-0" />
@@ -84,16 +84,6 @@ export default function About() {
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Studia na renomowanej uczelni technicznej — analityczne, uporządkowane podejście do matematyki.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                    <Target className="size-4 text-brand-600 shrink-0" />
-                    <span>Webinar z egzaminatorem CKE</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Udział w webinarze prowadzonym przez egzaminatora CKE — poznanie kryteriów oceniania oraz sposobu sprawdzania arkuszy z perspektywy egzaminatora.
                   </p>
                 </div>
 
