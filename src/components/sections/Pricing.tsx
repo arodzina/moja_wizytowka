@@ -76,7 +76,6 @@ export default function Pricing() {
         <SectionHeading
           eyebrow="Wybierz formę przygotowania"
           title="Oferta i cennik"
-          lead="Zajęcia z matematyki lub języka angielskiego dopasowane do poziomu ucznia i celu egzaminacyjnego."
         />
 
         {/* Darmowa konsultacja — baner */}
