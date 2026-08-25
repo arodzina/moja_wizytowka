@@ -65,21 +65,6 @@ export default function About() {
               <p>
                 Tworzę <strong className="font-semibold text-ink">własne materiały i plany nauki</strong>, które pomagają uporządkować przygotowania i skupić się na najważniejszych zagadnieniach.
               </p>
-
-              <div className="pt-3 space-y-2.5">
-                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
-                  <span className="text-emerald-600 font-bold text-lg">✓</span>
-                  <span>Wykształcenie i analityczne podejście</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
-                  <span className="text-emerald-600 font-bold text-lg">✓</span>
-                  <span>Znajomość wymagań CKE</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink">
-                  <span className="text-emerald-600 font-bold text-lg">✓</span>
-                  <span>Własne materiały i uporządkowany plan nauki</span>
-                </div>
-              </div>
             </div>
           </Reveal>
 
