@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Calculator, Languages, BookOpenCheck, GraduationCap } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -16,13 +17,6 @@ const item = {
 
 export default function Hero() {
   const reduce = useReducedMotion();
-
-  const float = (duration = 5, delay = 0) => ({
-    animate: reduce ? undefined : { y: [0, -8, 0] },
-    transition: reduce
-      ? undefined
-      : { duration, repeat: Infinity, ease: "easeInOut", delay },
-  });
 
   return (
     <section id="start" className="relative overflow-x-clip bg-mist pt-28 pb-20 sm:pt-32 lg:pt-40 lg:pb-28">
@@ -67,7 +61,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Prawa kolumna: Karta z zakresem przygotowań (50/50 szerokość) */}
+        {/* Prawa kolumna: Karta z zakresem przygotowań (Z awatarem Oli) */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -76,67 +70,68 @@ export default function Hero() {
           {/* Główna karta oferty i zakresu */}
           <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              <div className="flex items-center gap-2.5">
-                <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-sm font-bold text-ink">Z czym możemy pracować?</span>
+              <div className="flex items-center gap-3">
+                <div className="relative shrink-0">
+                  <Image
+                    src="/images/ola-portrait.jpg"
+                    alt="Ola"
+                    width={48}
+                    height={48}
+                    unoptimized
+                    className="size-12 rounded-full object-cover ring-2 ring-brand-500/20 shadow-xs"
+                  />
+                  <div className="absolute -bottom-0.5 -right-0.5 size-3.5 rounded-full bg-emerald-500 ring-2 ring-white" />
+                </div>
+                <div>
+                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Z kim pracujesz?</span>
+                  <span className="block text-sm font-extrabold text-ink">Ola — Korepetycje E8 & Matura</span>
+                </div>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
+              <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
                 <ShieldCheck className="size-3.5" aria-hidden="true" />
-                Przygotowanie zgodne z wymaganiami CKE
+                Wymagania CKE
               </span>
             </div>
 
-            <div className="space-y-3 pt-1">
-              {/* Karta 1: Matematyka E8 */}
+            <div className="space-y-2.5 pt-1">
+              {/* Karta 1: Egzamin Ósmoklasisty - Matematyka */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Calculator className="size-5 text-brand-700" />
                 </span>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Matematyka</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Zadania egzaminacyjne, algebra, geometria i powtórki najważniejszych tematów.
-                  </p>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-ink">
+                  Egzamin z podstawowej matematyki (klasa 8)
+                </span>
               </div>
 
-              {/* Karta 2: Angielski E8 */}
+              {/* Karta 2: Egzamin Ósmoklasisty - Angielski */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Languages className="size-5 text-brand-700" />
                 </span>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Egzamin Ósmoklasisty — Język Angielski</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Gramatyka, słownictwo, e-maile, zadania egzaminacyjne i praktyczne zwroty.
-                  </p>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-ink">
+                  Egzamin z podstawowego języka angielskiego (klasa 8)
+                </span>
               </div>
 
-              {/* Karta 3: Matura Matematyka */}
+              {/* Karta 3: Matura z Matematyki */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <BookOpenCheck className="size-5 text-amber-800" />
                 </span>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Matematyki — Podstawa i Rozszerzenie</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Zadania maturalne, karta wzorów CKE, funkcje, geometria, pochodne i optymalizacja.
-                  </p>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-ink">
+                  Matura z matematyki (podstawowa i rozszerzona)
+                </span>
               </div>
 
-              {/* Karta 4: Matura Angielski */}
+              {/* Karta 4: Matura z Angielskiego */}
               <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <GraduationCap className="size-5 text-amber-800" />
                 </span>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-ink">Matura z Angielskiego — Podstawa i Rozszerzenie</h4>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-soft">
-                    Gramatyka, słownictwo, transformacje, pisanie i przygotowanie do matury ustnej.
-                  </p>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-ink">
+                  Matura z angielskiego (podstawowa i rozszerzona)
+                </span>
               </div>
             </div>
           </div>
