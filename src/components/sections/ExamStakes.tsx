@@ -56,8 +56,8 @@ const onlineFeatures = [
   },
   {
     icon: MessageSquareText,
-    title: "💬 Stały kontakt i wsparcie",
-    description: "Przygotowuję materiały dopasowane do Twoich potrzeb. Nie zostajesz sam z materiałem po lekcji — jeśli między zajęciami pojawi się pytanie, możesz się ze mną skontaktować.",
+    title: "💬 Kontakt i wsparcie między zajęciami",
+    description: "Przygotowuję materiały dopasowane do Twoich potrzeb. Jeśli między zajęciami pojawi się pytanie dotyczące materiału, możesz się ze mną skontaktować.",
   },
 ];
 
