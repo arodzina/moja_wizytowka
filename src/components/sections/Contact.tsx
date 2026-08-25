@@ -22,11 +22,18 @@ const topics = [
 interface FormState {
   name: string;
   email: string;
+  userType: "uczen" | "rodzic";
   topic: string;
   message: string;
 }
 
-const initialForm: FormState = { name: "", email: "", topic: topics[0], message: "" };
+const initialForm: FormState = {
+  name: "",
+  email: "",
+  userType: "uczen",
+  topic: topics[0],
+  message: "",
+};
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -58,10 +65,11 @@ export default function Contact() {
         "Accept": "application/json",
       },
       body: JSON.stringify({
-        _subject: `Wiadomość ze strony od: ${form.name}`,
+        _subject: `Wiadomość ze strony od: ${form.name} (${form.userType === "uczen" ? "Uczeń" : "Rodzic"})`,
         _captcha: "false",
         imie: form.name,
         email: form.email,
+        kim_jestes: form.userType === "uczen" ? "Uczeń" : "Rodzic",
         temat_kontaktu: form.topic,
         wiadomosc: form.message || "(brak wiadomości)",
       }),
@@ -236,6 +244,38 @@ export default function Contact() {
                           {errors.email}
                         </p>
                       )}
+                    </div>
+                  </div>
+
+                  {/* Kim jesteś? */}
+                  <div className="mt-5">
+                    <label className="mb-1.5 block text-sm font-semibold text-ink">
+                      Kim jesteś? <span aria-hidden="true" className="text-accent-600">*</span>
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setForm({ ...form, userType: "uczen" })}
+                        className={`flex items-center justify-center gap-2 rounded-xl border py-3 px-4 text-xs sm:text-sm font-bold transition-all ${
+                          form.userType === "uczen"
+                            ? "border-brand-600 bg-brand-50 text-brand-900 ring-2 ring-brand-500/20 shadow-xs"
+                            : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                        }`}
+                      >
+                        <span>🎓 Uczniem</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setForm({ ...form, userType: "rodzic" })}
+                        className={`flex items-center justify-center gap-2 rounded-xl border py-3 px-4 text-xs sm:text-sm font-bold transition-all ${
+                          form.userType === "rodzic"
+                            ? "border-brand-600 bg-brand-50 text-brand-900 ring-2 ring-brand-500/20 shadow-xs"
+                            : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                        }`}
+                      >
+                        <span>👨‍👩‍👧 Rodzicem</span>
+                      </button>
                     </div>
                   </div>
 
