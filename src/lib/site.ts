@@ -3,13 +3,12 @@
  */
 
 export const site = {
-  name: "Ola — Przygotowanie do E8 & Matury (Matematyka & Angielski)",
-  /** Użyj domeny produkcyjnej po publikacji */
+  name: "ola-korepetycje.pl — Korepetycje online (E8 & Matura)",
   url: "https://ola-korepetycje.pl",
   tutorName: "Ola",
-  headline: "Solidna wiedza i strategia na Twój najlepszy wynik z egzaminu.",
+  headline: "Korepetycje online (E8 & Matura)",
   description:
-    "Przekazuję sprawdzony materiał, motywację i wytyczne CKE z Matematyki i Angielskiego. Pomagam uczniom przygotować się do E8 i Matury (z Matematyki i Angielskiego) mądrze i bez chaotycznego kucia.",
+    "Korepetycje online z matematyki i języka angielskiego do Egzaminu Ósmoklasisty oraz Matury. Uporządkowany materiał, wymagania CKE i bezstresowa atmosfera.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",

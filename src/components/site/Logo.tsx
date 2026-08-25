@@ -19,7 +19,7 @@ export default function Logo({ inverse = false }: LogoProps) {
         <span
           className={`font-display text-base sm:text-lg font-bold ${inverse ? "text-white" : "text-ink"}`}
         >
-          {site.tutorName}
+          ola-korepetycje.pl
         </span>
         <span
           className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] ${
