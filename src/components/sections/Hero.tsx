@@ -59,6 +59,24 @@ export default function Hero() {
               Zobacz, jak pracujemy
             </Button>
           </motion.div>
+
+          {/* Pasek zaufania (Trust badges) */}
+          <motion.div variants={item} className="mt-8 border-t border-slate-200/80 pt-5 space-y-2">
+            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-ink">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-brand-900 ring-1 ring-brand-200/60">
+                <span className="text-emerald-600 font-bold">✓</span> 100% z matury podstawowej z matematyki i angielskiego
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-amber-900 ring-1 ring-amber-200/60">
+                <span className="text-emerald-600 font-bold">✓</span> AGH — Informatyka i Ekonometria
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-900 ring-1 ring-emerald-200/60">
+                <span className="text-emerald-600 font-bold">✓</span> Doświadczenie w lekcjach online
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 font-medium pt-0.5">
+              Doświadczenie w prowadzeniu zajęć online i pracy z uczniami.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Prawa kolumna: Karta z zakresem przygotowań (Z awatarem Oli) */}
