@@ -145,7 +145,7 @@ export default function ExamStakes() {
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <h3 className="text-2xl font-bold text-ink sm:text-3xl">
-                Wszystko, czego potrzebujesz, w jednym miejscu
+                Jak wygląda współpraca w formie online?
               </h3>
             </Reveal>
           </div>
