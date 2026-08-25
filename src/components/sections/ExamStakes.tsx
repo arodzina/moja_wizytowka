@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Target, BookOpen, Pencil, FileText, TrendingUp, Calendar, Sparkles, CreditCard, ArrowRight } from "lucide-react";
+import { Target, BookOpen, Pencil, FileText, TrendingUp, Calendar, Sparkles, CreditCard, ArrowRight, Video, BookMarked, MessageSquareText, ShieldCheck, HeartHandshake } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
 const processSteps = [
@@ -44,6 +43,24 @@ const processSteps = [
   },
 ];
 
+const onlineFeatures = [
+  {
+    icon: Video,
+    title: "🎥 Google Meet",
+    description: "Spotykamy się online w prostym i wygodnym środowisku.",
+  },
+  {
+    icon: BookMarked,
+    title: "📖 Cyfrowy zeszyt w Canvie",
+    description: "Wszystkie notatki, materiały i najważniejsze informacje z lekcji masz uporządkowane w jednym miejscu.",
+  },
+  {
+    icon: MessageSquareText,
+    title: "💬 Stały kontakt i wsparcie",
+    description: "Przygotowuję materiały do zajęć i możesz zadawać mi pytania również wtedy, gdy coś pojawi się między lekcjami.",
+  },
+];
+
 const collaborationSteps = [
   {
     step: "01",
@@ -79,56 +96,116 @@ export default function ExamStakes() {
         <div className="absolute bottom-10 right-[-10%] h-96 w-96 rounded-full bg-accent-100/50 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-24">
-        <SectionHeading
-          eyebrow="Jak pracujemy?"
-          title="Jak wygląda proces przygotowania do egzaminu?"
-          lead="Najpierw ustalamy, gdzie jesteś i dokąd chcesz dojść. Potem wspólnie realizujemy konkretny plan przygotowań — od uzupełnienia braków, przez ćwiczenie zadań, aż po pracę z arkuszami egzaminacyjnymi."
-        />
-
-        {/* 5 kroków w JEDNYM rzędzie na desktopie */}
-        <div className="mt-12 grid gap-3.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-          {processSteps.map((step, idx) => (
-            <Reveal key={step.title} delay={idx * 0.06} className="h-full">
-              <motion.div
-                whileHover={reduce ? undefined : { y: -4 }}
-                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className={`relative flex h-full flex-col justify-between rounded-2xl bg-white p-5 shadow-xs ring-1 ring-slate-200/80 border-t-4 ${step.accentColor.split(' ')[0]}`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className={`grid size-10 place-items-center rounded-xl ${step.accentColor}`}>
-                      <step.icon className="size-5" aria-hidden="true" />
-                    </span>
-                    <span className="font-display text-2xl font-extrabold text-slate-200" aria-hidden="true">
-                      {step.step}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-4 text-base font-bold text-ink leading-snug">
-                    {step.title}
-                  </h3>
-
-                  <p className="mt-2 text-xs leading-relaxed text-slate-soft">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
+      <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-24 space-y-20">
+        {/* MODUŁ 1: Jak wygląda proces przygotowania do egzaminu? */}
+        <div>
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Jak pracujemy?</span>
+              <h2 id="stakes-title" className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+                Jak wygląda proces przygotowania do egzaminu?
+              </h2>
             </Reveal>
-          ))}
+          </div>
+
+          {/* 5 kroków w JEDNYM rzędzie na desktopie */}
+          <div className="mt-10 grid gap-3.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+            {processSteps.map((step, idx) => (
+              <Reveal key={step.title} delay={idx * 0.06} className="h-full">
+                <motion.div
+                  whileHover={reduce ? undefined : { y: -4 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className={`relative flex h-full flex-col justify-between rounded-2xl bg-white p-5 shadow-xs ring-1 ring-slate-200/80 border-t-4 ${step.accentColor.split(' ')[0]}`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className={`grid size-10 place-items-center rounded-xl ${step.accentColor}`}>
+                        <step.icon className="size-5" aria-hidden="true" />
+                      </span>
+                      <span className="font-display text-2xl font-extrabold text-slate-200" aria-hidden="true">
+                        {step.step}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 text-base font-bold text-ink leading-snug">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-2 text-xs leading-relaxed text-slate-soft">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
-        {/* Podsekcja: Współpraca krok po kroku */}
-        <div className="mt-20 border-t border-slate-200/70 pt-16">
+        {/* MODUŁ 2: Jak pracujemy online? Wszystko, czego potrzebujesz, w jednym miejscu */}
+        <div className="border-t border-slate-200/70 pt-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <Reveal>
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Lekcje w wygodnej formie</span>
+              <h3 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+                Wszystko, czego potrzebujesz, w jednym miejscu
+              </h3>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-soft max-w-2xl mx-auto">
+                Zajęcia odbywają się online przez Google Meet, a wszystkie notatki i materiały gromadzimy w Twoim cyfrowym zeszycie w Canvie. Dzięki temu po każdej lekcji masz uporządkowane notatki i możesz wrócić do nich, kiedy tylko potrzebujesz.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* 3 kafelki nauki online */}
+          <div className="mt-10 grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto">
+            {onlineFeatures.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.08} className="h-full">
+                <div className="relative flex h-full flex-col justify-between rounded-2xl bg-white p-6 shadow-card ring-1 ring-slate-200/80">
+                  <div>
+                    <span className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                      <item.icon className="size-5.5" aria-hidden="true" />
+                    </span>
+                    <h4 className="mt-4 text-base font-bold text-ink leading-snug">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-soft">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* 2 Banery zaufania (Canva i kontakt między lekcjami) */}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 max-w-5xl mx-auto">
+            <Reveal delay={0.15}>
+              <div className="flex items-start gap-3.5 rounded-2xl bg-brand-50/80 p-5 ring-1 ring-brand-200/60">
+                <ShieldCheck className="size-6 text-brand-700 shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm leading-relaxed text-brand-950 font-medium">
+                  <strong>Nie musisz znać Canvy, żeby z tego korzystać.</strong> Wszystko jest proste i intuicyjne, a podczas pierwszych zajęć pokażę Ci, jak korzystać z cyfrowego zeszytu.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="flex items-start gap-3.5 rounded-2xl bg-emerald-50/80 p-5 ring-1 ring-emerald-200/60">
+                <HeartHandshake className="size-6 text-emerald-700 shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm leading-relaxed text-emerald-950 font-medium">
+                  <strong>Nie zostajesz sam z materiałem po zakończeniu lekcji.</strong> Przygotowuję materiały dopasowane do Twoich potrzeb, a jeśli między zajęciami pojawi się pytanie lub zagadnienie, z którym masz problem, możesz się ze mną skontaktować.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* MODUŁ 3: Współpraca krok po kroku / Jak wygląda rozpoczęcie nauki? */}
+        <div className="border-t border-slate-200/70 pt-16">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Współpraca krok po kroku</span>
               <h3 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
                 Jak wygląda rozpoczęcie nauki?
               </h3>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-soft">
-                Proste i jasne zasady od samego początku. Najpierw darmowa rozmowa, potem próba z rabatem, a na końcu stały termin.
-              </p>
             </Reveal>
           </div>
 
