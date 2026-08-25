@@ -20,8 +20,8 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Korepetycje online — E8 & Matura | Ola",
-    template: "%s · Korepetycje online",
+    default: "Ola — korepetycje online",
+    template: "%s · Ola",
   },
   description: site.description,
   keywords: [

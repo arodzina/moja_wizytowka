@@ -19,14 +19,14 @@ export default function Logo({ inverse = false }: LogoProps) {
         <span
           className={`font-display text-base sm:text-lg font-bold ${inverse ? "text-white" : "text-ink"}`}
         >
-          Korepetycje online
+          Ola
         </span>
         <span
           className={`text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] ${
             inverse ? "text-white/60" : "text-slate-500"
           }`}
         >
-          E8 & Matura
+          korepetycje online
         </span>
       </span>
     </span>
