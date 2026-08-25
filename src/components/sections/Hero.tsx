@@ -43,11 +43,10 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Skuteczne przygotowanie do{" "}
+            Przygotowanie do E8 i matury z matematyki i angielskiego według{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
-              egzaminów CKE
-            </span>{" "}
-            z matematyki i angielskiego
+              wymagań CKE
+            </span>
           </motion.h1>
 
           <motion.p
