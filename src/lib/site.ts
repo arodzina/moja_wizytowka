@@ -76,10 +76,6 @@ export const services = [
 
 export const faqItems = [
   {
-    q: "Kiedy najlepiej zacząć przygotowania do E8 i Matury?",
-    a: "Najlepiej zacząć odpowiednio wcześnie, żeby mieć czas na uzupełnienie braków, powtórkę materiału i regularną pracę z arkuszami. Jeśli do egzaminu zostało mniej czasu, skupiamy się na najważniejszych zagadnieniach i zadaniach wymagających dodatkowego przećwiczenia.",
-  },
-  {
     q: "Jak pomagasz uczniom, którzy odczuwają stres przed egzaminem?",
     a: "Rozumiem to doskonale — Egzamin Ósmoklasisty czy Matura to pierwsze tak ważne egzaminy w życiu, więc niepokój jest całkowicie naturalny. Stres najczęściej wynika z lęku przed niespodziankami w arkuszu. Im solidniej i bardziej systematycznie się przygotujemy, przerabiając zadania krok po kroku, tym szybciej niepewność ustępuje miejsca spokojowi i realnej pewności siebie.",
   },
