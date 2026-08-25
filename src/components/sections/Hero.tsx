@@ -141,23 +141,26 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Pasek zaufania (4 wyróżniki wewnątrz karty na dole) */}
-            <div className="border-t border-slate-100 pt-4 space-y-2">
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                <span>100% z matury podstawowej z matematyki i angielskiego</span>
-              </div>
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                <span>100% z matury rozszerzonej z angielskiego i 98% z matematyki</span>
-              </div>
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                <span>AGH — Informatyka i Ekonometria</span>
-              </div>
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                <span>Doświadczenie w prowadzeniu zajęć online i pracy z uczniami</span>
+            {/* Pasek zaufania (4 wyróżniki z nagłówkiem) */}
+            <div className="border-t border-slate-100 pt-4 space-y-2.5">
+              <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego warto przygotowywać się ze mną?</span>
+              <div className="space-y-2 pt-0.5">
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Moje wyniki na maturze podstawowej: 100% z matematyki i angielskiego</span>
+                </div>
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Moje wyniki na maturze rozszerzonej: 100% z angielskiego i 98% z matematyki</span>
+                </div>
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Studentka Informatyki i Ekonometrii na AGH w Krakowie</span>
+                </div>
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Doświadczenie w prowadzeniu zajęć online i pracy z uczniami</span>
+                </div>
               </div>
             </div>
           </div>
