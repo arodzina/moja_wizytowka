@@ -52,12 +52,12 @@ const onlineFeatures = [
   {
     icon: BookMarked,
     title: "📖 Cyfrowy zeszyt w Canvie",
-    description: "Wszystkie notatki, materiały i najważniejsze informacje z lekcji masz uporządkowane w jednym miejscu.",
+    description: "Wszystkie notatki, materiały i informacje z lekcji masz w jednym miejscu. Nie musisz znać Canvy — wszystko jest proste i intuicyjne, a na pierwszych zajęciach pokażę Ci, jak z niego korzystać.",
   },
   {
     icon: MessageSquareText,
     title: "💬 Stały kontakt i wsparcie",
-    description: "Przygotowuję materiały do zajęć i możesz zadawać mi pytania również wtedy, gdy coś pojawi się między lekcjami.",
+    description: "Przygotowuję materiały dopasowane do Twoich potrzeb. Nie zostajesz sam z materiałem po lekcji — jeśli między zajęciami pojawi się pytanie, możesz się ze mną skontaktować.",
   },
 ];
 
@@ -169,27 +169,6 @@ export default function ExamStakes() {
                 </div>
               </Reveal>
             ))}
-          </div>
-
-          {/* 2 Banery zaufania (Canva i kontakt między lekcjami) */}
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 max-w-5xl mx-auto">
-            <Reveal delay={0.15}>
-              <div className="flex items-start gap-3.5 rounded-2xl bg-brand-50/80 p-5 ring-1 ring-brand-200/60">
-                <ShieldCheck className="size-6 text-brand-700 shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm leading-relaxed text-brand-950 font-medium">
-                  <strong>Nie musisz znać Canvy, żeby z tego korzystać.</strong> Wszystko jest proste i intuicyjne, a podczas pierwszych zajęć pokażę Ci, jak korzystać z cyfrowego zeszytu.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="flex items-start gap-3.5 rounded-2xl bg-emerald-50/80 p-5 ring-1 ring-emerald-200/60">
-                <HeartHandshake className="size-6 text-emerald-700 shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm leading-relaxed text-emerald-950 font-medium">
-                  <strong>Nie zostajesz sam z materiałem po zakończeniu lekcji.</strong> Przygotowuję materiały dopasowane do Twoich potrzeb, a jeśli między zajęciami pojawi się pytanie lub zagadnienie, z którym masz problem, możesz się ze mną skontaktować.
-                </p>
-              </div>
-            </Reveal>
           </div>
         </div>
 
