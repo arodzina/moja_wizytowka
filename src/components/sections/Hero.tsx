@@ -59,11 +59,11 @@ export default function Hero() {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
             <Button href="#kontakt" size="lg">
-              Zapisz się na bezpłatną konsultację
+              Umów bezpłatną konsultację
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
             <Button href="#stawka-egzaminu" variant="secondary" size="lg">
-              Sprawdź jak pomagam
+              Zobacz, jak pracujemy
             </Button>
           </motion.div>
         </motion.div>
