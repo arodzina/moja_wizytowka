@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import ExamStakes from "@/components/sections/ExamStakes";
 import About from "@/components/sections/About";
-import HowItWorks from "@/components/sections/HowItWorks";
 import FreeGuides from "@/components/sections/FreeGuides";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
@@ -13,7 +12,6 @@ export default function Home() {
       <Hero />
       <ExamStakes />
       <About />
-      <HowItWorks />
       <FreeGuides />
       <Pricing />
       <FAQ />
