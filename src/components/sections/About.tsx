@@ -144,10 +144,10 @@ export default function About() {
                 <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
                     <Target className="size-4 text-brand-600 shrink-0" />
-                    <span>Szkolenie prowadzone przez egzaminatora CKE</span>
+                    <span>Webinar z egzaminatorem CKE</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Udział w szkoleniach prowadzonych przez egzaminatorów CKE — znajomość kryteriów oceniania i arkuszy.
+                    Udział w webinarze prowadzonym przez egzaminatora CKE — poznanie kryteriów oceniania oraz sposobu sprawdzania arkuszy z perspektywy egzaminatora.
                   </p>
                 </div>
 
