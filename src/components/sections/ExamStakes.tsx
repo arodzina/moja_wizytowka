@@ -101,8 +101,7 @@ export default function ExamStakes() {
         <div>
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Jak pracujemy?</span>
-              <h2 id="stakes-title" className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+              <h2 id="stakes-title" className="text-2xl font-bold text-ink sm:text-3xl">
                 Jak wygląda proces przygotowania do egzaminu?
               </h2>
             </Reveal>
@@ -145,13 +144,9 @@ export default function ExamStakes() {
         <div className="border-t border-slate-200/70 pt-16">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Lekcje w wygodnej formie</span>
-              <h3 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+              <h3 className="text-2xl font-bold text-ink sm:text-3xl">
                 Wszystko, czego potrzebujesz, w jednym miejscu
               </h3>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-soft max-w-2xl mx-auto">
-                Zajęcia odbywają się online przez Google Meet, a wszystkie notatki i materiały gromadzimy w Twoim cyfrowym zeszycie w Canvie. Dzięki temu po każdej lekcji masz uporządkowane notatki i możesz wrócić do nich, kiedy tylko potrzebujesz.
-              </p>
             </Reveal>
           </div>
 
@@ -202,8 +197,7 @@ export default function ExamStakes() {
         <div className="border-t border-slate-200/70 pt-16">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Współpraca krok po kroku</span>
-              <h3 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+              <h3 className="text-2xl font-bold text-ink sm:text-3xl">
                 Jak wygląda rozpoczęcie nauki?
               </h3>
             </Reveal>
