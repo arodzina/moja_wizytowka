@@ -53,7 +53,7 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Pomagam uczniom z matematyki i języka angielskiego uporządkować materiał, uzupełnić braki i nauczyć się rozwiązywać zadania dokładnie w taki sposób, jak wymaga tego egzamin.
+            Pomagam uczniom uporządkować materiał, uzupełnić braki i nauczyć się rozwiązywać zadania dokładnie w taki sposób, jak wymaga tego egzamin.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
