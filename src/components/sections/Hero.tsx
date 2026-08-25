@@ -68,68 +68,69 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         >
           {/* Główna karta oferty i zakresu */}
-          <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-4">
+          <div className="relative rounded-[2.25rem] bg-white p-6 shadow-float ring-1 ring-slate-100 sm:p-7 space-y-5">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              <div className="flex items-center gap-3.5">
+              <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
                   <Image
                     src="/images/ola-avatar.jpg"
                     alt="Ola — korepetytorka"
-                    width={64}
-                    height={64}
+                    width={80}
+                    height={80}
                     unoptimized
-                    className="size-14 sm:size-16 rounded-full object-cover ring-2 ring-brand-500/20 shadow-md"
+                    className="size-16 sm:size-20 rounded-full object-cover ring-4 ring-brand-500/20 shadow-md"
                   />
-                  <div className="absolute bottom-0 right-0 size-4 rounded-full bg-emerald-500 ring-2 ring-white" />
+                  <div className="absolute bottom-0 right-0 size-4.5 rounded-full bg-emerald-500 ring-2 ring-white" />
                 </div>
                 <div>
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Z kim pracujesz?</span>
-                  <span className="block text-sm sm:text-base font-extrabold text-ink">Ola — Korepetycje E8 & Matura</span>
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Z kim pracujesz?</span>
+                  <span className="block text-base sm:text-lg font-extrabold text-ink leading-tight">Ola — Korepetycje E8 & Matura</span>
                 </div>
               </div>
-              <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
-                <ShieldCheck className="size-3.5" aria-hidden="true" />
+              <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-brand-50 px-3.5 py-1.5 text-xs font-bold text-brand-700 shrink-0">
+                <ShieldCheck className="size-4" aria-hidden="true" />
                 Wymagania CKE
               </span>
             </div>
 
-            <div className="space-y-2.5 pt-1">
-              {/* Karta 1: Egzamin Ósmoklasisty z matematyki */}
-              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+            {/* Siatka 2x2: Kafelki przedmiotów */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {/* Karta 1: Egzamin Ósmoklasisty - Matematyka (Góra lewa) */}
+              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Calculator className="size-5 text-brand-700" />
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-ink">
+                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
                   Egzamin Ósmoklasisty z matematyki
                 </span>
               </div>
 
-              {/* Karta 2: Egzamin Ósmoklasisty z języka angielskiego */}
-              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+              {/* Karta 2: Egzamin Ósmoklasisty - Angielski (Góra prawa) */}
+              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Languages className="size-5 text-brand-700" />
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-ink">
+                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
                   Egzamin Ósmoklasisty z języka angielskiego
                 </span>
               </div>
 
-              {/* Karta 3: Matura z matematyki */}
-              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+              {/* Karta 3: Matura z Matematyki (Dół lewa) */}
+              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <BookOpenCheck className="size-5 text-amber-800" />
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-ink">
+                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
                   Matura z matematyki (podstawowa i rozszerzona)
                 </span>
               </div>
 
-              {/* Karta 4: Matura z angielskiego */}
-              <div className="flex items-center gap-3.5 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+              {/* Karta 4: Matura z Angielskiego (Dół prawa) */}
+              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <GraduationCap className="size-5 text-amber-800" />
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-ink">
+                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
                   Matura z angielskiego (podstawowa i rozszerzona)
                 </span>
               </div>
