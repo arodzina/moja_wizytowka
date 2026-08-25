@@ -248,16 +248,16 @@ export default function FreeGuides() {
           ))}
         </div>
 
-        {/* Baner pomocniczy */}
+        {/* Baner pomocniczy CTA */}
         <div className="mt-10 rounded-3xl bg-brand-900 p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-lg font-bold">Potrzebujesz pomocy w przygotowaniach?</h4>
+            <h4 className="text-lg font-bold">Nie wiesz, od czego zacząć?</h4>
             <p className="text-xs sm:text-sm text-brand-200 max-w-xl">
-              Umów się na bezpłatną 15-minutową rozmowę. Porozmawiamy o sytuacji ucznia, celu egzaminacyjnym i możliwym planie nauki.
+              Porozmawiamy o sytuacji ucznia, celu egzaminacyjnym i tym, jak możemy zaplanować przygotowania.
             </p>
           </div>
           <Button href="#kontakt" variant="secondary" size="lg" className="shrink-0">
-            Umów bezpłatną rozmowę <ArrowRight className="ml-2 size-4" />
+            Umów bezpłatną 15-minutową konsultację <ArrowRight className="ml-2 size-4" />
           </Button>
         </div>
       </div>
