@@ -45,15 +45,16 @@ export default function Hero() {
           >
             Skuteczne przygotowanie do{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
-              Egzaminów CKE
-            </span>
+              egzaminów CKE
+            </span>{" "}
+            z matematyki i angielskiego
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Pomagam uczniom dobrze przygotować się z matematyki i angielskiego do Egzaminu Ósmoklasisty i Matury. Porządkujemy materiał, wyjaśniamy trudniejsze tematy i ćwiczymy dokładnie to, co może pojawić się na egzaminie.
+            Pomagam uczniom przygotować się do Egzaminu Ósmoklasisty i Matury z matematyki oraz języka angielskiego. Porządkujemy materiał, uzupełniamy braki i ćwiczymy dokładnie te umiejętności, które są potrzebne na egzaminie.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
