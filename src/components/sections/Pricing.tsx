@@ -14,8 +14,8 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Klasa 8",
     price: "60",
     unit: "zł / 60 min",
-    trialPrice: "45 zł / 60 min (3 pierwsze lekcje -25%)",
-    discountNote: "50 zł / 60 min przy zajęciach 2× w tygodniu",
+    trialPrice: "45 zł / 60 min",
+    discountNote: "50 zł / 60 min",
     badge: "Klasa 8",
     color: "brand",
   },
@@ -26,8 +26,8 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Poziom podstawowy",
     price: "70",
     unit: "zł / 60 min",
-    trialPrice: "52.50 zł / 60 min (3 pierwsze lekcje -25%)",
-    discountNote: "60 zł / 60 min przy zajęciach 2× w tygodniu",
+    trialPrice: "52.50 zł / 60 min",
+    discountNote: "60 zł / 60 min",
     badge: "Poziom podstawowy",
     color: "brand",
   },
@@ -38,8 +38,8 @@ const plans = [
     sub: "Matematyka lub Język Angielski · Poziom rozszerzony",
     price: "85",
     unit: "zł / 60 min",
-    trialPrice: "63.75 zł / 60 min (3 pierwsze lekcje -25%)",
-    discountNote: "75 zł / 60 min przy zajęciach 2× w tygodniu",
+    trialPrice: "63.75 zł / 60 min",
+    discountNote: "75 zł / 60 min",
     badge: "Poziom rozszerzony",
     popular: true,
     color: "accent",
@@ -107,23 +107,23 @@ export default function Pricing() {
                     </div>
 
                     {/* Wariant na start: 3 lekcje próbne z rabatem 25% */}
-                    <div className={`rounded-xl p-2.5 text-xs font-medium leading-snug ${
+                    <div className={`rounded-xl p-2.5 text-xs font-bold leading-snug ${
                       plan.popular
-                        ? "bg-amber-400/20 text-amber-200 ring-1 ring-amber-400/30"
-                        : "bg-amber-50 text-amber-950 ring-1 ring-amber-200/80"
+                        ? "bg-amber-400/20 text-amber-100 ring-1 ring-amber-400/40"
+                        : "bg-amber-100/90 text-amber-950 ring-1 ring-amber-300/80 shadow-2xs"
                     }`}>
-                      <span className="font-bold text-amber-900 dark:text-amber-300">🎁 Na start (-25%):</span>{" "}
+                      <span className={plan.popular ? "text-amber-300" : "text-amber-900"}>🎁 3 pierwsze lekcje (-25%):</span>{" "}
                       {plan.trialPrice}
                     </div>
 
                     {/* Wariant przy 2x tygodniowo */}
                     {plan.discountNote && (
-                      <div className={`rounded-xl p-2.5 text-xs font-medium leading-snug ${
+                      <div className={`rounded-xl p-2.5 text-xs font-bold leading-snug ${
                         plan.popular
-                          ? "bg-accent-400/20 text-emerald-200 ring-1 ring-accent-400/40"
-                          : "bg-emerald-50 text-emerald-950 ring-1 ring-emerald-200/80"
+                          ? "bg-emerald-400/20 text-emerald-100 ring-1 ring-emerald-400/40"
+                          : "bg-emerald-100/90 text-emerald-950 ring-1 ring-emerald-300/80 shadow-2xs"
                       }`}>
-                        <span className="font-bold text-emerald-700 dark:text-emerald-300">💡 Przy zajęciach 2×/tydzień:</span>{" "}
+                        <span className={plan.popular ? "text-emerald-300" : "text-emerald-900"}>💡 Przy zajęciach 2×/tydzień:</span>{" "}
                         {plan.discountNote}
                       </div>
                     )}
