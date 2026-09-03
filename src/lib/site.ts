@@ -1,14 +1,14 @@
 /**
- * Centralna konfiguracja strony: Egzamin Ósmoklasisty (E8) & Matura z Języka Angielskiego.
+ * Centralna konfiguracja strony: Egzamin Ósmoklasisty & Klasy 6–8 z Języka Angielskiego.
  */
 
 export const site = {
-  name: "ola-korepetycje.pl — Korepetycje online (E8 & Matura)",
+  name: "ola-korepetycje.pl — Język Angielski E8 & Klasy 6–8",
   url: "https://ola-korepetycje.pl",
   tutorName: "Ola",
-  headline: "Korepetycje online (E8 & Matura)",
+  headline: "Egzamin Ósmoklasisty & Klasy 6–8 — Język Angielski",
   description:
-    "Korepetycje online z matematyki i języka angielskiego do Egzaminu Ósmoklasisty oraz Matury. Uporządkowany materiał, wymagania CKE i bezstresowa atmosfera.",
+    "Korepetycje online z języka angielskiego do Egzaminu Ósmoklasisty oraz klas 6–8. Autorski plan pracy, materiały przygotowywane przed lekcją, zadania domowe i wymagania CKE.",
   email: "kontakt.ola.korepetycje@gmail.com",
   phoneDisplay: "",
   whatsapp: "",
@@ -28,74 +28,52 @@ export const navLinks = [
 
 export const services = [
   {
-    id: "e8-matematyka",
-    title: "Egzamin Ósmoklasisty: Matematyka",
-    description:
-      "Nauka rozwiązywania zadań CKE, unikanie typowych błędów, geometria i algebra bez paniki.",
-    bullets: [
-      "Rozpracowywanie zadań otwartych i zamkniętych CKE",
-      "Najważniejsze zagadnienia: ułamki, procenty, równania i planimetria",
-      "Techniki oszczędzania czasu i sprawdzania wyników na arkuszu",
-    ],
-  },
-  {
     id: "e8-angielski",
-    title: "Egzamin Ósmoklasisty: Język Angielski",
+    title: "Egzamin Ósmoklasisty z Języka Angielskiego",
     description:
-      "Zagadnienia gramatyczne, schematy wypowiedzi pisemnej (e-mail, wpis na blog), reakcje językowe i słownictwo tematyczne.",
+      "Kompleksowe przygotowanie pod wymogi CKE: gramatyka, Use of English, schematy pisania (e-mail, blog) oraz reakcje językowe.",
     bullets: [
-      "Niezawodne szablony do form pisemnych (e-mail / wpis na bloga)",
-      "Transformacje, parafrazy i słowotwórstwo zgodne z wymaganiami CKE",
-      "Słuchanie ze zrozumieniem i reakcje językowe bez utraty punktów",
+      "Autorski plan nauki przedstawiany rodzicowi i uczniowi po bezpłatnej rozmowie",
+      "Materiały przygotowywane przeze mnie przed każdą lekcją (zadania z repetytoriów & autorskie ćwiczenia)",
+      "Trening form pisemnych (e-mail / wpis na bloga) pod kryteria oceniania CKE",
     ],
   },
   {
-    id: "matura-matematyka",
-    title: "Matura z Matematyki (Podstawa & Rozszerzenie)",
+    id: "klasy-6-8-angielski",
+    title: "Nadrabianie braków & Bieżący materiał (Klasy 6–8)",
     description:
-      "Praca na oficjalnych arkuszach CKE, nauka toku rozumowania w zadaniach otwartych, algebra, funkcja kwadratowa, wielomiany, pochodne i optymalizacja.",
+      "Systematyczne wsparcie w codziennej nauce angielskiego, nadrabianie zaległości i budowanie swobody w mówieniu.",
     bullets: [
-      "Przygotowanie do Matury Podstawowej oraz Rozszerzonej dla kandydatów na uczelnie techniczne i ścisłe",
-      "Analiza toku rozumowania w zadaniach otwartych pod klucz oceniania CKE",
-      "Najważniejsze typy zadań: funkcja kwadratowa, ciągi, pochodne i zadania optymalizacyjne",
-    ],
-  },
-  {
-    id: "matura-angielski",
-    title: "Matura z Języka Angielskiego (Podstawa & Rozszerzenie)",
-    description:
-      "Trening pisania (rozprawka, list, artykuł), Use of English, transformacje oraz przygotowanie do części ustnej.",
-    bullets: [
-      "Dobre przygotowanie do matury z angielskiego na obu poziomach",
-      "Trening pisania rozprawki, artykułu i listu pod kryteria CKE",
-      "Zaawansowane struktury gramatyczne (inwersja, okresy warunkowe, strona bierna) & matura ustna",
+      "Przygotowanie do kartkówek, sprawdzianów i odpowiedzi ustnych",
+      "Przełamywanie bariery językowej i praktyczna nauka słownictwa",
+      "Zadania domowe i utrwalanie materiału między lekcjami",
     ],
   },
 ] as const;
 
 export const faqItems = [
   {
-    q: "Jak pomagasz uczniom, którzy odczuwają stres przed egzaminem?",
-    a: "Rozumiem to doskonale — Egzamin Ósmoklasisty czy Matura to pierwsze tak ważne egzaminy w życiu, więc niepokój jest całkowicie naturalny. Stres najczęściej wynika z lęku przed niespodziankami w arkuszu. Im solidniej i bardziej systematycznie się przygotujemy, przerabiając zadania krok po kroku, tym szybciej niepewność ustępuje miejsca spokojowi i realnej pewności siebie.",
+    q: "Jak pomagasz uczniom, którzy odczuwają stres przed Egzaminem Ósmoklasisty?",
+    a: "Rozumiem to doskonale — Egzamin Ósmoklasisty to pierwszy tak ważny egzamin w życiu. Stres wynika z niepewności co do wymagań CKE. Podczas lekcji rozkładamy arkusz na części pierwsze, przerabiamy sprawdzone schematy i stopniowo budujemy pewność siebie.",
   },
   {
-    q: "Czy można łączyć korepetycje z matematyki i języka angielskiego?",
-    a: "Tak, jak najbardziej! Oferuję kompleksowe przygotowanie zarówno z matematyki, jak i języka angielskiego. To duża wygoda: uczeń uczy się w stałym, zaufanym środowisku, łatwiej ułożyć elastyczny grafik zajęć, a rodzic ma pełen wgląd w postępy z obu przedmiotów w jednym miejscu.",
+    q: "Czy możemy też pracować nad bieżącym materiałem ze szkoły lub brakiem swobody w mówieniu?",
+    a: "Tak, jak najbardziej! Choć moim głównym celem jest Egzamin Ósmoklasisty, pomagam również w nadrabianiu zaległości z klas 6–8, przygotowaniu do sprawdzianów i rozwĳaniu swobodnej komunikacji.",
   },
   {
     q: "Dlaczego warto uczyć się pod wymagania CKE, a nie tylko z podręczników?",
-    a: "Szkoła realizuje cały opasły podręcznik, w którym jest mnóstwo materiału niemającego bezpośredniego odzwierciedlenia na egzaminie. Ja skupiam się na aktualnych Wytycznych i Informatorach CKE: jak czytać polecenia, jak konstruować odpowiedzi pod kryteria oceniania i jak nie tracić punktów na drobnych błędach.",
+    a: "Szkoła często realizuje cały opasły podręcznik bez nacisku na specyfikę arkusza CKE. Ja skupiam się na aktualnych Informatorach CKE: jak czytać polecenia, jak pisać e-maile bez utraty punktów i jak rozwiązywać Use of English.",
   },
   {
     q: "Jak wygląda informacja zwrotna i monitorowanie postępów po lekcji?",
-    a: "Po każdych zajęciach rodzic i uczeń wiedzą dokładnie, nad czym pracowaliśmy i na co przeznaczony był czas lekcji. Przesyłam podsumowanie przerobionego materiału, krótki feedback z przebiegu spotkania oraz konkretne wskazówki, co uczeń powinien powtórzyć w domu.",
+    a: "Po każdych zajęciach rodzic i uczeń wiedzą dokładnie, nad czym pracowaliśmy. Przesyłam podsumowanie przerobionego materiału, krótką informację zwrotną oraz spersonalizowane zadanie domowe do wykonania przed kolejnym spotkaniem.",
   },
   {
     q: "Jak wygląda pakiet startowy 3 lekcji z rabatem -25%?",
-    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Pierwsze 3 lekcje objęte są rabatem -25% liczonym od stawki wybranego wariantu. Każda z 3 pierwszych lekcji płatna jest z lekcji na lekcję, bez wiązania się długoterminową umową. Dzięki temu możecie na spokojnie sprawdzić sposób pracy i podjąć decyzję o stałej współpracy.",
+    a: "Pierwsza krótka rozmowa online (15 min) jest w 100% darmowa. Następnie pierwsze 3 lekcje objęte są rabatem -25% (56 zł zamiast 75 zł / 60 min). Płatność odbywa się z lekcji na lekcję, bez długoterminowej umowy.",
   },
   {
     q: "Czy zajęcia odbywają się w 100% online?",
-    a: "Tak, lekcje prowadzę przez Google Meet z wykorzystaniem interaktywnej tablicy online i przejrzystych materiałów cyfrowych. Uczeń pracuje w swoim domowym, bezpiecznym środowisku, nie tracąc czasu na dojazdy. Po lekcji otrzymuje pełny zapis tablicy i notatki z zajęć.",
+    a: "Tak, lekcje trwają 60 minut i odbywają się przez Google Meet z wykorzystaniem interaktywnej tablicy oraz cyfrowych zeszytów w Canvie. Uczeń nie traci czasu na dojazdy, a wszystkie notatki ma w jednym miejscu.",
   },
 ] as const;

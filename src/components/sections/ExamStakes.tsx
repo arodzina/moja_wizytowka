@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Target, BookOpen, Pencil, FileText, TrendingUp, Calendar, Sparkles, CreditCard, ArrowRight, Video, BookMarked, MessageSquareText, ShieldCheck, HeartHandshake } from "lucide-react";
+import { Target, BookOpen, Pencil, FileText, TrendingUp, Calendar, Sparkles, CreditCard, ArrowRight, Video, BookMarked, MessageSquareText } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 
@@ -9,36 +9,36 @@ const processSteps = [
   {
     step: "01",
     icon: Target,
-    title: "1. Ustalamy plan",
-    description: "Poziom, cel, priorytety i czas do egzaminu.",
+    title: "1. Opracowujemy plan",
+    description: "Po bezpłatnej konsultacji przedstawiam rodzicowi i uczniowi jasny plan nauki z konkretnymi zagadnieniami.",
     accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
   },
   {
     step: "02",
     icon: BookOpen,
-    title: "2. Uzupełniamy braki",
-    description: "Tłumaczę trudne zagadnienia i pracujemy nad tym, czego nie rozumiesz.",
+    title: "2. Przygotowuję materiały",
+    description: "Przed każdą lekcją dobieram wyselekcjonowane zadania z repetytoriów i wytycznych CKE.",
     accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
   },
   {
     step: "03",
     icon: Pencil,
-    title: "3. Ćwiczymy zadania",
-    description: "Rozwiązujemy zadania i uczymy się samodzielnego myślenia.",
+    title: "3. Lekcja 60 minut 1:1",
+    description: "Pracujemy nad gramatyką, słownictwem, e-mailami i nadrabianiem zaległości bez stresu.",
     accentColor: "border-brand-500/40 text-brand-700 bg-brand-50",
   },
   {
     step: "04",
     icon: FileText,
-    title: "4. Arkusze CKE",
-    description: "Oswajamy się z formatem egzaminu i typami zadań.",
+    title: "4. Notatki & Zadanie domowe",
+    description: "Wszystkie notatki lądują w cyfrowym zeszycie w Canvie, a uczeń dostaje spersonalizowane zadanie.",
     accentColor: "border-amber-500/40 text-amber-800 bg-amber-50",
   },
   {
     step: "05",
     icon: TrendingUp,
-    title: "5. Monitorujemy postępy",
-    description: "Na bieżąco sprawdzam postępy i modyfikujemy plan.",
+    title: "5. Feedback dla rodzica",
+    description: "Rodzic wie dokładnie, nad czym pracowaliśmy i jakie postępy robi uczeń.",
     accentColor: "border-emerald-500/40 text-emerald-800 bg-emerald-50",
   },
 ];
@@ -46,18 +46,18 @@ const processSteps = [
 const onlineFeatures = [
   {
     icon: Video,
-    title: "🎥 Google Meet",
-    description: "Spotykamy się online w prostym i wygodnym środowisku.",
+    title: "🎥 Google Meet (60 min)",
+    description: "Wygodne lekcje online bez tracenia czasu na dojazdy, w bezpiecznym środowisku domowym.",
   },
   {
     icon: BookMarked,
     title: "📖 Cyfrowy zeszyt w Canvie",
-    description: "Wszystkie notatki, materiały i informacje z lekcji masz w jednym miejscu. Nie musisz znać Canvy — wszystko jest proste i intuicyjne, a na pierwszych zajęciach pokażę Ci, jak z niego korzystać.",
+    description: "Uczeń i rodzic mają stały dostęp do uporządkowanych notatek, zasad gramatyki i szablonów e-maili w jednym miejscu.",
   },
   {
     icon: MessageSquareText,
-    title: "💬 Kontakt i wsparcie między zajęciami",
-    description: "Przygotowuję materiały dopasowane do Twoich potrzeb. Jeśli między zajęciami pojawi się pytanie dotyczące materiału, możesz się ze mną skontaktować.",
+    title: "💬 Dedykowany plan & wsparcie",
+    description: "Na każdą lekcję szykuję autorski materiał. Jeśli między zajęciami uczeń ma pytanie — z łatwością odpowiadam i pomagam.",
   },
 ];
 
@@ -67,21 +67,21 @@ const collaborationSteps = [
     icon: Calendar,
     title: "Bezpłatna rozmowa zapoznawcza",
     badge: "15 minut na poznanie się",
-    description: "Omawiamy potrzeby ucznia, cel przygotowań i sposób pracy. Bez zobowiązań.",
+    description: "Omawiamy potrzeby ucznia, cel z angielskiego i sposób pracy. Bez żadnych zobowiązań.",
   },
   {
     step: "02",
     icon: Sparkles,
-    title: "3 lekcje na start z rabatem 25%",
-    badge: "Płatność z lekcji na lekcję",
-    description: "Czas na sprawdzenie, czy forma zajęć i sposób pracy odpowiadają uczniowi.",
+    title: "3 lekcje z rabatem -25%",
+    badge: "56 zł / 60 min (płatne pojedynczo)",
+    description: "Czas na sprawdzenie dedykowanego planu i atmosfery na zajęciach. Płatność z lekcji na lekcję.",
   },
   {
     step: "03",
     icon: CreditCard,
     title: "Stała współpraca",
-    badge: "Stały termin i rozliczenie",
-    description: "Rezerwujemy stały termin w tygodniu i rozliczamy zajęcia z góry za dany miesiąc.",
+    badge: "Stały termin & pełna opieka",
+    description: "Rezerwujemy stały termin w tygodniu (1× lub 2× w tygodniu) i bezpiecznie rozliczamy zajęcia.",
   },
 ];
 
@@ -97,12 +97,12 @@ export default function ExamStakes() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20 sm:px-8 lg:pt-12 lg:pb-24 space-y-20">
-        {/* MODUŁ 1: Jak wygląda proces przygotowania do egzaminu? */}
+        {/* MODUŁ 1: Jak wygląda proces przygotowania z angielskiego? */}
         <div>
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <h2 id="stakes-title" className="text-2xl font-bold text-ink sm:text-3xl">
-                Jak wygląda proces przygotowania do egzaminu?
+                Jak wygląda przygotowanie do Egzaminu Ósmoklasisty z angielskiego?
               </h2>
             </Reveal>
           </div>
@@ -140,7 +140,7 @@ export default function ExamStakes() {
           </div>
         </div>
 
-        {/* MODUŁ 2: Jak pracujemy online? Wszystko, czego potrzebujesz, w jednym miejscu */}
+        {/* MODUŁ 2: Jak pracujemy online? */}
         <div className="border-t border-slate-200/70 pt-16">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
@@ -172,7 +172,7 @@ export default function ExamStakes() {
           </div>
         </div>
 
-        {/* MODUŁ 3: Współpraca krok po kroku / Jak wygląda rozpoczęcie nauki? */}
+        {/* MODUŁ 3: Współpraca krok po kroku */}
         <div className="border-t border-slate-200/70 pt-16">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>

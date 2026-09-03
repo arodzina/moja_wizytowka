@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Globe, GraduationCap, Sparkles, Target } from "lucide-react";
+import { ArrowRight, Globe, GraduationCap, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
@@ -23,7 +23,7 @@ export default function About() {
           <div className="relative">
             <Image
               src="/images/ola-portrait.jpg"
-              alt="Zdjęcie Oli — korepetytorki E8 i Matury"
+              alt="Zdjęcie Oli — korepetytorki z języka angielskiego E8"
               width={576}
               height={1024}
               unoptimized
@@ -50,20 +50,20 @@ export default function About() {
               Cześć, jestem {site.tutorName}.
             </h2>
             <p className="mt-3 text-lg font-medium leading-relaxed text-slate-soft">
-              Pomagam uczniom dobrze przygotować się do egzaminów z matematyki i języka angielskiego — spokojnie, konkretnie i krok po kroku.
+              Pomagam uczniom dobrze przygotować się do Egzaminu Ósmoklasisty z języka angielskiego oraz nadrabiać zaległości z klas 6–8 — spokojnie, konkretnie i wedle dopracowanego planu.
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-soft">
               <p>
-                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong>. Analityczne podejście, które wykorzystuję na studiach, pomaga mi porządkować materiał i tłumaczyć trudniejsze zagadnienia w prosty i zrozumiały sposób.
+                Studiuję <strong className="font-semibold text-ink">Informatykę i Ekonometrię na AGH w Krakowie</strong>. Analityczne i ustrukturyzowane podejście ze studiów przekładam na zajęcia z angielskiego — porządkuję gramatykę, Use of English i zwroty w przejrzyste schematy.
               </p>
               <p>
-                W przygotowaniach skupiam się na <strong className="font-semibold text-ink">wymaganiach CKE i praktycznej pracy z zadaniami egzaminacyjnymi</strong>. Zwracam uwagę nie tylko na znajomość materiału, ale też na sposób czytania poleceń, kryteria oceniania i typowe błędy.
+                Do każdej lekcji <strong className="font-semibold text-ink">przygotowuję się bardzo skrupulatnie</strong>: dobieram zadania z różnych repetytoriów i książek, układam notatki w cyfrowym zeszycie w Canvie i przesyłam dopasowane zadania domowe.
               </p>
               <p>
-                Tworzę <strong className="font-semibold text-ink">własne materiały i plany nauki</strong>, które pomagają uporządkować przygotowania i skupić się na najważniejszych zagadnieniach.
+                Słucham ucznia i niezależnie od poziomu wyjściowego — jesteśmy w stanie wypracować wspólnie bardzo dobry wynik. Nasi uczniowie i rodzice cenią sobie elastyczność, dobrą atmosferę oraz jasny feedback po lekcjach.
               </p>
             </div>
           </Reveal>
@@ -79,21 +79,21 @@ export default function About() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
-                    <GraduationCap className="size-4 text-brand-600 shrink-0" />
-                    <span>AGH — Informatyka i Ekonometria</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Studia na renomowanej uczelni technicznej — analityczne, uporządkowane podejście do matematyki.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
                     <Globe className="size-4 text-brand-600 shrink-0" />
                     <span>Erasmus+ — Portugalia · angielski C1</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Codzienna komunikacja po angielsku i swoboda językowa potwierdzona testem OLS (poziom C1).
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white p-4.5 shadow-card ring-1 ring-slate-200/80 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-900">
+                    <GraduationCap className="size-4 text-brand-600 shrink-0" />
+                    <span>AGH — Informatyka i Ekonometria</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Studia na renomowanej uczelni w Krakowie — analityczne i przejrzyste tłumaczenie zasad gramatyki.
                   </p>
                 </div>
 

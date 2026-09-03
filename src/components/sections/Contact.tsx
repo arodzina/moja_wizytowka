@@ -11,11 +11,9 @@ import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons
 import { site } from "@/lib/site";
 
 const topics = [
-  "Egzamin Ósmoklasisty — Matematyka",
   "Egzamin Ósmoklasisty — Język Angielski",
-  "Matura — Matematyka",
-  "Matura — Język Angielski",
-  "Darmowa konsultacja wstępna — 15 min",
+  "Nadrabianie zaległości / Klasy 6–8",
+  "Darmowa konsultacja zapoznawcza — 15 min",
   "Inne / mam pytanie",
 ];
 

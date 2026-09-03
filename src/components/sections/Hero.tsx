@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Calculator, Languages, BookOpenCheck, GraduationCap } from "lucide-react";
+import { ArrowRight, ShieldCheck, Languages, PenTool, BookOpenCheck, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const container = {
@@ -37,9 +37,9 @@ export default function Hero() {
             variants={item}
             className="text-4xl font-semibold leading-[1.12] text-ink sm:text-5xl lg:text-[3.25rem]"
           >
-            Przygotowanie do E8 i matury według{" "}
+            Skuteczne przygotowanie do Egzaminu Ósmoklasisty z{" "}
             <span className="relative inline-block rounded-2xl bg-accent-200 px-2.5 pb-1 text-ink">
-              wymagań CKE
+              Języka Angielskiego
             </span>
           </motion.h1>
 
@@ -47,7 +47,7 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-soft"
           >
-            Pomagam uczniom uporządkować materiał, uzupełnić braki i nauczyć się rozwiązywać zadania dokładnie w taki sposób, jak wymaga tego egzamin.
+            Uczymy się dokładnie pod wytyczne CKE, ale w miłej i bezstresowej atmosferze. Na każdą lekcję opracowuję dedykowany plan, wybieram zadania z repetytoriów i przesyłam prace domowe, żeby uczeń czuł pełne wsparcie i pewność siebie.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
@@ -55,13 +55,13 @@ export default function Hero() {
               Umów bezpłatną konsultację
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Button>
-            <Button href="#stawka-egzaminu" variant="secondary" size="lg">
+            <Button href="#jak-pracujemy" variant="secondary" size="lg">
               Zobacz, jak pracujemy
             </Button>
           </motion.div>
         </motion.div>
 
-        {/* Prawa kolumna: Karta z zakresem przygotowań i wyróżnikami (Z awatarem Oli) */}
+        {/* Prawa kolumna: Karta z zakresem przygotowań (Język Angielski) */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -74,7 +74,7 @@ export default function Hero() {
                 <div className="relative shrink-0">
                   <Image
                     src="/images/ola-avatar.jpg"
-                    alt="Ola — korepetytorka"
+                    alt="Ola — korepetytorka z angielskiego"
                     width={80}
                     height={80}
                     unoptimized
@@ -84,7 +84,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Z kim pracujesz?</span>
-                  <span className="block text-base sm:text-lg font-extrabold text-ink leading-tight">Ola — Korepetycje E8 & Matura</span>
+                  <span className="block text-base sm:text-lg font-extrabold text-ink leading-tight">Ola — Angielski E8 & Klasy 6–8</span>
                 </div>
               </div>
               <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-brand-50 px-3.5 py-1.5 text-xs font-bold text-brand-700 shrink-0">
@@ -93,73 +93,73 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Nagłówek sekcji z przedmiotami */}
+            {/* Nagłówek sekcji z zakresem */}
             <div className="pt-0.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Do czego się przygotowujemy?</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">W czym pomagam uczniom?</span>
             </div>
 
-            {/* Siatka 2x2: Kafelki przedmiotów */}
+            {/* Siatka 2x2: Kafelki przygotowań z angielskiego */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {/* Karta 1: Egzamin Ósmoklasisty - Matematyka (Góra lewa) */}
-              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
-                  <Calculator className="size-5 text-brand-700" />
-                </span>
-                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Egzamin Ósmoklasisty z matematyki
-                </span>
-              </div>
-
-              {/* Karta 2: Egzamin Ósmoklasisty - Angielski (Góra prawa) */}
+              {/* Karta 1: Egzamin Ósmoklasisty E8 */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Languages className="size-5 text-brand-700" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Egzamin Ósmoklasisty z języka angielskiego
+                  Egzamin Ósmoklasisty (E8 z angielskiego)
                 </span>
               </div>
 
-              {/* Karta 3: Matura z Matematyki (Dół lewa) */}
+              {/* Karta 2: Bieżący materiał klasy 6-8 */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
-                  <BookOpenCheck className="size-5 text-amber-800" />
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
+                  <BookOpenCheck className="size-5 text-brand-700" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Matura z matematyki (podstawowa i rozszerzona)
+                  Bieżący materiał i nadrabianie zaległości (klasy 6–8)
                 </span>
               </div>
 
-              {/* Karta 4: Matura z Angielskiego (Dół prawa) */}
+              {/* Karta 3: Pisanie e-maili i Use of English */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
-                  <GraduationCap className="size-5 text-amber-800" />
+                  <PenTool className="size-5 text-amber-800" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Matura z angielskiego (podstawowa i rozszerzona)
+                  Pewniaki CKE: e-maile, wpisy, transformacje
+                </span>
+              </div>
+
+              {/* Karta 4: Dedykowany plan i materiały */}
+              <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
+                  <Sparkles className="size-5 text-amber-800" />
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
+                  Autorski plan zajęć, notatki w Canvie & praca domowa
                 </span>
               </div>
             </div>
 
             {/* Pasek zaufania (4 wyróżniki z nagłówkiem) */}
             <div className="border-t border-slate-100 pt-4 space-y-2.5">
-              <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego warto przygotowywać się ze mną?</span>
+              <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego rodzice i uczniowie wybierają te zajęcia?</span>
               <div className="space-y-2 pt-0.5">
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Moje wyniki na maturze podstawowej: 100% z matematyki i angielskiego</span>
+                  <span>100% z matury z angielskiego & poziom C1 potwierdzony testem OLS (Erasmus+)</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Moje wyniki na maturze rozszerzonej: 100% z angielskiego i 98% z matematyki</span>
+                  <span>Jasny plan nauki przedstawiany rodzicowi po bezpłatnej konsultacji 15 min</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Studentka Informatyki i Ekonometrii na AGH w Krakowie</span>
+                  <span>Materiały z repetytoriów przygotowywane przeze mnie przed każdą lekcją</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Doświadczenie w prowadzeniu zajęć online i pracy z uczniami</span>
+                  <span>Feedback dla rodzica i cyfrowy zeszyt w Canvie z kompletem notatek</span>
                 </div>
               </div>
             </div>
