@@ -43,7 +43,7 @@ const guides: GuideItem[] = [
     description: "Szczegółowa analiza typów zadań z najnowszego arkusza CKE wraz ze wskazówkami, jak unikać utraty punktów.",
     icon: "📝",
     features: [],
-    fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
+    fileUrl: "/poradniki/rozpracowany_arkusz_2026_e8.html",
   },
   {
     id: "angielski-email-master",

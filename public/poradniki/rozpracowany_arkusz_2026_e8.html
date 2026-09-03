@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rozpracowany Arkusz CKE 2026 — Egzamin Ósmoklasisty z Angielskiego | ola-korepetycje.pl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar .brand {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+    .top-bar .btn-print {
+      background-color: #1d4ed8;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2);
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+      color: white;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(29, 78, 216, 0.25);
+    }
+    .header-card h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .header-card p {
+      color: #dbeafe;
+      font-size: 1.05rem;
+    }
+    .badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      color: #facc15;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .section-card {
+      background: white;
+      border-radius: 1.25rem;
+      border: 1px solid #e2e8f0;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .section-card h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .pill-blue { background-color: #dbeafe; color: #1e40af; }
+    .pill-amber { background-color: #fef3c7; color: #92400e; }
+    .pill-emerald { background-color: #d1fae5; color: #065f46; }
+    .pill-purple { background-color: #f3e8ff; color: #6b21a8; }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .box {
+      background-color: #f8fafc;
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      border: 1px solid #e2e8f0;
+    }
+    .box-amber { background-color: #fffbeb; border-color: #fde68a; }
+    .box-emerald { background-color: #ecfdf5; border-color: #a7f3d0; }
+    .box-red { background-color: #fef2f2; border-color: #fca5a5; }
+    
+    .box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .list {
+      list-style: none;
+      space-y: 0.5rem;
+    }
+    .list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: 900;
+    }
+    .alert-warn {
+      background-color: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      color: #991b1b;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    .sample-code {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 1.25rem;
+      border-radius: 0.85rem;
+      font-family: monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    @media print {
+      .top-bar, .btn-print { display: none !important; }
+      body { background-color: white; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="https://ola-korepetycje.pl" class="brand">🎓 Aleksandra Rodzinka · ola-korepetycje.pl</a>
+    <button class="btn-print" onclick="window.print()">🖨️ Drukuj lub Zapisz jako PDF</button>
+  </div>
+
+  <div class="container">
+    <div class="header-card">
+      <span class="badge">Oficjalny Arkusz CKE (OJAP-100-2605)</span>
+      <h1>Rozpracowany Egzamin Ósmoklasisty 2026 — Podział 5 Sekcji i 14 Zadań</h1>
+      <p>Czas trwania: 110 minut · Łączna liczba punktów: 55 pkt · Kompletna analiza pod klucz CKE</p>
+    </div>
+
+    <!-- STRUKTURA ARKUSZA -->
+    <div class="section-card">
+      <h2>📊 Podział 5 Sekcji Egzaminacyjnych</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>1. Rozumienie ze słuchu <span class="pill pill-blue">16 pkt (29%)</span></h3>
+          <p><strong>Zadania 1–4:</strong> Zadania 1–3 (wybór wielokrotny A/B/C, dobieranie) + Zadanie 4 (otwarta notatka w języku angielskim).</p>
+        </div>
+        <div class="box">
+          <h3>2. Funkcje językowe <span class="pill pill-amber">6 pkt (11%)</span></h3>
+          <p><strong>Zadania 5, 6:</strong> Zadanie 5 (reakcje sytuacyjne A/B/C) + Zadanie 6 (otwarte dialogi z lukami do 3 słów).</p>
+        </div>
+        <div class="box">
+          <h3>3. Rozumienie tekstów pisanych <span class="pill pill-emerald">14 pkt (25%)</span></h3>
+          <p><strong>Zadania 7–10:</strong> Zadania 7–9 (teksty, luki, dobieranie) + Zadanie 10 (otwarte — e-mail uzupełniany PO POLSKU!).</p>
+        </div>
+        <div class="box">
+          <h3>4. Środki językowe (Gramatyka) <span class="pill pill-purple">9 pkt (16%)</span></h3>
+          <p><strong>Zadania 11–13:</strong> Zadania 11–12 (bank słów, wybór A/B/C) + Zadanie 13 (otwarte — gramatykalizacja ze słowami w nawiasie).</p>
+        </div>
+      </div>
+      <div class="box box-amber" style="margin-top: 1rem;">
+        <h3>5. Wypowiedź pisemna (Writing) <span class="pill pill-amber">10 pkt (18%)</span></h3>
+        <p><strong>Zadanie 14:</strong> E-mail w języku angielskim (limit: 50–120 słów) z rozwinięciem 3 podpunktów z polecenia.</p>
+      </div>
+    </div>
+
+    <!-- STRATEGIE I PRO TIPY CKE -->
+    <div class="section-card">
+      <h2>💡 Najważniejsze Strategie i Pułapki CKE</h2>
+      <ul class="list">
+        <li><strong>Liczby w słuchaniu pisz cyframi:</strong> Wpisałś <em>20</em> zamiast <em>twenty</em>? Oszczędzasz czas i unikasz błędu ortograficznego (tventy = 0 pkt!).</li>
+        <li><strong>Zadanie 10 (Mediacja) — TYLKO PO POLSKU:</strong> Wszelkie odpowiedzi w Zadaniu 10 musisz wpisać po polsku. Angielskie słowa (np. <em>castle</em> zamiast <em>zamek</em>) dają automatyczne 0 pkt!</li>
+        <li><strong>Uważaj na pułapki ze słuchu:</strong> Wpisanie <em>snacks and drinks</em> da 0 pkt, jeśli w nagraniu wyraźnie podano, że napoje trzeba przynieść samemu!</li>
+        <li><strong>Zwracaj uwagę na znaki zapytania w dialogach:</strong> Jeśli po luce jest <em>?</em>, odpowiedź musi mieć szyk pytający (operator <em>Do / Does / Did / Is / Are</em> na początku!).</li>
+        <li><strong>Limit słów w lukach:</strong> Zadania 6 i 13 wymagają wpisania <strong>maksymalnie 3 słów</strong>. Przekroczenie limitu daje 0 pkt!</li>
+      </ul>
+    </div>
+
+    <!-- WZORCOWY E-MAIL 10/10 PKT -->
+    <div class="section-card">
+      <h2>✍️ Wzorcowy Model Odpowiedzi Zadania 14 (10/10 pkt)</h2>
+      <p><strong>Temat:</strong> Przygotowałeś/aś album ze zdjęciami w prezencie dla cioci w Anglii.</p>
+      <div class="sample-code">Hi Oliver,
+Guess what! I've made a photo album for my aunt.
+
+I think a photo album is a perfect gift for my aunt because she lives abroad in England and misses our family very much. Looking at these pictures will remind her of the wonderful moments we spent together. [Kropka 1 - Uzasadnienie]
+
+My older brother helped me choose and print the best photos on his computer, while my mum bought a lovely leather album with colorful stickers to decorate the pages. [Kropka 2 - Kto i jak pomógł]
+
+My absolute favourite photo shows our whole family during last summer's holiday in the mountains. We are standing at the top of the hill, smiling and eating delicious ice cream! [Kropka 3 - Opis zdjęcia]
+
+Have you ever prepared a handmade gift for someone?
+Write back soon,
+XYZ</div>
+      <div class="box box-emerald" style="margin-top: 1rem;">
+        <strong>Punktacja CKE (10/10 pkt):</strong> Treść 4/4 (pełne rozwinięcie 3 podpunktów) + Spójność 2/2 + Zakres środków 2/2 + Poprawność 2/2 (~95 słów).
+      </div>
+    </div>
+
+    <!-- ZARZĄDZANIE CZASEM (110 MINUT) -->
+    <div class="section-card">
+      <h2>⏱️ Harmonogram Minuta po Minucie (110 minut)</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>0–25 min</h3>
+          <p>Rozumienie ze słuchu (Zadania 1–4 z nagrania).</p>
+        </div>
+        <div class="box">
+          <h3>25–45 min</h3>
+          <p>Funkcje językowe i Czytanie (Zadania 5–10).</p>
+        </div>
+        <div class="box">
+          <h3>45–65 min</h3>
+          <p>Środki językowe i Gramatyka (Zadania 11–13).</p>
+        </div>
+        <div class="box">
+          <h3>65–95 min</h3>
+          <p>Pisanie e-maila (Zadanie 14, brudnopis + czystopis).</p>
+        </div>
+      </div>
+      <div class="alert-warn">
+        ⚠️ 95–110 min: Obowiązkowy czas na dokładne przeniesienie odpowiedzi na KARTĘ ODPOWIEDZI i sprawdzający odczyt!
+      </div>
+    </div>
+  </div>
+</body>
+</html>
