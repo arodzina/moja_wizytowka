@@ -7,24 +7,24 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const testimonials = [
   {
+    author: "Rodzice ucznia",
+    role: "rodzice ósmoklasisty",
+    tag: "Egzamin Ósmoklasisty",
+    text: "Jesteśmy bardzo zadowoleni ze współpracy. Zajęcia były ciekawe i angażujące.",
+    color: "border-emerald-500/40 text-emerald-950 bg-emerald-50/80",
+  },
+  {
     author: "Mama Basi",
     role: "mama ósmoklasistki",
-    tag: "Egzamin Ósmoklasisty",
+    tag: "Przygotowanie do E8",
     text: "Współpraca przebiegała bez problemów, a wszystkie zagadnienia z angielskiego były świetnie tłumaczone. Córka zdała bardzo wysoko Egzamin Ósmoklasisty!",
-    color: "border-emerald-500/40 text-emerald-950 bg-emerald-50/80",
+    color: "border-brand-500/40 text-brand-900 bg-brand-50/80",
   },
   {
     author: "Krzysiek",
     role: "uczeń 8. klasy",
     tag: "Angielski E8",
     text: "Przez kilka miesięcy przygotowań z Olą zyskałem pewność siebie w gramatyce i pisaniu e-maili na E8. Lekcje były bardzo konkretne, a notatki w Canvie pozwalały mi szybko powtarzać materiał.",
-    color: "border-brand-500/40 text-brand-900 bg-brand-50/80",
-  },
-  {
-    author: "Kuba",
-    role: "uczeń 6. klasy",
-    tag: "Nadrabianie zaległości",
-    text: "Najbardziej podobał mi się sposób, w jaki Ola tłumaczyła trudne zagadnienia z angielskiego. Wszystko krok po kroku, w miłej atmosferze. Szybko zacząłem dostawać lepsze oceny i przestałem bać się mówienia.",
     color: "border-amber-500/40 text-amber-950 bg-amber-50/80",
   },
 ];
