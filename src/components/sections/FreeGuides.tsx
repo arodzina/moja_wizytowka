@@ -26,10 +26,22 @@ const guides: GuideItem[] = [
     category: "e8",
     badge: "Egzamin Ósmoklasisty",
     badgeColor: "bg-brand-100 text-brand-900 border-brand-200",
-    title: "Poradnik dla ósmoklasisty — język angielski",
+    title: "Poradnik dla ósmoklasisty — Język Angielski",
     subtitle: "Gramatyka, słownictwo, e-mail i przydatne zwroty",
     description: "Poradnik ze strukturami gramatycznymi, słownictwem, szablonami e-maila oraz praktycznymi zwrotami na egzamin.",
     icon: "🇬🇧",
+    features: [],
+    fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
+  },
+  {
+    id: "angielski-arkusz-2026",
+    category: "e8",
+    badge: "Arkusz CKE 2026",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
+    title: "Rozpracowany arkusz 2026 & typy zadań na E8",
+    subtitle: "Pewniaki egzaminacyjne, pułapki CKE i klucz odpowiedzi",
+    description: "Szczegółowa analiza typów zadań z najnowszego arkusza CKE wraz ze wskazówkami, jak unikać utraty punktów.",
+    icon: "📝",
     features: [],
     fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
   },
@@ -46,10 +58,10 @@ const guides: GuideItem[] = [
     fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
   },
   {
-    id: "angielski-pp",
-    category: "matura-pp",
-    badge: "Klasy 6–8 & Powtórki",
-    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
+    id: "angielski-reakcje",
+    category: "e8",
+    badge: "Klasy 6–8 & Reakcje",
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
     title: "Słownik zwrotów i reakcji językowych CKE",
     subtitle: "Najczęstsze sytuacji komunikacyjne na E8",
     description: "Zestawienie najczęściej pojawiających się reakcji językowych, parafraz i przydatnych struktur.",
@@ -57,21 +69,9 @@ const guides: GuideItem[] = [
     features: [],
     fileUrl: "/poradniki/poradnik_5_angielski_pp.html",
   },
-  {
-    id: "angielski-pr",
-    category: "matura-pr",
-    badge: "Gramatyka & Use of English",
-    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Pewniaki gramatyczne na Egzamin Ósmoklasisty",
-    subtitle: "Czasy, okresy warunkowe, strona bierna",
-    description: "Zbiór najważniejszych reguł gramatycznych i schematów, które pojawiają się w zadaniach zamkniętych i otwartych.",
-    icon: "🚀",
-    features: [],
-    fileUrl: "/poradniki/poradnik_6_angielski_pr.html",
-  },
 ];
 
-type CategoryFilter = "all" | "e8" | "matura-pp" | "matura-pr";
+type CategoryFilter = "all" | "e8";
 
 export default function FreeGuides() {
   const [selectedGuide, setSelectedGuide] = useState<GuideItem | null>(null);
@@ -98,6 +98,8 @@ export default function FreeGuides() {
     setSelectedGuide(null);
     setIsSuccess(false);
   };
+
+  const filteredGuides = guides;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,10 +142,7 @@ export default function FreeGuides() {
     }
   };
 
-  const filteredGuides = guides.filter((g) => {
-    if (activeFilter === "all") return true;
-    return g.category === activeFilter;
-  });
+
 
   return (
     <section id="poradniki" aria-labelledby="guides-title" className="relative overflow-x-clip bg-slate-50 py-16 lg:py-24">
@@ -158,28 +157,7 @@ export default function FreeGuides() {
           title="Darmowe materiały do egzaminów"
         />
 
-        {/* Filtr kategorii (Kompaktowe zakładki) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {[
-            { id: "all", label: "Wszystkie (6)" },
-            { id: "e8", label: "Egzamin Ósmoklasisty" },
-            { id: "matura-pp", label: "Matura Podstawowa" },
-            { id: "matura-pr", label: "Matura Rozszerzona" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveFilter(tab.id as CategoryFilter)}
-              className={`rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all ${
-                activeFilter === tab.id
-                  ? "bg-brand-900 text-white shadow-md"
-                  : "bg-white text-slate-700 hover:bg-slate-200 ring-1 ring-slate-200"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+
 
         {/* Kompaktowe małe kafelki poradników */}
         <div className="mt-8 grid gap-3.5 sm:grid-cols-2">

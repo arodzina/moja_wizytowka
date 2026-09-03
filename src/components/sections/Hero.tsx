@@ -141,17 +141,17 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Pasek zaufania (4 wyróżniki z nagłówkiem) */}
+            {/* Pasek zaufania (Dlaczego ja?) */}
             <div className="border-t border-slate-100 pt-4 space-y-2.5">
-              <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego rodzice i uczniowie wybierają te zajęcia?</span>
+              <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego ja?</span>
               <div className="space-y-2 pt-0.5">
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>100% z matury z angielskiego & poziom C1 potwierdzony testem OLS (Erasmus+)</span>
+                  <span>100% z matury z angielskiego (podstawowa i rozszerzona)</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Jasny plan nauki przedstawiany rodzicowi po bezpłatnej konsultacji 15 min</span>
+                  <span>Jasny plan nauki przedstawiany rodzicowi i uczniowi po bezpłatnej konsultacji (15 min)</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
@@ -159,7 +159,7 @@ export default function Hero() {
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
                   <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Feedback dla rodzica i cyfrowy zeszyt w Canvie z kompletem notatek</span>
+                  <span>Cyfrowy zeszyt w Canvie, spersonalizowane zadania domowe & feedback dla rodzica</span>
                 </div>
               </div>
             </div>

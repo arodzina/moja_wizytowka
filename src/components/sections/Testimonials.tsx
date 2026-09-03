@@ -1,30 +1,30 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Star, Quote, UserCheck, Heart } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const testimonials = [
   {
-    author: "Krzysiek",
-    role: "maturzysta",
-    tag: "Matura z matematyki",
-    text: "Przez kilka miesięcy współpracy z Olą podszkoliłem się z matematyki i dzięki temu zdałem maturę podstawową na satysfakcjonujący mnie wynik. Bardzo polecam.",
-    color: "border-brand-500/40 text-brand-900 bg-brand-50/80",
-  },
-  {
     author: "Mama Basi",
     role: "mama ósmoklasistki",
     tag: "Egzamin Ósmoklasisty",
-    text: "Współpraca przebiegała bez problemów, bez zarzutów, a wszystkie zagadnienia były dobrze tłumaczone. Córka zdała wysoko egzamin ósmoklasisty z angielskiego.",
+    text: "Współpraca przebiegała bez problemów, a wszystkie zagadnienia z angielskiego były świetnie tłumaczone. Córka zdała bardzo wysoko Egzamin Ósmoklasisty!",
     color: "border-emerald-500/40 text-emerald-950 bg-emerald-50/80",
   },
   {
+    author: "Krzysiek",
+    role: "uczeń 8. klasy",
+    tag: "Angielski E8",
+    text: "Przez kilka miesięcy przygotowań z Olą zyskałem pewność siebie w gramatyce i pisaniu e-maili na E8. Lekcje były bardzo konkretne, a notatki w Canvie pozwalały mi szybko powtarzać materiał.",
+    color: "border-brand-500/40 text-brand-900 bg-brand-50/80",
+  },
+  {
     author: "Kuba",
-    role: "maturzysta",
-    tag: "Przygotowanie do matury",
-    text: "Najbardziej podobał mi się sposób, w jaki Ola tłumaczyła trudne zagadnienia. Wszystko było przedstawione jasno i krok po kroku, dzięki czemu szybko zacząłem rozumieć rzeczy, które wcześniej sprawiały mi problem. Ola zawsze była też dobrze przygotowana do zajęć, dzięki czemu lekcje były konkretne i dobrze wykorzystane.",
+    role: "uczeń 6. klasy",
+    tag: "Nadrabianie zaległości",
+    text: "Najbardziej podobał mi się sposób, w jaki Ola tłumaczyła trudne zagadnienia z angielskiego. Wszystko krok po kroku, w miłej atmosferze. Szybko zacząłem dostawać lepsze oceny i przestałem bać się mówienia.",
     color: "border-amber-500/40 text-amber-950 bg-amber-50/80",
   },
 ];
@@ -44,7 +44,7 @@ export default function Testimonials() {
         <SectionHeading
           eyebrow="Opinie"
           title="Opinie uczniów i rodziców"
-          lead="Zobacz, jak współpracę i przygotowania do egzaminów wspominają moi uczniowie oraz ich rodzice."
+          lead="Zobacz, jak współpracę i przygotowania do Egzaminu Ósmoklasisty wspominają moi uczniowie oraz ich rodzice."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
