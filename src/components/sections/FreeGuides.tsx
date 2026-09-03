@@ -45,30 +45,6 @@ const guides: GuideItem[] = [
     features: [],
     fileUrl: "/poradniki/rozpracowany_arkusz_2026_e8.html",
   },
-  {
-    id: "angielski-email-master",
-    category: "e8",
-    badge: "Forma Pisemna CKE",
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
-    title: "Niezawodne szablony e-mail & blog na E8",
-    subtitle: "Gotowe zwroty, wstępy i zakończenia pod punkty CKE",
-    description: "Kompletny zestaw gotowych zwrotów i wyrażeń, które gwarantują brak utraty punktów w części pisemnej.",
-    icon: "✉️",
-    features: [],
-    fileUrl: "/poradniki/poradnik_2_angielski_e8.html",
-  },
-  {
-    id: "angielski-reakcje",
-    category: "e8",
-    badge: "Klasy 6–8 & Reakcje",
-    badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
-    title: "Słownik zwrotów i reakcji językowych CKE",
-    subtitle: "Najczęstsze sytuacji komunikacyjne na E8",
-    description: "Zestawienie najczęściej pojawiających się reakcji językowych, parafraz i przydatnych struktur.",
-    icon: "💬",
-    features: [],
-    fileUrl: "/poradniki/poradnik_5_angielski_pp.html",
-  },
 ];
 
 type CategoryFilter = "all" | "e8";
