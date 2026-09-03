@@ -100,43 +100,43 @@ export default function Hero() {
 
             {/* Siatka 2x2: Kafelki przygotowań z angielskiego */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {/* Karta 1: Egzamin Ósmoklasisty E8 */}
+              {/* Karta 1: Egzamin Ósmoklasisty */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <Languages className="size-5 text-brand-700" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Egzamin Ósmoklasisty (E8 z angielskiego)
+                  Egzamin Ósmoklasisty
                 </span>
               </div>
 
-              {/* Karta 2: Bieżący materiał klasy 6-8 */}
+              {/* Karta 2: Bieżący materiał i nadrabianie zaległości */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-100/90 border border-brand-200/80 shadow-xs">
                   <BookOpenCheck className="size-5 text-brand-700" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Bieżący materiał i nadrabianie zaległości (klasy 6–8)
+                  Bieżący materiał i nadrabianie zaległości
                 </span>
               </div>
 
-              {/* Karta 3: Pisanie e-maili i Use of English */}
+              {/* Karta 3: Rozpracowanie sekcji i potrzebnych zagadnień */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <PenTool className="size-5 text-amber-800" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Pewniaki CKE: e-maile, wpisy, transformacje
+                  Rozpracowanie sekcji & potrzebnych zagadnień
                 </span>
               </div>
 
-              {/* Karta 4: Dedykowany plan i materiały */}
+              {/* Karta 4: Autorski plan zajęć & notatki */}
               <div className="flex items-center gap-3 rounded-2xl bg-mist p-3.5 ring-1 ring-brand-100/70 transition-all hover:bg-white hover:shadow-xs">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-amber-100/90 border border-amber-200/80 shadow-xs">
                   <Sparkles className="size-5 text-amber-800" />
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-ink leading-snug">
-                  Autorski plan zajęć, notatki w Canvie & praca domowa
+                  Autorski plan zajęć & notatki
                 </span>
               </div>
             </div>
