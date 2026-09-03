@@ -142,24 +142,20 @@ export default function Hero() {
             </div>
 
             {/* Pasek zaufania (Dlaczego ja?) */}
-            <div className="border-t border-slate-100 pt-4 space-y-2.5">
+            <div className="border-t border-slate-100 pt-3.5 space-y-2">
               <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Dlaczego ja?</span>
-              <div className="space-y-2 pt-0.5">
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>100% z matury z angielskiego (podstawowa i rozszerzona)</span>
+              <div className="space-y-1.5 pt-0.5">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-extrabold shrink-0">✓</span>
+                  <span><strong>100% z matury z angielskiego</strong> (podstawa & rozszerzenie)</span>
                 </div>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Jasny plan nauki przedstawiany rodzicowi i uczniowi po bezpłatnej konsultacji (15 min)</span>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-extrabold shrink-0">✓</span>
+                  <span><strong>Autorski plan nauki</strong> po bezpłatnej rozmowie 15 min</span>
                 </div>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Materiały z repetytoriów przygotowywane przeze mnie przed każdą lekcją</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-ink">
-                  <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-                  <span>Cyfrowy zeszyt w Canvie, spersonalizowane zadania domowe & feedback dla rodzica</span>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-ink">
+                  <span className="text-emerald-500 font-extrabold shrink-0">✓</span>
+                  <span><strong>Materiały przed lekcją</strong>, zeszyt w Canvie & feedback dla rodzica</span>
                 </div>
               </div>
             </div>
