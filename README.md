@@ -1,4 +1,4 @@
-# 🇬🇧 Język Angielski E8 — Full-Stack Educational Platform
+# Język Angielski E8 — Aplikacja Webowa & Platforma Edukacyjna
 
 [![Live Website](https://img.shields.io/badge/Live_Site-ola--korepetycje.pl-1d4ed8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ola-korepetycje.pl)
 [![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -6,85 +6,39 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-A modern, high-performance web application built for an English Language Egzamin Ósmoklasisty (E8) & 6–8 Grade Tutoring Practice. Designed with a focus on conversion optimization, accessibility, fluid animations, and structured CKE exam preparation resources.
+Nowoczesna, wysokowydajna aplikacja internetowa przygotowana pod obsługę przygotowań do Egzaminu Ósmoklasisty (E8) oraz klas 6–8 z Języka Angielskiego. Projekt skupia się na optymalizacji konwersji, pełnej dostępności (a11y), subtelnych animacjach oraz przejrzystej prezentacji materiałów egzaminacyjnych CKE.
 
 ---
 
-## ✨ Features & Architecture
+## Funkcjonalności i architektura
 
-- 🚀 **Next.js 16 (App Router & Turbopack)**: Server-side rendering and static page generation for lightning-fast loading speeds.
-- 🎨 **Modern Design System**: Custom Tailwind CSS v4 styling, glassmorphism, responsive grid layouts, and Fraunces & Inter typography.
-- 🎭 **Framer Motion Animations**: Micro-interactions, scroll-triggered reveals, interactive pricing cards, and smooth modal overlays with `prefers-reduced-motion` support.
-- 📩 **Interactive Form & Lead Delivery**: Integrated contact flow with FormSubmit API handling parent/student role selection, subject validation, and instant notifications.
-- 📚 **Digital Exam Guides & Analysis**: Integrated HTML exam analysis guides for CKE 2026 E8 guidelines, e-mail writing templates, and time-management strategies.
-- ♿ **Accessibility (a11y) & SEO First**:
-  - Full keyboard navigation & semantic landmarks (`<main>`, `<header>`, `<footer>`, `<section>`).
-  - Structured Data (JSON-LD `EducationalOrganization` & `FAQPage`).
-  - Dynamic OpenGraph and Twitter card image generation.
-  - Automated `sitemap.xml` and `robots.txt`.
+- **Next.js 16 (App Router & Turbopack)**: Renderowanie po stronie serwera (SSR) i statyczna generacja stron gwarantująca błyskawiczne ładowanie.
+- **System Design & Style**: Autorskie stylowanie Tailwind CSS v4, efekty szkła (glassmorphism), elastyczne siatki oraz typografia łącząca fonty Fraunces i Inter.
+- **Interaktywne animacje**: Mikrointerakcje, sekcje ujawniane przy przewijaniu (scroll reveal), karty cennikowe oraz pełne wsparcie dla ustawień `prefers-reduced-motion`.
+- **Formularz kontaktowy i obsługa zgłoszeń**: Integracja z API FormSubmit z obsługą wyboru roli (uczeń / rodzic), walidacją pól i powiadomieniami e-mail.
+- **Poradniki cyfrowe CKE**: Interaktywne opracowania wymogów egzaminacyjnych CKE 2026, szablony pisania e-maili i strategie zarządzania czasem.
+- **Standardy SEO i Dostępności (a11y)**:
+  - Dostępność z poziomu klawiatury i semantyczny układ HTML5 (`<main>`, `<header>`, `<footer>`, `<section>`).
+  - Ustrukturyzowane dane JSON-LD (`EducationalOrganization` oraz `FAQPage`).
+  - Dynamiczna generacja metadanych OpenGraph, kart Twittera oraz automatyczna sitemap.xml i robots.txt.
 
 ---
 
-## 🛠️ Tech Stack
+## Stos technologiczny
 
-| Layer | Technology |
+| Warstwa | Technologia |
 |---|---|
-| **Framework** | Next.js 16 (App Router) |
-| **Library** | React 19 |
-| **Language** | TypeScript |
-| **Styling** | Tailwind CSS v4 |
-| **Animations** | Framer Motion |
-| **Icons** | Lucide React |
-| **Deployment** | Vercel |
+| Framework | Next.js 16 (App Router) |
+| Biblioteka UI | React 19 |
+| Język | TypeScript |
+| Stylowanie | Tailwind CSS v4 |
+| Animacje | Framer Motion |
+| Ikony | Lucide React |
+| Wdrożenie | Vercel |
 
 ---
 
-## 📁 Repository Structure
+## Autorka
 
-```
-.
-├── public/
-│   ├── images/              # Optimized profile and avatar assets
-│   └── poradniki/           # Interactive HTML exam guides and CKE analysis
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx       # Root layout, fonts, metadata & JSON-LD
-│   │   ├── page.tsx         # Main landing page section composition
-│   │   ├── globals.css      # Tailwind CSS v4 configuration
-│   │   ├── icon.svg         # Custom SVG favicon
-│   │   └── sitemap.ts       # Dynamic sitemap generation
-│   ├── components/
-│   │   ├── sections/        # Hero, About, ExamStakes, Testimonials, FreeGuides, Pricing, FAQ, Contact
-│   │   ├── site/            # Header, Footer, Logo
-│   │   └── ui/              # Button, Reveal, SectionHeading, Icons
-│   └── lib/
-│       └── site.ts          # Central configuration & content data
-└── next.config.ts           # Next.js configuration
-```
-
----
-
-## 💻 Getting Started Locally
-
-```bash
-# Clone the repository
-git clone https://github.com/arodzina/moja_wizytowka.git
-
-# Navigate into directory
-cd moja_wizytowka
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
-
----
-
-## 🏆 Author
-
-Developed by **Aleksandra Rodzinka** — Computer Science & Econometrics Student @ AGH University of Krakow.  
-🌐 Live Site: [ola-korepetycje.pl](https://ola-korepetycje.pl)
+**Aleksandra Rodzinka** — Studentka Informatyki i Ekonometrii na AGH w Krakowie  
+Strona produkcyjna: [ola-korepetycje.pl](https://ola-korepetycje.pl)
